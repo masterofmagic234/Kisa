@@ -1,0 +1,24 @@
+Nuke 1×, replay seek 10048 / 02:38, HFR1, system RADV Vulkan IMMEDIATE, 1080p240, MP1 boost off.
+15s diagnostic capture with XCB hardware breakpoints and DRM trace probes. This is a timing-path capture.
+Active Xorg DDX is modesetting. DP-1 has no TearFree RandR property; vrr_capable=0.
+15s intervals selected by UST, grouped by MSC: {1: {'n': 42, 'range_ms': [4.166, 4.17]}, 2: {'n': 856, 'range_ms': [8.33, 8.337]}, 3: {'n': 590, 'range_ms': [12.497, 12.504]}, 4: {'n': 16, 'range_ms': [16.667, 16.668]}, 5: {'n': 2, 'range_ms': [20.834, 20.834]}}
+AMDGPU dm_pflip_high_irq calls drm_crtc_send_vblank_event, which reads drm_vblank_count_and_time on a vblank-capable device.
+Окно замера 891.947462627–906.947462627 · X11 window 0x720013f · план захвата 891.947462627–906.947462627
+XCB CLOCK_MONOTONIC · 1507 · 892.428076821–907.425248355 · возвраты времени 0 · непокрытые края 480.614/0.000 мс
+DRM CLOCK_MONOTONIC · 3016 · 892.406816858–907.416391928 · возвраты времени 0 · непокрытые края 459.354/0.000 мс
+X11 receipt CLOCK_MONOTONIC · 3576 · 889.468667963–921.459559830 · возвраты времени 0 · непокрытые края 0.000/0.000 мс
+X11 UST · 3576 · 889.466434000–921.459095000 · возвраты времени 0 · непокрытые края 0.000/0.000 мс
+p95 |receipt − UST| 3.921 мс
+Present modes {1: 1507} · SKIP 0 · {}
+Коллизии (window, serial) · запросы 0 · завершения 0
+XCB {} · DRM {'entries pending at end': 0} · exit {'kms': 0, 'xcb': 0} · probe profile ['cs2pr_15829_891087363974__page_in                       1602               0', 'cs2pr_15829_891087363974__page_out                      1605               0', 'cs2pr_15829_891087363974__atomic_in                        0               0', 'cs2pr_15829_891087363974__atomic_out                       0               0'] · remaining []
+Уникальных запросов между UST и получением завершения 760
+Исключены из сопоставления {(2, 'missing or duplicate request'): 22, (3, 'missing or duplicate request'): 22, (1, 'missing or duplicate request'): 1, (4, 'missing or duplicate request'): 1}
+ΔMSC 1 · интервалов 42 · запросы сопоставлены 41 · request gap p50/p95/p99/max 7.503/8.061/8.257/8.257 мс · ≤10 мс 41
+ΔMSC 2 · интервалов 856 · запросы сопоставлены 834 · request gap p50/p95/p99/max 9.142/11.132/11.744/12.313 мс · ≤10 мс 633
+ΔMSC 3 · интервалов 590 · запросы сопоставлены 568 · request gap p50/p95/p99/max 10.851/13.274/14.497/15.872 мс · ≤10 мс 140
+ΔMSC 4+ · интервалов 18 · запросы сопоставлены 17 · request gap p50/p95/p99/max 14.021/22.184/22.184/22.184 мс · ≤10 мс 0
+DRM · завершённых пар в окне 1463
+  Xorg TID 3360 · page · flags=0x3 · async=1 · ret=0 · n=1463
+Интервалы запросов измерены у входа в XCB. Строки DRM сгруппированы отдельно от серийных номеров X11.
+
