@@ -1,0 +1,506 @@
+PS5 Slim, HFR1 и CS2. Итог системных экспериментов на отрезке Nuke.
+2026-11-07. Тест производительности, а не проверка всех сцен или всех подсистем.
+
+THP НА HFR1
+Оригинальная CS2 -insecure, локальная демка Nuke 1x, вид от первого лица, seek 10048 (~02:38).
+10 секунд прогрева, повторный seek, 15 секунд измерения. Системный RADV 26.0.8,
+MP1 выключен, CPU 0–15, X11 Flip 1080p240, immediate. Параметры игры идентичны.
+Единственное изменение политики B — enabled=always с запуска процесса. defrag=madvise,
+2 МиБ inherit, остальные размеры не менялись. B был ограничен по времени и имел
+независимый таймер возврата. Исходные значения восстановлены.
+Показатели FPS, 1% low и P99 — интервалы показанных кадров Present UST, а не время
+построения кадра движком. Один шаг 240 Гц ≈4,167 мс. Снимки памяти сделаны вне
+измеряемого интервала. AnonHugePages и Anonymous относятся к процессу CS2, VMstat и PSI
+относятся к системе. CPU THP не меняет размер страниц GPU VM или политику аллокации TTM.
+
+ПРЕДЫДУЩИЕ ПРОВЕРКИ
+1. На Кебабе перезапуски с PR_SET_THP_DISABLE подтверждали нулевой AnonHugePages.
+   ABBA на прежнем профиле 111,78/80,37 → 107,79/75,56 FPS по Avg / 1% low.
+   Попытки глобального always на Кебабе не дали устойчивого выигрыша.
+2. HFR1 Nuke, 4150 связанных GFX-задач. R→S P99 17 мкс, максимум 22 мкс.
+   Q→R P99 2,038 мс, максимум 2,211 мс. S→D максимум 2,389 мс.
+   На отдельных длинных интервалах основной поток работал ~14,4 мс,
+   VKRenderThread ждал futex, в доступных стеках это семафор движка,
+   пробуждение шло в том числе от GlobPool. Профиль cycles:u отнёс ~93% циклов
+   GlobPool в длинных окнах к Source 2. Это локализует задержку до сабмита
+   для этих пиков. Точная задача внутри Source 2 и её предел ускорения не установлены.
+3. Общая Vulkan-куча APU и изоляция на одном CCX не показали воспроизводимого
+   улучшения хвоста в повторных прогонах. Это относится к проверенным конфигурациям.
+4. SGPR. Диагностика считала 468106 полностью совпавших записей в модели PM4
+   из 2003135 пакетов. 6,34 МБ — размер записанных команд, а не замер трафика GPU.
+   В чистом A/B/A релизный кандидат дал 106,32 FPS и P99 16,667 мс против
+   107,99–108,39 FPS и P99 около 12,50 мс на системном RADV. Системный выбран.
+   Штатный пакет Ubuntu 26.0.8-1ubuntu0.3 и локальный A2 собраны GCC 15.2 с -O2.
+   В строках компиляции radv_cmd_buffer и линковки штатного ICD нет LTO/PGO.
+   A2 отличается флагом -fno-strict-aliasing и опциями сборки. Сравнение готовых ICD
+   не изолирует вклад патча. Чтение PM4 из WC-буфера кандидатом возможно было
+   дополнительной затратой, промахи предсказателя и стоимость чтений не замерялись.
+5. MP1 в отдельном A/B/A поднимал измеренную частоту CPU14 с ~3,19 до ~3,49 ГГц.
+   1% low показанных кадров оставался около 80 FPS во всех трёх прогонах.
+
+ИСТОЧНИКИ
+Сборка Ubuntu: https://launchpad.net/ubuntu/+source/mesa/26.0.8-1ubuntu0.3/+build/33379550
+Документация THP: https://docs.kernel.org/admin-guide/mm/transhuge.html
+A/B/A RADV: https://raw.githubusercontent.com/masterofmagic234/Kisa/db120109b4f4991dc8fedd23a1041e1fa2bd63f9/ps5-hfr1/nuke-2026-11-07/hfr1_nuke_radv_sgpr_aba.log
+Профиль CPU: https://raw.githubusercontent.com/masterofmagic234/Kisa/984109389dde1c534886392e8638347684060097/ps5-hfr1/nuke-2026-11-07/hfr1_nuke_cpu_profile.log
+
+ФАКТИЧЕСКИЕ РЕЗУЛЬТАТЫ THP
+a1 always [madvise] never: 1438 → 1480 MiB, 110.084 Avg FPS, 72.848 1% low FPS, 12.501 ms P99, 1650 flips.
+b [always] madvise never: 1296 → 1336 MiB, 105.590 Avg FPS, 62.948 1% low FPS, 12.501 ms P99, 1584 flips.
+a2 always [madvise] never: 1510 → 1554 MiB, 109.956 Avg FPS, 76.975 1% low FPS, 12.501 ms P99, 1649 flips.
+
+B МИНУС СРЕДНЕЕ A
+{
+  "avg_fps": -4.430195205628181,
+  "one_percent_low_fps": -11.963166959330536,
+  "p99_ms": 0.0
+}
+
+СЫРЫЕ СНИМКИ И МЕТРИКИ
+{
+  "a1": {
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12178,
+      "resume_marker": "CGameRules - unpaused on tick 12178, pause duration was 1 ticks",
+      "resume_marker_observation_ns": [
+        5166621665437,
+        5166627713673
+      ],
+      "window_mono_ns": [
+        5167627713673,
+        5182627713673
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "displayed_cadence": {
+      "measurement": "X11 displayed Flip cadence, UST completion intervals",
+      "flips": 1650,
+      "intervals": 1649,
+      "window_seconds": 15.0,
+      "avg_fps": 110.08433234252983,
+      "one_percent_low_fps": 72.84788076944503,
+      "p99_ms": 12.501,
+      "max_ms": 16.667,
+      "refresh_hz": 239.99999999999997,
+      "msc_intervals": {
+        "1": 97,
+        "2": 1163,
+        "3": 384,
+        "4": 5
+      }
+    },
+    "memory": {
+      "before": {
+        "snapshot_mono_ns": [
+          5167448434953,
+          5167511212891
+        ],
+        "window_boundary_ns": 5167627713673,
+        "enabled": "always [madvise] never",
+        "defrag": "always defer defer+madvise [madvise] never",
+        "process_thp_enabled": 1,
+        "smaps_rollup_kib": {
+          "Rss": 4507956,
+          "Anonymous": 4406488,
+          "AnonHugePages": 1472512
+        },
+        "vmstat": {
+          "compact_stall": 26108,
+          "compact_fail": 18398,
+          "compact_success": 7710,
+          "thp_fault_alloc": 23169,
+          "thp_fault_fallback": 11655,
+          "thp_collapse_alloc": 423,
+          "thp_collapse_alloc_failed": 15,
+          "pgmajfault": 949365,
+          "pswpin": 800095,
+          "pswpout": 1663182,
+          "allocstall_normal": 19959,
+          "allocstall_movable": 19873
+        },
+        "memory_psi": {
+          "some": {
+            "avg10": 0.16,
+            "avg60": 0.5,
+            "avg300": 0.22,
+            "total": 15734653
+          },
+          "full": {
+            "avg10": 0.14,
+            "avg60": 0.46,
+            "avg300": 0.21,
+            "total": 15260130
+          }
+        },
+        "anon_huge_mib": 1438.0,
+        "anonymous_huge_pct": 33.41690706975714
+      },
+      "after": {
+        "snapshot_mono_ns": [
+          5182878849621,
+          5182943592282
+        ],
+        "window_boundary_ns": 5182627713673,
+        "enabled": "always [madvise] never",
+        "defrag": "always defer defer+madvise [madvise] never",
+        "process_thp_enabled": 1,
+        "smaps_rollup_kib": {
+          "Rss": 4549592,
+          "Anonymous": 4448056,
+          "AnonHugePages": 1515520
+        },
+        "vmstat": {
+          "compact_stall": 26120,
+          "compact_fail": 18406,
+          "compact_success": 7714,
+          "thp_fault_alloc": 23190,
+          "thp_fault_fallback": 11657,
+          "thp_collapse_alloc": 438,
+          "thp_collapse_alloc_failed": 15,
+          "pgmajfault": 949809,
+          "pswpin": 800337,
+          "pswpout": 1663182,
+          "allocstall_normal": 19959,
+          "allocstall_movable": 19878
+        },
+        "memory_psi": {
+          "some": {
+            "avg10": 0.03,
+            "avg60": 0.38,
+            "avg300": 0.21,
+            "total": 15762081
+          },
+          "full": {
+            "avg10": 0.02,
+            "avg60": 0.35,
+            "avg300": 0.19,
+            "total": 15287434
+          }
+        },
+        "anon_huge_mib": 1480.0,
+        "anonymous_huge_pct": 34.07151348813954
+      }
+    },
+    "restore": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    }
+  },
+  "b": {
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12178,
+      "resume_marker": "CGameRules - unpaused on tick 12178, pause duration was 1 ticks",
+      "resume_marker_observation_ns": [
+        5254731251153,
+        5254737283733
+      ],
+      "window_mono_ns": [
+        5255737283733,
+        5270737283733
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "displayed_cadence": {
+      "measurement": "X11 displayed Flip cadence, UST completion intervals",
+      "flips": 1584,
+      "intervals": 1583,
+      "window_seconds": 15.0,
+      "avg_fps": 105.59014082909938,
+      "one_percent_low_fps": 62.94826046416473,
+      "p99_ms": 12.501,
+      "max_ms": 16.667,
+      "refresh_hz": 239.99999999999997,
+      "msc_intervals": {
+        "1": 67,
+        "2": 1030,
+        "3": 473,
+        "4": 13
+      }
+    },
+    "memory": {
+      "before": {
+        "snapshot_mono_ns": [
+          5255557999706,
+          5255624868317
+        ],
+        "window_boundary_ns": 5255737283733,
+        "enabled": "[always] madvise never",
+        "defrag": "always defer defer+madvise [madvise] never",
+        "process_thp_enabled": 1,
+        "smaps_rollup_kib": {
+          "Rss": 4489468,
+          "Anonymous": 4238064,
+          "AnonHugePages": 1327104
+        },
+        "vmstat": {
+          "compact_stall": 27461,
+          "compact_fail": 19416,
+          "compact_success": 8045,
+          "thp_fault_alloc": 24499,
+          "thp_fault_fallback": 12844,
+          "thp_collapse_alloc": 442,
+          "thp_collapse_alloc_failed": 16,
+          "pgmajfault": 972922,
+          "pswpin": 814739,
+          "pswpout": 1697555,
+          "allocstall_normal": 20195,
+          "allocstall_movable": 21038
+        },
+        "memory_psi": {
+          "some": {
+            "avg10": 0.12,
+            "avg60": 0.52,
+            "avg300": 0.3,
+            "total": 16372942
+          },
+          "full": {
+            "avg10": 0.12,
+            "avg60": 0.51,
+            "avg300": 0.29,
+            "total": 15893820
+          }
+        },
+        "anon_huge_mib": 1296.0,
+        "anonymous_huge_pct": 31.313920695864905
+      },
+      "after": {
+        "snapshot_mono_ns": [
+          5270988028340,
+          5271055190287
+        ],
+        "window_boundary_ns": 5270737283733,
+        "enabled": "[always] madvise never",
+        "defrag": "always defer defer+madvise [madvise] never",
+        "process_thp_enabled": 1,
+        "smaps_rollup_kib": {
+          "Rss": 4542152,
+          "Anonymous": 4290740,
+          "AnonHugePages": 1368064
+        },
+        "vmstat": {
+          "compact_stall": 27461,
+          "compact_fail": 19416,
+          "compact_success": 8045,
+          "thp_fault_alloc": 24530,
+          "thp_fault_fallback": 12844,
+          "thp_collapse_alloc": 442,
+          "thp_collapse_alloc_failed": 16,
+          "pgmajfault": 973861,
+          "pswpin": 815488,
+          "pswpout": 1697555,
+          "allocstall_normal": 20195,
+          "allocstall_movable": 21038
+        },
+        "memory_psi": {
+          "some": {
+            "avg10": 0.02,
+            "avg60": 0.4,
+            "avg300": 0.28,
+            "total": 16373128
+          },
+          "full": {
+            "avg10": 0.02,
+            "avg60": 0.39,
+            "avg300": 0.27,
+            "total": 15893995
+          }
+        },
+        "anon_huge_mib": 1336.0,
+        "anonymous_huge_pct": 31.88410390748449
+      }
+    },
+    "restore": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    }
+  },
+  "a2": {
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12177,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "resume_marker_observation_ns": [
+        5343979170581,
+        5343984828185
+      ],
+      "window_mono_ns": [
+        5344984828185,
+        5359984828185
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "displayed_cadence": {
+      "measurement": "X11 displayed Flip cadence, UST completion intervals",
+      "flips": 1649,
+      "intervals": 1648,
+      "window_seconds": 15.0,
+      "avg_fps": 109.9563397269253,
+      "one_percent_low_fps": 76.9749740775455,
+      "p99_ms": 12.501,
+      "max_ms": 16.667,
+      "refresh_hz": 239.99999999999997,
+      "msc_intervals": {
+        "1": 78,
+        "2": 1193,
+        "3": 375,
+        "4": 2
+      }
+    },
+    "memory": {
+      "before": {
+        "snapshot_mono_ns": [
+          5344805586077,
+          5344871866792
+        ],
+        "window_boundary_ns": 5344984828185,
+        "enabled": "always [madvise] never",
+        "defrag": "always defer defer+madvise [madvise] never",
+        "process_thp_enabled": 1,
+        "smaps_rollup_kib": {
+          "Rss": 4763356,
+          "Anonymous": 4500956,
+          "AnonHugePages": 1546240
+        },
+        "vmstat": {
+          "compact_stall": 28896,
+          "compact_fail": 20362,
+          "compact_success": 8534,
+          "thp_fault_alloc": 25694,
+          "thp_fault_fallback": 13622,
+          "thp_collapse_alloc": 453,
+          "thp_collapse_alloc_failed": 16,
+          "pgmajfault": 993411,
+          "pswpin": 832312,
+          "pswpout": 1804535,
+          "allocstall_normal": 22720,
+          "allocstall_movable": 22282
+        },
+        "memory_psi": {
+          "some": {
+            "avg10": 0.12,
+            "avg60": 0.68,
+            "avg300": 0.41,
+            "total": 17175664
+          },
+          "full": {
+            "avg10": 0.12,
+            "avg60": 0.68,
+            "avg300": 0.41,
+            "total": 16691747
+          }
+        },
+        "anon_huge_mib": 1510.0,
+        "anonymous_huge_pct": 34.35359065940658
+      },
+      "after": {
+        "snapshot_mono_ns": [
+          5360235616125,
+          5360305774207
+        ],
+        "window_boundary_ns": 5359984828185,
+        "enabled": "always [madvise] never",
+        "defrag": "always defer defer+madvise [madvise] never",
+        "process_thp_enabled": 1,
+        "smaps_rollup_kib": {
+          "Rss": 4785804,
+          "Anonymous": 4523396,
+          "AnonHugePages": 1591296
+        },
+        "vmstat": {
+          "compact_stall": 28896,
+          "compact_fail": 20362,
+          "compact_success": 8534,
+          "thp_fault_alloc": 25716,
+          "thp_fault_fallback": 13622,
+          "thp_collapse_alloc": 458,
+          "thp_collapse_alloc_failed": 16,
+          "pgmajfault": 996020,
+          "pswpin": 834717,
+          "pswpout": 1804535,
+          "allocstall_normal": 22720,
+          "allocstall_movable": 22282
+        },
+        "memory_psi": {
+          "some": {
+            "avg10": 0.02,
+            "avg60": 0.53,
+            "avg300": 0.39,
+            "total": 17176535
+          },
+          "full": {
+            "avg10": 0.02,
+            "avg60": 0.53,
+            "avg300": 0.39,
+            "total": 16692563
+          }
+        },
+        "anon_huge_mib": 1554.0,
+        "anonymous_huge_pct": 35.179232594272094
+      }
+    },
+    "restore": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    }
+  }
+}
+
+ВОССТАНОВЛЕНИЕ
+{
+  "restored": true,
+  "watchdog": "cs2-hfr1-thp-restore-31327.timer",
+  "baseline": [
+    "always [madvise] never",
+    "always defer defer+madvise [madvise] never"
+  ],
+  "preflight": {
+    "memory_kib": {
+      "MemAvailable": 8632904,
+      "SwapFree": 4464804
+    },
+    "memory_psi": {
+      "some": {
+        "avg10": 0.0,
+        "avg60": 0.28,
+        "avg300": 0.19,
+        "total": 15780455
+      },
+      "full": {
+        "avg10": 0.0,
+        "avg60": 0.26,
+        "avg300": 0.18,
+        "total": 15305303
+      }
+    }
+  }
+}
+
+ВЫВОД
+always оставил CS2 с меньшим объёмом анонимных больших страниц и уступил обоим
+контролям по среднему FPS и 1% low. P99 остался на той же ступени 240 Гц.
+Это отрицательный результат для переключателя в этом профиле. Эффект увеличения
+THP в горячих областях игры не установлен, поскольку такого увеличения не произошло.
+Штатные madvise и RADV сохранены. Прирост на проверенных изменениях не подтверждён.
