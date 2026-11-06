@@ -1,0 +1,103 @@
+HFR1 Nuke 1x offline -insecure, 1920x1080 240 Hz, system RADV 26.0.8, MP1 boost inactive
+Saved fps_max 493, VSync off. Profile: 499 Hz cycles:u per process, 4096-byte DWARF stacks.
+26,874 samples; perf stats show no LOST/THROTTLE records. Render timeline 58,610/58,610.
+Perf sample interval monotonic seconds: [5303.910381046, 5318.921925922]
+Capture began around demo 02:38.58 after process attach and ran 15.01 seconds.
+Flip intervals by MSC step: {'2': 682, '3': 686, '4': 39, '1': 12, '6': 1, '5': 1}
+Profiled Present FPS: 94.71 avg, 57.14 1% low. Prior unprofiled matching demo time: 124.83 avg, 69.09 1% low. Separate runs with possible observer effect.
+Share uses weighted PERF_SAMPLE_PERIOD and actual sampled IP. Time slices based on UST/MSC; no claim of per-frame fence ownership.
+Main 2732 missing callchains recovered via leaf IP: libclient 2435, libengine2 272, libsoundsystem 25.
+Source2 counts game engine and game DSOs. libc/runtime includes libc, libm, allocators and C++ runtime; cycles:u excludes kernel.
+Symbols from Ubuntu debuginfod for exact build ID fa4e884aa7a23eaf80dc04ea27eb5da408865051; partial DWARF alternate references unavailable, ELF function names resolved.
+
+all
+Main samples 6181 cycles % {'Source2': 91.218, 'libc/runtime': 5.454, 'other': 2.726, 'unknown': 0.452, 'RADV': 0.149}
+ top DSOs (cycles): [['libclient.so', 15687121712], ['libpanorama.so', 2932388125], ['libtier0.so', 2885413201], ['libscenesystem.so', 2269169849], ['libengine2.so', 2125785544], ['libvphysics2.so', 1750578304]]
+ top RADV functions (cycles): [['radv_reset_cmd_buffer', 12498657], ['vk_dynamic_graphics_state_init', 6235750], ['ac_init_tracked_regs', 6071756], ['radv_rra_accel_struct_buffers_unref', 6067028], ['radv_describe_barrier_end_delayed', 6031724], ['radv_amdgpu_cs_finalize', 5914150], ['radv_amdgpu_cs_reset', 5843660], ['radv_BeginCommandBuffer', 5816644]]
+GlobPool samples 14990 cycles % {'Source2': 94.384, 'unknown': 0.78, 'other': 0.505, 'libc/runtime': 4.289, 'RADV': 0.043}
+ top DSOs (cycles): [['libscenesystem.so', 22333218918], ['libtier0.so', 14077423489], ['librendersystemvulkan.so', 11805552984], ['libmaterialsystem2.so', 10036783247], ['libclient.so', 9557630222], ['libengine2.so', 4070850940]]
+ top RADV functions (cycles): [['radv_UpdateDescriptorSets', 11655052], ['mtx_lock', 8078032], ['radv_wsi_set_memory_ownership', 7404752], ['wsi_AcquireNextImageKHR', 7278929], ['x11_acquire_next_image', 3878220]]
+Render samples 2193 cycles % {'libc/runtime': 6.286, 'unknown': 0.931, 'Source2': 43.523, 'RADV': 42.106, 'other': 7.155}
+ top DSOs (cycles): [['libvulkan_radeon.so', 4614027556], ['librendersystemvulkan.so', 4229189827], ['libdrm_amdgpu.so.1.131.0', 709893290], ['libc.so.6', 674172011], ['libtier0.so', 515646399], ['[unknown]', 101979108]]
+ top RADV functions (cycles): [['radv_CmdBindPipeline', 470896234], ['radv_emit_all_graphics_states', 423745283], ['radv_UpdateDescriptorSetWithTemplate', 349731503], ['radv_bind_shader', 207897852], ['radv_CmdBeginRendering', 181687872], ['radv_CmdDraw', 135689087], ['radv_emit_graphics_shaders', 106138626], ['radv_image_is_l2_coherent', 88333163]]
+Other samples 3510 cycles % {'Source2': 50.781, 'libc/runtime': 5.527, 'unknown': 0.407, 'other': 9.113, 'RADV': 34.172}
+ top DSOs (cycles): [['libvulkan_radeon.so', 5526050307], ['libsoundsystem.so', 3996021720], ['librendersystemvulkan.so', 3550610438], ['libphonon.so', 1389673346], ['libc.so.6', 794964127], ['libtier0.so', 578664668]]
+ top RADV functions (cycles): [['radv_UpdateDescriptorSetWithTemplate', 933693385], ['radv_CmdBindPipeline', 509520384], ['radv_emit_all_graphics_states', 376165344], ['radv_CmdBindVertexBuffers2', 266748551], ['radv_destroy_descriptor_pool_entries', 248291922], ['radv_bind_shader', 221794423], ['radv_AllocateDescriptorSets', 200873351], ['radv_CmdBeginRendering', 180423312]]
+
+4_msc
+Main samples 272 cycles % {'Source2': 89.947, 'libc/runtime': 7.771, 'other': 1.51, 'RADV': 0.773}
+ top DSOs (cycles): [['libclient.so', 801588389], ['libpanorama.so', 135086729], ['libtier0.so', 124007062], ['libc.so.6', 123984910], ['libvphysics2.so', 120769523], ['libscenesystem.so', 60003540]]
+ top RADV functions (cycles): [['radv_reset_cmd_buffer', 6255833], ['ac_init_tracked_regs', 6071756]]
+GlobPool samples 536 cycles % {'Source2': 93.017, 'libc/runtime': 6.041, 'unknown': 0.734, 'other': 0.208}
+ top DSOs (cycles): [['libscenesystem.so', 642451061], ['libtier0.so', 458624455], ['librendersystemvulkan.so', 429833525], ['libclient.so', 399471258], ['libmaterialsystem2.so', 306561832], ['libvphysics2.so', 160464620]]
+Render samples 87 cycles % {'RADV': 42.745, 'libc/runtime': 8.114, 'Source2': 40.337, 'other': 6.591, 'unknown': 2.213}
+ top DSOs (cycles): [['libvulkan_radeon.so', 189350188], ['librendersystemvulkan.so', 159824213], ['libc.so.6', 35940853], ['libdrm_amdgpu.so.1.131.0', 29197279], ['libtier0.so', 18857228], ['[unknown]', 9801502]]
+ top RADV functions (cycles): [['radv_emit_all_graphics_states', 26537814], ['radv_CmdBindPipeline', 15323402], ['radv_UpdateDescriptorSetWithTemplate', 10907460], ['radv_bind_shader', 10722324], ['radv_CmdBeginRendering', 10328994], ['radv_CmdDraw', 9564607], ['get_rendering_attachment_flags', 6138630], ['radv_emit_scissor_state', 5809590]]
+Other samples 232 cycles % {'Source2': 52.206, 'unknown': 1.17, 'RADV': 25.033, 'libc/runtime': 9.707, 'other': 11.883}
+ top DSOs (cycles): [['libsoundsystem.so', 215920747], ['libvulkan_radeon.so', 159502730], ['librendersystemvulkan.so', 76865207], ['libphonon.so', 73575278], ['libc.so.6', 54774660], ['libtier0.so', 32614692]]
+ top RADV functions (cycles): [['radv_emit_all_graphics_states', 19811340], ['radv_UpdateDescriptorSetWithTemplate', 19102858], ['radv_emit_msaa_state', 13544348], ['radv_CmdDraw', 12279233], ['radv_emit_graphics_shaders', 11862053], ['radv_AllocateDescriptorSets', 11561232], ['ac_build_raw_buffer_descriptor', 7967122], ['ac_choose_spi_color_formats', 7147764]]
+
+matched_2_msc
+Main samples 122 cycles % {'Source2': 91.786, 'libc/runtime': 4.956, 'other': 2.461, 'unknown': 0.796}
+ top DSOs (cycles): [['libclient.so', 225296220], ['libengine2.so', 76353545], ['libv8.so', 70775691], ['libscenesystem.so', 70484353], ['librendersystemvulkan.so', 58516798], ['libtier0.so', 58497293]]
+GlobPool samples 433 cycles % {'Source2': 95.933, 'unknown': 0.206, 'libc/runtime': 3.607, 'other': 0.253}
+ top DSOs (cycles): [['libscenesystem.so', 565799897], ['librendersystemvulkan.so', 432258189], ['libmaterialsystem2.so', 370506782], ['libtier0.so', 291077415], ['libclient.so', 248543102], ['libparticles.so', 102703586]]
+Render samples 46 cycles % {'RADV': 37.104, 'Source2': 47.025, 'libc/runtime': 8.989, 'other': 6.883}
+ top DSOs (cycles): [['librendersystemvulkan.so', 94535933], ['libvulkan_radeon.so', 85769507], ['libc.so.6', 20778624], ['libtier0.so', 14167131], ['libdrm_amdgpu.so.1.131.0', 10353425], ['steamoverlayvulkanlayer.so', 5557487]]
+ top RADV functions (cycles): [['radv_CmdBindPipeline', 15771965], ['radv_UpdateDescriptorSetWithTemplate', 10639288], ['ac_set_buf_desc_word3', 10413655], ['radv_emit_all_graphics_states', 9880948], ['vk_optimize_depth_stencil_state', 5517327], ['radv_CmdDraw', 5438042], ['radv_emit_graphics_shaders', 4926412], ['radv_needs_null_export_workaround', 4867834]]
+Other samples 90 cycles % {'Source2': 49.209, 'unknown': 1.513, 'libc/runtime': 3.305, 'RADV': 44.399, 'other': 1.575}
+ top DSOs (cycles): [['libvulkan_radeon.so', 169004480], ['libsoundsystem.so', 95659220], ['librendersystemvulkan.so', 90404105], ['libc.so.6', 6627059], ['libphonon.so', 5995086], ['libm.so.6', 5952000]]
+ top RADV functions (cycles): [['radv_destroy_descriptor_pool_entries', 31882453], ['radv_bind_shader', 13712006], ['radv_UpdateDescriptorSetWithTemplate', 9482559], ['ac_set_mutable_cb_surface_fields', 8912365], ['radv_CmdBindVertexBuffers2', 7719367], ['vk_common_CmdBindVertexBuffers', 7244399], ['radv_CmdBindPipeline', 6791262], ['radv_AllocateDescriptorSets', 6510669]]
+
+RADV CPU-ms estimates derived from sampled cycles / 3.191GHz.
+These are active CPU estimates per role. Multiple render threads can overlap. A sample period can cross the Present boundary.
+4_msc Main mean 0.099 median 0.0 max 1.96 count >=2ms 0 zero samples 37
+4_msc GlobPool mean 0.0 median 0.0 max 0.0 count >=2ms 0 zero samples 39
+4_msc Render mean 1.522 median 1.602 max 3.513 count >=2ms 9 zero samples 10
+4_msc Other mean 1.282 median 1.838 max 4.129 count >=2ms 10 zero samples 15
+matched_2_msc Main mean 0.0 median 0.0 max 0.0 count >=2ms 0 zero samples 39
+matched_2_msc GlobPool mean 0.0 median 0.0 max 0.0 count >=2ms 0 zero samples 39
+matched_2_msc Render mean 0.689 median 0.0 max 3.19 count >=2ms 2 zero samples 24
+matched_2_msc Other mean 1.358 median 1.721 max 4.566 count >=2ms 8 zero samples 11
+Render waking sources during 4-MSC intervals: {'cs2': 140, 'GlobPool/6': 48, 'GlobPool/4': 40, 'GlobPool/2': 60, 'GlobPool/5': 44, 'GlobPool/3': 46, 'GlobPool/1': 35, 'GlobPool/7': 37, 'VKRenderThread': 13, 'GlobPool/8': 44, 'GlobPool/0': 35, 'Panorama Image': 1}
+Highest RADV cycle TIDs: [{'tid': 32600, 'name': 'VKRenderThread', 'all': 10958100532, 'RADV': 4614027556, 'peak': 442971263, 'RADV_peak': 189350188}, {'tid': 32610, 'name': 'VKRenderThread', 'all': 3529020985, 'RADV': 2066316669, 'peak': 109864271, 'RADV_peak': 43237677}, {'tid': 32611, 'name': 'VKRenderThread', 'all': 3645829158, 'RADV': 1986128635, 'peak': 100815792, 'RADV_peak': 68815201}, {'tid': 32609, 'name': 'VKRenderThread', 'all': 2796769676, 'peak': 76969759, 'RADV': 1465264638, 'RADV_peak': 47251547}, {'tid': 32543, 'name': 'cs2', 'all': 36444883060, 'peak': 1595533425, 'RADV': 54479369, 'RADV_peak': 12327589}, {'tid': 32555, 'name': 'GlobPool/1', 'all': 9992369781, 'peak': 336383286, 'RADV': 14683681}, {'tid': 32560, 'name': 'GlobPool/6', 'all': 9957526762, 'RADV': 8078032, 'peak': 344423355}, {'tid': 32557, 'name': 'GlobPool/3', 'all': 9938185407, 'peak': 357899165, 'RADV': 6247130}, {'tid': 32556, 'name': 'GlobPool/2', 'all': 9870499470, 'peak': 327752086, 'RADV': 5407922}]
+39 slow/39 matched regular Present intervals, monotonic ns:
+1 slow [5303992203000, 5304008870000, 4] control [5304008870000, 5304017203000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.805, 0.0]
+2 slow [5305992237000, 5306008904000, 4] control [5305983904000, 5305992237000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 0.0]
+3 slow [5306446412000, 5306463079000, 4] control [5306438079000, 5306446412000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 0.0]
+4 slow [5307242259000, 5307258926000, 4] control [5307233926000, 5307242259000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.738, 1.858]
+5 slow [5307775602000, 5307792269000, 4] control [5307792269000, 5307800602000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 3.121, 2.24]
+6 slow [5307854770000, 5307871437000, 4] control [5307871437000, 5307879770000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 2.949, 2.286]
+7 slow [5307900604000, 5307917271000, 4] control [5307917271000, 5307925604000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 2.002, 2.225]
+8 slow [5308042273000, 5308058940000, 4] control [5308058940000, 5308067273000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 2.065]
+9 slow [5308088107000, 5308104774000, 4] control [5308079774000, 5308088107000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 2.912, 1.803]
+10 slow [5308367279000, 5308383946000, 4] control [5308358945000, 5308367279000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 1.877]
+11 slow [5308617283000, 5308633950000, 4] control [5308633950000, 5308642283000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.769, 1.845]
+12 slow [5308875621000, 5308892288000, 4] control [5308854787000, 5308863120000, 2] RADV CPU-ms main/GlobPool/primary render/other: [1.96, 0.0, 1.602, 0.051]
+13 slow [5308892288000, 5308908955000, 4] control [5308933955000, 5308942289000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 3.303, 0.0]
+14 slow [5310183977000, 5310200644000, 4] control [5310200644000, 5310208977000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.337, 1.877]
+15 slow [5310292312000, 5310308979000, 4] control [5310283978000, 5310292312000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 0.0]
+16 slow [5310579817000, 5310596484000, 4] control [5310596484000, 5310604817000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 3.128, 4.129]
+17 slow [5310838155000, 5310854822000, 4] control [5310854822000, 5310863155000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.555, 1.909]
+18 slow [5310988157000, 5311004824000, 4] control [5310954823000, 5310963157000, 2] RADV CPU-ms main/GlobPool/primary render/other: [1.903, 0.0, 1.547, 3.805]
+19 slow [5311258999000, 5311275662000, 4] control [5311275662000, 5311283999000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 2.964, 2.497]
+20 slow [5311384001000, 5311400664000, 4] control [5311400664000, 5311408998000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 3.513, 2.263]
+21 slow [5312275680000, 5312292346000, 4] control [5312267346000, 5312275680000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.761, 2.394]
+22 slow [5312929857000, 5312946524000, 4] control [5312921524000, 5312929857000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.677, 0.0]
+23 slow [5313071527000, 5313088194000, 4] control [5313088194000, 5313096527000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.521, 0.0]
+24 slow [5313338198000, 5313354865000, 4] control [5313354865000, 5313363198000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 2.874, 0.0]
+25 slow [5314384049000, 5314400716000, 4] control [5314375716000, 5314384049000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 1.942]
+26 slow [5317500770000, 5317517437000, 4] control [5317517437000, 5317525770000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.675, 2.027]
+27 slow [5317588271000, 5317604938000, 4] control [5317579938000, 5317588271000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 1.761]
+28 slow [5317746608000, 5317763274000, 4] control [5317713274000, 5317721607000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 0.0]
+29 slow [5318088280000, 5318104947000, 4] control [5318104947000, 5318113281000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.649, 1.875]
+30 slow [5318150781000, 5318167448000, 4] control [5318167448000, 5318175782000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 0.0]
+31 slow [5318196615000, 5318213282000, 4] control [5318188282000, 5318196615000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.821, 0.0]
+32 slow [5318434119000, 5318450786000, 4] control [5318425786000, 5318434119000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.573, 1.596]
+33 slow [5318496620000, 5318513287000, 4] control [5318538288000, 5318546621000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.808, 1.838]
+34 slow [5318546621000, 5318563288000, 4] control [5318592455000, 5318600789000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.424, 0.0]
+35 slow [5318575789000, 5318592455000, 4] control [5318700791000, 5318709124000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.472, 0.0]
+36 slow [5318613289000, 5318629956000, 4] control [5318759125000, 5318767459000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.574, 0.0]
+37 slow [5318654957000, 5318671624000, 4] control [5318804959000, 5318813293000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.729, 1.851]
+38 slow [5318684124000, 5318700791000, 4] control [5318850793000, 5318859127000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 1.537, 0.0]
+39 slow [5318871627000, 5318888294000, 4] control [5318900794000, 5318909128000, 2] RADV CPU-ms main/GlobPool/primary render/other: [0.0, 0.0, 0.0, 1.973]
