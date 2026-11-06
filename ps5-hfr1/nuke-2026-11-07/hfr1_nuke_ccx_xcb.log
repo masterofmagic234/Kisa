@@ -1,0 +1,129 @@
+HFR1, Nuke 1x at 02:38, Xolod_Astr POV, system RADV immediate, X11 1080p240 Flip, no MP1 boost.
+One offline CS2 PID, launched on CPUs 0–7. Dedicated temporary cgroup CPU set: 0–7 → 0–15 → 0–7. Nine GlobPool threads, affinity validated before/after. No host IRQ or compositor reconfiguration.
+Each phase had a same-scene warm-up. XCB hardware breakpoints, no CPU cycle profiling. Each unique request matched an X11 Flip by window and serial. XCB call timestamps measure request cadence.
+{
+  "common_resume_relative_s": [
+    1.6,
+    16
+  ],
+  "results": {
+    "b1-ccx0": {
+      "cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "xcb": {
+        "intervals": 1666,
+        "avg_rate": 115.73728023446188,
+        "low_1_percent": 80.64209895643741,
+        "median_ms": 8.485816500069632,
+        "p95_ms": 10.603246999835392,
+        "p99_ms": 11.422949000007065,
+        "max_ms": 16.081235999990895
+      },
+      "present_ust_same_serials": {
+        "intervals": 1666,
+        "avg_rate": 115.72502317452606,
+        "low_1_percent": 78.4530896667007,
+        "median_ms": 8.33399999987705,
+        "p95_ms": 12.500000000045475,
+        "p99_ms": 12.500999999929263,
+        "max_ms": 16.667999999981475
+      },
+      "present_msc_steps": {
+        "2": 1334,
+        "1": 105,
+        "3": 226,
+        "4": 1
+      }
+    },
+    "a-all": {
+      "cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "xcb": {
+        "intervals": 1488,
+        "avg_rate": 103.33805464093788,
+        "low_1_percent": 67.16143751458495,
+        "median_ms": 9.207740999954694,
+        "p95_ms": 12.964516000010917,
+        "p99_ms": 14.108169999872189,
+        "max_ms": 19.57558899994183
+      },
+      "present_ust_same_serials": {
+        "intervals": 1488,
+        "avg_rate": 103.33074288901526,
+        "low_1_percent": 59.014922906830435,
+        "median_ms": 8.334000000104425,
+        "p95_ms": 12.500999999929263,
+        "p99_ms": 16.666999999870313,
+        "max_ms": 20.833999999922526
+      },
+      "present_msc_steps": {
+        "2": 933,
+        "3": 487,
+        "1": 48,
+        "4": 19,
+        "5": 1
+      }
+    },
+    "b2-ccx0": {
+      "cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "xcb": {
+        "intervals": 1511,
+        "avg_rate": 104.98356069093111,
+        "low_1_percent": 64.61498031195805,
+        "median_ms": 9.113462999948752,
+        "p95_ms": 12.358746000018073,
+        "p99_ms": 14.43184899994776,
+        "max_ms": 17.911018000177137
+      },
+      "present_ust_same_serials": {
+        "intervals": 1511,
+        "avg_rate": 104.95828932575562,
+        "low_1_percent": 58.17991411191141,
+        "median_ms": 8.33399999987705,
+        "p95_ms": 12.500999999929263,
+        "p99_ms": 16.666999999870313,
+        "max_ms": 20.835000000033688
+      },
+      "present_msc_steps": {
+        "2": 1033,
+        "3": 423,
+        "1": 34,
+        "4": 19,
+        "5": 2
+      }
+    }
+  }
+}
