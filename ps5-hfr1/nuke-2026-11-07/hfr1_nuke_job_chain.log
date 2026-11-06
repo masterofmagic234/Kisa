@@ -1,0 +1,266 @@
+CS2 Nuke HFR1. Причинная цепочка одного интервала X11 Flip 16,666 мс.
+2026-11-07. Оригинальная CS2 -insecure, офлайн-демка, seek 10048 (~02:38),
+первое лицо, HFR1 7.2.3-ps5-hfr1, штатный RADV и выключенный MP1. События
+ftrace, perf и Present приведены к CLOCK_MONOTONIC. Пара serial 5428–5429,
+UST 7057.605886–7057.622552 с, 4 MSC, начало +11,926 с после resume.
+Интервал показа использован как временное окно, без утверждения о соответствии
+конкретного fence конкретному показанному изображению.
+
+ДВА ПОДТВЕРЖДЁННЫХ СИГНАЛА ОДНОГО СЕМАФОРА
+1. 7057.606853–7057.611829: VKRenderThread ждал 4,976 мс на futex 0x2837129162c.
+   GlobPool/6 TID 36179 вызвал FUTEX_WAKE_PRIVATE по тому же адресу,
+   sched_waking 7057.611805 внутри вызова, возврат 1. Стек снят в момент
+   сигнала. libengine2 ELF 0x3cdeda → libmaterialsystem2 0xee74d →
+   librendersystemvulkan 0x493cd6 / 0x49b2d7 → CThreadSemaphore::Release.
+   Это путь публикации команд рендера для представления сцены. Тот же префикс
+   встречался на Кебабе внутри AsyncAddViewsToSceneSystem. Верхний кадр с
+   этим именем в текущем стеке отсутствует.
+2. 7057.612381–7057.618437: тот же futex, ожидание 6,056 мс.
+   GlobPool/7 TID 36180 вызвал FUTEX_WAKE_PRIVATE, sched_waking 7057.618406,
+   возврат 1. libtier0 job worker ELF 0x190075 → libscenesystem 0x2b87fe →
+   libparticles 0x218d68 → librendersystemvulkan 0x493cd6 / 0x49b2d7 →
+   CThreadSemaphore::Release. Код SceneSystem выбирает запись задачи и
+   вызывает виртуальный метод; код Particles публикует контекст рендера.
+   Эта цепочка подтверждает работу рендера частиц, без определения типа эффекта.
+
+КТО ЗАДЕРЖАЛ ВТОРОЙ СИГНАЛ
+GlobPool/7 сам ждёт futex пула 0x283701c1bd0 с 7057.612616. Главный cs2
+будит его по тому же адресу в 7057.618195, syscall возвратил 1. Воркер
+получает CPU в 7057.618202 и будит рендер в 7057.618406, через 0,204 мс.
+Около 5,58 мс в этом ожидании воркер провёл в ожидании активации от главного
+потока. Для первого сигнала также видна активация GlobPool/6 главным потоком,
+после чего был ещё короткий обмен сигналами с GlobPool/8. Сумма двух
+ожиданий рендера 11,032 мс. Wake→run у рендера 16 и 26 мкс соответственно.
+
+Главный поток был на CPU 14,744 мс по сохранившимся интервалам. Выборки CPU
+в этом окне попали в libnetworksystem, libengine2, fontconfig/Pango и
+HarfBuzz/Pango через libpanorama_text_pango. Две выборки текста Panorama
+подтверждают одновременную работу UI. Они не измеряют её длительность и
+не доказывают, что она задержала активацию воркера. Точного job ID и стека
+главного потока в момент активации воркера в этом захвате нет.
+
+GFX fence 179065:10550 завершился в 7057.608260, следующий CS ioctl потока
+рендера в 7057.622368, разница 14,108 мс. Эта пауза относится к сабмитам
+данного потока, без утверждения о полной загрузке всего GPU.
+
+ПОЛНОТА
+В первом захвате ftrace переписал часть записей. В выбранном 16,666 мс
+окне глобальная полнота нарушена на CPU3; показанные пары syscalls,
+sched_waking и стеки двух пробуждений сохранились на других CPU. Вывод
+о двух цепочках опирается на эти записи, а не на отсутствие других событий.
+Полное общее окно ftrace 7057.640181–7061.679731007, 4,04 с, содержит
+73 сопоставленных пары wake/wait со стеком внутри интервалов от 12,49 мс.
+Префиксы материалов 33, SceneSystem 39, прочие 1. Это число сопоставлений,
+не количество кадров. Второй запуск остановился до записи из-за отсутствия
+свежего маркера возобновления. Настройки обеих сессий восстановлены побайтно.
+Процесс CS2 закрыт. Патчи к игре, RADV и ядру не применялись.
+
+PRESENT
+[
+  {
+    "mono": "7057.608401797",
+    "ust_us": "7057605886",
+    "msc": "18442412",
+    "serial": "5428",
+    "kind": "0",
+    "mode": "1"
+  },
+  {
+    "mono": "7057.624557416",
+    "ust_us": "7057622552",
+    "msc": "18442416",
+    "serial": "5429",
+    "kind": "0",
+    "mode": "1"
+  }
+]
+
+КЛЮЧЕВЫЕ СОБЫТИЯ FTRACE
+  VKRenderThread-36216   [013] .....  7057.606497: drm_sched_job_queue: dev=0000:20:00.0, fence=179065:10549, ring=gfx_0.0.0, job count:0, hw job count:0, client_id:173
+  VKRenderThread-36216   [013] .....  7057.606602: drm_sched_job_queue: dev=0000:20:00.0, fence=179065:10550, ring=gfx_0.0.0, job count:0, hw job count:1, client_id:173
+  VKRenderThread-36216   [013] .....  7057.606853: sys_futex(uaddr: 0x2837129162c, op: 0x189, val: 0x12193, utime: 0x7c5e381c7d00, uaddr2: 0, val3: 0xffffffff)
+          <idle>-0       [010] d.h2.  7057.608254: drm_sched_job_done: fence=179065:10549 signaled
+          <idle>-0       [010] dNh2.  7057.608260: drm_sched_job_done: fence=179065:10550 signaled
+             cs2-36165   [009] .....  7057.611444: sys_futex(uaddr: 0x283701c1bd0, op: 0x81, val: 1, utime: 0x6d70302ea6366a8d, uaddr2: 0x283704a0658, val3: 0x100000100000180)
+             cs2-36165   [009] d..2.  7057.611446: sched_waking: comm=GlobPool/6 pid=36179 prio=120 target_cpu=006
+             cs2-36165   [009] .....  7057.611448: sys_futex -> 0x1
+      GlobPool/7-36180   [000] d..2.  7057.611656: sched_switch: prev_comm=GlobPool/7 prev_pid=36180 prev_prio=120 prev_state=S ==> next_comm=swapper/0 next_pid=0 next_prio=120
+      GlobPool/6-36179   [006] .....  7057.611656: sys_futex(uaddr: 0x7c5e49cd2be0, op: 0x80, val: 0xa64c6, utime: 0, uaddr2: 0x13040016, val3: 0x283ed603910)
+      GlobPool/8-36181   [005] d..2.  7057.611659: sched_waking: comm=GlobPool/6 pid=36179 prio=120 target_cpu=006
+      GlobPool/6-36179   [006] d..2.  7057.611659: sched_switch: prev_comm=GlobPool/6 prev_pid=36179 prev_prio=120 prev_state=S ==> next_comm=swapper/6 next_pid=0 next_prio=120
+      GlobPool/6-36179   [006] .....  7057.611803: sys_futex(uaddr: 0x2837129162c, op: 0x81, val: 1, utime: 0, uaddr2: 0x28371291608, val3: 0x81)
+      GlobPool/6-36179   [006] d..2.  7057.611805: sched_waking: comm=VKRenderThread pid=36216 prio=110 target_cpu=013
+      GlobPool/6-36179   [006] .....  7057.611817: sys_futex -> 0x1
+  VKRenderThread-36216   [013] .....  7057.611829: sys_futex -> 0x0
+  VKRenderThread-36216   [013] .....  7057.612381: sys_futex(uaddr: 0x2837129162c, op: 0x189, val: 0x12195, utime: 0x7c5e381c7d00, uaddr2: 0, val3: 0xffffffff)
+      GlobPool/7-36180   [000] .....  7057.612616: sys_futex(uaddr: 0x283701c1bd0, op: 0x80, val: 0, utime: 0, uaddr2: 0x283ed603910, val3: 0x283701c1bd0)
+      GlobPool/7-36180   [000] d..2.  7057.612621: sched_switch: prev_comm=GlobPool/7 prev_pid=36180 prev_prio=120 prev_state=S ==> next_comm=swapper/0 next_pid=0 next_prio=120
+             cs2-36165   [009] .....  7057.618194: sys_futex(uaddr: 0x283701c1bd0, op: 0x81, val: 1, utime: 0x6d70302ea6366a8d, uaddr2: 0x283704a03d8, val3: 0x2837a14eb50)
+             cs2-36165   [009] d..2.  7057.618195: sched_waking: comm=GlobPool/7 pid=36180 prio=120 target_cpu=000
+             cs2-36165   [009] .....  7057.618197: sys_futex -> 0x1
+             cs2-36165   [009] .....  7057.618197: sys_futex(uaddr: 0x283701c1bd0, op: 0x81, val: 1, utime: 0x6d70302ea6366a8d, uaddr2: 0x283704a03d8, val3: 0x2837a14eb50)
+          <idle>-0       [000] d..2.  7057.618202: sched_switch: prev_comm=swapper/0 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=GlobPool/7 next_pid=36180 next_prio=120
+             cs2-36165   [009] .....  7057.618202: sys_futex -> 0x1
+             cs2-36165   [009] .....  7057.618206: sys_futex -> 0x0
+             cs2-36165   [009] .....  7057.618206: sys_futex(uaddr: 0x283701c1bd0, op: 0x81, val: 1, utime: 0x6d70302ea6366a8d, uaddr2: 0x283704a03d8, val3: 0x2837a14eb50)
+      GlobPool/7-36180   [000] .....  7057.618206: sys_futex -> 0x0
+             cs2-36165   [009] .....  7057.618206: sys_futex -> 0x0
+      GlobPool/7-36180   [000] .....  7057.618403: sys_futex(uaddr: 0x2837129162c, op: 0x81, val: 1, utime: 0, uaddr2: 0x28371291608, val3: 0x81)
+      GlobPool/7-36180   [000] d..2.  7057.618406: sched_waking: comm=VKRenderThread pid=36216 prio=110 target_cpu=013
+          <idle>-0       [013] d..2.  7057.618432: sched_switch: prev_comm=swapper/13 prev_pid=0 prev_prio=120 prev_state=R ==> next_comm=VKRenderThread next_pid=36216 next_prio=110
+  VKRenderThread-36216   [013] .....  7057.618437: sys_futex -> 0x0
+      GlobPool/7-36180   [000] .....  7057.618438: sys_futex -> 0x1
+  VKRenderThread-36216   [013] .....  7057.618438: sys_futex(uaddr: 0x283712915e0, op: 0x81, val: 1, utime: 0, uaddr2: 0, val3: 0xffffffff)
+  VKRenderThread-36216   [013] .....  7057.622368: sys_ioctl(fd: 0x1a, cmd: 0xc0186444, arg: 0x7c5e381c6a80)
+
+СТЕКИ ПРОИЗВОДИТЕЛЕЙ PERF
+GlobPool/6   36179 [006]  7057.611806366: sched:sched_waking: comm=VKRenderThread pid=36216 prio=110 target_cpu=013
+	ffffffffb6341cb2 __traceiter_sched_waking+0x32 ([kernel.kallsyms])
+	ffffffffb6356cdf try_to_wake_up+0x40f ([kernel.kallsyms])
+	ffffffffb63571bf wake_up_q+0x4f ([kernel.kallsyms])
+	ffffffffb6426dd7 futex_wake+0x1e7 ([kernel.kallsyms])
+	ffffffffb64237da do_futex+0x19a ([kernel.kallsyms])
+	ffffffffb6423e3d __x64_sys_futex+0x12d ([kernel.kallsyms])
+	ffffffffb627011c x64_sys_call+0x215c ([kernel.kallsyms])
+	ffffffffb720114a do_syscall_64+0xfa ([kernel.kallsyms])
+	ffffffffb600010e entry_SYSCALL_64_after_hwframe+0x55 ([kernel.kallsyms])
+	    7c5e49ea2ae9 futex_wake+0xa9 (inlined)
+	    7c5e49ea2ae9 ___pthread_cond_signal+0xa9 (inlined)
+	    7c5e49a536e0 CThreadSemaphore::Release(int, int*)+0x80 (libtier0.so)
+	    7c5e3a49b2d7 [unknown] (librendersystemvulkan.so)
+	    7c5e3a493cd6 [unknown] (librendersystemvulkan.so)
+	    7c5dbfd0c74d [unknown] (libmaterialsystem2.so)
+	    7c5e485cdeda [unknown] (libengine2.so)
+
+GlobPool/7   36180 [000]  7057.618410141: sched:sched_waking: comm=VKRenderThread pid=36216 prio=110 target_cpu=013
+	ffffffffb6341cb2 __traceiter_sched_waking+0x32 ([kernel.kallsyms])
+	ffffffffb6356cdf try_to_wake_up+0x40f ([kernel.kallsyms])
+	ffffffffb63571bf wake_up_q+0x4f ([kernel.kallsyms])
+	ffffffffb6426dd7 futex_wake+0x1e7 ([kernel.kallsyms])
+	ffffffffb64237da do_futex+0x19a ([kernel.kallsyms])
+	ffffffffb6423e3d __x64_sys_futex+0x12d ([kernel.kallsyms])
+	ffffffffb627011c x64_sys_call+0x215c ([kernel.kallsyms])
+	ffffffffb720114a do_syscall_64+0xfa ([kernel.kallsyms])
+	ffffffffb600010e entry_SYSCALL_64_after_hwframe+0x55 ([kernel.kallsyms])
+	    7c5e49ea2ae9 futex_wake+0xa9 (inlined)
+	    7c5e49ea2ae9 ___pthread_cond_signal+0xa9 (inlined)
+	    7c5e49a536e0 CThreadSemaphore::Release(int, int*)+0x80 (libtier0.so)
+	    7c5e3a49b2d7 [unknown] (librendersystemvulkan.so)
+	    7c5e3a493cd6 [unknown] (librendersystemvulkan.so)
+	    7c5d84c18d68 [unknown] (libparticles.so)
+	    7c5d858b87fe [unknown] (libscenesystem.so)
+	    7c5e49990075 [unknown] (libtier0.so)
+	    7c5e4999103c [unknown] (libtier0.so)
+	    7c5e49a56759 CThread::ThreadProc(void*)+0x59 (libtier0.so)
+	    7c5e49a5698a [unknown] (libtier0.so)
+	    7c5e49ea3df9 start_thread+0x2f9 (libc.so.6)
+	    7c5e49f375cb __GI___clone3+0x2b (libc.so.6)
+
+ВЫБОРКИ ГЛАВНОГО ПОТОКА PERF
+cs2   36165  7057.607224676:    5425049 cycles:u:
+	    7c5dbd3c56b7 [unknown] (libnetworksystem.so)
+	    7c5dbd2ec32a [unknown] (libnetworksystem.so)
+	    7c5e48702845 [unknown] (libengine2.so)
+	    7c5e48646c75 [unknown] (libengine2.so)
+	    7c5e485a1c25 [unknown] (libengine2.so)
+	    7c5e485aeef9 [unknown] (libengine2.so)
+	    7c5e48583497 [unknown] (libengine2.so)
+	    7c5e48583f34 [unknown] (libengine2.so)
+	    7c5e48567bdf [unknown] (libengine2.so)
+	    7c5e4857b2f0 [unknown] (libengine2.so)
+	    7c5e4857b65b Source2Main+0x11b (libengine2.so)
+	    56bb5ba526cf [unknown] (cs2)
+	    56bb5ba537b5 [unknown] (cs2)
+
+cs2   36165  7057.612146545:    7334269 cycles:u:
+	    7c5e485bcdc3 [unknown] (libengine2.so)
+	    7c5e485bcdd9 [unknown] (libengine2.so)
+	    7c5e485bcdd9 [unknown] (libengine2.so)
+	    7c5e485bcdd9 [unknown] (libengine2.so)
+	    7c5e485bcdd9 [unknown] (libengine2.so)
+	    7c5e485bcdd9 [unknown] (libengine2.so)
+	    7c5e485bcdd9 [unknown] (libengine2.so)
+	    7c5e485bcdd9 [unknown] (libengine2.so)
+	    7c5e485bd018 [unknown] (libengine2.so)
+	    7c5e485bd15a [unknown] (libengine2.so)
+	    7c5d8582b5da [unknown] (libscenesystem.so)
+	    7c5d85882ff2 [unknown] (libscenesystem.so)
+
+cs2   36165  7057.614494378:    7383393 cycles:u:
+	    7c5e08027f03 FcStrCaseWalkerNext.part.0+0x53 (libfontconfig.so.1)
+	    7c5e080285e2 FcStrCaseWalkerNext+0x92 (inlined)
+	    7c5e080285e2 FcStrCmpIgnoreCase+0x92 (libfontconfig.so.1)
+	    7c5e08010054 FcConfigCompareValue+0x4d4 (libfontconfig.so.1)
+	    7c5e0801117e FcConfigMatchValueList+0x5de (inlined)
+	    7c5e0801117e IA__FcConfigSubstituteWithPat+0x5de (inlined)
+	    7c5e080213bb FcFontRenderPrepare+0x2ab (libfontconfig.so.1)
+	    7c5dbf07bbbf pango_fc_fontset_load_next_font+0x26f (inlined)
+	    7c5dbf07bbbf pango_fc_fontset_get_font_at+0x26f (libpangoft2-1.0.so.0)
+	    7c5dbf07bef9 pango_fc_fontset_foreach+0x39 (libpangoft2-1.0.so.0)
+	    7c5dbf09fb5c get_shaper_and_font+0x10c (libpango-1.0.so.0)
+	    7c5dbf0a075e itemize_state_process_run+0x43e (libpango-1.0.so.0)
+	    7c5dbf0a1397 pango_itemize_with_base_dir+0x87 (libpango-1.0.so.0)
+	    7c5dbf0a98c5 pango_layout_check_lines.part.0+0x315 (libpango-1.0.so.0)
+	    7c5dbf0ab7ee pango_layout_get_extents_internal+0x2e (libpango-1.0.so.0)
+	    7c5dbf37174c [unknown] (libpanorama_text_pango.so)
+
+cs2   36165  7057.616851953:    7452695 cycles:u:
+	    7c5dbef3f9d4 [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef637e0 [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef63f8e [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef69b7f [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef69e6a [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef6a35c [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef6bddc [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef6c275 [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef54912 [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef55fbb hb_ot_layout_table_find_feature_variations+0x1b (libharfbuzz.so.0.20704.0)
+	    7c5dbef9efa4 [unknown] (libharfbuzz.so.0.20704.0)
+	    7c5dbef9ff31 hb_shape_plan_create_cached2+0x91 (libharfbuzz.so.0.20704.0)
+	    7c5dbefa01cd hb_shape_full+0x2d (libharfbuzz.so.0.20704.0)
+	    7c5dbf07d4d2 _pango_fc_shape+0x3b2 (libpangoft2-1.0.so.0)
+	    7c5dbf0b4659 pango_shape_full+0xb9 (libpango-1.0.so.0)
+	    7c5dbf0a6e70 shape_run+0x50 (libpango-1.0.so.0)
+	    7c5dbf0a7a02 process_item+0x4d2 (libpango-1.0.so.0)
+	    7c5dbf0a9bc1 process_line+0x611 (inlined)
+	    7c5dbf0a9bc1 pango_layout_check_lines.part.0+0x611 (libpango-1.0.so.0)
+	    7c5dbf0ab7ee pango_layout_get_extents_internal+0x2e (libpango-1.0.so.0)
+	    7c5dbf078e73 pango_fc_font_get_metrics+0x113 (libpangoft2-1.0.so.0)
+	    7c5dbf0a6325 pango_layout_get_empty_extents_at_index.part.0+0xd5 (libpango-1.0.so.0)
+	    7c5dbf0a96c3 pango_layout_get_empty_extents_at_index+0x113 (inlined)
+	    7c5dbf0a96c3 pango_layout_check_lines.part.0+0x113 (libpango-1.0.so.0)
+	    7c5dbf0ab7ee pango_layout_get_extents_internal+0x2e (libpango-1.0.so.0)
+	    7c5dbf37174c [unknown] (libpanorama_text_pango.so)
+
+ELF BUILD IDS
+{
+  "libtier0.so": "1e9a7e57e12240462854124c8a2f1de578750e6a",
+  "libengine2.so": "55c28d07ffa759d7d78237008661d15543c64753",
+  "libmaterialsystem2.so": "0e6f2a1351a39445be54c3b72640ce6862931954",
+  "libscenesystem.so": "78715962d7de508fce0c8c81105dfb976ff8ab1d",
+  "libparticles.so": "1c2d6143e8227d1a9b69e5b3bfd672a616c935d4",
+  "librendersystemvulkan.so": "fa151803c6d76dee3577034211b75d555005da83"
+}
+
+СВОДКА ПОЛНОГО ХВОСТА ТРАССЫ
+{
+  "trace_loss": 3168337,
+  "complete_score_suffix_ns": [
+    7057640181000,
+    7061679731007
+  ],
+  "present_modes": {
+    "1": 517
+  },
+  "cycles_samples": 21462,
+  "wake_stack_samples": 24080,
+  "render_futex_calls": 28806,
+  "render_wakes": 12032,
+  "long_frame_wait_candidates": 73,
+  "exact_producer_futex_and_stack": 73,
+  "exact_producer_modules": {
+    "materialsystem2": 33,
+    "scenesystem": 39,
+    "other": 1
+  }
+}
