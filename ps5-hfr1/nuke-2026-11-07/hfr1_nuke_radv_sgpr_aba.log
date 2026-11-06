@@ -1,0 +1,497 @@
+PS5 HFR1 / CS2 Nuke / RADV fragment SGPR release A/B/A
+2026-11-07, offline 1x, Nuke ~02:38, first-person slot 9, seek tick 10048.
+Each run had 10 seconds of warm-up and a 15-second scored window after reseeking.
+HFR1 7.2.3-ps5-hfr1, GFX1013, stock MP1, 16 available logical CPUs, split APU
+heap, X11 1920x1080 240 Hz, immediate WSI and fullscreen compositor bypass.
+All scored Present completions were Flip. Measurements are displayed cadence
+using Present UST. P99 is quantized on the 240 Hz MSC grid. 1% low is the
+reciprocal of the mean of the slowest ceil(1% * N) completion intervals.
+No perf recording, counter build or PM4 dump was active during CS2.
+
+A1 and A2 used system Mesa 26.0.8-1ubuntu0.3. B was a local release built from
+the sealed A2-O2-noalias reference with one source unit recompiled. The labels
+A1 and A2 below refer to the two stock runs, not the private A2 build name.
+Stock-vs-candidate selection is valid for this run. It does not isolate the
+patch from every local build difference versus the Ubuntu package.
+
+The release candidate only skips wholly identical direct descriptor SET_SH_REG
+packets to fragment user SGPRs in primary GFX1013 graphics command buffers.
+It falls back at secondary/DGC and unknown PM4, tracks conditional extents,
+and clears shadow state for new buffers and physical IB chunks. An offline
+known-answer PM4 diff against the unmodified private A2 build removed exactly
+one PS_2 write (c0017600 0000000e 00002000); the tiny IB grew tail NOP padding
+and did not change aligned size. Both images passed. The five correctness
+checks below ran before CS2. No new kernel entries appeared during B.
+The candidate was used only in offline CS2 with -insecure. Stock remained in place.
+
+A/B/A METRICS AND PROOF
+{
+  "a1": {
+    "cadence": {
+      "measurement": "X11 displayed Flip cadence, UST completion intervals",
+      "flips": 1620,
+      "intervals": 1619,
+      "window_seconds": 15.0,
+      "avg_fps": 107.99211704237673,
+      "one_percent_low_fps": 60.89283219726412,
+      "p99_ms": 12.503,
+      "max_ms": 20.834,
+      "refresh_hz": 239.99999999999997,
+      "msc_intervals": {
+        "1": 73,
+        "2": 1129,
+        "3": 402,
+        "4": 14,
+        "5": 1
+      }
+    },
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12178,
+      "resume_marker": "CGameRules - unpaused on tick 12178, pause duration was 1 ticks",
+      "resume_marker_observation_ns": [
+        4437639584716,
+        4437645619769
+      ],
+      "window_mono_ns": [
+        4438645619769,
+        4453645619769
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "configs_restored": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "present_csv_sha256": "239b9abe3340f42962830f44ac1e66ee7a91eb4a193fe8e0a520714280194ab0"
+  },
+  "b": {
+    "cadence": {
+      "measurement": "X11 displayed Flip cadence, UST completion intervals",
+      "flips": 1595,
+      "intervals": 1594,
+      "window_seconds": 15.0,
+      "avg_fps": 106.32435826346043,
+      "one_percent_low_fps": 55.65120606598146,
+      "p99_ms": 16.667,
+      "max_ms": 20.834,
+      "refresh_hz": 239.99999999999997,
+      "msc_intervals": {
+        "1": 73,
+        "2": 1068,
+        "3": 428,
+        "4": 20,
+        "5": 5
+      }
+    },
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12177,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "resume_marker_observation_ns": [
+        4566386743072,
+        4566392601887
+      ],
+      "window_mono_ns": [
+        4567392601887,
+        4582392601887
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "configs_restored": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "present_csv_sha256": "15a51135c956bdf5df5ea0a99534126482c719e42eb043cee77d894c4456445b"
+  },
+  "a2": {
+    "cadence": {
+      "measurement": "X11 displayed Flip cadence, UST completion intervals",
+      "flips": 1625,
+      "intervals": 1624,
+      "window_seconds": 15.0,
+      "avg_fps": 108.38558733308854,
+      "one_percent_low_fps": 66.8817373514832,
+      "p99_ms": 12.501,
+      "max_ms": 20.833,
+      "refresh_hz": 239.99999999999997,
+      "msc_intervals": {
+        "1": 92,
+        "2": 1102,
+        "3": 421,
+        "4": 8,
+        "5": 1
+      }
+    },
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12177,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "resume_marker_observation_ns": [
+        4655432742135,
+        4655438778591
+      ],
+      "window_mono_ns": [
+        4656438778591,
+        4671438778591
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "configs_restored": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "present_csv_sha256": "0696f63eeb23af2dedf670251254248b3506dbc87bcb72366f5c29f2c820bcc6"
+  }
+}
+
+B MINUS MEAN STOCK CONTROLS
+{
+  "avg_fps": -1.8644939242722103,
+  "one_percent_low_fps": -8.236078708392192,
+  "p99_ms": 4.165000000000003
+}
+
+VULKAN CORRECTNESS CASES
+{
+  "small": "PASS",
+  "direct": "PASS",
+  "descriptors": "PASS",
+  "indirect": "PASS",
+  "secondary": "PASS"
+}
+
+B LIBRARY SHA-256
+651a69459f111f03c8757aaeb67e09709545c5707777f83fd50acb35300253c3
+
+B RELEASE SOURCE DIFF
+--- a/src/amd/vulkan/radv_cmd_buffer.c
++++ b/src/amd/vulkan/radv_cmd_buffer.c
+@@ -1195,6 +1195,207 @@
+    vk_free(&cmd_buffer->vk.pool->alloc, cmd_buffer);
+ }
+ 
++/* GFX1013 only: track ordinary fragment user-data writes in the primary IB. */
++enum {
++   RADV_PS_USER_DATA_COUNT = 32,
++   RADV_PS_USER_DATA_BASE = (R_00B030_SPI_SHADER_USER_DATA_PS_0 - SI_SH_REG_OFFSET) / 4,
++};
++
++struct radv_ps_sgpr_shadow {
++   const uint32_t *chunk;
++   unsigned cursor;
++   unsigned conditional_end;
++   uint32_t valid;
++   bool disabled;
++   uint32_t values[RADV_PS_USER_DATA_COUNT];
++};
++
++struct radv_ps_sgpr_cmd_buffer {
++   struct radv_cmd_buffer base;
++   struct radv_ps_sgpr_shadow shadow;
++};
++
++static bool
++radv_ps_sgpr_supported(const struct radv_physical_device *pdev,
++                      enum radv_queue_family queue, VkCommandBufferLevel level)
++{
++   return pdev->info.family == CHIP_GFX1013 && pdev->info.gfx_level == GFX10 &&
++          queue == RADV_QUEUE_GENERAL && level == VK_COMMAND_BUFFER_LEVEL_PRIMARY;
++}
++
++static struct radv_ps_sgpr_shadow *
++radv_ps_sgpr_shadow(const struct radv_physical_device *pdev, struct radv_cmd_buffer *cmd_buffer)
++{
++   if (!radv_ps_sgpr_supported(pdev, cmd_buffer->qf, cmd_buffer->vk.level))
++      return NULL;
++   return &((struct radv_ps_sgpr_cmd_buffer *)cmd_buffer)->shadow;
++}
++
++static void
++radv_ps_sgpr_disable(struct radv_cmd_buffer *cmd_buffer)
++{
++   const struct radv_physical_device *pdev = radv_device_physical(radv_cmd_buffer_device(cmd_buffer));
++   struct radv_ps_sgpr_shadow *shadow = radv_ps_sgpr_shadow(pdev, cmd_buffer);
++   if (shadow)
++      shadow->disabled = true;
++}
++
++static void
++radv_ps_sgpr_note_write(struct radv_ps_sgpr_shadow *shadow, unsigned first,
++                        unsigned count, const uint32_t *values)
++{
++   const unsigned begin = MAX2(first, RADV_PS_USER_DATA_BASE);
++   const unsigned end = MIN2(first + count, RADV_PS_USER_DATA_BASE + RADV_PS_USER_DATA_COUNT);
++   for (unsigned reg = begin; reg < end; reg++) {
++      unsigned index = reg - RADV_PS_USER_DATA_BASE;
++      if (values) {
++         shadow->values[index] = values[reg - first];
++         shadow->valid |= 1u << index;
++      } else {
++         shadow->valid &= ~(1u << index);
++      }
++   }
++}
++
++/* Return false at unsupported state changes or control flow. Do not try to
++ * recover a register model later in the command buffer after such a packet.
++ */
++static bool
++radv_ps_sgpr_read_packet(struct radv_ps_sgpr_shadow *shadow, const struct ac_cmdbuf *b,
++                         unsigned pos, unsigned size)
++{
++   const uint32_t *p = b->buf + pos;
++   switch (PKT3_IT_OPCODE_G(p[0])) {
++   case PKT3_SET_SH_REG:
++      if (size < 3 || p[1] >= SI_SH_REG_SPACE_SIZE / 4 || size - 2 > SI_SH_REG_SPACE_SIZE / 4 - p[1])
++         return false;
++      radv_ps_sgpr_note_write(shadow, p[1], size - 2,
++                            !(p[0] & 0xff) && pos >= shadow->conditional_end ? p + 2 : NULL);
++      return true;
++   case PKT3_SET_SH_REG_INDEX: {
++      unsigned reg = p[1] & 0x0fffffff;
++      if (size != 3 || (p[1] >> 28) != 3 || reg >= SI_SH_REG_SPACE_SIZE / 4)
++         return false;
++      radv_ps_sgpr_note_write(shadow, reg, 1, NULL);
++      return true;
++   }
++   case PKT3_COND_EXEC:
++      if (size != 5 || p[4] > b->max_dw - pos - size)
++         return false;
++      shadow->conditional_end = MAX2(shadow->conditional_end, pos + size + p[4]);
++      return true;
++   case PKT3_DRAW_INDIRECT:
++   case PKT3_DRAW_INDEX_INDIRECT:
++   case PKT3_DRAW_INDIRECT_MULTI:
++   case PKT3_DRAW_INDEX_INDIRECT_MULTI: {
++      const unsigned opcode = PKT3_IT_OPCODE_G(p[0]);
++      const bool multi = opcode == PKT3_DRAW_INDIRECT_MULTI || opcode == PKT3_DRAW_INDEX_INDIRECT_MULTI;
++      if (size != (multi ? 10 : 5) || p[2] >= SI_SH_REG_SPACE_SIZE / 4 || p[3] >= SI_SH_REG_SPACE_SIZE / 4)
++         return false;
++      radv_ps_sgpr_note_write(shadow, p[2], 1, NULL);
++      radv_ps_sgpr_note_write(shadow, p[3], 1, NULL);
++      if (multi && (p[4] & S_2C3_DRAW_INDEX_ENABLE(1))) {
++         unsigned reg = p[4] & 0xffff;
++         if (reg >= SI_SH_REG_SPACE_SIZE / 4)
++            return false;
++         radv_ps_sgpr_note_write(shadow, reg, 1, NULL);
++      }
++      return true;
++   }
++   case PKT3_SET_CONFIG_REG:
++      return size >= 3 && p[1] < (SI_CONFIG_REG_END - SI_CONFIG_REG_OFFSET) / 4 &&
++             size - 2 <= (SI_CONFIG_REG_END - SI_CONFIG_REG_OFFSET) / 4 - p[1];
++   case PKT3_SET_UCONFIG_REG:
++   case PKT3_SET_UCONFIG_REG_INDEX: {
++      const unsigned first = p[1] & 0xffff;
++      const unsigned grbm_index = (R_030800_GRBM_GFX_INDEX - CIK_UCONFIG_REG_OFFSET) / 4;
++      return size >= 3 && first < SI_UCONFIG_REG_SPACE_SIZE / 4 &&
++             size - 2 <= SI_UCONFIG_REG_SPACE_SIZE / 4 - first &&
++             (first > grbm_index || size - 2 <= grbm_index - first);
++   }
++   case PKT3_LOAD_CONTEXT_REG_INDEX:
++      return size == 5 && p[3] < SI_CONTEXT_REG_SPACE_SIZE / 4 && p[4] &&
++             p[4] <= SI_CONTEXT_REG_SPACE_SIZE / 4 - p[3];
++   case PKT3_SET_BASE:
++      return size == 4 && p[1] == 1;
++   case PKT3_DMA_DATA: {
++      if (size != 7)
++         return false;
++      unsigned dst = G_501_DST_SEL(p[1]);
++      return (dst == V_501_DST_ADDR && G_415_DAS(p[6]) == V_415_MEMORY) ||
++             dst == V_411_DST_ADDR_TC_L2 || dst == V_411_NOWHERE;
++   }
++   case PKT3_COPY_DATA: {
++      if (size != 6)
++         return false;
++      unsigned dst = (p[1] >> 8) & 0xf;
++      return dst == COPY_DATA_DST_MEM_GRBM || dst == COPY_DATA_TC_L2 || dst == COPY_DATA_DST_MEM;
++   }
++   case PKT3_WRITE_DATA: {
++      if (size < 5)
++         return false;
++      unsigned dst = G_370_DST_SEL(p[1]);
++      return dst == V_370_MEM_GRBM || dst == V_370_TC_L2 || dst == V_370_MEM;
++   }
++   case PKT3_NOP:
++   case PKT3_SET_CONTEXT_REG:
++   case PKT3_CONTEXT_REG_RMW:
++   case PKT3_DRAW_INDEX_2:
++   case PKT3_DRAW_INDEX_AUTO:
++   case PKT3_INDEX_BASE:
++   case PKT3_INDEX_BUFFER_SIZE:
++   case PKT3_NUM_INSTANCES:
++   case PKT3_EVENT_WRITE:
++   case PKT3_RELEASE_MEM:
++   case PKT3_ACQUIRE_MEM:
++   case PKT3_WAIT_REG_MEM:
++   case PKT3_PFP_SYNC_ME:
++   case PKT3_SET_PREDICATION:
++   case PKT3_PRIME_UTCL2:
++      return true;
++   default:
++      return false;
++   }
++}
++
++static bool
++radv_ps_sgpr_redundant(struct radv_ps_sgpr_shadow *shadow, const struct ac_cmdbuf *b,
++                      unsigned first, unsigned count, const uint32_t *values)
++{
++   if (shadow->disabled)
++      return false;
++   if (b->buf != shadow->chunk || b->cdw < shadow->cursor) {
++      shadow->chunk = b->buf;
++      shadow->cursor = 0;
++      shadow->conditional_end = 0;
++      shadow->valid = 0;
++   }
++   while (shadow->cursor < b->cdw) {
++      unsigned pos = shadow->cursor;
++      uint32_t header = b->buf[pos];
++      if (header == PKT2_NOP_PAD || header == PKT3_NOP_PAD) {
++         shadow->cursor++;
++         continue;
++      }
++      unsigned size = PKT_COUNT_G(header) + 2;
++      if (PKT_TYPE_G(header) != 3 || size > b->cdw - pos ||
++          !radv_ps_sgpr_read_packet(shadow, b, pos, size)) {
++         shadow->disabled = true;
++         return false;
++      }
++      shadow->cursor += size;
++   }
++   if (b->cdw < shadow->conditional_end)
++      return false;
++
++   unsigned index = first - RADV_PS_USER_DATA_BASE;
++   for (unsigned i = 0; i < count; i++) {
++      if (!(shadow->valid & (1u << (index + i))) || shadow->values[index + i] != values[i])
++         return false;
++   }
++   return true;
++}
++
+ static VkResult
+ radv_create_cmd_buffer(struct vk_command_pool *pool, VkCommandBufferLevel level,
+                        struct vk_command_buffer **cmd_buffer_out)
+@@ -1203,7 +1404,10 @@
+    const struct radv_physical_device *pdev = radv_device_physical(device);
+    struct radv_cmd_buffer *cmd_buffer;
+ 
+-   cmd_buffer = vk_zalloc(&pool->alloc, sizeof(*cmd_buffer), 8, VK_SYSTEM_ALLOCATION_SCOPE_OBJECT);
++   enum radv_queue_family queue = vk_queue_to_radv(pdev, pool->queue_family_index);
++   size_t size = radv_ps_sgpr_supported(pdev, queue, level)
++      ? sizeof(struct radv_ps_sgpr_cmd_buffer) : sizeof(*cmd_buffer);
++   cmd_buffer = vk_zalloc(&pool->alloc, size, 8, VK_SYSTEM_ALLOCATION_SCOPE_OBJECT);
+    if (cmd_buffer == NULL)
+       return vk_error(device, VK_ERROR_OUT_OF_HOST_MEMORY);
+ 
+@@ -1213,7 +1417,7 @@
+       return result;
+    }
+ 
+-   cmd_buffer->qf = vk_queue_to_radv(pdev, pool->queue_family_index);
++   cmd_buffer->qf = queue;
+ 
+    if (cmd_buffer->qf != RADV_QUEUE_SPARSE) {
+       const enum amd_ip_type ip = radv_queue_family_to_ring(pdev, cmd_buffer->qf);
+@@ -1839,7 +2043,8 @@
+ 
+ static void
+ radv_emit_descriptors_per_stage(const struct radv_device *device, struct radv_cmd_stream *cs,
+-                                const struct radv_shader *shader, const struct radv_descriptor_state *descriptors_state)
++                                const struct radv_shader *shader, const struct radv_descriptor_state *descriptors_state,
++                                struct radv_ps_sgpr_shadow *shadow)
+ {
+    const struct radv_physical_device *pdev = radv_device_physical(device);
+    const uint32_t indirect_descriptors_offset = radv_get_user_sgpr_loc(shader, AC_UD_INDIRECT_DESCRIPTORS);
+@@ -1868,6 +2073,16 @@
+ 
+          const struct radv_userdata_info *loc = &locs->descriptor_sets[start];
+          const unsigned sh_offset = sh_base + loc->sgpr_idx * 4;
++         const unsigned first = (sh_offset - SI_SH_REG_OFFSET) / 4;
++         if (shadow && !shadow->disabled && first >= RADV_PS_USER_DATA_BASE &&
++             first < RADV_PS_USER_DATA_BASE + RADV_PS_USER_DATA_COUNT &&
++             count <= RADV_PS_USER_DATA_BASE + RADV_PS_USER_DATA_COUNT - first) {
++            uint32_t values[RADV_PS_USER_DATA_COUNT];
++            for (int i = 0; i < count; i++)
++               values[i] = radv_descriptor_get_va(descriptors_state, start + i);
++            if (radv_ps_sgpr_redundant(shadow, cs->b, first, count, values))
++               continue;
++         }
+ 
+          radeon_begin(cs);
+          if (pdev->info.gfx_level >= GFX12) {
+@@ -6353,18 +6568,21 @@
+                                                     ? cmd_buffer->state.shaders[MESA_SHADER_COMPUTE]
+                                                     : cmd_buffer->state.rt_prolog;
+ 
+-      radv_emit_descriptors_per_stage(device, cs, compute_shader, descriptors_state);
++      radv_emit_descriptors_per_stage(device, cs, compute_shader, descriptors_state, NULL);
+    } else {
+       radv_foreach_stage (stage, stages & ~VK_SHADER_STAGE_TASK_BIT_EXT) {
+          if (!cmd_buffer->state.shaders[stage])
+             continue;
+ 
+-         radv_emit_descriptors_per_stage(device, cs, cmd_buffer->state.shaders[stage], descriptors_state);
++         struct radv_ps_sgpr_shadow *shadow = NULL;
++         if (stage == MESA_SHADER_FRAGMENT && !radv_device_fault_detection_enabled(device))
++            shadow = radv_ps_sgpr_shadow(radv_device_physical(device), cmd_buffer);
++         radv_emit_descriptors_per_stage(device, cs, cmd_buffer->state.shaders[stage], descriptors_state, shadow);
+       }
+ 
+       if (stages & VK_SHADER_STAGE_TASK_BIT_EXT) {
+          radv_emit_descriptors_per_stage(device, cmd_buffer->gang.cs, cmd_buffer->state.shaders[MESA_SHADER_TASK],
+-                                         descriptors_state);
++                                         descriptors_state, NULL);
+       }
+    }
+ 
+@@ -7620,6 +7838,9 @@
+    VkResult result = VK_SUCCESS;
+ 
+    vk_command_buffer_begin(&cmd_buffer->vk, pBeginInfo);
++   struct radv_ps_sgpr_shadow *shadow = radv_ps_sgpr_shadow(pdev, cmd_buffer);
++   if (shadow)
++      *shadow = (struct radv_ps_sgpr_shadow){0};
+ 
+    if (cmd_buffer->qf == RADV_QUEUE_SPARSE)
+       return result;
+@@ -9667,6 +9888,7 @@
+    const bool is_gfx_or_ace = primary->qf == RADV_QUEUE_GENERAL || primary->qf == RADV_QUEUE_COMPUTE;
+ 
+    assert(commandBufferCount > 0);
++   radv_ps_sgpr_disable(primary);
+ 
+    if (is_gfx_or_ace) {
+       radv_emit_mip_change_flush_default(primary);
+@@ -13356,6 +13578,7 @@
+ 
+    /* Secondary command buffers are banned. */
+    assert(cmd_buffer->vk.level == VK_COMMAND_BUFFER_LEVEL_PRIMARY);
++   radv_ps_sgpr_disable(cmd_buffer);
+ 
+    if (use_predication) {
+       const uint64_t va = pGeneratedCommandsInfo->sequenceCountAddress;
