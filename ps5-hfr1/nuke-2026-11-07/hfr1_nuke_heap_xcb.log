@@ -1,0 +1,233 @@
+HFR1, Nuke 1x from 02:38, same first-person POV, 1080p240, CPU 0–15, MP1 inactive.
+Four independent offline CS2 launches: split, unified, split, unified. System RADV 26.0.8 immediate. Same warm-up before re-seek to tick 10048.
+An intermediate unified replay was excluded before capture because the second seek marker was absent.
+Verified radv_enable_unified_heap_on_apu per process. Each request in the common interval matched one successful Flip by window and serial.
+XCB rate/1% low represent request cadence. fdinfo snapshots represent DRM accountancy.
+{
+  "common_window_resume_s": [
+    1.6,
+    16
+  ],
+  "results": {
+    "a1-split": {
+      "xcb": {
+        "intervals": 1520,
+        "avg_rate": 105.59394832723281,
+        "low_1_percent": 68.59876547347311,
+        "p95_ms": 12.154391999956715,
+        "p99_ms": 13.41822799986403,
+        "max_ms": 20.150226000168914
+      },
+      "present_ust": {
+        "intervals": 1520,
+        "avg_rate": 105.58705569383737,
+        "low_1_percent": 66.20433969431564,
+        "p95_ms": 12.500000000272848,
+        "p99_ms": 12.500000000272848,
+        "max_ms": 20.833999999922526
+      },
+      "fdinfo_before_after": [
+        {
+          "103": {
+            "drm-resident-cpu": "0",
+            "drm-resident-gtt": "3623532 KiB",
+            "drm-resident-vram": "368160 KiB",
+            "drm-resident-gds": "0",
+            "drm-resident-gws": "0",
+            "drm-resident-oa": "0",
+            "drm-resident-doorbell": "0",
+            "drm-resident-mmioremap": "0",
+            "drm-memory-vram": "368160 KiB",
+            "drm-memory-gtt": "3623532 KiB",
+            "drm-memory-cpu": "0 KiB",
+            "amd-evicted-vram": "0 KiB",
+            "drm-engine-gfx": "5553750693 ns"
+          }
+        },
+        {
+          "103": {
+            "drm-resident-cpu": "0",
+            "drm-resident-gtt": "3705900 KiB",
+            "drm-resident-vram": "371108 KiB",
+            "drm-resident-gds": "0",
+            "drm-resident-gws": "0",
+            "drm-resident-oa": "0",
+            "drm-resident-doorbell": "0",
+            "drm-resident-mmioremap": "0",
+            "drm-memory-vram": "371108 KiB",
+            "drm-memory-gtt": "3705900 KiB",
+            "drm-memory-cpu": "0 KiB",
+            "amd-evicted-vram": "0 KiB",
+            "drm-engine-gfx": "9345531825 ns"
+          }
+        }
+      ],
+      "unpause_server_tick": 12177
+    },
+    "b1-unified": {
+      "xcb": {
+        "intervals": 1573,
+        "avg_rate": 109.3150760633246,
+        "low_1_percent": 72.03313394491555,
+        "p95_ms": 11.763653999878443,
+        "p99_ms": 12.964875999841752,
+        "max_ms": 19.122663999951328
+      },
+      "present_ust": {
+        "intervals": 1573,
+        "avg_rate": 109.29991493645399,
+        "low_1_percent": 75.2898659830504,
+        "p95_ms": 12.500000000272848,
+        "p99_ms": 12.500000000272848,
+        "max_ms": 20.833999999922526
+      },
+      "fdinfo_before_after": [
+        {
+          "106": {
+            "drm-resident-cpu": "0",
+            "drm-resident-gtt": "3687888 KiB",
+            "drm-resident-vram": "372256 KiB",
+            "drm-resident-gds": "0",
+            "drm-resident-gws": "0",
+            "drm-resident-oa": "0",
+            "drm-resident-doorbell": "0",
+            "drm-resident-mmioremap": "0",
+            "drm-memory-vram": "372256 KiB",
+            "drm-memory-gtt": "3687888 KiB",
+            "drm-memory-cpu": "0 KiB",
+            "amd-evicted-vram": "0 KiB",
+            "drm-engine-gfx": "6057906566 ns"
+          }
+        },
+        {
+          "106": {
+            "drm-resident-cpu": "0",
+            "drm-resident-gtt": "3765728 KiB",
+            "drm-resident-vram": "376824 KiB",
+            "drm-resident-gds": "0",
+            "drm-resident-gws": "0",
+            "drm-resident-oa": "0",
+            "drm-resident-doorbell": "0",
+            "drm-resident-mmioremap": "0",
+            "drm-memory-vram": "376824 KiB",
+            "drm-memory-gtt": "3765728 KiB",
+            "drm-memory-cpu": "0 KiB",
+            "amd-evicted-vram": "0 KiB",
+            "drm-engine-gfx": "10070462258 ns"
+          }
+        }
+      ],
+      "unpause_server_tick": 12177
+    },
+    "a2-split": {
+      "xcb": {
+        "intervals": 1538,
+        "avg_rate": 106.88578685518901,
+        "low_1_percent": 70.90275470075117,
+        "p95_ms": 12.029861999963032,
+        "p99_ms": 13.332060999800888,
+        "max_ms": 17.471379999733472
+      },
+      "present_ust": {
+        "intervals": 1538,
+        "avg_rate": 106.86757585634992,
+        "low_1_percent": 72.44605033214428,
+        "p95_ms": 12.500000000272848,
+        "p99_ms": 12.500000000272848,
+        "max_ms": 20.833999999922526
+      },
+      "fdinfo_before_after": [
+        {
+          "109": {
+            "drm-resident-cpu": "0",
+            "drm-resident-gtt": "3637976 KiB",
+            "drm-resident-vram": "397460 KiB",
+            "drm-resident-gds": "0",
+            "drm-resident-gws": "0",
+            "drm-resident-oa": "0",
+            "drm-resident-doorbell": "0",
+            "drm-resident-mmioremap": "0",
+            "drm-memory-vram": "397460 KiB",
+            "drm-memory-gtt": "3637976 KiB",
+            "drm-memory-cpu": "0 KiB",
+            "amd-evicted-vram": "0 KiB",
+            "drm-engine-gfx": "5860391769 ns"
+          }
+        },
+        {
+          "109": {
+            "drm-resident-cpu": "0",
+            "drm-resident-gtt": "3730360 KiB",
+            "drm-resident-vram": "402224 KiB",
+            "drm-resident-gds": "0",
+            "drm-resident-gws": "0",
+            "drm-resident-oa": "0",
+            "drm-resident-doorbell": "0",
+            "drm-resident-mmioremap": "0",
+            "drm-memory-vram": "402224 KiB",
+            "drm-memory-gtt": "3730360 KiB",
+            "drm-memory-cpu": "0 KiB",
+            "amd-evicted-vram": "0 KiB",
+            "drm-engine-gfx": "9742397035 ns"
+          }
+        }
+      ],
+      "unpause_server_tick": 12178
+    },
+    "b2-unified": {
+      "xcb": {
+        "intervals": 1546,
+        "avg_rate": 107.41202815696026,
+        "low_1_percent": 70.58687462859733,
+        "p95_ms": 11.98661499984155,
+        "p99_ms": 13.329399999747693,
+        "max_ms": 17.69522499989762
+      },
+      "present_ust": {
+        "intervals": 1546,
+        "avg_rate": 107.39150141446422,
+        "low_1_percent": 71.10447469326708,
+        "p95_ms": 12.500000000272848,
+        "p99_ms": 12.501000000156637,
+        "max_ms": 16.66700000032506
+      },
+      "fdinfo_before_after": [
+        {
+          "115": {
+            "drm-resident-cpu": "0",
+            "drm-resident-gtt": "3595764 KiB",
+            "drm-resident-vram": "397816 KiB",
+            "drm-resident-gds": "0",
+            "drm-resident-gws": "0",
+            "drm-resident-oa": "0",
+            "drm-resident-doorbell": "0",
+            "drm-resident-mmioremap": "0",
+            "drm-memory-vram": "397816 KiB",
+            "drm-memory-gtt": "3595764 KiB",
+            "drm-memory-cpu": "0 KiB",
+            "amd-evicted-vram": "0 KiB",
+            "drm-engine-gfx": "5914922326 ns"
+          }
+        },
+        {
+          "115": {
+            "drm-resident-cpu": "0",
+            "drm-resident-gtt": "3687988 KiB",
+            "drm-resident-vram": "399488 KiB",
+            "drm-resident-gds": "0",
+            "drm-resident-gws": "0",
+            "drm-resident-oa": "0",
+            "drm-resident-doorbell": "0",
+            "drm-resident-mmioremap": "0",
+            "drm-memory-vram": "399488 KiB",
+            "drm-memory-gtt": "3687988 KiB",
+            "drm-memory-cpu": "0 KiB",
+            "amd-evicted-vram": "0 KiB",
+            "drm-engine-gfx": "9873155794 ns"
+          }
+        }
+      ],
+      "unpause_server_tick": 12178
+    }
+  }
+}
