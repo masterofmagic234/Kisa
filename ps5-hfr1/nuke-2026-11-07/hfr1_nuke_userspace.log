@@ -1,0 +1,90 @@
+HFR1 Nuke 1x, demo 02:38, offline -insecure, system RADV immediate, MP1 boost inactive.
+Fullscreen X11, DP-1 1920x1080 at 240Hz, DP-2 disconnected, KWin compositing false before and after.
+VSync 0 in stored video config. Stored fps_max 493, console readback unavailable.
+Monotonic capture seconds: [4614.022981652, 4630.023102921] main/render/WSI TIDs: 31668 31727 [31852, 31853]
+CPU6 trace buffer overrun: 97524 records. Fully retained analysis window (mono us): 4617668995 4630023103
+Measured busy MHz per 1s APERF/MPERF/TSC sample: {'CPU6': [3190.72, 3190.92, 3190.58, 3190.64, 3191.11, 3190.76, 3190.44, 3190.53, 3190.52, 3190.56, 3190.63, 3190.5, 3190.65, 3190.22, 3190.15, 3190.3], 'CPU14': [3191.87, 3191.31, 3191.3, 3191.08, 3191.62, 3191.45, 3191.59, 3191.48, 3191.29, 3191.16, 3191.03, 3191.43, 3191.95, 3191.36, 3191.7, 3191.62]}
+Render futex calls at least 2ms, stack paired by uaddr/op/value and mono timestamp: {'engine_semaphore': 1121, 'other': 5}
+Longest render futex from a RADV/XCB/xshmfence stack: 21 us
+Longest render syscall (nr, ioctl) -> (us, mono_us, ret): [((202, ''), (23129, 4618213917, '= 0')), ((16, 'c0206440'), (1311, 4629666988, '= 0')), ((16, 'c0406448'), (406, 4617940287, '= 0')), ((16, 'c0186444'), (260, 4626751662, '= 0')), ((0, ''), (146, 4627927836, '= 4096')), ((9, ''), (78, 4623699315, '= 123435948089344')), ((11, ''), (59, 4628958014, '= 0')), ((16, '40086409'), (52, 4626551693, '= 0')), ((16, 'c01864c1'), (37, 4627586840, '= 0')), ((16, 'c03064ca'), (29, 4622630191, '= 0')), ((28, ''), (29, 4629148645, '= 0')), ((16, 'c01064c4'), (21, 4623073255, '= 0'))]
+Present intervals are temporal correlations, without a unique frame-to-fence link.
+
+PEAK 1 [4618214119, 4618247453] duration_us 33334
+previous GFX done, next CS ioctl, delta_us: 4618215569 4618246146 30577
+main states us: {'S': 6844, 'CPU': 26410, 'R+': 80} render states us: {'S': 29450, 'CPU': 3884}
+render wait futex 23129 us 4618213917 4618237046 return 0 wake (mono us, task, tid): [[4618237030, 'GlobPool/1', 31680]]
+VKRenderThread   31727 [006]  4618.213918395: syscalls:sys_enter_futex: uaddr: 0x5b1ef29162c, op: 0x00000189, val: 0x0000b025, utime: 0x7043c18d1d00, uaddr2: 0x00000000, val3: 0xffffffff
+	    7043eb0ac802 __syscall_cancel_arch+0x0 (inlined)
+	    7043eb0a030b __internal_syscall_cancel+0x5b (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb0a06e6 __futex_abstimed_wait_common64+0x46 (inlined)
+	    7043eb0a06e6 __futex_abstimed_wait_common+0x46 (inlined)
+	    7043eb0a06e6 __GI___futex_abstimed_wait_cancelable64+0x46 (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb0a3381 __pthread_cond_wait_common+0x1d1 (inlined)
+	    7043eb0a3381 ___pthread_cond_timedwait64+0x1d1 (inlined)
+	    7043eac5107d CThreadSemaphore::WaitImpl(unsigned int)+0xbd (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/libtier0.so)
+	    7043c34b6084 [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/librendersystemvulkan.so)
+	    7043c35767c8 [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/librendersystemvulkan.so)
+	    7043eac5698a [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/libtier0.so)
+	    7043eb0a3df9 start_thread+0x2f9 (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb1375cb __GI___clone3+0x2b (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+render wait futex 3348 us 4618237485 4618240833 return 0 wake (mono us, task, tid): [[4618240819, 'GlobPool/1', 31680]]
+VKRenderThread   31727 [006]  4618.237485830: syscalls:sys_enter_futex: uaddr: 0x5b1ef29162c, op: 0x00000189, val: 0x0000b027, utime: 0x7043c18d1d00, uaddr2: 0x00000000, val3: 0xffffffff
+	    7043eb0ac802 __syscall_cancel_arch+0x0 (inlined)
+	    7043eb0a030b __internal_syscall_cancel+0x5b (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb0a06e6 __futex_abstimed_wait_common64+0x46 (inlined)
+	    7043eb0a06e6 __futex_abstimed_wait_common+0x46 (inlined)
+	    7043eb0a06e6 __GI___futex_abstimed_wait_cancelable64+0x46 (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb0a3381 __pthread_cond_wait_common+0x1d1 (inlined)
+	    7043eb0a3381 ___pthread_cond_timedwait64+0x1d1 (inlined)
+	    7043eac5107d CThreadSemaphore::WaitImpl(unsigned int)+0xbd (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/libtier0.so)
+	    7043c34b6084 [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/librendersystemvulkan.so)
+	    7043c35767c8 [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/librendersystemvulkan.so)
+	    7043eac5698a [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/libtier0.so)
+	    7043eb0a3df9 start_thread+0x2f9 (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb1375cb __GI___clone3+0x2b (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+render wait futex 1394 us 4618240874 4618242268 return 0 wake (mono us, task, tid): [[4618242260, 'GlobPool/4', 31683]]
+
+PEAK 2 [4624780888, 4624801722] duration_us 20834
+previous GFX done, next CS ioctl, delta_us: 4624783136 4624801655 18519
+main states us: {'CPU': 18391, 'S': 2443} render states us: {'CPU': 4134, 'S': 16700}
+render wait futex 4732 us 4624781914 4624786646 return 0 wake (mono us, task, tid): [[4624786626, 'GlobPool/7', 31686]]
+render wait futex 8545 us 4624787363 4624795908 return 0 wake (mono us, task, tid): [[4624795890, 'GlobPool/4', 31683]]
+VKRenderThread   31727 [006]  4624.787364051: syscalls:sys_enter_futex: uaddr: 0x5b1ef29162c, op: 0x00000189, val: 0x0000c7cb, utime: 0x7043c18d1d00, uaddr2: 0x00000000, val3: 0xffffffff
+	    7043eb0ac802 __syscall_cancel_arch+0x0 (inlined)
+	    7043eb0a030b __internal_syscall_cancel+0x5b (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb0a06e6 __futex_abstimed_wait_common64+0x46 (inlined)
+	    7043eb0a06e6 __futex_abstimed_wait_common+0x46 (inlined)
+	    7043eb0a06e6 __GI___futex_abstimed_wait_cancelable64+0x46 (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb0a3381 __pthread_cond_wait_common+0x1d1 (inlined)
+	    7043eb0a3381 ___pthread_cond_timedwait64+0x1d1 (inlined)
+	    7043eac5107d CThreadSemaphore::WaitImpl(unsigned int)+0xbd (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/libtier0.so)
+	    7043c34b6084 [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/librendersystemvulkan.so)
+	    7043c35767c8 [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/librendersystemvulkan.so)
+	    7043eac5698a [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/libtier0.so)
+	    7043eb0a3df9 start_thread+0x2f9 (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb1375cb __GI___clone3+0x2b (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+render wait futex 923 us 4624796323 4624797246 return 0 wake (mono us, task, tid): [[4624797238, 'GlobPool/4', 31683]]
+render wait futex 1453 us 4624797491 4624798944 return 0 wake (mono us, task, tid): [[4624798250, 'cs2', 31668]]
+
+PEAK 3 [4617914114, 4617930781] duration_us 16667
+previous GFX done, next CS ioctl, delta_us: 4617917272 4617929897 12625
+main states us: {'CPU': 14435, 'S': 2184, 'D': 48} render states us: {'CPU': 3451, 'S': 13216}
+render wait futex 6633 us 4617915803 4617922436 return 0 wake (mono us, task, tid): [[4617922416, 'GlobPool/4', 31683]]
+render wait futex 2812 us 4617922941 4617925753 return 0 wake (mono us, task, tid): [[4617925606, 'GlobPool/6', 31685]]
+VKRenderThread   31727 [006]  4617.922942512: syscalls:sys_enter_futex: uaddr: 0x5b1ef29162c, op: 0x00000189, val: 0x0000af35, utime: 0x7043c18d1d00, uaddr2: 0x00000000, val3: 0xffffffff
+	    7043eb0ac802 __syscall_cancel_arch+0x0 (inlined)
+	    7043eb0a030b __internal_syscall_cancel+0x5b (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb0a06e6 __futex_abstimed_wait_common64+0x46 (inlined)
+	    7043eb0a06e6 __futex_abstimed_wait_common+0x46 (inlined)
+	    7043eb0a06e6 __GI___futex_abstimed_wait_cancelable64+0x46 (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb0a3381 __pthread_cond_wait_common+0x1d1 (inlined)
+	    7043eb0a3381 ___pthread_cond_timedwait64+0x1d1 (inlined)
+	    7043eac5107d CThreadSemaphore::WaitImpl(unsigned int)+0xbd (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/libtier0.so)
+	    7043c34b6084 [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/librendersystemvulkan.so)
+	    7043c35767c8 [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/librendersystemvulkan.so)
+	    7043eac5698a [unknown] (/home/user/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/libtier0.so)
+	    7043eb0a3df9 start_thread+0x2f9 (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7043eb1375cb __GI___clone3+0x2b (/run/host/usr/lib/x86_64-linux-gnu/libc.so.6)
+render wait futex 1257 us 4617925768 4617927025 return 0 wake (mono us, task, tid): [[4617927013, 'GlobPool/0', 31679]]
+
+Source files: hfr1_userspace_trace.log, userspace-stacks.perf.data, present.csv, cpu-msr.csv.
