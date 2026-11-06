@@ -1,0 +1,34 @@
+HFR1 / system Mesa Vulkan memory audit. No game launched.
+Kernel: 7.2.3-ps5-hfr1
+device_id=0x13fb ids_flags=0x11 AMDGPU_IDS_FLAGS_FUSION=1
+mem_info_vram_total=536870912
+mem_info_vis_vram_total=536870912
+mem_info_gtt_total=7571873792
+
+=== vulkaninfo.txt ===
+	deviceType        = PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU
+	driverInfo                                           = Mesa 26.0.8-1ubuntu0.3
+memoryHeaps: count = 2
+	memoryHeaps[0]:
+		size   = 2702913536 (0xa11b3000) (2.52 GiB)
+		budget = 2335260672 (0x8b314000) (2.17 GiB)
+		usage  = 0 (0x00000000) (0.00 B)
+		flags:
+			None
+	memoryHeaps[1]:
+		size   = 5405831168 (0x142367000) (5.03 GiB)
+		budget = 4670517248 (0x116627000) (4.35 GiB)
+		usage  = 0 (0x00000000) (0.00 B)
+		flags: count = 1
+			MEMORY_HEAP_DEVICE_LOCAL_BIT
+
+=== vulkaninfo-unified.txt ===
+	deviceType        = PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU
+	driverInfo                                           = Mesa 26.0.8-1ubuntu0.3
+memoryHeaps: count = 1
+	memoryHeaps[0]:
+		size   = 8108744704 (0x1e351a000) (7.55 GiB)
+		budget = 6990811136 (0x1a0af5000) (6.51 GiB)
+		usage  = 0 (0x00000000) (0.00 B)
+		flags: count = 1
+			MEMORY_HEAP_DEVICE_LOCAL_BIT
