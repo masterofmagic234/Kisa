@@ -1,0 +1,843 @@
+[
+  {
+    "present_ust_us": [
+      886593792,
+      886610459
+    ],
+    "queue_gap_us": 15822,
+    "Q_before": [
+      886592693,
+      "22490:6264",
+      886592664
+    ],
+    "Q_after": [
+      886608515,
+      "22490:6265",
+      886608347
+    ],
+    "D_before_us": 886594810,
+    "no_pending_GFX_before_next_Q_us": 13705,
+    "no_pending_GFX_before_next_ioctl_us": 13537,
+    "ioctl_to_Q_us": 168,
+    "main": {
+      "CPU": 10008,
+      "S": 6659
+    },
+    "main_waits": [
+      {
+        "sleep_us": 5061,
+        "wake_to_run_us": 3489,
+        "waker": "GlobPool/3",
+        "previous_task": "node_repl"
+      },
+      {
+        "sleep_us": 908,
+        "wake_to_run_us": 15,
+        "waker": "GlobPool/5",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 130,
+        "wake_to_run_us": 5,
+        "waker": "VKRenderThread",
+        "previous_task": "node_repl"
+      },
+      {
+        "sleep_us": 96,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/2",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 84,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/4",
+        "previous_task": "<idle>"
+      }
+    ],
+    "render": {
+      "S": 12874,
+      "CPU": 3793
+    },
+    "render_waits": [
+      {
+        "sleep_us": 3678,
+        "wake_to_run_us": 8,
+        "waker": "cs2",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 3452,
+        "wake_to_run_us": 293,
+        "waker": "GlobPool/1",
+        "previous_task": "bwrap"
+      },
+      {
+        "sleep_us": 2161,
+        "wake_to_run_us": 11,
+        "waker": "GlobPool/3",
+        "previous_task": "node_repl"
+      },
+      {
+        "sleep_us": 1566,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/8",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 322,
+        "wake_to_run_us": 253,
+        "waker": "GlobPool/3",
+        "previous_task": "migration/6"
+      }
+    ]
+  },
+  {
+    "present_ust_us": [
+      886618792,
+      886635459
+    ],
+    "queue_gap_us": 16138,
+    "Q_before": [
+      886618913,
+      "22490:6268",
+      886618876
+    ],
+    "Q_after": [
+      886635051,
+      "22490:6269",
+      886634910
+    ],
+    "D_before_us": 886621048,
+    "no_pending_GFX_before_next_Q_us": 14003,
+    "no_pending_GFX_before_next_ioctl_us": 13862,
+    "ioctl_to_Q_us": 141,
+    "main": {
+      "CPU": 9966,
+      "S": 6682,
+      "R": 19
+    },
+    "main_waits": [
+      {
+        "sleep_us": 4627,
+        "wake_to_run_us": 3462,
+        "waker": "GlobPool/3",
+        "previous_task": "tokio-rt-worker"
+      },
+      {
+        "sleep_us": 1353,
+        "wake_to_run_us": 795,
+        "waker": "GlobPool/1",
+        "previous_task": "tokio-rt-worker"
+      },
+      {
+        "sleep_us": 276,
+        "wake_to_run_us": 9,
+        "waker": "VKRenderThread",
+        "previous_task": "tokio-rt-worker"
+      },
+      {
+        "sleep_us": 130,
+        "wake_to_run_us": 7,
+        "waker": "GlobPool/3",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 97,
+        "wake_to_run_us": 9,
+        "waker": "GlobPool/6",
+        "previous_task": "<idle>"
+      }
+    ],
+    "render": {
+      "CPU": 3747,
+      "S": 12920
+    },
+    "render_waits": [
+      {
+        "sleep_us": 3679,
+        "wake_to_run_us": 6,
+        "waker": "cs2",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 3097,
+        "wake_to_run_us": 8,
+        "waker": "GlobPool/6",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 2349,
+        "wake_to_run_us": 10,
+        "waker": "GlobPool/6",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 2054,
+        "wake_to_run_us": 10,
+        "waker": "GlobPool/3",
+        "previous_task": "node_repl"
+      },
+      {
+        "sleep_us": 414,
+        "wake_to_run_us": 7,
+        "waker": "GlobPool/6",
+        "previous_task": "<idle>"
+      }
+    ]
+  },
+  {
+    "present_ust_us": [
+      886660460,
+      886677127
+    ],
+    "queue_gap_us": 14736,
+    "Q_before": [
+      886662158,
+      "22490:6274",
+      886662129
+    ],
+    "Q_after": [
+      886676894,
+      "22490:6275",
+      886676728
+    ],
+    "D_before_us": 886664347,
+    "no_pending_GFX_before_next_Q_us": 12547,
+    "no_pending_GFX_before_next_ioctl_us": 12381,
+    "ioctl_to_Q_us": 166,
+    "main": {
+      "CPU": 12372,
+      "S": 4295
+    },
+    "main_waits": [
+      {
+        "sleep_us": 3696,
+        "wake_to_run_us": 11,
+        "waker": "GlobPool/3",
+        "previous_task": "codex-main"
+      },
+      {
+        "sleep_us": 258,
+        "wake_to_run_us": 176,
+        "waker": "VKRenderThread ",
+        "previous_task": "codex-main"
+      },
+      {
+        "sleep_us": 116,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/6",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 68,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 46,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/0",
+        "previous_task": "<idle>"
+      }
+    ],
+    "render": {
+      "CPU": 5925,
+      "S": 10742
+    },
+    "render_waits": [
+      {
+        "sleep_us": 3968,
+        "wake_to_run_us": 8,
+        "waker": "GlobPool/1",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 2975,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/3",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 2247,
+        "wake_to_run_us": 12,
+        "waker": "GlobPool/0",
+        "previous_task": "<...>"
+      },
+      {
+        "sleep_us": 628,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/1",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 326,
+        "wake_to_run_us": 4,
+        "waker": "cs2",
+        "previous_task": "<idle>"
+      }
+    ]
+  },
+  {
+    "present_ust_us": [
+      886677127,
+      886693794
+    ],
+    "queue_gap_us": 18304,
+    "Q_before": [
+      886677036,
+      "22490:6276",
+      886677001
+    ],
+    "Q_after": [
+      886695340,
+      "22490:6277",
+      886695153
+    ],
+    "D_before_us": 886679167,
+    "no_pending_GFX_before_next_Q_us": 16173,
+    "no_pending_GFX_before_next_ioctl_us": 15986,
+    "ioctl_to_Q_us": 187,
+    "main": {
+      "CPU": 11169,
+      "S": 5498
+    },
+    "main_waits": [
+      {
+        "sleep_us": 4833,
+        "wake_to_run_us": 111,
+        "waker": "GlobPool/0",
+        "previous_task": "kworker/u69:8"
+      },
+      {
+        "sleep_us": 371,
+        "wake_to_run_us": 336,
+        "waker": "GlobPool/1",
+        "previous_task": "tokio-rt-worker"
+      },
+      {
+        "sleep_us": 93,
+        "wake_to_run_us": 6,
+        "waker": "VKRenderThread ",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 61,
+        "wake_to_run_us": 7,
+        "waker": "GlobPool/4",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 38,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/5",
+        "previous_task": "<idle>"
+      }
+    ],
+    "render": {
+      "CPU": 2915,
+      "S": 13752
+    },
+    "render_waits": [
+      {
+        "sleep_us": 5566,
+        "wake_to_run_us": 14,
+        "waker": "GlobPool/3",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 4851,
+        "wake_to_run_us": 9,
+        "waker": "GlobPool/1",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 1648,
+        "wake_to_run_us": 14,
+        "waker": "GlobPool/0",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 594,
+        "wake_to_run_us": 9,
+        "waker": "cs2",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 564,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/1",
+        "previous_task": "<idle>"
+      }
+    ]
+  },
+  {
+    "present_ust_us": [
+      886693794,
+      886710461
+    ],
+    "queue_gap_us": 18304,
+    "Q_before": [
+      886677036,
+      "22490:6276",
+      886677001
+    ],
+    "Q_after": [
+      886695340,
+      "22490:6277",
+      886695153
+    ],
+    "D_before_us": 886679167,
+    "no_pending_GFX_before_next_Q_us": 16173,
+    "no_pending_GFX_before_next_ioctl_us": 15986,
+    "ioctl_to_Q_us": 187,
+    "main": {
+      "S": 1440,
+      "CPU": 15118,
+      "R": 75,
+      "R+": 34
+    },
+    "main_waits": [
+      {
+        "sleep_us": 853,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/8",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 325,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/5",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 33,
+        "wake_to_run_us": 3,
+        "waker": "GlobPool/1",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 30,
+        "wake_to_run_us": 27,
+        "waker": "GlobPool/0",
+        "previous_task": "tokio-rt-worker"
+      },
+      {
+        "sleep_us": 30,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/8",
+        "previous_task": "<idle>"
+      }
+    ],
+    "render": {
+      "CPU": 6533,
+      "S": 10134
+    },
+    "render_waits": [
+      {
+        "sleep_us": 4793,
+        "wake_to_run_us": 10,
+        "waker": "GlobPool/2",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 2871,
+        "wake_to_run_us": 503,
+        "waker": "GlobPool/8",
+        "previous_task": "codex-main"
+      },
+      {
+        "sleep_us": 1557,
+        "wake_to_run_us": 13,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 693,
+        "wake_to_run_us": 112,
+        "waker": "GlobPool/2",
+        "previous_task": "kwin_x11"
+      },
+      {
+        "sleep_us": 138,
+        "wake_to_run_us": 5,
+        "waker": "cs2",
+        "previous_task": "<idle>"
+      }
+    ]
+  },
+  {
+    "present_ust_us": [
+      886735462,
+      886752129
+    ],
+    "queue_gap_us": 15124,
+    "Q_before": [
+      886734764,
+      "22490:6284",
+      886734737
+    ],
+    "Q_after": [
+      886749888,
+      "22490:6285",
+      886749690
+    ],
+    "D_before_us": 886737016,
+    "no_pending_GFX_before_next_Q_us": 12872,
+    "no_pending_GFX_before_next_ioctl_us": 12674,
+    "ioctl_to_Q_us": 198,
+    "main": {
+      "CPU": 11732,
+      "S": 4935
+    },
+    "main_waits": [
+      {
+        "sleep_us": 1746,
+        "wake_to_run_us": 675,
+        "waker": "GlobPool/2",
+        "previous_task": "tr"
+      },
+      {
+        "sleep_us": 1098,
+        "wake_to_run_us": 9,
+        "waker": "GlobPool/7",
+        "previous_task": "tr"
+      },
+      {
+        "sleep_us": 534,
+        "wake_to_run_us": 523,
+        "waker": "GlobPool/5",
+        "previous_task": "V8Worker"
+      },
+      {
+        "sleep_us": 254,
+        "wake_to_run_us": 13,
+        "waker": "GlobPool/8",
+        "previous_task": "tr"
+      },
+      {
+        "sleep_us": 133,
+        "wake_to_run_us": 8,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      }
+    ],
+    "render": {
+      "S": 13507,
+      "CPU": 3120,
+      "R": 40
+    },
+    "render_waits": [
+      {
+        "sleep_us": 5502,
+        "wake_to_run_us": 13,
+        "waker": "GlobPool/3",
+        "previous_task": "cut"
+      },
+      {
+        "sleep_us": 2171,
+        "wake_to_run_us": 7,
+        "waker": "GlobPool/4",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 1772,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 1047,
+        "wake_to_run_us": 532,
+        "waker": "GlobPool/3",
+        "previous_task": "cut"
+      },
+      {
+        "sleep_us": 360,
+        "wake_to_run_us": 7,
+        "waker": "GlobPool/2",
+        "previous_task": "<idle>"
+      }
+    ]
+  },
+  {
+    "present_ust_us": [
+      886922966,
+      886939633
+    ],
+    "queue_gap_us": 15037,
+    "Q_before": [
+      886922261,
+      "22490:6320",
+      886922234
+    ],
+    "Q_after": [
+      886937298,
+      "22490:6321",
+      886937107
+    ],
+    "D_before_us": 886924386,
+    "no_pending_GFX_before_next_Q_us": 12912,
+    "no_pending_GFX_before_next_ioctl_us": 12721,
+    "ioctl_to_Q_us": 191,
+    "main": {
+      "CPU": 10972,
+      "S": 5695
+    },
+    "main_waits": [
+      {
+        "sleep_us": 2407,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/6",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 88,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 53,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/8",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 41,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/8",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 40,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/0",
+        "previous_task": "<idle>"
+      }
+    ],
+    "render": {
+      "S": 13977,
+      "CPU": 2690
+    },
+    "render_waits": [
+      {
+        "sleep_us": 8329,
+        "wake_to_run_us": 1912,
+        "waker": "GlobPool/7",
+        "previous_task": "V8Worker"
+      },
+      {
+        "sleep_us": 1629,
+        "wake_to_run_us": 7,
+        "waker": "GlobPool/6",
+        "previous_task": "V8Worker"
+      },
+      {
+        "sleep_us": 1530,
+        "wake_to_run_us": 9,
+        "waker": "GlobPool/7",
+        "previous_task": "kworker/u64:2"
+      },
+      {
+        "sleep_us": 980,
+        "wake_to_run_us": 10,
+        "waker": "GlobPool/6",
+        "previous_task": "V8Worker"
+      },
+      {
+        "sleep_us": 374,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/5",
+        "previous_task": "V8Worker"
+      }
+    ]
+  },
+  {
+    "present_ust_us": [
+      888593838,
+      888610505
+    ],
+    "queue_gap_us": 13643,
+    "Q_before": [
+      888595567,
+      "22490:6678",
+      888595540
+    ],
+    "Q_after": [
+      888609210,
+      "22490:6679",
+      888609026
+    ],
+    "D_before_us": 888597614,
+    "no_pending_GFX_before_next_Q_us": 11596,
+    "no_pending_GFX_before_next_ioctl_us": 11412,
+    "ioctl_to_Q_us": 184,
+    "main": {
+      "CPU": 13827,
+      "S": 2840
+    },
+    "main_waits": [
+      {
+        "sleep_us": 551,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/6",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 382,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/1",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 232,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/8",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 167,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 148,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/2",
+        "previous_task": "<idle>"
+      }
+    ],
+    "render": {
+      "CPU": 4575,
+      "S": 12092
+    },
+    "render_waits": [
+      {
+        "sleep_us": 3929,
+        "wake_to_run_us": 9,
+        "waker": "GlobPool/3",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 3780,
+        "wake_to_run_us": 6,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 1506,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/1",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 317,
+        "wake_to_run_us": 4,
+        "waker": "Panorama Image ",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 301,
+        "wake_to_run_us": 3,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      }
+    ]
+  },
+  {
+    "present_ust_us": [
+      891718911,
+      891735578
+    ],
+    "queue_gap_us": 15908,
+    "Q_before": [
+      891720240,
+      "22490:7428",
+      891720216
+    ],
+    "Q_after": [
+      891736148,
+      "22490:7429",
+      891735967
+    ],
+    "D_before_us": 891722240,
+    "no_pending_GFX_before_next_Q_us": 13908,
+    "no_pending_GFX_before_next_ioctl_us": 13727,
+    "ioctl_to_Q_us": 181,
+    "main": {
+      "CPU": 13410,
+      "S": 3257
+    },
+    "main_waits": [
+      {
+        "sleep_us": 761,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/2",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 657,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/5",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 255,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/8",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 148,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/3",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 137,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/4",
+        "previous_task": "<idle>"
+      }
+    ],
+    "render": {
+      "CPU": 3011,
+      "S": 13656
+    },
+    "render_waits": [
+      {
+        "sleep_us": 5906,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/3",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 3136,
+        "wake_to_run_us": 5,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 1410,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/5",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 900,
+        "wake_to_run_us": 5,
+        "waker": "cs2",
+        "previous_task": "<idle>"
+      },
+      {
+        "sleep_us": 475,
+        "wake_to_run_us": 4,
+        "waker": "GlobPool/7",
+        "previous_task": "<idle>"
+      }
+    ]
+  }
+]
