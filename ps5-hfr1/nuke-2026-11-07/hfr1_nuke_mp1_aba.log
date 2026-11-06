@@ -1,0 +1,226 @@
+HFR1, Nuke, demo seek 10048, 02:38–02:53 at 1×. Offline -insecure, one CS2 PID. Camera Xolod_Astr.
+X11 Flip at 240 Hz. 15 s Present windows, APERF/MPERF/TSC via perf stat only. All runs VSync off, saved cap 493.
+A1/B/A2. Exactly one MP1 acceptance and one explicit release. Hardware journal passed for the entire sequence.
+The resume marker differed by one server tick. Both raw-window and one-tick alignment sensitivity are included.
+{
+  "a1-stock": {
+    "unpause_server_tick": 12178,
+    "present": {
+      "avg_fps": 134.3103762672164,
+      "one_percent_low": 79.99756197906349,
+      "max_ms": 12.501,
+      "frames": 2013,
+      "msc": {
+        "2": 1496,
+        "1": 473,
+        "3": 44
+      }
+    },
+    "present_tick_aligned": {
+      "avg_fps": 134.3103762672164,
+      "one_percent_low": 79.99756197906349,
+      "max_ms": 12.501,
+      "frames": 2013,
+      "msc": {
+        "2": 1496,
+        "1": 473,
+        "3": 44
+      }
+    },
+    "cpu_mhz": {
+      "CPU14": {
+        "median": 3191.5507990748947,
+        "min": 3191.113273724214,
+        "max": 3191.9190970601762,
+        "samples": [
+          3191.9190970601762,
+          3191.849234035306,
+          3191.6781807598572,
+          3191.5009674813145,
+          3191.171448281949,
+          3191.113273724214,
+          3191.304473966056,
+          3191.5056629642763,
+          3191.6085752757926,
+          3191.595935185513,
+          3191.630295535904,
+          3191.759625945858,
+          3191.4297364798826,
+          3191.485565809702
+        ]
+      },
+      "CPU6": {
+        "median": 3190.6136433919974,
+        "min": 3190.3200795149614,
+        "max": 3191.057542690293,
+        "samples": [
+          3190.6368338862862,
+          3191.057542690293,
+          3190.5624463263666,
+          3190.908030917501,
+          3190.7008632257334,
+          3190.7464157301197,
+          3190.590452897709,
+          3190.560377921793,
+          3190.9343037891176,
+          3190.3200795149614,
+          3190.3219068651797,
+          3190.4458367158654,
+          3190.496513574137,
+          3190.7200349618793
+        ]
+      }
+    }
+  },
+  "b-mp1": {
+    "unpause_server_tick": 12177,
+    "present": {
+      "avg_fps": 135.5694309538153,
+      "one_percent_low": 79.99817147036639,
+      "max_ms": 12.501,
+      "frames": 2033,
+      "msc": {
+        "2": 1482,
+        "1": 509,
+        "3": 42
+      }
+    },
+    "present_tick_aligned": {
+      "avg_fps": 135.60710359769047,
+      "one_percent_low": 79.99817147036639,
+      "max_ms": 12.501,
+      "frames": 2033,
+      "msc": {
+        "2": 1481,
+        "1": 510,
+        "3": 42
+      }
+    },
+    "cpu_mhz": {
+      "CPU14": {
+        "median": 3490.381427148368,
+        "min": 3489.7727327271036,
+        "max": 3490.662951580775,
+        "samples": [
+          3490.2588127141166,
+          3490.4398182927143,
+          3490.082107673538,
+          3490.3701948755374,
+          3490.2193631954315,
+          3490.3205239040567,
+          3490.6241220217003,
+          3490.662951580775,
+          3490.589302872626,
+          3490.392659421199,
+          3490.6208503415264,
+          3490.47246355599,
+          3490.3365005541605,
+          3489.7727327271036
+        ]
+      },
+      "CPU6": {
+        "median": 3488.6648342830063,
+        "min": 3486.7503078858836,
+        "max": 3488.8639184589506,
+        "samples": [
+          3486.7503078858836,
+          3487.8256059173787,
+          3488.6641657409364,
+          3488.7904072332653,
+          3488.6087244548557,
+          3488.665502825076,
+          3488.352367336966,
+          3488.7886627210523,
+          3488.8427785230247,
+          3488.7578568786544,
+          3488.8639184589506,
+          3488.7620766357263,
+          3488.6045117345734,
+          3488.237103861218
+        ]
+      }
+    }
+  },
+  "a2-stock": {
+    "unpause_server_tick": 12177,
+    "present": {
+      "avg_fps": 128.13637285349898,
+      "one_percent_low": 79.99296061946549,
+      "max_ms": 12.504,
+      "frames": 1921,
+      "msc": {
+        "2": 1447,
+        "3": 115,
+        "1": 359
+      }
+    },
+    "present_tick_aligned": {
+      "avg_fps": 128.13637285349898,
+      "one_percent_low": 79.99296061946549,
+      "max_ms": 12.504,
+      "frames": 1921,
+      "msc": {
+        "3": 115,
+        "1": 359,
+        "2": 1447
+      }
+    },
+    "cpu_mhz": {
+      "CPU14": {
+        "median": 3191.9070146843555,
+        "min": 3191.434112102593,
+        "max": 3192.2197216472127,
+        "samples": [
+          3192.0481600087764,
+          3192.0975980988733,
+          3191.958704894999,
+          3191.6275550018163,
+          3191.434112102593,
+          3191.601338061676,
+          3191.5626193040057,
+          3191.7121594882815,
+          3192.1844354116633,
+          3192.006748582028,
+          3191.8553244737122,
+          3192.2197216472127,
+          3191.981965940367,
+          3191.812359720223
+        ]
+      },
+      "CPU6": {
+        "median": 3190.863425287468,
+        "min": 3190.5477844480615,
+        "max": 3191.3029463335533,
+        "samples": [
+          3191.030429891357,
+          3191.0886807841434,
+          3190.9969560804952,
+          3190.7046023008957,
+          3190.5876814800017,
+          3190.6174171244043,
+          3190.5477844480615,
+          3190.8267831825547,
+          3190.900067392381,
+          3190.7322063058728,
+          3190.8104385032284,
+          3190.90756529935,
+          3190.9851526040093,
+          3191.3029463335533
+        ]
+      }
+    }
+  }
+}
+MP1 journal (monotonic time):
+[  439.387180] host systemd[1]: Starting ps5-hfr1-play-guard.service - [systemd-run] /usr/bin/python3 /run/ps5-hfr1-play/guard.py...
+[  439.510959] host systemd[1]: Starting ps5-hfr-boost.service - PS5 HFR tested boost...
+[  439.597656] host python3[11714]: PS5 boost request accepted; automatic fan control retained.
+[  439.615941] host systemd[1]: Finished ps5-hfr-boost.service - PS5 HFR tested boost.
+[  439.621049] host systemd[1]: Started ps5-hfr1-play-guard.service - [systemd-run] /usr/bin/python3 /run/ps5-hfr1-play/guard.py.
+[  457.898569] host systemd[1]: Stopping ps5-hfr1-play-guard.service - [systemd-run] /usr/bin/python3 /run/ps5-hfr1-play/guard.py...
+[  458.664446] host systemd[1]: ps5-hfr-boost.service: Deactivated successfully.
+[  458.664708] host systemd[1]: Stopped ps5-hfr-boost.service - PS5 HFR tested boost.
+[  458.670482] host python3[11710]: HFR1 MP1 boost released
+[  458.752635] host systemd[1]: ps5-hfr1-play-guard.service: Deactivated successfully.
+[  458.753019] host systemd[1]: Stopped ps5-hfr1-play-guard.service - [systemd-run] /usr/bin/python3 /run/ps5-hfr1-play/guard.py.
+
