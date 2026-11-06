@@ -1,0 +1,683 @@
+PS5 HFR1 / CS2 Nuke / RADV graphics descriptor SGPR diagnostic
+2026-11-07, offline demo at 1x, first-person slot 9, demo seek tick 10048 (~02:38).
+HFR1 7.2.3-ps5-hfr1, Radeon GFX1013, 1920x1080 at 240 Hz, stock MP1,
+CPUs 0-15, private Mesa 26.0.8 A2-O2-noalias build, split APU heap, immediate WSI.
+The private observation-only ICD was selected exclusively in the -insecure CS2 process.
+Shader caches were private. Game and Steam config restoration was verified byte-for-byte.
+
+Inclusion: GFX graphics command buffers begun and ended during [resume+1s,resume+16s).
+The resume timestamp is anchored to the fresh game log marker and includes its logging delay.
+Counters describe CPU command recording in PM4 IBs. They do not measure GPU bus traffic,
+submitted/replayed buffer multiplicity, push constants, or dynamic/vertex descriptors.
+A complete packet match requires all destination SH register dwords to match values known
+from preceding PM4 in the same IB. Known interfering writes and unknown state invalidate
+history. The result is a lower bound under the observer's PM4 model, not proof that a
+production driver can discard every counted packet safely.
+A bind-associated packet follows at least one graphics BindPipeline since the previous
+observed descriptor flush of that command buffer. The category is temporal, not causal.
+Raw matches ignore intervening non-descriptor writes and are reported separately.
+
+V1 established the replay window with X11 Flip, but treated a conditional PM4 packet as
+opaque for the rest of the command buffer, so its shadow coverage was too low. Intermediate
+attempts that did not establish a complete timed window were excluded. The refined run
+has the fixed replay tick/POV and full duration, but X11 reported Copy throughout the
+scored window. This invalidated the Flip requirement for a comparable display benchmark.
+It remains a descriptor-recording diagnostic. No clean FPS/P99 A/B/A or optimization
+patch was run, and the counter build never removed an emitted command.
+No new MCE or amdgpu fault/timeout/reset was found in the kernel log during the final run.
+
+RESUME AND WINDOW
+{
+  "offline": true,
+  "seek_tick": 10048,
+  "server_resume_tick": 12178,
+  "xray": 0,
+  "resume_mono": 3936.902052175,
+  "resume_marker_observation_ns": [
+    3936896013572,
+    3936902052175
+  ],
+  "resume_marker": "CGameRules - unpaused on tick 12178, pause duration was 1 ticks",
+  "stable_window_mono": [
+    3937.902052175,
+    3952.902052175
+  ],
+  "window_mono_ns": [
+    3937902052175,
+    3952902052175
+  ],
+  "anchor_method": "first read observing the resume marker; includes game console logging delay"
+}
+
+X11 PRESENT MODES (0=Copy, 1=Flip)
+{"0": 1025}
+
+KNOWN-ANSWER VULKAN CHECKS
+{
+  "descriptors": [
+    "REQUESTED_GRAPHICS_STATE_CASE_PASS; no general conformance/stability/FPS claim"
+  ],
+  "secondary": [
+    "REQUESTED_GRAPHICS_STATE_CASE_PASS; no general conformance/stability/FPS claim"
+  ]
+}
+
+V3 OBSERVED COUNTERS
+{
+  "scope": "GFX10 graphics descriptor SET_SH_REG packets recorded in the window; diagnostic ICD",
+  "window_monotonic_ns": [
+    3937902052175,
+    3952902052175
+  ],
+  "duration_seconds": 15.0,
+  "out_of_window_command_buffers": 19676,
+  "boundary_overlap_command_buffers": 3,
+  "all": {
+    "command_buffers": 5693,
+    "binds": 793164,
+    "same_binds": 19110,
+    "flushes": 1029998,
+    "emit_flushes": 912034,
+    "packets": 2003135,
+    "known_packets": 1868781,
+    "same_packets": 468106,
+    "words": 2198398,
+    "same_words": 653888,
+    "same_dwords": 1585780,
+    "bind_packets": 1350177,
+    "bind_same_packets": 468106,
+    "indirect_packets": 0,
+    "indirect_same_packets": 0,
+    "clears": 131414,
+    "chunks": 6292,
+    "decode_errors": 0,
+    "raw_matches": 488621,
+    "raw_bind_matches": 488621,
+    "conditional_packets": 0,
+    "packet_bytes": 24818672,
+    "byte_identical_packet_bytes": 6343120,
+    "known_packet_pct": 93.29281351481552,
+    "identical_packet_pct_lower_bound": 23.36866961038572,
+    "identical_after_bind_pct_lower_bound": 34.66997289984943,
+    "same_as_last_descriptor_packet_pct": 24.392814263641743
+  },
+  "primary": {
+    "command_buffers": 5693,
+    "binds": 793164,
+    "same_binds": 19110,
+    "flushes": 1029998,
+    "emit_flushes": 912034,
+    "packets": 2003135,
+    "known_packets": 1868781,
+    "same_packets": 468106,
+    "words": 2198398,
+    "same_words": 653888,
+    "same_dwords": 1585780,
+    "bind_packets": 1350177,
+    "bind_same_packets": 468106,
+    "indirect_packets": 0,
+    "indirect_same_packets": 0,
+    "clears": 131414,
+    "chunks": 6292,
+    "decode_errors": 0,
+    "raw_matches": 488621,
+    "raw_bind_matches": 488621,
+    "conditional_packets": 0,
+    "packet_bytes": 24818672,
+    "byte_identical_packet_bytes": 6343120,
+    "known_packet_pct": 93.29281351481552,
+    "identical_packet_pct_lower_bound": 23.36866961038572,
+    "identical_after_bind_pct_lower_bound": 34.66997289984943,
+    "same_as_last_descriptor_packet_pct": 24.392814263641743
+  },
+  "secondary": {
+    "command_buffers": 0,
+    "binds": 0,
+    "same_binds": 0,
+    "flushes": 0,
+    "emit_flushes": 0,
+    "packets": 0,
+    "known_packets": 0,
+    "same_packets": 0,
+    "words": 0,
+    "same_words": 0,
+    "same_dwords": 0,
+    "bind_packets": 0,
+    "bind_same_packets": 0,
+    "indirect_packets": 0,
+    "indirect_same_packets": 0,
+    "clears": 0,
+    "chunks": 0,
+    "decode_errors": 0,
+    "raw_matches": 0,
+    "raw_bind_matches": 0,
+    "conditional_packets": 0,
+    "packet_bytes": 0,
+    "byte_identical_packet_bytes": 0,
+    "known_packet_pct": null,
+    "identical_packet_pct_lower_bound": null,
+    "identical_after_bind_pct_lower_bound": null
+  }
+}
+
+V1 OBSERVED COUNTERS FOR COVERAGE COMPARISON
+{
+  "scope": "GFX10 graphics descriptor SET_SH_REG packets recorded in the window; diagnostic ICD",
+  "window_monotonic_ns": [
+    3331039452069,
+    3346039452069
+  ],
+  "duration_seconds": 15.0,
+  "out_of_window_command_buffers": 24759,
+  "boundary_overlap_command_buffers": 4,
+  "all": {
+    "command_buffers": 6489,
+    "binds": 997017,
+    "same_binds": 21761,
+    "flushes": 1287564,
+    "emit_flushes": 1139148,
+    "packets": 2510739,
+    "known_packets": 7211,
+    "same_packets": 0,
+    "words": 2758677,
+    "same_words": 0,
+    "same_dwords": 0,
+    "bind_packets": 1704938,
+    "bind_same_packets": 0,
+    "indirect_packets": 0,
+    "indirect_same_packets": 0,
+    "clears": 15339855,
+    "chunks": 7079,
+    "decode_errors": 0,
+    "raw_matches": 0,
+    "raw_bind_matches": 0,
+    "conditional_packets": 0,
+    "packet_bytes": 31120620,
+    "byte_identical_packet_bytes": 0,
+    "known_packet_pct": 0.2872062767177313,
+    "identical_packet_pct_lower_bound": 0.0,
+    "identical_after_bind_pct_lower_bound": 0.0
+  },
+  "primary": {
+    "command_buffers": 6489,
+    "binds": 997017,
+    "same_binds": 21761,
+    "flushes": 1287564,
+    "emit_flushes": 1139148,
+    "packets": 2510739,
+    "known_packets": 7211,
+    "same_packets": 0,
+    "words": 2758677,
+    "same_words": 0,
+    "same_dwords": 0,
+    "bind_packets": 1704938,
+    "bind_same_packets": 0,
+    "indirect_packets": 0,
+    "indirect_same_packets": 0,
+    "clears": 15339855,
+    "chunks": 7079,
+    "decode_errors": 0,
+    "raw_matches": 0,
+    "raw_bind_matches": 0,
+    "conditional_packets": 0,
+    "packet_bytes": 31120620,
+    "byte_identical_packet_bytes": 0,
+    "known_packet_pct": 0.2872062767177313,
+    "identical_packet_pct_lower_bound": 0.0,
+    "identical_after_bind_pct_lower_bound": 0.0
+  },
+  "secondary": {
+    "command_buffers": 0,
+    "binds": 0,
+    "same_binds": 0,
+    "flushes": 0,
+    "emit_flushes": 0,
+    "packets": 0,
+    "known_packets": 0,
+    "same_packets": 0,
+    "words": 0,
+    "same_words": 0,
+    "same_dwords": 0,
+    "bind_packets": 0,
+    "bind_same_packets": 0,
+    "indirect_packets": 0,
+    "indirect_same_packets": 0,
+    "clears": 0,
+    "chunks": 0,
+    "decode_errors": 0,
+    "raw_matches": 0,
+    "raw_bind_matches": 0,
+    "conditional_packets": 0,
+    "packet_bytes": 0,
+    "byte_identical_packet_bytes": 0,
+    "known_packet_pct": null,
+    "identical_packet_pct_lower_bound": null,
+    "identical_after_bind_pct_lower_bound": null
+  }
+}
+
+V3 FULL LOCAL SGPR LOG SHA-256
+3c9ce17fde0c6b575c939bb404001d619c9ae18666b29de47b84eee8096ada89
+
+V3 PRIVATE ICD SHA-256
+499f2b7232f67357270a9efa04c00be96edb05e1b6f903cc290ea3591f9deec6
+
+V3 OBSERVER SOURCE DIFF
+--- a/src/amd/vulkan/radv_cmd_buffer.c
++++ b/src/amd/vulkan/radv_cmd_buffer.c
+@@ -7,6 +7,10 @@
+  *
+  * SPDX-License-Identifier: MIT
+  */
++
++#include <fcntl.h>
++#include <time.h>
++#include <unistd.h>
+ 
+ #include "radv_cmd_buffer.h"
+ #include "meta/radv_meta.h"
+@@ -1837,14 +1841,305 @@
+    return va;
+ }
+ 
++/* GFX10 diagnostic only. The observer never modifies the command stream. */
++struct sgpr_observation {
++   const struct radv_cmd_buffer *owner;
++   const uint32_t *chunk;
++   unsigned cursor;
++   unsigned conditional_end;
++   bool opaque_flow;
++   bool bind_since_flush;
++   uint64_t started;
++   uint64_t binds, same_binds, flushes, emit_flushes;
++   uint64_t packets, known_packets, same_packets, words, same_words, same_dwords;
++   uint64_t bind_packets, bind_same_packets, indirect_packets, indirect_same_packets;
++   uint64_t clears, chunks, decode_errors;
++   uint64_t raw_matches, raw_bind_matches, conditional_packets;
++   uint32_t values[SI_SH_REG_SPACE_SIZE / 4];
++   uint32_t descriptor_values[SI_SH_REG_SPACE_SIZE / 4];
++   BITSET_DECLARE(known, SI_SH_REG_SPACE_SIZE / 4);
++   BITSET_DECLARE(descriptor_known, SI_SH_REG_SPACE_SIZE / 4);
++};
++
++static _Thread_local struct sgpr_observation sgpr_observations[8];
++
++static uint64_t
++sgpr_mono_ns(void)
++{
++   struct timespec ts;
++   clock_gettime(CLOCK_MONOTONIC, &ts);
++   return (uint64_t)ts.tv_sec * 1000000000 + ts.tv_nsec;
++}
++
++static struct sgpr_observation *
++sgpr_find_observation(const struct radv_cmd_buffer *cmd_buffer)
++{
++   for (unsigned i = 0; i < ARRAY_SIZE(sgpr_observations); i++)
++      if (sgpr_observations[i].owner == cmd_buffer)
++         return &sgpr_observations[i];
++   return NULL;
++}
++
++static void
++sgpr_begin_observation(const struct radv_cmd_buffer *cmd_buffer)
++{
++   if (!getenv("RADV_PS5_SGPR_LOG"))
++      return;
++   struct sgpr_observation *observation = sgpr_find_observation(cmd_buffer);
++   if (!observation)
++      observation = sgpr_find_observation(NULL);
++   if (!observation)
++      return;
++   memset(observation, 0, sizeof(*observation));
++   observation->owner = cmd_buffer;
++   observation->started = sgpr_mono_ns();
++}
++
++static void
++sgpr_end_observation(const struct radv_cmd_buffer *cmd_buffer)
++{
++   struct sgpr_observation *o = sgpr_find_observation(cmd_buffer);
++   if (!o)
++      return;
++   o->owner = NULL;
++   if (!o->binds && !o->flushes)
++      return;
++
++   const char *path = getenv("RADV_PS5_SGPR_LOG");
++   int fd = path ? open(path, O_WRONLY | O_APPEND | O_CLOEXEC | O_NOFOLLOW) : -1;
++   if (fd < 0)
++      return;
++   const uint64_t fields[] = {
++      sgpr_mono_ns(), o->started, cmd_buffer->vk.level, o->binds, o->same_binds,
++      o->flushes, o->emit_flushes, o->packets, o->known_packets, o->same_packets, o->words,
++      o->same_words, o->same_dwords, o->bind_packets, o->bind_same_packets,
++      o->indirect_packets, o->indirect_same_packets, o->clears, o->chunks, o->decode_errors,
++      o->raw_matches, o->raw_bind_matches, o->conditional_packets,
++   };
++   char line[512];
++   size_t n = strlen("sgpr-v3");
++   memcpy(line, "sgpr-v3", n);
++   for (unsigned i = 0; i < ARRAY_SIZE(fields); i++)
++      n += snprintf(line + n, sizeof(line) - n, " %" PRIu64, fields[i]);
++   line[n++] = '\n';
++   ssize_t written = write(fd, line, n);
++   (void)written;
++   close(fd);
++}
++
++static void
++sgpr_forget(struct sgpr_observation *o)
++{
++   BITSET_ZERO(o->known);
++   o->clears++;
++}
++
++static void
++sgpr_apply_packet(struct sgpr_observation *o, const uint32_t *packet,
++                  unsigned start, unsigned size, bool descriptor, bool indirect)
++{
++   unsigned opcode = PKT3_IT_OPCODE_G(packet[0]);
++   if (opcode == PKT3_COND_EXEC) {
++      if (size == 5 && packet[4] <= UINT_MAX - start - size) {
++         o->conditional_end = MAX2(o->conditional_end, start + size + packet[4]);
++         return;
++      }
++      o->opaque_flow = true;
++   } else if (opcode == PKT3_PRED_EXEC) {
++      o->opaque_flow = true;
++   }
++
++   switch (opcode) {
++   case PKT3_SET_SH_REG:
++      if (!(packet[0] & 0xfe) &&
++          size >= 3 && packet[1] < ARRAY_SIZE(o->values) && size - 2 <= ARRAY_SIZE(o->values) - packet[1]) {
++         bool conditional = o->opaque_flow || start < o->conditional_end || PKT3_PREDICATE(packet[0]);
++         if (descriptor) {
++            unsigned raw_same = 0;
++            for (unsigned i = 2; i < size; i++) {
++               unsigned reg = packet[1] + i - 2;
++               raw_same += BITSET_TEST(o->descriptor_known, reg) && o->descriptor_values[reg] == packet[i];
++               o->descriptor_values[reg] = packet[i];
++               BITSET_SET(o->descriptor_known, reg);
++            }
++            bool raw_match = raw_same == size - 2;
++            o->raw_matches += raw_match;
++            o->raw_bind_matches += raw_match && o->bind_since_flush;
++            o->conditional_packets += conditional;
++         }
++         if (conditional) {
++            for (unsigned i = 2; i < size; i++)
++               BITSET_CLEAR(o->known, packet[1] + i - 2);
++            return;
++         }
++         unsigned known = 0, same = 0;
++         for (unsigned i = 2; i < size; i++) {
++            unsigned reg = packet[1] + i - 2;
++            bool valid = BITSET_TEST(o->known, reg);
++            known += valid;
++            same += valid && o->values[reg] == packet[i];
++            o->values[reg] = packet[i];
++            BITSET_SET(o->known, reg);
++         }
++         if (descriptor) {
++            bool identical = same == size - 2;
++            o->known_packets += known == size - 2;
++            o->same_packets += identical;
++            o->same_words += same;
++            o->same_dwords += identical ? size : 0;
++            o->bind_same_packets += identical && o->bind_since_flush;
++            o->indirect_same_packets += identical && indirect;
++         }
++         return;
++      }
++      break;
++   /* Explicit register-space boundaries and packets with no SH-register destination. */
++   case PKT3_NOP:
++   case PKT3_SET_CONTEXT_REG:
++   case PKT3_SET_CONFIG_REG:
++   case PKT3_CONTEXT_REG_RMW:
++   case PKT3_DRAW_INDEX_2:
++   case PKT3_DRAW_INDEX_AUTO:
++   case PKT3_DRAW_INDEX_OFFSET_2:
++   case PKT3_INDEX_BASE:
++   case PKT3_INDEX_TYPE:
++   case PKT3_NUM_INSTANCES:
++   case PKT3_EVENT_WRITE:
++   case PKT3_RELEASE_MEM:
++   case PKT3_ACQUIRE_MEM:
++   case PKT3_WAIT_REG_MEM:
++   case PKT3_PFP_SYNC_ME:
++   case PKT3_SET_PREDICATION:
++   case PKT3_PRIME_UTCL2:
++   case PKT3_INDEX_BUFFER_SIZE:
++      return;
++   case PKT3_SET_BASE:
++      if (size == 4 && packet[1] == 1)
++         return;
++      break;
++   case PKT3_SET_SH_REG_INDEX: {
++      unsigned reg = packet[1] & 0x0fffffff;
++      if (size == 3 && (packet[1] >> 28) == 3 && reg < ARRAY_SIZE(o->values)) {
++         BITSET_CLEAR(o->known, reg);
++         return;
++      }
++      break;
++   }
++   case PKT3_DRAW_INDIRECT:
++   case PKT3_DRAW_INDEX_INDIRECT:
++   case PKT3_DRAW_INDIRECT_MULTI:
++   case PKT3_DRAW_INDEX_INDIRECT_MULTI: {
++      bool multi = opcode == PKT3_DRAW_INDIRECT_MULTI || opcode == PKT3_DRAW_INDEX_INDIRECT_MULTI;
++      if (size != (multi ? 10 : 5) || packet[2] >= ARRAY_SIZE(o->values) ||
++          packet[3] >= ARRAY_SIZE(o->values))
++         break;
++      if (multi && (packet[4] & S_2C3_DRAW_INDEX_ENABLE(1))) {
++         unsigned reg = packet[4] & 0xffff;
++         if (reg >= ARRAY_SIZE(o->values))
++            break;
++         BITSET_CLEAR(o->known, reg);
++      }
++      BITSET_CLEAR(o->known, packet[2]);
++      BITSET_CLEAR(o->known, packet[3]);
++      return;
++   }
++   case PKT3_DMA_DATA:
++      if (size == 7) {
++         unsigned dst = G_501_DST_SEL(packet[1]);
++         if ((dst == V_501_DST_ADDR && G_415_DAS(packet[6]) == V_415_MEMORY) ||
++             dst == V_411_DST_ADDR_TC_L2 || dst == V_411_NOWHERE)
++            return;
++      }
++      break;
++   case PKT3_COPY_DATA:
++      if (size == 6) {
++         unsigned dst = (packet[1] >> 8) & 0xf;
++         if (dst == COPY_DATA_DST_MEM_GRBM || dst == COPY_DATA_TC_L2 || dst == COPY_DATA_DST_MEM)
++            return;
++      }
++      break;
++   case PKT3_WRITE_DATA:
++      if (size >= 5) {
++         unsigned dst = G_370_DST_SEL(packet[1]);
++         if (dst == V_370_MEM_GRBM || dst == V_370_TC_L2 || dst == V_370_MEM)
++            return;
++      }
++      break;
++   case PKT3_SET_UCONFIG_REG:
++   case PKT3_SET_UCONFIG_REG_INDEX: {
++      const unsigned base = packet[1] & 0xffff;
++      const unsigned grbm_index = (R_030800_GRBM_GFX_INDEX - CIK_UCONFIG_REG_OFFSET) / 4;
++      if (base > grbm_index || size - 2 <= grbm_index - base)
++         return;
++      break;
++   }
++   }
++
++   /* In particular, forget state across nested IBs, indirect draws, and
++    * arbitrary register loads/writes. Disable comparisons after conditional execution. */
++   sgpr_forget(o);
++}
++
++static void
++sgpr_observe_packet(struct sgpr_observation *o, const struct ac_cmdbuf *b,
++                    unsigned start, bool indirect)
++{
++   if (!o)
++      return;
++   if (b->buf != o->chunk || start < o->cursor) {
++      o->chunk = b->buf;
++      o->cursor = 0;
++      o->conditional_end = 0;
++      o->chunks++;
++      sgpr_forget(o);
++   }
++
++   while (o->cursor < start) {
++      const uint32_t *packet = b->buf + o->cursor;
++      const unsigned type = PKT_TYPE_G(packet[0]);
++      unsigned size = 1;
++      if (type == 3 && packet[0] != PKT3_NOP_PAD) {
++         size = PKT_COUNT_G(packet[0]) + 2;
++         if (size > start - o->cursor) {
++            o->decode_errors++;
++            sgpr_forget(o);
++            break;
++         }
++         sgpr_apply_packet(o, packet, o->cursor, size, false, false);
++      } else if (type != 2 && type != 3) {
++         o->decode_errors++;
++         sgpr_forget(o);
++         break;
++      }
++      o->cursor += size;
++   }
++
++   unsigned size = b->cdw - start;
++   const uint32_t *packet = b->buf + start;
++   o->cursor = b->cdw;
++   if (size < 3 || PKT_TYPE_G(packet[0]) != 3 || PKT3_IT_OPCODE_G(packet[0]) != PKT3_SET_SH_REG ||
++       size != PKT_COUNT_G(packet[0]) + 2) {
++      o->decode_errors++;
++      sgpr_forget(o);
++      return;
++   }
++   o->packets++;
++   o->words += size - 2;
++   o->bind_packets += o->bind_since_flush;
++   o->indirect_packets += indirect;
++   sgpr_apply_packet(o, packet, start, size, true, indirect);
++}
++
+ static void
+ radv_emit_descriptors_per_stage(const struct radv_device *device, struct radv_cmd_stream *cs,
+-                                const struct radv_shader *shader, const struct radv_descriptor_state *descriptors_state)
++                                const struct radv_shader *shader, const struct radv_descriptor_state *descriptors_state,
++                                struct sgpr_observation *observation)
+ {
+    const struct radv_physical_device *pdev = radv_device_physical(device);
+    const uint32_t indirect_descriptors_offset = radv_get_user_sgpr_loc(shader, AC_UD_INDIRECT_DESCRIPTORS);
+ 
+    if (indirect_descriptors_offset) {
++      const unsigned start_dw = cs->b->cdw;
+       radeon_begin(cs);
+       if (pdev->info.gfx_level >= GFX12) {
+          gfx12_push_32bit_pointer(indirect_descriptors_offset, descriptors_state->indirect_descriptor_sets_va,
+@@ -1854,6 +2149,7 @@
+                                    &pdev->info);
+       }
+       radeon_end();
++      sgpr_observe_packet(observation, cs->b, start_dw, true);
+    } else {
+       const struct radv_userdata_locations *locs = &shader->info.user_sgprs_locs;
+       const uint32_t sh_base = shader->info.user_data_0;
+@@ -1868,6 +2164,7 @@
+ 
+          const struct radv_userdata_info *loc = &locs->descriptor_sets[start];
+          const unsigned sh_offset = sh_base + loc->sgpr_idx * 4;
++         const unsigned start_dw = cs->b->cdw;
+ 
+          radeon_begin(cs);
+          if (pdev->info.gfx_level >= GFX12) {
+@@ -1886,6 +2183,7 @@
+             }
+          }
+          radeon_end();
++         sgpr_observe_packet(observation, cs->b, start_dw, false);
+       }
+    }
+ }
+@@ -6347,29 +6645,37 @@
+       radv_upload_indirect_descriptor_sets(cmd_buffer, descriptors_state);
+ 
+    ASSERTED unsigned cdw_max = radeon_check_space(device->ws, cs->b, MAX_SETS * MESA_VULKAN_SHADER_STAGES * 4);
++   struct sgpr_observation *observation = bind_point == VK_PIPELINE_BIND_POINT_GRAPHICS
++      ? sgpr_find_observation(cmd_buffer) : NULL;
++   uint64_t previous_packets = observation ? observation->packets : 0;
+ 
+    if (stages & VK_SHADER_STAGE_COMPUTE_BIT) {
+       const struct radv_shader *compute_shader = bind_point == VK_PIPELINE_BIND_POINT_COMPUTE
+                                                     ? cmd_buffer->state.shaders[MESA_SHADER_COMPUTE]
+                                                     : cmd_buffer->state.rt_prolog;
+ 
+-      radv_emit_descriptors_per_stage(device, cs, compute_shader, descriptors_state);
++      radv_emit_descriptors_per_stage(device, cs, compute_shader, descriptors_state, NULL);
+    } else {
+       radv_foreach_stage (stage, stages & ~VK_SHADER_STAGE_TASK_BIT_EXT) {
+          if (!cmd_buffer->state.shaders[stage])
+             continue;
+ 
+-         radv_emit_descriptors_per_stage(device, cs, cmd_buffer->state.shaders[stage], descriptors_state);
++         radv_emit_descriptors_per_stage(device, cs, cmd_buffer->state.shaders[stage], descriptors_state, observation);
+       }
+ 
+       if (stages & VK_SHADER_STAGE_TASK_BIT_EXT) {
+          radv_emit_descriptors_per_stage(device, cmd_buffer->gang.cs, cmd_buffer->state.shaders[MESA_SHADER_TASK],
+-                                         descriptors_state);
++                                         descriptors_state, NULL);
+       }
+    }
+ 
+    assert(cs->b->cdw <= cdw_max);
+ 
++   if (observation) {
++      observation->flushes++;
++      observation->emit_flushes += observation->packets != previous_packets;
++      observation->bind_since_flush = false;
++   }
+    if (radv_device_fault_detection_enabled(device))
+       radv_save_descriptors(cmd_buffer, bind_point);
+ }
+@@ -7620,6 +7926,8 @@
+    VkResult result = VK_SUCCESS;
+ 
+    vk_command_buffer_begin(&cmd_buffer->vk, pBeginInfo);
++   if (cmd_buffer->qf == RADV_QUEUE_GENERAL && pdev->info.gfx_level == GFX10)
++      sgpr_begin_observation(cmd_buffer);
+ 
+    if (cmd_buffer->qf == RADV_QUEUE_SPARSE)
+       return result;
+@@ -8174,6 +8482,7 @@
+    if (result != VK_SUCCESS)
+       return vk_error(cmd_buffer, result);
+ 
++   sgpr_end_observation(cmd_buffer);
+    return vk_command_buffer_end(&cmd_buffer->vk);
+ }
+ 
+@@ -8880,6 +9189,15 @@
+ {
+    VK_FROM_HANDLE(radv_cmd_buffer, cmd_buffer, commandBuffer);
+    VK_FROM_HANDLE(radv_pipeline, pipeline, _pipeline);
++
++   if (pipelineBindPoint == VK_PIPELINE_BIND_POINT_GRAPHICS) {
++      struct sgpr_observation *observation = sgpr_find_observation(cmd_buffer);
++      if (observation) {
++         observation->binds++;
++         observation->same_binds += cmd_buffer->state.graphics_pipeline == radv_pipeline_to_graphics(pipeline);
++         observation->bind_since_flush = true;
++      }
++   }
+ 
+    radv_reset_shader_object_state(cmd_buffer, pipelineBindPoint);
+ 
