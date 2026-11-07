@@ -1,0 +1,523 @@
+PS5 HFR1 / CS2 Nuke / Expanded L3 CAT A/B/A
+2026-11-07. Original CS2 -insecure, local Nuke 1x, first-person, seek 10048
+(~02:38), server resume tick 12177 in every phase, 10-second warm-up,
+reseek and 15-second measurement. System RADV 26.0.8, MP1 off, 1080p240 X11.
+All scored notifications are Flip. FPS/tail metrics are displayed cadence.
+
+A1/A2 used full ffff L3 masks, B 000f per domain for the same controlled class,
+jointly allocating in 4 of 16 ways (1 MiB per domain). The group contained
+154 Steam WebHelper threads and 78 Chromium renderer threads. Chromium GPU,
+browser, zygote, audio/network utility processes, Codex and KDE session tasks,
+CS2 and unrelated tasks stayed outside the group. Discord was absent from
+the test. No CPU affinity or MB allocation changes. Root L3 stayed full.
+
+B averaged about 0.92 displayed FPS more than the controls. Its 1% low and
+P99 essentially matched A2. Chromium renderers registered no CPU ticks,
+so this does not characterize an active Chromium workload or isolate a
+Chromium-specific effect compared with the previous Steam-only experiment.
+Counter snapshots are provided for context only.
+
+Cleanup verified. CS2 closed and configs byte-identical. Test group removed,
+resctrl unmounted, restore timer stopped. No new matching MCE/MSR/GPU/OOM
+kernel events during the sequence.
+Linux resctrl documentation: https://docs.kernel.org/filesystems/resctrl.html
+
+A/B/A METRICS AND PROOF
+{
+  "a1": {
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12177,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "resume_marker_observation_ns": [
+        8850593658039,
+        8850598998914
+      ],
+      "window_mono_ns": [
+        8851598998914,
+        8866598998914
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "cadence": {
+      "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+      "original_flip_count": 1950,
+      "co_timed_count": 0,
+      "flips": 1950,
+      "intervals": 1949,
+      "window_seconds": 15.0,
+      "avg_fps": 129.96672611749713,
+      "one_percent_low_fps": 77.41346142680752,
+      "p99_ms": 12.501,
+      "max_ms": 20.834,
+      "refresh_hz": 239.98080153587713,
+      "msc_intervals": {
+        "1": 379,
+        "2": 1492,
+        "3": 77,
+        "5": 1
+      }
+    },
+    "allocation": {
+      "root_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+      "background_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+      "background_cpu_list": "",
+      "root_l3_masks": {
+        "0": 65535,
+        "1": 65535
+      },
+      "background_l3_masks": {
+        "0": 65535,
+        "1": 65535
+      },
+      "full_mask": 65535
+    },
+    "task_membership_and_cpu": {
+      "steamwebhelper": {
+        "before_after": [
+          154,
+          154
+        ],
+        "same_tids": 154,
+        "cpu_seconds": 0.13
+      },
+      "discord": {
+        "before_after": [
+          0,
+          0
+        ],
+        "same_tids": 0,
+        "cpu_seconds": 0.0
+      },
+      "cs2": {
+        "before_after": [
+          76,
+          76
+        ],
+        "same_tids": 76,
+        "cpu_seconds": 63.82
+      },
+      "chromium_renderers": {
+        "before_after": [
+          78,
+          78
+        ],
+        "same_tids": 78,
+        "cpu_seconds": 0.0
+      },
+      "chromium_protected": {
+        "before_after": [
+          99,
+          99
+        ],
+        "same_tids": 99,
+        "cpu_seconds": 0.01
+      },
+      "protected_sessions": {
+        "before_after": [
+          685,
+          685
+        ],
+        "same_tids": 683,
+        "cpu_seconds": 1.93
+      }
+    },
+    "before_after_monitor": [
+      {
+        "status": "available",
+        "readings": {
+          "mon_L3_00/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "3845408192",
+            "bytes": 3845408192
+          },
+          "mon_L3_00/llc_occupancy": {
+            "status": "ok",
+            "raw": "49152",
+            "bytes": 49152
+          },
+          "mon_L3_01/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "1126049216",
+            "bytes": 1126049216
+          },
+          "mon_L3_01/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          }
+        }
+      },
+      {
+        "status": "available",
+        "readings": {
+          "mon_L3_00/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "4076390976",
+            "bytes": 4076390976
+          },
+          "mon_L3_00/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          },
+          "mon_L3_01/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "1355575936",
+            "bytes": 1355575936
+          },
+          "mon_L3_01/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          }
+        }
+      }
+    ],
+    "config_restored": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "present_csv_sha256": "7ff5feaadb5cb213dd7a39c75e1e9c048d1a7ef439b3336eea24a7fdff0a66d9"
+  },
+  "b": {
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12177,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "resume_marker_observation_ns": [
+        8925475303612,
+        8925481324557
+      ],
+      "window_mono_ns": [
+        8926481324557,
+        8941481324557
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "cadence": {
+      "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+      "original_flip_count": 1960,
+      "co_timed_count": 0,
+      "flips": 1960,
+      "intervals": 1959,
+      "window_seconds": 15.0,
+      "avg_fps": 130.70625547194834,
+      "one_percent_low_fps": 78.68253955764676,
+      "p99_ms": 12.5,
+      "max_ms": 16.667,
+      "refresh_hz": 239.98080153587713,
+      "msc_intervals": {
+        "1": 385,
+        "2": 1511,
+        "3": 62,
+        "4": 1
+      }
+    },
+    "allocation": {
+      "root_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+      "background_schemata": "    MB:0=2048;1=2048\n    L3:0=f;1=f\n",
+      "background_cpu_list": "",
+      "root_l3_masks": {
+        "0": 65535,
+        "1": 65535
+      },
+      "background_l3_masks": {
+        "0": 15,
+        "1": 15
+      },
+      "full_mask": 65535
+    },
+    "task_membership_and_cpu": {
+      "steamwebhelper": {
+        "before_after": [
+          154,
+          154
+        ],
+        "same_tids": 154,
+        "cpu_seconds": 0.15
+      },
+      "discord": {
+        "before_after": [
+          0,
+          0
+        ],
+        "same_tids": 0,
+        "cpu_seconds": 0.0
+      },
+      "cs2": {
+        "before_after": [
+          76,
+          76
+        ],
+        "same_tids": 76,
+        "cpu_seconds": 64.31
+      },
+      "chromium_renderers": {
+        "before_after": [
+          78,
+          78
+        ],
+        "same_tids": 78,
+        "cpu_seconds": 0.0
+      },
+      "chromium_protected": {
+        "before_after": [
+          99,
+          99
+        ],
+        "same_tids": 99,
+        "cpu_seconds": 0.01
+      },
+      "protected_sessions": {
+        "before_after": [
+          680,
+          684
+        ],
+        "same_tids": 679,
+        "cpu_seconds": 1.45
+      }
+    },
+    "before_after_monitor": [
+      {
+        "status": "available",
+        "readings": {
+          "mon_L3_00/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "5804360896",
+            "bytes": 5804360896
+          },
+          "mon_L3_00/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          },
+          "mon_L3_01/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "1997789888",
+            "bytes": 1997789888
+          },
+          "mon_L3_01/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          }
+        }
+      },
+      {
+        "status": "available",
+        "readings": {
+          "mon_L3_00/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "6265153728",
+            "bytes": 6265153728
+          },
+          "mon_L3_00/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          },
+          "mon_L3_01/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "2023871552",
+            "bytes": 2023871552
+          },
+          "mon_L3_01/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          }
+        }
+      }
+    ],
+    "config_restored": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "present_csv_sha256": "db2b8a166b28d1ae9fbbfd25511860d82bd0d9f903adb56cd7ff26cac8f1a7c0"
+  },
+  "a2": {
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12177,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "resume_marker_observation_ns": [
+        9000834865169,
+        9000840901145
+      ],
+      "window_mono_ns": [
+        9001840901145,
+        9016840901145
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "cadence": {
+      "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+      "original_flip_count": 1944,
+      "co_timed_count": 0,
+      "flips": 1944,
+      "intervals": 1943,
+      "window_seconds": 15.0,
+      "avg_fps": 129.60273992065217,
+      "one_percent_low_fps": 78.68192046831479,
+      "p99_ms": 12.501,
+      "max_ms": 16.667,
+      "refresh_hz": 239.98080153587713,
+      "msc_intervals": {
+        "1": 377,
+        "2": 1478,
+        "3": 87,
+        "4": 1
+      }
+    },
+    "allocation": {
+      "root_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+      "background_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+      "background_cpu_list": "",
+      "root_l3_masks": {
+        "0": 65535,
+        "1": 65535
+      },
+      "background_l3_masks": {
+        "0": 65535,
+        "1": 65535
+      },
+      "full_mask": 65535
+    },
+    "task_membership_and_cpu": {
+      "steamwebhelper": {
+        "before_after": [
+          154,
+          154
+        ],
+        "same_tids": 154,
+        "cpu_seconds": 0.14
+      },
+      "discord": {
+        "before_after": [
+          0,
+          0
+        ],
+        "same_tids": 0,
+        "cpu_seconds": 0.0
+      },
+      "cs2": {
+        "before_after": [
+          76,
+          76
+        ],
+        "same_tids": 76,
+        "cpu_seconds": 63.67
+      },
+      "chromium_renderers": {
+        "before_after": [
+          78,
+          78
+        ],
+        "same_tids": 78,
+        "cpu_seconds": 0.0
+      },
+      "chromium_protected": {
+        "before_after": [
+          99,
+          99
+        ],
+        "same_tids": 99,
+        "cpu_seconds": 0.02
+      },
+      "protected_sessions": {
+        "before_after": [
+          680,
+          687
+        ],
+        "same_tids": 679,
+        "cpu_seconds": 1.46
+      }
+    },
+    "before_after_monitor": [
+      {
+        "status": "available",
+        "readings": {
+          "mon_L3_00/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "7380324672",
+            "bytes": 7380324672
+          },
+          "mon_L3_00/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          },
+          "mon_L3_01/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "3092446976",
+            "bytes": 3092446976
+          },
+          "mon_L3_01/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          }
+        }
+      },
+      {
+        "status": "available",
+        "readings": {
+          "mon_L3_00/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "7515128128",
+            "bytes": 7515128128
+          },
+          "mon_L3_00/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          },
+          "mon_L3_01/mbm_total_bytes": {
+            "status": "ok",
+            "raw": "3420951104",
+            "bytes": 3420951104
+          },
+          "mon_L3_01/llc_occupancy": {
+            "status": "ok",
+            "raw": "0",
+            "bytes": 0
+          }
+        }
+      }
+    ],
+    "config_restored": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "present_csv_sha256": "d1c0aff58fb47d7c103ac938f6f2b1e1ddead0c9fdc9baebdeb85cac1a426f8a"
+  }
+}
+
+B MINUS MEAN A
+{
+  "avg_fps": 0.9215224528736883,
+  "one_percent_low_fps": 0.6348486100856121,
+  "p99_ms": -0.0009999999999994458
+}
