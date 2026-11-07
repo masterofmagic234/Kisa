@@ -1,0 +1,1038 @@
+CS2 / HFR1 / Nuke / L3 CDP
+Две офлайн-сессии, контроль каждой на том же процессе. Nuke 1x, seek 10048, повторный прогрев, resume+1..+16 с (~02:38), системный RADV, X11 Flip 240 Гц, MP1 выключен.
+CDP включён в каждом прогоне. Менялись только маски размещения девяти GlobPool; root ffff/ffff, все остальные потоки включая главный и рендер оставались в root.
+Кадры: уникальные завершения X11 Flip (UST/MSC). 1% low = 1000 / среднее самых длинных ceil(1%) интервалов в мс.
+Задержка до воркера: блокировка VKRenderThread → sched_waking от главного потока, только если этот GlobPool затем сам будит рендер успешным futex wake по адресу ожидания.
+Контрольные настройки восстановлены побайтно, CDP отключён размонтированием resctrl. Перезагрузки не было.
+Kernel fault filter clean: True
+S1 C исключён: Xorg async Present flip EINVAL, 1737 Copy в окне, 371429 перезаписанных событий. S2 повторяет ограничение кода.
+S2: повтор C прошёл Flip. Для задержек сравнивается одинаковый сохранившийся хвост, без перезаписанного начала; FPS и P99 кадра используют полные 15 с.
+S1 A1: code=16 data=16 avg=125.635 1%low=78.614 frame_p99=12.501ms prewake_p50=0.462ms prewake_p99=2.408ms n=2606 trace_scoring=15.000s
+S1 B: code=16 data=12 avg=120.164 1%low=72.374 frame_p99=12.501ms prewake_p50=0.358ms prewake_p99=2.230ms n=2531 trace_scoring=15.000s
+S2 A1: code=16 data=16 avg=130.840 1%low=77.414 frame_p99=12.501ms prewake_p50=0.601ms prewake_p99=2.072ms n=1596 trace_scoring=10.249s
+S2 C: code=12 data=16 avg=121.265 1%low=79.991 frame_p99=12.501ms prewake_p50=0.664ms prewake_p99=2.418ms n=1470 trace_scoring=10.249s
+S2 A2: code=16 data=16 avg=118.230 1%low=78.537 frame_p99=12.501ms prewake_p50=0.260ms prewake_p99=1.939ms n=1859 trace_scoring=10.249s
+
+{
+  "phases": {
+    "S1 A1": {
+      "code_ways": 16,
+      "data_ways": 16,
+      "frame": {
+        "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+        "original_flip_count": 1884,
+        "co_timed_count": 0,
+        "flips": 1884,
+        "intervals": 1883,
+        "window_seconds": 15.0,
+        "avg_fps": 125.63544982695268,
+        "one_percent_low_fps": 78.61374995862434,
+        "p99_ms": 12.501,
+        "max_ms": 16.667,
+        "refresh_hz": 239.98080153587713,
+        "msc_intervals": {
+          "1": 294,
+          "2": 1465,
+          "3": 123,
+          "4": 1
+        }
+      },
+      "delays": {
+        "render_block_to_main_wake": {
+          "n": 2606,
+          "p50_ms": 0.462,
+          "p95_ms": 1.41,
+          "p99_ms": 2.408,
+          "max_ms": 5.497
+        },
+        "render_wait_entry_to_main_wake": {
+          "n": 2606,
+          "p50_ms": 0.468,
+          "p95_ms": 1.42,
+          "p99_ms": 2.415,
+          "max_ms": 5.5
+        },
+        "main_wake_to_worker_run": {
+          "n": 2606,
+          "p50_ms": 0.004,
+          "p95_ms": 0.006,
+          "p99_ms": 0.009,
+          "max_ms": 0.052
+        },
+        "main_wake_to_render_signal": {
+          "n": 2606,
+          "p50_ms": 0.091,
+          "p95_ms": 0.559,
+          "p99_ms": 0.674,
+          "max_ms": 1.051
+        },
+        "worker_run_to_render_signal": {
+          "n": 2606,
+          "p50_ms": 0.088,
+          "p95_ms": 0.554,
+          "p99_ms": 0.669,
+          "max_ms": 1.047
+        }
+      },
+      "counts": {
+        "successful_render_waits": 26881,
+        "render_waker_outside_globpool": 8237,
+        "exact_globpool_producers": 18644,
+        "worker_blocked_after_last_main_wake": 11975,
+        "eligible": 2606,
+        "main_wake_before_wait_entry": 3755,
+        "missing_or_ambiguous_render_block": 295,
+        "main_wake_before_render_block": 13
+      },
+      "ftrace_overwritten_prefix_events": 0,
+      "pid": 50034,
+      "render_tid": 50092,
+      "workers": [
+        50046,
+        50047,
+        50048,
+        50049,
+        50050,
+        50051,
+        50052,
+        50053,
+        50054
+      ],
+      "trace_scoring_window_ns": [
+        11163615678608,
+        11178615678608
+      ],
+      "frame_scoring_window_ns": [
+        11163615678608,
+        11178615678608
+      ],
+      "trace_scoring_window_sec": 15.0,
+      "resume_tick": 12178,
+      "resume_marker_bracket_ns": [
+        11162609651987,
+        11162615678608
+      ],
+      "process_and_masks": {
+        "before": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "phase": "a1",
+          "main_tid": 50034,
+          "globpool_tids": [
+            50046,
+            50047,
+            50048,
+            50049,
+            50050,
+            50051,
+            50052,
+            50053,
+            50054
+          ],
+          "render_tids": [
+            50092,
+            50097,
+            50098,
+            50099
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        },
+        "after": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "phase": "a1",
+          "main_tid": 50034,
+          "globpool_tids": [
+            50046,
+            50047,
+            50048,
+            50049,
+            50050,
+            50051,
+            50052,
+            50053,
+            50054
+          ],
+          "render_tids": [
+            50092,
+            50097,
+            50098,
+            50099
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        }
+      },
+      "memory_psi_us_delta_outside_score_boundaries": {
+        "some": 140583,
+        "full": 140381
+      },
+      "artifact_sha256": {
+        "present.csv": "e1bbd4c3dfe4350bfb8694dd817256818ffb47b160302c6d1e277a7ecb353301",
+        "cat-roles-trace.txt": "cb8a71177950f80e48f31d7eca3771e3ad705d833e1c200daa3f4c0065bb2155",
+        "cat-roles-trace.json": "bdb47c374595a1a49da8cbff326c861152438ba7fd0eb667e9fd7732563a491c",
+        "cat-roles-analysis.json": "022fa39a59075365d55e00d975df64de5137dec6a74059ec50f397473385c685"
+      }
+    },
+    "S1 B": {
+      "code_ways": 16,
+      "data_ways": 12,
+      "frame": {
+        "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+        "original_flip_count": 1803,
+        "co_timed_count": 0,
+        "flips": 1803,
+        "intervals": 1802,
+        "window_seconds": 15.0,
+        "avg_fps": 120.16426361478779,
+        "one_percent_low_fps": 72.37378392997265,
+        "p99_ms": 12.501,
+        "max_ms": 16.667,
+        "refresh_hz": 239.98080153587713,
+        "msc_intervals": {
+          "1": 245,
+          "2": 1323,
+          "3": 228,
+          "4": 6
+        }
+      },
+      "delays": {
+        "render_block_to_main_wake": {
+          "n": 2531,
+          "p50_ms": 0.358,
+          "p95_ms": 1.448,
+          "p99_ms": 2.23,
+          "max_ms": 4.536
+        },
+        "render_wait_entry_to_main_wake": {
+          "n": 2531,
+          "p50_ms": 0.362,
+          "p95_ms": 1.455,
+          "p99_ms": 2.234,
+          "max_ms": 4.564
+        },
+        "main_wake_to_worker_run": {
+          "n": 2531,
+          "p50_ms": 0.004,
+          "p95_ms": 0.006,
+          "p99_ms": 0.01,
+          "max_ms": 0.05
+        },
+        "main_wake_to_render_signal": {
+          "n": 2531,
+          "p50_ms": 0.083,
+          "p95_ms": 0.545,
+          "p99_ms": 0.653,
+          "max_ms": 1.035
+        },
+        "worker_run_to_render_signal": {
+          "n": 2531,
+          "p50_ms": 0.08,
+          "p95_ms": 0.541,
+          "p99_ms": 0.649,
+          "max_ms": 1.032
+        }
+      },
+      "counts": {
+        "successful_render_waits": 26116,
+        "render_waker_outside_globpool": 8120,
+        "exact_globpool_producers": 17996,
+        "worker_blocked_after_last_main_wake": 11921,
+        "eligible": 2531,
+        "main_wake_before_wait_entry": 3227,
+        "missing_or_ambiguous_render_block": 307,
+        "main_wake_before_render_block": 10
+      },
+      "ftrace_overwritten_prefix_events": 0,
+      "pid": 50034,
+      "render_tid": 50092,
+      "workers": [
+        50046,
+        50047,
+        50048,
+        50049,
+        50050,
+        50051,
+        50052,
+        50053,
+        50054
+      ],
+      "trace_scoring_window_ns": [
+        11213142366792,
+        11228142366792
+      ],
+      "frame_scoring_window_ns": [
+        11213142366792,
+        11228142366792
+      ],
+      "trace_scoring_window_sec": 15.0,
+      "resume_tick": 12178,
+      "resume_marker_bracket_ns": [
+        11212136321892,
+        11212142366792
+      ],
+      "process_and_masks": {
+        "before": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 4095,
+              "1": 4095
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=fff;1=fff\nL3CODE:0=ffff;1=ffff\n",
+          "phase": "b",
+          "main_tid": 50034,
+          "globpool_tids": [
+            50046,
+            50047,
+            50048,
+            50049,
+            50050,
+            50051,
+            50052,
+            50053,
+            50054
+          ],
+          "render_tids": [
+            50092,
+            50097,
+            50098,
+            50099
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        },
+        "after": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 4095,
+              "1": 4095
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=fff;1=fff\nL3CODE:0=ffff;1=ffff\n",
+          "phase": "b",
+          "main_tid": 50034,
+          "globpool_tids": [
+            50046,
+            50047,
+            50048,
+            50049,
+            50050,
+            50051,
+            50052,
+            50053,
+            50054
+          ],
+          "render_tids": [
+            50092,
+            50097,
+            50098,
+            50099
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        }
+      },
+      "memory_psi_us_delta_outside_score_boundaries": {
+        "some": 40937,
+        "full": 40618
+      },
+      "artifact_sha256": {
+        "present.csv": "ac39a0f1e6de9026a195a94291c6ab2df821bc5b8f567b527487d7ee09aa97da",
+        "cat-roles-trace.txt": "6ea919e8b7e72ea1c5b8cb7b4fb4c0954958c2ab81a7f14cdf44d0e2ebd60b49",
+        "cat-roles-trace.json": "5c388c40444ea28432e97baf8c6245ab2471a53abd28c9e71861cfbc3727730c",
+        "cat-roles-analysis.json": "0b2c58886884d982c96ebfdafc6ab29fb2482d5b7a00cead6bb7ec7500581f5a"
+      }
+    },
+    "S2 A1": {
+      "code_ways": 16,
+      "data_ways": 16,
+      "frame": {
+        "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+        "original_flip_count": 1962,
+        "co_timed_count": 0,
+        "flips": 1962,
+        "intervals": 1961,
+        "window_seconds": 15.0,
+        "avg_fps": 130.83974093330968,
+        "one_percent_low_fps": 77.41406071584782,
+        "p99_ms": 12.501,
+        "max_ms": 16.667,
+        "refresh_hz": 239.98080153587713,
+        "msc_intervals": {
+          "1": 400,
+          "2": 1488,
+          "3": 71,
+          "4": 2
+        }
+      },
+      "delays": {
+        "render_block_to_main_wake": {
+          "n": 1596,
+          "p50_ms": 0.601,
+          "p95_ms": 1.225,
+          "p99_ms": 2.072,
+          "max_ms": 5.739
+        },
+        "render_wait_entry_to_main_wake": {
+          "n": 1596,
+          "p50_ms": 0.604,
+          "p95_ms": 1.227,
+          "p99_ms": 2.077,
+          "max_ms": 5.742
+        },
+        "main_wake_to_worker_run": {
+          "n": 1596,
+          "p50_ms": 0.004,
+          "p95_ms": 0.007,
+          "p99_ms": 0.011,
+          "max_ms": 0.041
+        },
+        "main_wake_to_render_signal": {
+          "n": 1596,
+          "p50_ms": 0.211,
+          "p95_ms": 0.571,
+          "p99_ms": 0.686,
+          "max_ms": 1.035
+        },
+        "worker_run_to_render_signal": {
+          "n": 1596,
+          "p50_ms": 0.206,
+          "p95_ms": 0.567,
+          "p99_ms": 0.68,
+          "max_ms": 1.033
+        }
+      },
+      "counts": {
+        "successful_render_waits": 18803,
+        "exact_globpool_producers": 13036,
+        "worker_blocked_after_last_main_wake": 8325,
+        "render_waker_outside_globpool": 5767,
+        "missing_or_ambiguous_render_block": 151,
+        "eligible": 1596,
+        "main_wake_before_wait_entry": 2956,
+        "main_wake_before_render_block": 8
+      },
+      "ftrace_overwritten_prefix_events": 0,
+      "pid": 50946,
+      "render_tid": 51002,
+      "workers": [
+        50956,
+        50957,
+        50958,
+        50959,
+        50960,
+        50961,
+        50962,
+        50963,
+        50964
+      ],
+      "trace_scoring_window_ns": [
+        11383710521550,
+        11393959035881
+      ],
+      "frame_scoring_window_ns": [
+        11378959035881,
+        11393959035881
+      ],
+      "trace_scoring_window_sec": 10.248514331,
+      "resume_tick": 12177,
+      "resume_marker_bracket_ns": [
+        11377953007112,
+        11377959035881
+      ],
+      "process_and_masks": {
+        "before": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "phase": "a1",
+          "main_tid": 50946,
+          "globpool_tids": [
+            50956,
+            50957,
+            50958,
+            50959,
+            50960,
+            50961,
+            50962,
+            50963,
+            50964
+          ],
+          "render_tids": [
+            51002,
+            51011,
+            51012,
+            51013
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        },
+        "after": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "phase": "a1",
+          "main_tid": 50946,
+          "globpool_tids": [
+            50956,
+            50957,
+            50958,
+            50959,
+            50960,
+            50961,
+            50962,
+            50963,
+            50964
+          ],
+          "render_tids": [
+            51002,
+            51011,
+            51012,
+            51013
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        }
+      },
+      "memory_psi_us_delta_outside_score_boundaries": {
+        "some": 59296,
+        "full": 59133
+      },
+      "artifact_sha256": {
+        "present.csv": "e7667c6fc4a30543b5d5beec60406d92379270101074127fc50327f4937345c5",
+        "cat-roles-trace.txt": "c2c7fef0096aca0dd5bd3e9f7cf0c279eca19091b6c8c7cdc638d9dbdec5d919",
+        "cat-roles-trace.json": "27845428aeeb4a96f438ca69851f1fca82f703f61a47d78431b10ecfd871fd9c",
+        "cat-roles-analysis.json": "d73c28f6aff3f3512e0ca6cfa4ce9180daa6d99888e5dbda1d7291984802ca84"
+      }
+    },
+    "S2 C": {
+      "code_ways": 12,
+      "data_ways": 16,
+      "frame": {
+        "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+        "original_flip_count": 1819,
+        "co_timed_count": 0,
+        "flips": 1819,
+        "intervals": 1818,
+        "window_seconds": 15.0,
+        "avg_fps": 121.26495759561872,
+        "one_percent_low_fps": 79.99124306391721,
+        "p99_ms": 12.501,
+        "max_ms": 12.504,
+        "refresh_hz": 239.98080153587713,
+        "msc_intervals": {
+          "1": 245,
+          "2": 1366,
+          "3": 207
+        }
+      },
+      "delays": {
+        "render_block_to_main_wake": {
+          "n": 1470,
+          "p50_ms": 0.664,
+          "p95_ms": 1.514,
+          "p99_ms": 2.418,
+          "max_ms": 3.351
+        },
+        "render_wait_entry_to_main_wake": {
+          "n": 1470,
+          "p50_ms": 0.667,
+          "p95_ms": 1.517,
+          "p99_ms": 2.423,
+          "max_ms": 3.358
+        },
+        "main_wake_to_worker_run": {
+          "n": 1470,
+          "p50_ms": 0.004,
+          "p95_ms": 0.007,
+          "p99_ms": 0.01,
+          "max_ms": 0.02
+        },
+        "main_wake_to_render_signal": {
+          "n": 1470,
+          "p50_ms": 0.247,
+          "p95_ms": 0.603,
+          "p99_ms": 0.681,
+          "max_ms": 1.072
+        },
+        "worker_run_to_render_signal": {
+          "n": 1470,
+          "p50_ms": 0.241,
+          "p95_ms": 0.599,
+          "p99_ms": 0.677,
+          "max_ms": 1.069
+        }
+      },
+      "counts": {
+        "successful_render_waits": 17008,
+        "exact_globpool_producers": 11637,
+        "main_wake_before_wait_entry": 2374,
+        "worker_blocked_after_last_main_wake": 7632,
+        "render_waker_outside_globpool": 5370,
+        "eligible": 1470,
+        "missing_or_ambiguous_render_block": 151,
+        "main_wake_before_render_block": 10,
+        "missing_or_ambiguous_render_wake": 1
+      },
+      "ftrace_overwritten_prefix_events": 50886,
+      "pid": 50946,
+      "render_tid": 51002,
+      "workers": [
+        50956,
+        50957,
+        50958,
+        50959,
+        50960,
+        50961,
+        50962,
+        50963,
+        50964
+      ],
+      "trace_scoring_window_ns": [
+        11433048580657,
+        11443297094988
+      ],
+      "frame_scoring_window_ns": [
+        11428297094988,
+        11443297094988
+      ],
+      "trace_scoring_window_sec": 10.248514331,
+      "resume_tick": 12178,
+      "resume_marker_bracket_ns": [
+        11427291073483,
+        11427297094988
+      ],
+      "process_and_masks": {
+        "before": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 4095,
+              "1": 4095
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=fff;1=fff\n",
+          "phase": "c",
+          "main_tid": 50946,
+          "globpool_tids": [
+            50956,
+            50957,
+            50958,
+            50959,
+            50960,
+            50961,
+            50962,
+            50963,
+            50964
+          ],
+          "render_tids": [
+            51002,
+            51011,
+            51012,
+            51013
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        },
+        "after": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 4095,
+              "1": 4095
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=fff;1=fff\n",
+          "phase": "c",
+          "main_tid": 50946,
+          "globpool_tids": [
+            50956,
+            50957,
+            50958,
+            50959,
+            50960,
+            50961,
+            50962,
+            50963,
+            50964
+          ],
+          "render_tids": [
+            51002,
+            51011,
+            51012,
+            51013
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        }
+      },
+      "memory_psi_us_delta_outside_score_boundaries": {
+        "some": 11259,
+        "full": 11235
+      },
+      "artifact_sha256": {
+        "present.csv": "01230f08d6540d8fc5339488b0e0fe6d589e29b65644d06a006e146767b1bda4",
+        "cat-roles-trace.txt": "1118c1304e3f419e0669438cbe3ac55f5cfc179587ab2d900326b5348b14bff3",
+        "cat-roles-trace.json": "cbf94c17dcdef8b393ecfed44616fbef581931d58b47bddeea5c8bc363e0ae9f",
+        "cat-roles-analysis.json": "f87f233047f4478f83507f587c8d97348605d61caf6d873940414205a31bf64e"
+      }
+    },
+    "S2 A2": {
+      "code_ways": 16,
+      "data_ways": 16,
+      "frame": {
+        "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+        "original_flip_count": 1773,
+        "co_timed_count": 0,
+        "flips": 1773,
+        "intervals": 1772,
+        "window_seconds": 15.0,
+        "avg_fps": 118.22950909800092,
+        "one_percent_low_fps": 78.53677266222206,
+        "p99_ms": 12.501,
+        "max_ms": 16.667,
+        "refresh_hz": 239.99999999999997,
+        "msc_intervals": {
+          "1": 219,
+          "2": 1282,
+          "3": 270,
+          "4": 1
+        }
+      },
+      "delays": {
+        "render_block_to_main_wake": {
+          "n": 1859,
+          "p50_ms": 0.26,
+          "p95_ms": 1.131,
+          "p99_ms": 1.939,
+          "max_ms": 5.062
+        },
+        "render_wait_entry_to_main_wake": {
+          "n": 1859,
+          "p50_ms": 0.263,
+          "p95_ms": 1.137,
+          "p99_ms": 1.945,
+          "max_ms": 5.067
+        },
+        "main_wake_to_worker_run": {
+          "n": 1859,
+          "p50_ms": 0.003,
+          "p95_ms": 0.006,
+          "p99_ms": 0.01,
+          "max_ms": 0.023
+        },
+        "main_wake_to_render_signal": {
+          "n": 1859,
+          "p50_ms": 0.083,
+          "p95_ms": 0.594,
+          "p99_ms": 0.694,
+          "max_ms": 1.097
+        },
+        "worker_run_to_render_signal": {
+          "n": 1859,
+          "p50_ms": 0.079,
+          "p95_ms": 0.59,
+          "p99_ms": 0.689,
+          "max_ms": 1.092
+        }
+      },
+      "counts": {
+        "successful_render_waits": 18336,
+        "exact_globpool_producers": 12643,
+        "worker_blocked_after_last_main_wake": 7745,
+        "render_waker_outside_globpool": 5693,
+        "main_wake_before_wait_entry": 2853,
+        "eligible": 1859,
+        "missing_or_ambiguous_render_block": 178,
+        "main_wake_before_render_block": 8
+      },
+      "ftrace_overwritten_prefix_events": 285540,
+      "pid": 50946,
+      "render_tid": 51002,
+      "workers": [
+        50956,
+        50957,
+        50958,
+        50959,
+        50960,
+        50961,
+        50962,
+        50963,
+        50964
+      ],
+      "trace_scoring_window_ns": [
+        11482585354000,
+        11492833868331
+      ],
+      "frame_scoring_window_ns": [
+        11477833868331,
+        11492833868331
+      ],
+      "trace_scoring_window_sec": 10.248514331,
+      "resume_tick": 12178,
+      "resume_marker_bracket_ns": [
+        11476827814130,
+        11476833868331
+      ],
+      "process_and_masks": {
+        "before": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "phase": "a2",
+          "main_tid": 50946,
+          "globpool_tids": [
+            50956,
+            50957,
+            50958,
+            50959,
+            50960,
+            50961,
+            50962,
+            50963,
+            50964
+          ],
+          "render_tids": [
+            51002,
+            51011,
+            51012,
+            51013
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        },
+        "after": {
+          "root_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "globpool_l3": {
+            "L3DATA": {
+              "0": 65535,
+              "1": 65535
+            },
+            "L3CODE": {
+              "0": 65535,
+              "1": 65535
+            }
+          },
+          "root_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "globpool_schemata": "    MB:0=2048;1=2048\nL3DATA:0=ffff;1=ffff\nL3CODE:0=ffff;1=ffff\n",
+          "phase": "a2",
+          "main_tid": 50946,
+          "globpool_tids": [
+            50956,
+            50957,
+            50958,
+            50959,
+            50960,
+            50961,
+            50962,
+            50963,
+            50964
+          ],
+          "render_tids": [
+            51002,
+            51011,
+            51012,
+            51013
+          ],
+          "root_game_tids": 67,
+          "affinity": "0-15"
+        }
+      },
+      "memory_psi_us_delta_outside_score_boundaries": {
+        "some": 9398,
+        "full": 9383
+      },
+      "artifact_sha256": {
+        "present.csv": "f6e6250d3de393c8951e5182735d9e3038ba7f2d56152b7f7c2d9c9e02c2d5bc",
+        "cat-roles-trace.txt": "96e6e9d2e1d51608bc81099d810ff22c4d38fb40c508273dc574e94b37f1cefb",
+        "cat-roles-trace.json": "297bf31eabda1412e6f21052219373bebe58f1ec04dcd66023c60f5361a102f5",
+        "cat-roles-analysis.json": "1f408eb4c97c4613bf51cb883bafa63945d3432adc54f457e41379b9e882e9cd"
+      }
+    }
+  },
+  "restored": {
+    "cs2-hfr1-nuke-cdp": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "cs2-hfr1-nuke-cdp-retry": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    }
+  },
+  "video_profile_sha256": "bf71a82aab4bfde47ff24e03bf8d550feac2838b924bf4f599bc7036a9a67c62"
+}
