@@ -1,0 +1,367 @@
+PS5 HFR1 / CS2 Nuke / Full CS2 L3 and zero root CAT A/B/A
+2026-11-07. Original CS2 -insecure, local Nuke 1x, first person, seek 10048
+(~02:38), 10-second warm-up, reseek and 15-second measurement. System RADV
+26.0.8, stock MP1, 1080p240 X11. All scored notifications are Flip. FPS/tail
+metrics describe displayed cadence using unique Present UST/MSC.
+
+CS2 was placed in the dedicated full-mask shareable CAT group in all phases.
+Exact game membership was checked on both sides of the score. Root mask
+ffff/ffff in A1/A2, zero/zero throughout the scored B window. No CPU affinity
+or memory-bandwidth schema change. Zero prevents new allocations by the root
+class, and does not merge the two physical 4 MiB L3 domains. Other classes may
+hit already-installed lines. System code in the game context uses that class.
+
+A smoke check separately verified both the zero root write and automatic
+restoration by an independent 2-second system timer. B used a 28-second
+watchdog and restored full root explicitly after the last sample. An earlier
+B launch was excluded before any zero write because Pulse did not supply a
+PID for the game's own PipeWire playback. The scored B verified its owner via
+PipeWire's authenticated PID and zero active recording. No Discord client
+was running. A1 and the scored B/A2 used separate identical resctrl mounts
+because the aborted phase cleaned up. No boot, kernel or firmware change.
+
+CS2 closed normally. Configs were restored byte-identically. Test group
+removed, resctrl unmounted, watchdogs stopped. No new matching MCE/MSR/GPU/OOM
+kernel events. One B repeat measures a candidate, not reproducibility.
+Linux resctrl: https://docs.kernel.org/filesystems/resctrl.html
+AMD PQoS: https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/other/56375_1_03_PUB.pdf#page=18
+
+SMOKE AND INDEPENDENT ROLLBACK
+{
+  "smoke": {
+    "root_l3": {
+      "0": 0,
+      "1": 0
+    },
+    "game_l3": {
+      "0": 65535,
+      "1": 65535
+    },
+    "zero_started_ns": 9601476771231,
+    "zero_verified_ns": 9601477285250,
+    "timer": "cs2-hfr1-cat-zero-restore.timer",
+    "timer_delay_seconds": 2
+  },
+  "watchdog_restored_ns": 9603721308535,
+  "rollback": {
+    "restored": true,
+    "mounted": true,
+    "restored_ns": 9603726547610,
+    "root_l3": {
+      "0": 65535,
+      "1": 65535
+    }
+  }
+}
+
+A/B/A METRICS AND PROOF
+{
+  "a1": {
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12177,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "resume_marker_observation_ns": [
+        9678057251193,
+        9678063308907
+      ],
+      "window_mono_ns": [
+        9679063308907,
+        9694063308907
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "cadence": {
+      "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+      "original_flip_count": 1943,
+      "co_timed_count": 0,
+      "flips": 1943,
+      "intervals": 1942,
+      "window_seconds": 15.0,
+      "avg_fps": 129.57228535553614,
+      "one_percent_low_fps": 78.68253955764676,
+      "p99_ms": 12.501,
+      "max_ms": 16.667,
+      "refresh_hz": 239.98080153587713,
+      "msc_intervals": {
+        "1": 393,
+        "2": 1444,
+        "3": 104,
+        "4": 1
+      }
+    },
+    "cadence_aligned_to_tick_12178": {
+      "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+      "original_flip_count": 1943,
+      "co_timed_count": 0,
+      "flips": 1943,
+      "intervals": 1942,
+      "window_seconds": 15.0,
+      "avg_fps": 129.57228535553614,
+      "one_percent_low_fps": 78.68253955764676,
+      "p99_ms": 12.501,
+      "max_ms": 16.667,
+      "refresh_hz": 239.98080153587713,
+      "msc_intervals": {
+        "1": 394,
+        "2": 1442,
+        "3": 105,
+        "4": 1
+      }
+    },
+    "cat_proof": {
+      "before": {
+        "root_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_group_cpu_list": "",
+        "game_group_mode": "shareable",
+        "snapshot_mono_ns": [
+          9678714339433,
+          9678719051996
+        ],
+        "assigned_game_tids": 76
+      },
+      "after": {
+        "root_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_group_cpu_list": "",
+        "game_group_mode": "shareable",
+        "snapshot_mono_ns": [
+          9694063371882,
+          9694068328425
+        ],
+        "assigned_game_tids": 76
+      }
+    },
+    "config_restored": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "present_csv_sha256": "f1e0e25de99b0d986d23826e64726dc56c8ae686f0c3754c714d035f477193ff"
+  },
+  "b": {
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12178,
+      "resume_marker": "CGameRules - unpaused on tick 12178, pause duration was 1 ticks",
+      "resume_marker_observation_ns": [
+        9829268009238,
+        9829273730561
+      ],
+      "window_mono_ns": [
+        9830273730561,
+        9845273730561
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "cadence": {
+      "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+      "original_flip_count": 1977,
+      "co_timed_count": 0,
+      "flips": 1977,
+      "intervals": 1976,
+      "window_seconds": 15.0,
+      "avg_fps": 131.8041736832156,
+      "one_percent_low_fps": 77.41286214704573,
+      "p99_ms": 12.501,
+      "max_ms": 16.67,
+      "refresh_hz": 239.98080153587713,
+      "msc_intervals": {
+        "1": 424,
+        "2": 1484,
+        "3": 66,
+        "4": 2
+      }
+    },
+    "cadence_aligned_to_tick_12178": {
+      "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+      "original_flip_count": 1977,
+      "co_timed_count": 0,
+      "flips": 1977,
+      "intervals": 1976,
+      "window_seconds": 15.0,
+      "avg_fps": 131.8041736832156,
+      "one_percent_low_fps": 77.41286214704573,
+      "p99_ms": 12.501,
+      "max_ms": 16.67,
+      "refresh_hz": 239.98080153587713,
+      "msc_intervals": {
+        "1": 424,
+        "2": 1484,
+        "3": 66,
+        "4": 2
+      }
+    },
+    "cat_proof": {
+      "before": {
+        "root_schemata": "    MB:0=2048;1=2048\n    L3:0=0;1=0\n",
+        "game_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_group_cpu_list": "",
+        "game_group_mode": "shareable",
+        "snapshot_mono_ns": [
+          9830092405465,
+          9830097857869
+        ],
+        "assigned_game_tids": 76
+      },
+      "after": {
+        "root_schemata": "    MB:0=2048;1=2048\n    L3:0=0;1=0\n",
+        "game_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_group_cpu_list": "",
+        "game_group_mode": "shareable",
+        "snapshot_mono_ns": [
+          9845273848860,
+          9845279434630
+        ],
+        "assigned_game_tids": 76
+      },
+      "zero_receipt": {
+        "enrolled_threads": 76,
+        "root_l3": {
+          "0": 0,
+          "1": 0
+        },
+        "game_l3": {
+          "0": 65535,
+          "1": 65535
+        },
+        "zero_started_ns": 9830062872905,
+        "zero_verified_ns": 9830063493115,
+        "timer": "cs2-hfr1-cat-zero-restore.timer",
+        "timer_delay_seconds": 28
+      },
+      "restore_receipt": {
+        "restored": true,
+        "mounted": true,
+        "restored_ns": 9845415193533,
+        "root_l3": {
+          "0": 65535,
+          "1": 65535
+        }
+      },
+      "audio_before_arm": {
+        "allowed_game_playback_streams": 1,
+        "active_capture_streams": 0
+      }
+    },
+    "config_restored": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "present_csv_sha256": "533e8516de056cc440308f128519ff0efcae698fd1b8fc0741986acc7b211514"
+  },
+  "a2": {
+    "run": {
+      "offline": true,
+      "seek_tick": 10048,
+      "xray": 0,
+      "warmup_seconds": 10,
+      "server_resume_tick": 12178,
+      "resume_marker": "CGameRules - unpaused on tick 12178, pause duration was 1 ticks",
+      "resume_marker_observation_ns": [
+        9904860696336,
+        9904866728740
+      ],
+      "window_mono_ns": [
+        9905866728740,
+        9920866728740
+      ],
+      "anchor_method": "first read observing the resume marker; includes game console logging delay"
+    },
+    "cadence": {
+      "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+      "original_flip_count": 1881,
+      "co_timed_count": 0,
+      "flips": 1881,
+      "intervals": 1880,
+      "window_seconds": 15.0,
+      "avg_fps": 125.36589503513713,
+      "one_percent_low_fps": 75.99392048636109,
+      "p99_ms": 12.501,
+      "max_ms": 20.833,
+      "refresh_hz": 239.98080153587713,
+      "msc_intervals": {
+        "1": 301,
+        "2": 1442,
+        "3": 135,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "cadence_aligned_to_tick_12178": {
+      "measurement": "X11 displayed Flip cadence, unique UST/MSC completion instants",
+      "original_flip_count": 1881,
+      "co_timed_count": 0,
+      "flips": 1881,
+      "intervals": 1880,
+      "window_seconds": 15.0,
+      "avg_fps": 125.36589503513713,
+      "one_percent_low_fps": 75.99392048636109,
+      "p99_ms": 12.501,
+      "max_ms": 20.833,
+      "refresh_hz": 239.98080153587713,
+      "msc_intervals": {
+        "1": 301,
+        "2": 1442,
+        "3": 135,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "cat_proof": {
+      "before": {
+        "root_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_group_cpu_list": "",
+        "game_group_mode": "shareable",
+        "snapshot_mono_ns": [
+          9905517368286,
+          9905521587735
+        ],
+        "assigned_game_tids": 76
+      },
+      "after": {
+        "root_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_schemata": "    MB:0=2048;1=2048\n    L3:0=ffff;1=ffff\n",
+        "game_group_cpu_list": "",
+        "game_group_mode": "shareable",
+        "snapshot_mono_ns": [
+          9920867388507,
+          9920871977541
+        ],
+        "assigned_game_tids": 76
+      }
+    },
+    "config_restored": {
+      "byte_identical_cfg": {
+        "cs2_video.txt": true,
+        "cs2_user_convars_0_slot0.vcfg": true,
+        "cs2_machine_convars.vcfg": true
+      },
+      "steam_launch_options_unchanged": true
+    },
+    "present_csv_sha256": "e5f06d93a9c4ed37c91286d8668bf1e825a2f6bdf1c3d080200f020d4ad4d509"
+  }
+}
+
+B MINUS MEAN A
+{
+  "avg_fps": 4.335083487878961,
+  "one_percent_low_fps": 0.07463212504180206,
+  "p99_ms": 0.0
+}
+Verified B zero interval: 15351.700 ms.
