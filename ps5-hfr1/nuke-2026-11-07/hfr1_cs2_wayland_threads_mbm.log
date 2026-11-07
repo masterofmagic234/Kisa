@@ -1,0 +1,799 @@
+CS2 HFR1 / Native Wayland / -threads / MBM
+Оригинальная CS2, офлайн, labwc, системный RADV, HFR1 без MP1, 1920x1080 @239.999 Hz по wlr-randr.
+Nuke: seek 10048, камера 9, 15 с от resume+1. Kebab: seek 39736, камера 6, 15 с от resume+6.
+Submitted: Wayland wl_surface.attach+commit. Presented: новая версия этого же буфера CS2, подтверждённая трассой labwc/wlroots и временной меткой выхода.
+Протокол игры не дал wp_presentation feedback. У первого контроля Nuke вывод не оценён из-за ошибки регистрации рекордера, остальные окна оценены внешне.
+Политика labwc по умолчанию. Игра запрашивала async, рекордер различает текстуру композитора и прямой scanout.
+Задержка композитора: от surface_commit_state до подтверждённого показа. Не включает ввод и выполнение кадра игрой.
+Задержка воркера Nuke: VKRenderThread switch-out до sched_waking от главного потока в проверенной futex-цепочке.
+MBM: мониторинг с полной маской L3 и штатным MBA, CPU memory bandwidth по двум доменам, интервалы 100 мс. Discord вне эксперимента.
+Настройки игры и LaunchOptions проверены после каждого прогона, временные группы/пробы удалены. Монитор оставлен в запрошенном режиме 240 Гц.
+Формат сводки FPS / 1% low FPS / P99 кадра мс.
+Nuke 10 A1: submit 123.280/85.413/10.947; display —; wake P99 2.61; Steam MiB/s 28.460979702618584
+Nuke 8: submit 120.840/61.526/12.081; display 120.866/61.617/12.501; wake P99 2.841; Steam MiB/s 38.946226804835156
+Nuke 12: submit 126.386/87.497/10.671; display 126.401/78.613/12.501; wake P99 2.613; Steam MiB/s 28.188397842090545
+Nuke 10 A2: submit 125.019/86.976/10.865; display 125.035/78.614/12.501; wake P99 2.291; Steam MiB/s 27.649439698729868
+Kebab 10 A1: submit 114.609/70.664/12.171; display 114.595/73.214/12.501; wake P99 None; Steam MiB/s None
+Kebab 12: submit 116.457/75.200/11.895; display 116.462/74.476/12.501; wake P99 None; Steam MiB/s None
+Kebab 10 A2: submit 115.310/73.966/11.823; display 115.296/73.214/12.501; wake P99 None; Steam MiB/s None
+
+{
+  "Nuke": {
+    "10 A1": {
+      "threads": 10,
+      "globpool_count": 9,
+      "submitted": {
+        "frames": 1849,
+        "intervals": 1848,
+        "avg_fps": 123.27954947428339,
+        "one_percent_low_fps": 85.41322055227837,
+        "p99_ms": 10.947,
+        "max_ms": 16.389,
+        "first_mono_ns": 871273948012,
+        "last_mono_ns": 886264268855
+      },
+      "presented": null,
+      "client_app_id": "org.codex.CS2Offline",
+      "wayland_surface": 3,
+      "window_mono_ns": [
+        871265467696,
+        886265467696
+      ],
+      "seek_tick": 10048,
+      "camera_slot": 9,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "cfg_byte_identical": {
+        "byte_identical_cfg": {
+          "cs2_video.txt": true,
+          "cs2_user_convars_0_slot0.vcfg": true,
+          "cs2_machine_convars.vcfg": true
+        },
+        "steam_launch_options_unchanged": true
+      },
+      "eligible_wake_chains": {
+        "render_block_to_main_wake": {
+          "n": 2031,
+          "p50_ms": 0.618,
+          "p95_ms": 1.635,
+          "p99_ms": 2.61,
+          "max_ms": 6.258
+        },
+        "render_wait_entry_to_main_wake": {
+          "n": 2031,
+          "p50_ms": 0.621,
+          "p95_ms": 1.641,
+          "p99_ms": 2.617,
+          "max_ms": 6.262
+        },
+        "main_wake_to_worker_run": {
+          "n": 2031,
+          "p50_ms": 0.004,
+          "p95_ms": 0.007,
+          "p99_ms": 0.009,
+          "max_ms": 0.027
+        },
+        "main_wake_to_render_signal": {
+          "n": 2031,
+          "p50_ms": 0.242,
+          "p95_ms": 0.616,
+          "p99_ms": 0.932,
+          "max_ms": 1.038
+        },
+        "worker_run_to_render_signal": {
+          "n": 2031,
+          "p50_ms": 0.238,
+          "p95_ms": 0.611,
+          "p99_ms": 0.928,
+          "max_ms": 1.035
+        }
+      },
+      "mbm": {
+        "valid_bins": 150,
+        "matched_frame_intervals": 1675,
+        "unmatched_slow_frames": 0,
+        "steam_mean_mib_s": 28.460979702618584,
+        "steam_max_bin_mib_s": 106.39953660095657,
+        "game_mean_gib_s": 9.234280127626265,
+        "correlations": {
+          "mean_frame_gap_ms": {
+            "bins": 150,
+            "spearman_rho": 0.17193830836926086
+          },
+          "max_frame_gap_ms": {
+            "bins": 150,
+            "spearman_rho": 0.13571661598328003
+          },
+          "slow_frame_fraction": {
+            "bins": 150,
+            "spearman_rho": -0.07821605668226575
+          },
+          "cs2_mbm_gib_s": {
+            "bins": 150,
+            "spearman_rho": 0.3480030223565492
+          }
+        },
+        "steam_quartile_effects": {
+          "low": {
+            "bins": 37,
+            "mean_bin_steam_gib_s": 0.023905983193767612,
+            "mean_bin_frame_gap_ms": 8.090153464281064,
+            "mean_bin_slow_frame_fraction": 0.002702702702702703
+          },
+          "high": {
+            "bins": 37,
+            "mean_bin_steam_gib_s": 0.03462446036585265,
+            "mean_bin_frame_gap_ms": 8.243906679185828,
+            "mean_bin_slow_frame_fraction": 0.0
+          },
+          "high_minus_low_mean_gap_ms": 0.15375321490476423,
+          "high_minus_low_slow_percentage_points": -0.2702702702702703
+        }
+      },
+      "sha256": {
+        "run.json": "aab4abc32adca219d8d346e8d58642805685175a582000337606d358884e5217",
+        "launch.log": "19065d007874f23aec39dd1fb7b9679f82dd17dc24861418c63bb248fad56199",
+        "video-tested.txt": "bf71a82aab4bfde47ff24e03bf8d550feac2838b924bf4f599bc7036a9a67c62",
+        "camera-proof.png": "735255b28bb51c4cab7345914286ac3415a10f75195a5ac676ea84a6379febc1",
+        "cat-roles-trace.txt": "9a17885497133ba2b47dc0ac05262e509ed76bea62708c756b5b1efc959e46cc",
+        "mbm.jsonl": "57d7ccd581dcdb7ee5f260b0fa82f6974e2acccd73e9ba9f7741de4638bb95e7"
+      }
+    },
+    "8": {
+      "threads": 8,
+      "globpool_count": 7,
+      "submitted": {
+        "frames": 1812,
+        "intervals": 1811,
+        "avg_fps": 120.84035712626674,
+        "one_percent_low_fps": 61.52630533545564,
+        "p99_ms": 12.081,
+        "max_ms": 25.797,
+        "first_mono_ns": 977725403779,
+        "last_mono_ns": 992712118839
+      },
+      "presented": {
+        "frames": 1811,
+        "intervals": 1810,
+        "avg_fps": 120.86583745134148,
+        "one_percent_low_fps": 61.617091932701165,
+        "p99_ms": 12.501,
+        "max_ms": 25.001,
+        "first_mono_ns": 977729573000,
+        "last_mono_ns": 992704855000,
+        "sequence_steps": {
+          "1": 205,
+          "2": 1443,
+          "3": 153,
+          "4": 3,
+          "5": 4,
+          "6": 2
+        }
+      },
+      "client_app_id": "org.codex.CS2Offline",
+      "wayland_surface": 3,
+      "window_mono_ns": [
+        977717083069,
+        992717083069
+      ],
+      "seek_tick": 10048,
+      "camera_slot": 9,
+      "resume_marker": "CGameRules - unpaused on tick 12178, pause duration was 1 ticks",
+      "cfg_byte_identical": {
+        "byte_identical_cfg": {
+          "cs2_video.txt": true,
+          "cs2_user_convars_0_slot0.vcfg": true,
+          "cs2_machine_convars.vcfg": true
+        },
+        "steam_launch_options_unchanged": true
+      },
+      "presentation_path": {
+        "texture": 1811
+      },
+      "compositor_apply_to_present": {
+        "measurement": "compositor only: non-null buffer surface_commit_state entry to first output presentation",
+        "n": 1811,
+        "p50_ms": 3.871,
+        "p95_ms": 5.748,
+        "p99_ms": 5.997
+      },
+      "display_refresh_ns": {
+        "4166684": 1811
+      },
+      "presentation_unscored": {},
+      "eligible_wake_chains": {
+        "render_block_to_main_wake": {
+          "n": 1681,
+          "p50_ms": 0.792,
+          "p95_ms": 1.654,
+          "p99_ms": 2.841,
+          "max_ms": 12.479
+        },
+        "render_wait_entry_to_main_wake": {
+          "n": 1681,
+          "p50_ms": 0.796,
+          "p95_ms": 1.657,
+          "p99_ms": 2.848,
+          "max_ms": 12.496
+        },
+        "main_wake_to_worker_run": {
+          "n": 1681,
+          "p50_ms": 0.004,
+          "p95_ms": 0.008,
+          "p99_ms": 0.012,
+          "max_ms": 0.746
+        },
+        "main_wake_to_render_signal": {
+          "n": 1681,
+          "p50_ms": 0.323,
+          "p95_ms": 0.663,
+          "p99_ms": 1.016,
+          "max_ms": 2.207
+        },
+        "worker_run_to_render_signal": {
+          "n": 1681,
+          "p50_ms": 0.318,
+          "p95_ms": 0.657,
+          "p99_ms": 1.011,
+          "max_ms": 2.2
+        }
+      },
+      "mbm": {
+        "valid_bins": 150,
+        "matched_frame_intervals": 1641,
+        "unmatched_slow_frames": 4,
+        "steam_mean_mib_s": 38.946226804835156,
+        "steam_max_bin_mib_s": 688.0576165980306,
+        "game_mean_gib_s": 8.812959145967378,
+        "correlations": {
+          "mean_frame_gap_ms": {
+            "bins": 150,
+            "spearman_rho": -0.21619271967643006
+          },
+          "max_frame_gap_ms": {
+            "bins": 150,
+            "spearman_rho": -0.16089973856598966
+          },
+          "slow_frame_fraction": {
+            "bins": 150,
+            "spearman_rho": -0.05083662930001969
+          },
+          "cs2_mbm_gib_s": {
+            "bins": 150,
+            "spearman_rho": 0.08310591581848083
+          }
+        },
+        "steam_quartile_effects": {
+          "low": {
+            "bins": 37,
+            "mean_bin_steam_gib_s": 0.02349668458378747,
+            "mean_bin_frame_gap_ms": 8.963437991776242,
+            "mean_bin_slow_frame_fraction": 0.04954954954954955
+          },
+          "high": {
+            "bins": 37,
+            "mean_bin_steam_gib_s": 0.07433224731576936,
+            "mean_bin_frame_gap_ms": 8.075619451731301,
+            "mean_bin_slow_frame_fraction": 0.003003003003003003
+          },
+          "high_minus_low_mean_gap_ms": -0.8878185400449414,
+          "high_minus_low_slow_percentage_points": -4.654654654654655
+        }
+      },
+      "sha256": {
+        "run.json": "fb1ad61fc638e0508e671dd3207da6eb479539f048eb6ab5b5ddd84c47c5fbc0",
+        "launch.log": "f9687592c99af0c0c58db1a4cb2aac79caf014053aaab15b68229afdac04d389",
+        "video-tested.txt": "bf71a82aab4bfde47ff24e03bf8d550feac2838b924bf4f599bc7036a9a67c62",
+        "camera-proof.png": "8189406b5308b29f8013d35d038e955bb82dd1f67668958ddcf9f5a53ebbccf2",
+        "cat-roles-trace.txt": "0e134a7f852d6d29116202c4be9fe6a1718948d14414abb896da541c485d7e47",
+        "mbm.jsonl": "b6d1b571ef230c01f7006a6dc5bb515b18acb0dd541c05bbdfab02474cd814e5",
+        "wayland-presentation-trace.txt": "b7e96dd1aba4df8dd9395bb212adf3d2cb4058f85cd08578321e315d3915c30d"
+      }
+    },
+    "12": {
+      "threads": 12,
+      "globpool_count": 11,
+      "submitted": {
+        "frames": 1896,
+        "intervals": 1895,
+        "avg_fps": 126.38577492837882,
+        "one_percent_low_fps": 87.4967120232276,
+        "p99_ms": 10.671001,
+        "max_ms": 16.513001,
+        "first_mono_ns": 1048335606976,
+        "last_mono_ns": 1063329382985
+      },
+      "presented": {
+        "frames": 1896,
+        "intervals": 1895,
+        "avg_fps": 126.40106745201194,
+        "one_percent_low_fps": 78.61277416204989,
+        "p99_ms": 12.501,
+        "max_ms": 16.667,
+        "first_mono_ns": 1048330914000,
+        "last_mono_ns": 1063322876000,
+        "sequence_steps": {
+          "1": 309,
+          "2": 1470,
+          "3": 115,
+          "4": 1
+        }
+      },
+      "client_app_id": "org.codex.CS2Offline",
+      "wayland_surface": 3,
+      "window_mono_ns": [
+        1048330279162,
+        1063330279162
+      ],
+      "seek_tick": 10048,
+      "camera_slot": 9,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "cfg_byte_identical": {
+        "byte_identical_cfg": {
+          "cs2_video.txt": true,
+          "cs2_user_convars_0_slot0.vcfg": true,
+          "cs2_machine_convars.vcfg": true
+        },
+        "steam_launch_options_unchanged": true
+      },
+      "presentation_path": {
+        "texture": 1896
+      },
+      "compositor_apply_to_present": {
+        "measurement": "compositor only: non-null buffer surface_commit_state entry to first output presentation",
+        "n": 1896,
+        "p50_ms": 3.82,
+        "p95_ms": 5.779,
+        "p99_ms": 6.02
+      },
+      "display_refresh_ns": {
+        "4166684": 1896
+      },
+      "presentation_unscored": {},
+      "eligible_wake_chains": {
+        "render_block_to_main_wake": {
+          "n": 1558,
+          "p50_ms": 0.709,
+          "p95_ms": 1.698,
+          "p99_ms": 2.613,
+          "max_ms": 5.906
+        },
+        "render_wait_entry_to_main_wake": {
+          "n": 1558,
+          "p50_ms": 0.714,
+          "p95_ms": 1.709,
+          "p99_ms": 2.622,
+          "max_ms": 5.908
+        },
+        "main_wake_to_worker_run": {
+          "n": 1558,
+          "p50_ms": 0.004,
+          "p95_ms": 0.007,
+          "p99_ms": 0.01,
+          "max_ms": 0.09
+        },
+        "main_wake_to_render_signal": {
+          "n": 1558,
+          "p50_ms": 0.235,
+          "p95_ms": 0.587,
+          "p99_ms": 0.936,
+          "max_ms": 1.005
+        },
+        "worker_run_to_render_signal": {
+          "n": 1558,
+          "p50_ms": 0.23,
+          "p95_ms": 0.583,
+          "p99_ms": 0.932,
+          "max_ms": 1.002
+        }
+      },
+      "mbm": {
+        "valid_bins": 141,
+        "matched_frame_intervals": 1617,
+        "unmatched_slow_frames": 0,
+        "steam_mean_mib_s": 28.188397842090545,
+        "steam_max_bin_mib_s": 54.18437671704137,
+        "game_mean_gib_s": 9.563196810190275,
+        "correlations": {
+          "mean_frame_gap_ms": {
+            "bins": 141,
+            "spearman_rho": 0.01820283402542917
+          },
+          "max_frame_gap_ms": {
+            "bins": 141,
+            "spearman_rho": -0.009625881355802732
+          },
+          "slow_frame_fraction": {
+            "bins": 141,
+            "spearman_rho": 0.06186593057442723
+          },
+          "cs2_mbm_gib_s": {
+            "bins": 141,
+            "spearman_rho": -0.0024829830044094353
+          }
+        },
+        "steam_quartile_effects": {
+          "low": {
+            "bins": 35,
+            "mean_bin_steam_gib_s": 0.02407473353651608,
+            "mean_bin_frame_gap_ms": 7.856258617012829,
+            "mean_bin_slow_frame_fraction": 0.0
+          },
+          "high": {
+            "bins": 35,
+            "mean_bin_steam_gib_s": 0.03292560925987186,
+            "mean_bin_frame_gap_ms": 7.867578067037408,
+            "mean_bin_slow_frame_fraction": 0.0
+          },
+          "high_minus_low_mean_gap_ms": 0.011319450024578792,
+          "high_minus_low_slow_percentage_points": 0.0
+        }
+      },
+      "sha256": {
+        "run.json": "286026ad967a1e15642178768bc7a0345ec65e167586820925bb660f718000ec",
+        "launch.log": "ce859dc20328b342b32298760b8a7a3647c31565c0cf3c8cb29b01cc8e978241",
+        "video-tested.txt": "bf71a82aab4bfde47ff24e03bf8d550feac2838b924bf4f599bc7036a9a67c62",
+        "camera-proof.png": "a7fe2f91e0790b388d66c59e4ff771d61ab2d3c384634cf7a80d9dccc86863f2",
+        "cat-roles-trace.txt": "341c427d279e0eec917850de3d0360040de7a3eafa7832a3a0de4173779f4e5a",
+        "mbm.jsonl": "c4e24ef117e4ee1883dc5df593d61b49f40e7ed2a0f5244294ef2d495e4c6edb",
+        "wayland-presentation-trace.txt": "2b5d631bcd7a1dab685c12f91660277c2560d573404843e88039d4216d339895"
+      }
+    },
+    "10 A2": {
+      "threads": 10,
+      "globpool_count": 9,
+      "submitted": {
+        "frames": 1876,
+        "intervals": 1875,
+        "avg_fps": 125.01857708545458,
+        "one_percent_low_fps": 86.97642441301706,
+        "p99_ms": 10.865,
+        "max_ms": 16.699,
+        "first_mono_ns": 1119350055798,
+        "last_mono_ns": 1134347826879
+      },
+      "presented": {
+        "frames": 1875,
+        "intervals": 1874,
+        "avg_fps": 125.035086887042,
+        "one_percent_low_fps": 78.61407522953242,
+        "p99_ms": 12.501,
+        "max_ms": 16.667,
+        "first_mono_ns": 1119353141000,
+        "last_mono_ns": 1134340934000,
+        "sequence_steps": {
+          "1": 274,
+          "2": 1478,
+          "3": 121,
+          "4": 1
+        }
+      },
+      "client_app_id": "org.codex.CS2Offline",
+      "wayland_surface": 37,
+      "window_mono_ns": [
+        1119348794905,
+        1134348794905
+      ],
+      "seek_tick": 10048,
+      "camera_slot": 9,
+      "resume_marker": "CGameRules - unpaused on tick 12177, pause duration was 0 ticks",
+      "cfg_byte_identical": {
+        "byte_identical_cfg": {
+          "cs2_video.txt": true,
+          "cs2_user_convars_0_slot0.vcfg": true,
+          "cs2_machine_convars.vcfg": true
+        },
+        "steam_launch_options_unchanged": true
+      },
+      "presentation_path": {
+        "texture": 1875
+      },
+      "compositor_apply_to_present": {
+        "measurement": "compositor only: non-null buffer surface_commit_state entry to first output presentation",
+        "n": 1875,
+        "p50_ms": 3.9,
+        "p95_ms": 5.72,
+        "p99_ms": 5.972
+      },
+      "display_refresh_ns": {
+        "4166684": 1875
+      },
+      "presentation_unscored": {},
+      "eligible_wake_chains": {
+        "render_block_to_main_wake": {
+          "n": 2533,
+          "p50_ms": 0.449,
+          "p95_ms": 1.512,
+          "p99_ms": 2.291,
+          "max_ms": 5.976
+        },
+        "render_wait_entry_to_main_wake": {
+          "n": 2533,
+          "p50_ms": 0.453,
+          "p95_ms": 1.519,
+          "p99_ms": 2.302,
+          "max_ms": 5.978
+        },
+        "main_wake_to_worker_run": {
+          "n": 2533,
+          "p50_ms": 0.004,
+          "p95_ms": 0.006,
+          "p99_ms": 0.008,
+          "max_ms": 0.014
+        },
+        "main_wake_to_render_signal": {
+          "n": 2533,
+          "p50_ms": 0.096,
+          "p95_ms": 0.58,
+          "p99_ms": 0.889,
+          "max_ms": 1.105
+        },
+        "worker_run_to_render_signal": {
+          "n": 2533,
+          "p50_ms": 0.093,
+          "p95_ms": 0.576,
+          "p99_ms": 0.885,
+          "max_ms": 1.099
+        }
+      },
+      "mbm": {
+        "valid_bins": 150,
+        "matched_frame_intervals": 1706,
+        "unmatched_slow_frames": 1,
+        "steam_mean_mib_s": 27.649439698729868,
+        "steam_max_bin_mib_s": 39.80081159809938,
+        "game_mean_gib_s": 9.254842602634854,
+        "correlations": {
+          "mean_frame_gap_ms": {
+            "bins": 150,
+            "spearman_rho": 0.1596019019529516
+          },
+          "max_frame_gap_ms": {
+            "bins": 150,
+            "spearman_rho": 0.153486614902689
+          },
+          "slow_frame_fraction": {
+            "bins": 150,
+            "spearman_rho": 0.10878868461647931
+          },
+          "cs2_mbm_gib_s": {
+            "bins": 150,
+            "spearman_rho": 0.11884439308413708
+          }
+        },
+        "steam_quartile_effects": {
+          "low": {
+            "bins": 37,
+            "mean_bin_steam_gib_s": 0.02385077776068894,
+            "mean_bin_frame_gap_ms": 7.982437874920725,
+            "mean_bin_slow_frame_fraction": 0.0
+          },
+          "high": {
+            "bins": 37,
+            "mean_bin_steam_gib_s": 0.0312160459415422,
+            "mean_bin_frame_gap_ms": 8.276880963285063,
+            "mean_bin_slow_frame_fraction": 0.003003003003003003
+          },
+          "high_minus_low_mean_gap_ms": 0.2944430883643374,
+          "high_minus_low_slow_percentage_points": 0.3003003003003003
+        }
+      },
+      "sha256": {
+        "run.json": "8a6ae8db6eeff47ff2667393ac096ba1898243da54ecf9861308980c18ac3a32",
+        "launch.log": "f0bba2a8484c456f0565902c0a104874be3380a0f31e9ecdc9c01ee3bb1eb45a",
+        "video-tested.txt": "bf71a82aab4bfde47ff24e03bf8d550feac2838b924bf4f599bc7036a9a67c62",
+        "camera-proof.png": "e0858739e83bceacdd55cf7bed2ad224615ec3abe4241983ae46bcd57a89fb8d",
+        "cat-roles-trace.txt": "102e2198a76f0a63c499793fc5a8b5ed17b9ae8a16b145c844a06532235dd6a3",
+        "mbm.jsonl": "f5f7c3e8da5a37e030e4d8da69a71875b168bfcdf2f3e2e1e8709807853cc37d",
+        "wayland-presentation-trace.txt": "252372b64b0db6bb13463e0bd9fcfa3cd4fd7a40ea51ae5e29a8310ddc8bf800"
+      }
+    }
+  },
+  "Kebab": {
+    "10 A1": {
+      "threads": 10,
+      "globpool_count": 9,
+      "submitted": {
+        "frames": 1719,
+        "intervals": 1718,
+        "avg_fps": 114.60890020740591,
+        "one_percent_low_fps": 70.66444260017228,
+        "p99_ms": 12.171,
+        "max_ms": 21.314,
+        "first_mono_ns": 1228588895848,
+        "last_mono_ns": 1243579005664
+      },
+      "presented": {
+        "frames": 1719,
+        "intervals": 1718,
+        "avg_fps": 114.59478669761305,
+        "one_percent_low_fps": 73.21448182450489,
+        "p99_ms": 12.501,
+        "max_ms": 20.833,
+        "first_mono_ns": 1228584432000,
+        "last_mono_ns": 1243576388000,
+        "sequence_steps": {
+          "1": 131,
+          "2": 1299,
+          "3": 284,
+          "4": 3,
+          "5": 1
+        }
+      },
+      "client_app_id": "org.codex.CS2Offline",
+      "wayland_surface": 3,
+      "window_mono_ns": [
+        1228581933352,
+        1243581933352
+      ],
+      "seek_tick": 39736,
+      "camera_slot": 6,
+      "resume_marker": "CGameRules - unpaused on tick 42565, pause duration was 1 ticks",
+      "cfg_byte_identical": {
+        "byte_identical_cfg": {
+          "cs2_video.txt": true,
+          "cs2_user_convars_0_slot0.vcfg": true,
+          "cs2_machine_convars.vcfg": true
+        },
+        "steam_launch_options_unchanged": true
+      },
+      "presentation_path": {
+        "texture": 1719
+      },
+      "compositor_apply_to_present": {
+        "measurement": "compositor only: non-null buffer surface_commit_state entry to first output presentation",
+        "n": 1719,
+        "p50_ms": 4.499,
+        "p95_ms": 6.415,
+        "p99_ms": 6.716
+      },
+      "display_refresh_ns": {
+        "4166684": 1719
+      },
+      "presentation_unscored": {},
+      "sha256": {
+        "run.json": "1aa6a1b0392def83ebe63fb85700ac2ecab7cc69b5de7ceb61482cde22785e75",
+        "launch.log": "c66a0c6cc1bfbdfc2a6c8640d07756cc8af4a96aa8f5504ba6086708203008f0",
+        "video-tested.txt": "bf71a82aab4bfde47ff24e03bf8d550feac2838b924bf4f599bc7036a9a67c62",
+        "camera-proof.png": "660d78ac9214fe92a27eb6759b108c2e77a783946534d340339c1c20d22b1560",
+        "wayland-presentation-trace.txt": "4b97c1dfa4b3c3ed916bc6d95306d14cc0bd15553c98b41bd496f42203ccd2e2"
+      }
+    },
+    "12": {
+      "threads": 12,
+      "globpool_count": 11,
+      "submitted": {
+        "frames": 1747,
+        "intervals": 1746,
+        "avg_fps": 116.45697363963747,
+        "one_percent_low_fps": 75.19990296204521,
+        "p99_ms": 11.895001,
+        "max_ms": 18.582001,
+        "first_mono_ns": 1302578099201,
+        "last_mono_ns": 1317570760829
+      },
+      "presented": {
+        "frames": 1747,
+        "intervals": 1746,
+        "avg_fps": 116.46246270082854,
+        "one_percent_low_fps": 74.47618417132831,
+        "p99_ms": 12.501,
+        "max_ms": 16.667,
+        "first_mono_ns": 1302573360000,
+        "last_mono_ns": 1317565315000,
+        "sequence_steps": {
+          "1": 139,
+          "2": 1366,
+          "3": 237,
+          "4": 4
+        }
+      },
+      "client_app_id": "org.codex.CS2Offline",
+      "wayland_surface": 3,
+      "window_mono_ns": [
+        1302571911381,
+        1317571911381
+      ],
+      "seek_tick": 39736,
+      "camera_slot": 6,
+      "resume_marker": "CGameRules - unpaused on tick 42565, pause duration was 1 ticks",
+      "cfg_byte_identical": {
+        "byte_identical_cfg": {
+          "cs2_video.txt": true,
+          "cs2_user_convars_0_slot0.vcfg": true,
+          "cs2_machine_convars.vcfg": true
+        },
+        "steam_launch_options_unchanged": true
+      },
+      "presentation_path": {
+        "texture": 1747
+      },
+      "compositor_apply_to_present": {
+        "measurement": "compositor only: non-null buffer surface_commit_state entry to first output presentation",
+        "n": 1747,
+        "p50_ms": 4.411,
+        "p95_ms": 6.475,
+        "p99_ms": 6.776
+      },
+      "display_refresh_ns": {
+        "4166684": 1747
+      },
+      "presentation_unscored": {},
+      "sha256": {
+        "run.json": "99afbecf6b4fb3d07308d5f823acd67ba8db92c0b4d030046d87456363046a1a",
+        "launch.log": "f82410f2c96d8438c194a88230e7ea6fefe04f505f18c2c3be4af3ee54415daf",
+        "video-tested.txt": "bf71a82aab4bfde47ff24e03bf8d550feac2838b924bf4f599bc7036a9a67c62",
+        "camera-proof.png": "2ca5d458c7b156888b3bc8a48b99497b44a4d1a53ee46bb24d66dcca70263d36",
+        "wayland-presentation-trace.txt": "929fd314aae5ba13d1942cb1e1182f6f580d3f5f645c296c049999190c72e5ef"
+      }
+    },
+    "10 A2": {
+      "threads": 10,
+      "globpool_count": 9,
+      "submitted": {
+        "frames": 1730,
+        "intervals": 1729,
+        "avg_fps": 115.3101666813748,
+        "one_percent_low_fps": 73.96631854103804,
+        "p99_ms": 11.823,
+        "max_ms": 19.525,
+        "first_mono_ns": 1375978957382,
+        "last_mono_ns": 1390973298729
+      },
+      "presented": {
+        "frames": 1730,
+        "intervals": 1729,
+        "avg_fps": 115.296482336999,
+        "one_percent_low_fps": 73.214184027919,
+        "p99_ms": 12.501,
+        "max_ms": 20.834,
+        "first_mono_ns": 1375974770000,
+        "last_mono_ns": 1390970891000,
+        "sequence_steps": {
+          "1": 123,
+          "2": 1347,
+          "3": 255,
+          "4": 3,
+          "5": 1
+        }
+      },
+      "client_app_id": "org.codex.CS2Offline",
+      "wayland_surface": 3,
+      "window_mono_ns": [
+        1375973668809,
+        1390973668809
+      ],
+      "seek_tick": 39736,
+      "camera_slot": 6,
+      "resume_marker": "CGameRules - unpaused on tick 42564, pause duration was 0 ticks",
+      "cfg_byte_identical": {
+        "byte_identical_cfg": {
+          "cs2_video.txt": true,
+          "cs2_user_convars_0_slot0.vcfg": true,
+          "cs2_machine_convars.vcfg": true
+        },
+        "steam_launch_options_unchanged": true
+      },
+      "presentation_path": {
+        "texture": 1730
+      },
+      "compositor_apply_to_present": {
+        "measurement": "compositor only: non-null buffer surface_commit_state entry to first output presentation",
+        "n": 1730,
+        "p50_ms": 4.476,
+        "p95_ms": 6.414,
+        "p99_ms": 6.772
+      },
+      "display_refresh_ns": {
+        "4166684": 1730
+      },
+      "presentation_unscored": {},
+      "sha256": {
+        "run.json": "70add6af04abbf1fc726b64890fc3b9f713697c2f604a35b69571086d22f19fb",
+        "launch.log": "88c6168492f3a2f1ed656c9e98a42fa63d76f57b0b94922215ccd201d40e5e2f",
+        "video-tested.txt": "bf71a82aab4bfde47ff24e03bf8d550feac2838b924bf4f599bc7036a9a67c62",
+        "camera-proof.png": "24f1fbbbe5fce9919b3a1c0a28fae83a3c4dd2403436ed08d0e0dbfe98541b4f",
+        "wayland-presentation-trace.txt": "ac70172e9ac487f7cbf7908a1ca59095d0d671ca328484433546e6d8033d1178"
+      }
+    }
+  }
+}
