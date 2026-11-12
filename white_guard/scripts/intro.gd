@@ -3,15 +3,16 @@ extends Control
 signal finished(skipped: bool)
 const Style = preload("res://addons/arkon_runtime/presentation/presentation_style163.gd")
 const Cues = preload("res://addons/arkon_runtime/presentation/cinematic_cues.gd")
+const Stage = preload("res://scripts/intro_stage.gd")
 enum State { TITLE, PLAYING, FINISHED }
 var state := State.TITLE
 var block_index := -1
 var book: Dictionary
 var muted := false
-var captions_enabled := true
+var captions_enabled := false
 var _audio: AudioStreamPlayer
 var _road: AudioStreamPlayer
-var _art: TextureRect
+var _art: Control
 var _caption: Label
 var _caption_panel: PanelContainer
 var _title: Control
@@ -22,17 +23,22 @@ var _subtitles_button: Button
 var _mute_button: Button
 var _progress: ProgressBar
 var _cue_track := Cues.new()
-var _fade: Tween
-var _textures: Dictionary = {}
 var _streams: Array[AudioStream] = []
 var _completion_emitted := false
+var storyboard: Dictionary
+var _offsets: Array[float] = []
+var _controls_until := 0.0
 
 func _ready() -> void:
     process_mode = Node.PROCESS_MODE_ALWAYS
     PauseManager.resume()
     book = JSON.parse_string(FileAccess.get_file_as_string("res://data/intro.json"))
+    storyboard = JSON.parse_string(FileAccess.get_file_as_string(book.storyboard))
+    captions_enabled = bool(storyboard.captions_default)
+    var elapsed := 0.0
     for block: Dictionary in book.blocks:
-        if not _textures.has(block.atlas): _textures[block.atlas] = load(block.atlas)
+        _offsets.append(elapsed)
+        elapsed += float(block.duration)
         _streams.append(load(block.audio) as AudioStream)
     _build_view()
     _audio = AudioStreamPlayer.new()
@@ -47,8 +53,7 @@ func _ready() -> void:
     _road.volume_db = -27.0
     add_child(_road)
     PauseManager.pause_state_changed.connect(_pause_changed)
-    resized.connect(_layout_art)
-    _show_art(0, false)
+    _show_art(0)
     _art.modulate = Color(0.42, 0.42, 0.42)
 
 func _build_view() -> void:
@@ -56,34 +61,31 @@ func _build_view() -> void:
     background.color = Color("151915")
     _full(background)
     add_child(background)
-    _art = TextureRect.new()
-    _art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-    _art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-    _art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    _art = Stage.new()
     _full(_art)
     add_child(_art)
+    _art.configure(storyboard.shots)
     _caption_panel = PanelContainer.new()
     _caption_panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-    _caption_panel.offset_top = -210
+    _caption_panel.offset_left = 105
+    _caption_panel.offset_right = -105
+    _caption_panel.offset_top = -104
+    _caption_panel.offset_bottom = -20
     _caption_panel.grow_vertical = Control.GROW_DIRECTION_BEGIN
-    _caption_panel.add_theme_stylebox_override("panel", Style.style(Color(0.055,0.065,0.055,0.96), Color.TRANSPARENT))
+    _caption_panel.add_theme_stylebox_override("panel", Style.style(Color(0.025,0.03,0.025,0.72), Color.TRANSPARENT, Vector4(12,4,12,4),0))
     add_child(_caption_panel)
     var margin := MarginContainer.new()
-    for edge in ["left", "right"]: margin.add_theme_constant_override("margin_" + edge, 46)
-    margin.add_theme_constant_override("margin_top", 16)
-    margin.add_theme_constant_override("margin_bottom", 16)
+    for edge in ["left", "right"]: margin.add_theme_constant_override("margin_" + edge, 12)
+    margin.add_theme_constant_override("margin_top", 4)
+    margin.add_theme_constant_override("margin_bottom", 4)
     _caption_panel.add_child(margin)
     var lines := VBoxContainer.new()
     lines.add_theme_constant_override("separation", 10)
     margin.add_child(lines)
-    var speaker := Label.new()
-    speaker.text = "МАЗУР"
-    Style.label(speaker, 13, Color("a5ad99"))
-    lines.add_child(speaker)
     _caption = Label.new()
     _caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     _caption.size_flags_vertical = Control.SIZE_EXPAND_FILL
-    Style.label(_caption, 25, Color("eee7d5"))
+    Style.label(_caption, 22, Color("eee7d5"))
     lines.add_child(_caption)
     _caption_panel.hide()
     _toolbar = HBoxContainer.new()
@@ -95,7 +97,7 @@ func _build_view() -> void:
     _toolbar.add_theme_constant_override("separation", 8)
     add_child(_toolbar)
     _pause_button = _button(_toolbar, "Пауза", func(): PauseManager.toggle())
-    _subtitles_button = _button(_toolbar, "Текст: вкл", toggle_captions)
+    _subtitles_button = _button(_toolbar, "Субтитры", toggle_captions)
     _mute_button = _button(_toolbar, "Звук: вкл", toggle_mute)
     _button(_toolbar, "Пропустить", func(): complete(true))
     _toolbar.hide()
@@ -141,9 +143,6 @@ func _card(kicker: String, title_: String, subtitle: String, button_text: String
     _button(box, button_text, action)
     return card
 
-func _layout_art() -> void:
-    _art.pivot_offset = size * 0.5
-
 func start() -> void:
     PauseManager.resume()
     _completion_emitted = false
@@ -151,6 +150,7 @@ func start() -> void:
     _title.hide()
     _ending.hide()
     _toolbar.show()
+    _controls_until = Time.get_ticks_msec()/1000.0 + float(storyboard.controls_idle_seconds)
     _caption_panel.visible = captions_enabled
     _progress.show()
     _road.play()
@@ -162,28 +162,15 @@ func play_block(index: int) -> void:
     _audio.stop()
     var block: Dictionary = book.blocks[index]
     _cue_track.configure(block.timed_captions)
-    _show_art(index, true)
+    _show_art(index)
     _audio.stream = _streams[index]
     _audio.play()
     _audio.stream_paused = PauseManager.is_paused
     show_caption_at(0)
 
-func _show_art(index: int, animate: bool) -> void:
-    var block: Dictionary = book.blocks[index]
-    var original: Texture2D = _textures[block.atlas]
-    var half := original.get_size() * 0.5
-    var texture := AtlasTexture.new()
-    texture.atlas = original
-    texture.region = Rect2(Vector2(int(block.quadrant) % 2, floori(float(block.quadrant) / 2.0)) * half, half)
-    texture.filter_clip = true
-    _art.texture = texture
-    _art.scale = Vector2.ONE
-    _layout_art()
-    if _fade != null: _fade.kill()
-    _art.modulate = Color(1,1,1,0.4) if animate else Color.WHITE
-    if animate:
-        _fade = create_tween()
-        _fade.tween_property(_art, "modulate:a", 1.0, 0.35)
+func _show_art(index: int) -> void:
+    _art.show_at(_offsets[index])
+    _art.modulate = Color.WHITE
 
 func show_caption_at(seconds: float) -> void:
     if block_index < 0: return
@@ -191,16 +178,19 @@ func show_caption_at(seconds: float) -> void:
     var time := clampf(seconds, 0.0, float(block.duration) - 0.0001)
     var cue: Dictionary = _cue_track.at(time)
     if not cue.is_empty(): _caption.text = cue.text
+    _art.show_at(_offsets[block_index]+time)
 
 func _process(_delta: float) -> void:
-    if state != State.PLAYING or PauseManager.is_paused: return
+    if state != State.PLAYING: return
+    var visible_controls := PauseManager.is_paused or Time.get_ticks_msec()/1000.0 < _controls_until
+    _toolbar.visible = visible_controls
+    _progress.visible = visible_controls
+    if PauseManager.is_paused: return
     var seconds := maxf(0, _audio.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency())
     show_caption_at(seconds)
     var before := 0.0
     for i in range(block_index): before += float(book.blocks[i].duration)
     _progress.value = (before + seconds) / float(book.duration) * 100.0
-    var fraction := clampf(seconds / float(book.blocks[block_index].duration), 0, 1)
-    _art.scale = Vector2.ONE * lerpf(1.0, 1.035, fraction)
 
 func _on_audio_finished() -> void:
     if state != State.PLAYING or _audio.playing: return
@@ -211,9 +201,6 @@ func _pause_changed(paused: bool) -> void:
     _audio.stream_paused = paused
     _road.stream_paused = paused
     _pause_button.text = "Продолжить" if paused else "Пауза"
-    if _fade != null and _fade.is_valid():
-        if paused: _fade.pause()
-        else: _fade.play()
 
 func toggle_mute() -> void:
     muted = not muted
@@ -226,7 +213,7 @@ func toggle_captions() -> void:
     if muted and captions_enabled: return
     captions_enabled = not captions_enabled
     _caption_panel.visible = captions_enabled and state == State.PLAYING
-    _subtitles_button.text = "Текст: вкл" if captions_enabled else "Текст: выкл"
+    _subtitles_button.text = "Субтитры: вкл" if captions_enabled else "Субтитры"
 
 func complete(skipped: bool = false) -> void:
     if state != State.PLAYING or _completion_emitted: return
@@ -235,7 +222,6 @@ func complete(skipped: bool = false) -> void:
     PauseManager.resume()
     _audio.stop()
     _road.stop()
-    if _fade != null: _fade.kill()
     _art.modulate = Color(0.24,0.24,0.24)
     _art.scale = Vector2.ONE
     _toolbar.hide()
@@ -251,6 +237,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
         else: start()
         get_viewport().set_input_as_handled()
 
+func _input(event: InputEvent) -> void:
+    if state==State.PLAYING and (event is InputEventMouseMotion or event is InputEventScreenTouch):
+        _controls_until = Time.get_ticks_msec()/1000.0 + float(storyboard.controls_idle_seconds)
+
 func _notification(what: int) -> void:
     if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED] and state == State.PLAYING:
         PauseManager.set_paused(true)
@@ -265,8 +255,5 @@ func _exit_tree() -> void:
     if is_instance_valid(_road):
         _road.stop()
         _road.stream = null
-    if _fade != null: _fade.kill()
-    _fade = null
     _streams.clear()
-    _textures.clear()
-    if is_instance_valid(_art): _art.texture = null
+    if is_instance_valid(_art): _art.clear()

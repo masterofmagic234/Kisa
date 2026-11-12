@@ -16,15 +16,24 @@ const {chromium} = require('playwright');
   await page.click('#start');
   await page.waitForFunction(()=>window.INTRO.getState().time>.15);
   await page.click('#pause');
+  assert(await page.locator('#captions').isHidden(),'Captions dominate the default picture');
   const paused=await page.evaluate(()=>window.INTRO.getState().time);
   await page.waitForTimeout(300);
   assert(Math.abs((await page.evaluate(()=>window.INTRO.getState().time))-paused)<.06,'Pause drifted');
   const cue=await page.evaluate(()=>window.INTRO.book.blocks[0].timed_captions[1]);
   await page.evaluate(t=>window.INTRO.seek(t),cue.start+.01);
   assert.equal(await page.locator('#line').innerText(),cue.text);
+  await page.click('#subtitles');assert(await page.locator('#captions').isVisible());
   await page.click('#subtitles');assert(await page.locator('#captions').isHidden());
   await page.click('#mute');assert(await page.locator('#captions').isVisible());
   await page.click('#mute');
+  const first=await page.evaluate(()=>window.INTRO.book.visuals.shots[0]);
+  assert(first.layers.length>0,'No animated convoy');
+  assert.notDeepEqual(first.layers[0].from,first.layers[0].to,'Only the camera moves');
+  for(const [name,time] of [['convoy',3],['roof',380],['leon',395]]){
+    const png=await page.evaluate(t=>{window.INTRO.renderAt(t);return document.querySelector('canvas').toDataURL('image/png')},time);
+    fs.writeFileSync(output+'/visual-'+name+'.png',Buffer.from(png.split(',')[1],'base64'));
+  }
   await page.evaluate(()=>window.INTRO.playBlock(6));
   await page.waitForTimeout(100);
   await page.screenshot({path:output+'/browser-appointment.png'});

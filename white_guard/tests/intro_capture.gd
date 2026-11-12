@@ -13,19 +13,23 @@ func _run() -> void:
     current_scene=scene
     await capture("title")
     scene.start()
-    await create_timer(0.45).timeout
-    root.get_node("PauseManager").set_paused(true)
+    scene._controls_until=0
+    scene._audio.seek(3.0)
     await capture("convoy")
     scene.play_block(6)
     root.get_node("PauseManager").resume()
     await create_timer(0.45).timeout
-    root.get_node("PauseManager").set_paused(true)
+    scene._controls_until=0
     await capture("appointment")
     scene.play_block(9)
     root.get_node("PauseManager").resume()
     await create_timer(0.45).timeout
-    root.get_node("PauseManager").set_paused(true)
+    scene._controls_until=0
     await capture("warehouses")
+    scene._audio.seek(49.0)
+    await capture("reconstruction")
+    root.get_node("PauseManager").set_paused(true)
+    scene.toggle_captions()
     var longest := ""
     for block: Dictionary in scene.book.blocks:
         for cue: Dictionary in block.timed_captions:
@@ -34,6 +38,10 @@ func _run() -> void:
     await capture("longest-caption")
     if scene._caption.get_global_rect().end.y > scene.size.y + 1:
         push_error("The longest subtitle extends below the screen")
+        quit(1)
+        return
+    if scene._caption.get_line_count()>2:
+        push_error("Optional subtitle grew beyond two lines")
         quit(1)
         return
     scene.complete(false)

@@ -29,6 +29,12 @@
   "source_full_book_included": false,
   "files": [
     {
+      "path": "assets/intro/actors.png",
+      "bytes": 1523241,
+      "sha256": "ff21d3caf2e62890d596b13846076062b5e2e6197bf2adcbbd6ba6ae87150486",
+      "origin": "image_gen original illustration / scene layer"
+    },
+    {
       "path": "assets/intro/audio/intro-01.mp3",
       "bytes": 124848,
       "sha256": "c504b48dd57fa21062c41ddd9cfad7d2790563a25458887288898c0f7ad6550a",
@@ -104,19 +110,57 @@
       "path": "assets/intro/opening-atlas-a.png",
       "bytes": 2404018,
       "sha256": "32e77a46119d1979eb4506f8848c0ad35c00f052a302c6e87c9c42e81d41a4cb",
-      "origin": "image_gen original illustration"
+      "origin": "image_gen original illustration / scene layer"
     },
     {
       "path": "assets/intro/opening-atlas-b.png",
       "bytes": 2511128,
       "sha256": "0a82df8fc5306c734945099928631f241b4f482fcf5985054a710f969a541db8",
-      "origin": "image_gen original illustration"
+      "origin": "image_gen original illustration / scene layer"
+    },
+    {
+      "path": "assets/intro/opening-atlas-c.png",
+      "bytes": 2287519,
+      "sha256": "8230d146a4d446b8156f0b9efa6bc0c80ddbf600ee08263679aa8ebb08060663",
+      "origin": "image_gen original illustration / scene layer"
+    },
+    {
+      "path": "assets/intro/opening-atlas-d.png",
+      "bytes": 2377888,
+      "sha256": "5a39c72cf381ba8ff871b663541c80916e3bfe7951dd9b1ea5ee4106230fbd6f",
+      "origin": "image_gen original illustration / scene layer"
+    },
+    {
+      "path": "assets/intro/opening-atlas-e.png",
+      "bytes": 2400557,
+      "sha256": "1ff621f7150b6ce158d8f98d1b47c51f4d87ec8974a1912eaa8844a75bd872bc",
+      "origin": "image_gen original illustration / scene layer"
+    },
+    {
+      "path": "assets/intro/opening-atlas-f.png",
+      "bytes": 2385415,
+      "sha256": "05ded7252df1914de6e6b75d154c41364f8b9ebb9a4045a0587fadd7ca88ba82",
+      "origin": "image_gen original illustration / scene layer"
     },
     {
       "path": "assets/intro/road-ambience.ogg",
       "bytes": 47173,
       "sha256": "b53b830ea9bb14c34a32576401394608dc28b6f7137543501f76bfb9dd5ee1c3",
       "origin": "Original procedural road ambience"
+    },
+    {
+      "path": "assets/intro/stages.png",
+      "bytes": 2351901,
+      "sha256": "08cf00bde75aadac70c40ae1445b0752072c0ac4cc4c37938a9ebde3ed009195",
+      "origin": "image_gen original illustration / scene layer"
     }
-  ]
+  ],
+  "visual_revision": {
+    "shots": 67,
+    "drawn_cells": 32,
+    "scene_animation": "independent transparent vehicle layers, camera coverage and staged reconstruction",
+    "captions_default": false,
+    "monologue_and_voice_unchanged": true,
+    "reference_commit": "6183078a1a02b89f7e2dd6b0725b980f2310c6e7"
+  }
 }

@@ -25,7 +25,20 @@ def main():
             previous=cue['end']
         if abs(previous-block['duration'])>.001:errors.append('Caption track ends before the voice: '+block['id'])
         if block['alignment']!='tts_word_boundaries':errors.append('Caption timing is estimated rather than word aligned')
-    if len(art)!=8 or len(book['blocks'])!=12:errors.append('Intro lost an illustration or opening paragraph')
+    if len(book['blocks'])!=12:errors.append('Intro lost an opening paragraph')
+    visuals=json.loads((ROOT/book['storyboard'].removeprefix('res://')).read_text())
+    art=set()
+    previous=0
+    for shot in visuals['shots']:
+        if abs(shot['start']-previous)>.001 or not 0<shot['end']-shot['start']<=12:errors.append('Missing or unreasonably long visual beat: '+shot['id'])
+        previous=shot['end']
+        for entry in [shot,*shot['layers']]:
+            art.add((entry['asset'],entry['quadrant']));used.add(entry['asset'])
+        for view in [shot['view_from'],shot['view_to']]:
+            if min(view)<0 or min(view[2:])<=0 or view[0]+view[2]>1.001 or view[1]+view[3]>1.001:errors.append('Camera escaped its atlas cell')
+    if abs(previous-book['duration'])>.001:errors.append('Picture does not cover the full monologue')
+    if len(visuals['shots'])<60:errors.append('Visual staging collapsed back into paragraph slides')
+    if visuals['captions_default']:errors.append('The default viewing mode is dominated by text')
     if abs(total-book['duration'])>.001:errors.append('Voice duration sum drifted')
     for entry in manifest['files']:
         p=ROOT/entry['path']
@@ -36,7 +49,7 @@ def main():
     if hashlib.sha256(adapted.encode()).hexdigest()!=book['source']['adaptation_sha256']:errors.append('Monologue provenance drift')
     campaign=json.loads((ROOT/'data/campaign_plan.json').read_text())
     if any(m['playable'] for m in campaign['missions']):errors.append('Intro change marked unfinished campaign levels playable')
-    report={'status':'PASS' if not errors else 'FAIL','scope':'intro_only','drawings':len(art),'spoken_paragraphs':len(book['blocks']),'adapted_words':words,'word_reduction_percent':book['source']['word_reduction_percent'],'voice_seconds':book['duration'],'errors':errors}
+    report={'status':'PASS' if not errors else 'FAIL','scope':'intro_only','art_cells':len(art),'shots':len(visuals['shots']),'spoken_paragraphs':len(book['blocks']),'adapted_words':words,'word_reduction_percent':book['source']['word_reduction_percent'],'voice_seconds':book['duration'],'errors':errors}
     print(json.dumps(report,ensure_ascii=False,indent=2));return bool(errors)
 
 if __name__=='__main__':raise SystemExit(main())

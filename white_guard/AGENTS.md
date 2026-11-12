@@ -16,6 +16,11 @@ in this change. Narration is Mazur's first-person interior monologue from the
 book, shortened only slightly. Intro production is authorized; other campaign
 entries remain proposals. Do not substitute character dialogue for his thoughts.
 
+Latest correction: visual storytelling must carry the opening. Keep the current
+slightly shortened monologue/voice intact unless the user authorizes another
+text edit. Stage concrete actions, cut inside paragraphs and use independent
+layers; do not revert to paragraph-long slides or a large default text panel.
+
 Use `docs/ADAPTATION_PLAN.md` and `provenance/book-source.json` as the narrative
 baseline. The novel is Alexander Bushkov's Piranha book, not Bulgakov's work.
 Natalie is the president's niece. Preserve the late Tatiana reveal and the

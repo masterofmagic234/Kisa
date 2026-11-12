@@ -15,16 +15,22 @@ def main():
     parser.add_argument('destination', type=Path)
     args=parser.parse_args()
     book=json.loads((ROOT/'data/intro.json').read_text())
+    book['visuals']=json.loads((ROOT/book['storyboard'].removeprefix('res://')).read_text())
     media={}
     for block in book['blocks']:
         for key,mime in [('atlas','image/png'),('audio','audio/mpeg')]:
             name=block[key]
             if name not in media:media[name]=uri(ROOT/name.removeprefix('res://'),mime)
+    for shot in book['visuals']['shots']:
+        for entry in [shot,*shot['layers']]:
+            name=entry['asset']
+            if name not in media:media[name]=uri(ROOT/name.removeprefix('res://'),'image/png')
     media['ambience']=uri(ROOT/'assets/intro/road-ambience.ogg','audio/ogg')
     body=uri(ROOT/'assets/reused/fonts/Manrope-Variable.ttf','font/ttf')
     title=uri(ROOT/'assets/reused/fonts/Forum-Regular.ttf','font/ttf')
     template=(ROOT/'tools/templates/intro-preview.html').read_text()
-    result=template.replace('__BODY_FONT__',body).replace('__TITLE_FONT__',title).replace('__INTRO_BOOK__',json.dumps(book,ensure_ascii=False)).replace('__INTRO_MEDIA__',json.dumps(media))
+    stage=(ROOT/'tools/templates/intro-stage.js').read_text()
+    result=template.replace('__BODY_FONT__',body).replace('__TITLE_FONT__',title).replace('__INTRO_BOOK__',json.dumps(book,ensure_ascii=False)).replace('__INTRO_MEDIA__',json.dumps(media)).replace('__INTRO_STAGE__',stage)
     args.destination.parent.mkdir(parents=True,exist_ok=True)
     args.destination.write_text(result)
     print(args.destination)
