@@ -31,6 +31,15 @@ func _run() -> void:
         quit(1)
         return
     await _capture("runtime-lab")
+    root.get_node("SceneFlow").go_to(&"illustrations")
+    for i in range(300):
+        await process_frame
+        if not root.get_node("SceneFlow").is_loading_gameplay():break
+    if current_scene==null or current_scene.name!="IllustrationLab":
+        push_error("Illustrated scene transition failed")
+        quit(1)
+        return
+    await _capture("illustration-lab")
     root.get_node("AudioManager").shutdown()
     print("VISUAL CAPTURE PASS / renderer=",RenderingServer.get_video_adapter_name())
     quit()

@@ -3,7 +3,7 @@
   "repository": "https://github.com/masterofmagic234/Arkon",
   "release": "v1.68",
   "source_commit": "a1fd971558fcfe8d8fb99e944cc532edee5c32ba",
-  "selection": "Portable systems and neutral assets; campaign-specific actors and media are excluded",
+  "selection": "Portable systems plus Level 3 top-down logic with neutral fixture visuals; personal media and old story excluded",
   "files": [
     {
       "source": "assets/presentation163/fonts/FONT_NOTICE.md",
@@ -59,6 +59,109 @@
       "transformations": [
         "namespace_classes",
         "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "resources/weapons/level3_bat.tres",
+      "target": "addons/arkon_runtime/topdown/weapons/bat.tres",
+      "source_sha256": "e639272d86ebaa211089527dc510cf531ebe858542ed1bfac16dce9be659f3a4",
+      "target_sha256": "1ff0fbdf1512d3ac465bd9397043b46db5b7fc093cf11858110a03717a9015d4",
+      "bytes": 662,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "resources/weapons/level3_pistol.tres",
+      "target": "addons/arkon_runtime/topdown/weapons/pistol.tres",
+      "source_sha256": "84e86c95e137ac151d9229acc4fe690834d97b143966d9afb5cc1bab93865d16",
+      "target_sha256": "397dc7105ec28c8f4776c3284bf117317b777e9a6fdbbfda70d06c28e094628d",
+      "bytes": 755,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "resources/weapons/level3_shotgun.tres",
+      "target": "addons/arkon_runtime/topdown/weapons/shotgun.tres",
+      "source_sha256": "4836a79f075c843eada0fcd641f6ebca10c44baa676d7b1711044df1b2fcc488",
+      "target_sha256": "015847736c83e454b0ca26769f60521d421326c91cc2721496bc8e3ca71ff7f0",
+      "bytes": 783,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_door.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/door.tscn",
+      "source_sha256": "5e948c62e0223eca22ab923ae606f7ae4517e3791bf3d8460c142d202562500f",
+      "target_sha256": "de4530e0b6a8941e73cb31e6801f77321f6fb647aba77ba1b50647bfd4014b11",
+      "bytes": 1357,
+      "transformations": [
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_enemy.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/enemy.tscn",
+      "source_sha256": "d4b973e2ba27fedd89c36860fc798e4bafe484958e3fdc175606664744af25b0",
+      "target_sha256": "339b251656083e70db4d63e999be784bcd7a4251add39aa42cae26c4c21b1a47",
+      "bytes": 1496,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_pickup.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/pickup.tscn",
+      "source_sha256": "0b2864043441c7aa44a136d6aeaf306240ea8698463029846498f317cb59be11",
+      "target_sha256": "9f828a71861e6a4442f1a8cb940b3e955cc70afcf783e9500bc6d10f1b9ec56b",
+      "bytes": 509,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_player.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/player.tscn",
+      "source_sha256": "56fa85218ec558284689fe236a39baf78ab66342c162dd847fa529bee4f4630a",
+      "target_sha256": "c67013633531b84e1776c0636f876fc1f4b1f2c41b80021e8a68d08d7ac5f5dc",
+      "bytes": 1905,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_projectile.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/projectile.tscn",
+      "source_sha256": "edb48c79dd15d52c32671a824457d01de592dcf382929e3360183994f2e5e901",
+      "target_sha256": "d756ddc86bd2aadca62e8f83b16115606400784ba1750de1f737776b20ae513b",
+      "bytes": 445,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
       ],
       "origin": "Arkon release v1.68"
     },
@@ -123,6 +226,19 @@
       "bytes": 851,
       "transformations": [
         "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/components/weapon_component.gd",
+      "target": "addons/arkon_runtime/topdown/weapon_component.gd",
+      "source_sha256": "2d089abaf68dc8858a9de15df58d79380b7da9f22fed255b3a250719fb8caa09",
+      "target_sha256": "192f77bc2fae97af9dd2efd915fd793e32aa3d72e0deb1d696dfe62718eb667c",
+      "bytes": 3000,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
       ],
       "origin": "Arkon release v1.68"
     },
@@ -236,6 +352,104 @@
       "origin": "Arkon release v1.68"
     },
     {
+      "source": "scripts/level3_door.gd",
+      "target": "addons/arkon_runtime/topdown/level3_door.gd",
+      "source_sha256": "4a310eaca0bdb14efdb56e1ea09c10f9fa089f05cdb53709dbd1b52b36056a68",
+      "target_sha256": "e6a38178e01bca269242ca97ff8c1968af5b13fbfc6f375cf89794a30e74ee29",
+      "bytes": 6774,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_enemy.gd",
+      "target": "addons/arkon_runtime/topdown/level3_enemy.gd",
+      "source_sha256": "bf075672ece17cb6840e5f76659e84f1a9faf4556c659aead5e505d2fb889b96",
+      "target_sha256": "8d7cbcc1ddf27537b24b50a8d2ebd8387a8b1466f701ef2028b6d1db4b518e1f",
+      "bytes": 14564,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_map_resource.gd",
+      "target": "addons/arkon_runtime/topdown/level3_map_resource.gd",
+      "source_sha256": "541fdd2a849a88e73def767025ceab2aecf2301826e80b9e4c8c8085807cce70",
+      "target_sha256": "3746f9ea991205403a69fa83ba02269efb773133056e62516a14329d8b122466",
+      "bytes": 1124,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_navigation.gd",
+      "target": "addons/arkon_runtime/topdown/level3_navigation.gd",
+      "source_sha256": "e96d57576b2cab19413234e6a2097bff5f02d22e0f4ed7cdb7302b4eddeafe11",
+      "target_sha256": "3b257bafd6bb2612661ca411b91c1af9a08e6745e691eb688d80f4416235552a",
+      "bytes": 3834,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_pickup.gd",
+      "target": "addons/arkon_runtime/topdown/level3_pickup.gd",
+      "source_sha256": "21c3ff0e2d1fd5c2b8700b5b6590a567d67f839eeee100647befc6fc0706757e",
+      "target_sha256": "46ed6a062c8265ffe4b5f59eef22fde819ead339c87b3f21f5156315419065be",
+      "bytes": 3982,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_player.gd",
+      "target": "addons/arkon_runtime/topdown/level3_player.gd",
+      "source_sha256": "ec0a4e6752c3df67d83d72e9c83fe667fae44d4d282d47a69d141879682b7f15",
+      "target_sha256": "2c9b79b2a753663f015a52a2145538906fbc08a3803d510cc5441bc7fca1897c",
+      "bytes": 9598,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_projectile.gd",
+      "target": "addons/arkon_runtime/topdown/level3_projectile.gd",
+      "source_sha256": "7787bbd56abd04935a9cf9c73b32da1539930a3e884e2f153e91d0d1ca797b7c",
+      "target_sha256": "34057d2396d39f0e61a27cccb67fd6003d0907b1d1df4a22ad4af3148105e583",
+      "bytes": 5885,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_touch_joystick.gd",
+      "target": "addons/arkon_runtime/topdown/level3_touch_joystick.gd",
+      "source_sha256": "cb710a8c20a23f3413a6bb74999b538d76214c6862beaa2b94deb6c6557fb3f6",
+      "target_sha256": "c566ec902acf9d54e36e0bba663c087dc4e85e0856e66bdee84f582e772f1515",
+      "bytes": 1816,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
       "source": "scripts/mission_progress_query.gd",
       "target": "addons/arkon_runtime/math/mission_progress_query.gd",
       "source_sha256": "c9f7c25f4e1ad563789269e77484792ce0161494a8a4f3a73ca378d98ca73841",
@@ -264,6 +478,17 @@
       "source_sha256": "15b66ab2ad497e76f421149043103f4aea8c5e2dae51e1a3c0705271479f6f4a",
       "target_sha256": "49add479172e9616061d1d9cdf69be6f05107d3d8fb4afa2ae8af7f3f55bbed4",
       "bytes": 443,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/object_pool.gd",
+      "target": "addons/arkon_runtime/topdown/object_pool.gd",
+      "source_sha256": "ff5ce3be89941f142f2842107b777f3afc18e0c35336706d7bdd913f4cfaafe2",
+      "target_sha256": "1564b5790e428fc1a1f035ca28de6c3e91c54dc735cca4f18470783f1d7f6595",
+      "bytes": 2488,
       "transformations": [
         "namespace_classes"
       ],
@@ -601,6 +826,20 @@
       "bytes": 1156,
       "transformations": [
         "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_store.gd",
+      "target": "addons/arkon_runtime/topdown/world.gd",
+      "source_sha256": "1bb58e81021cd89f54853398c8e06d8692bbf04cd5a34f8cb1e1b52f85317b2d",
+      "target_sha256": "aa7cbf4d59c5ccfa23acb4b5ad2c1b185a46820f1a4e1257056838e05c61d614",
+      "bytes": 17234,
+      "transformations": [
+        "inject_map_story_feedback_host",
+        "namespace_classes",
+        "select_release_combat_methods",
+        "substitute_neutral_fixture_visuals_only"
       ],
       "origin": "Arkon release v1.68"
     }

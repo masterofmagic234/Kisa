@@ -4,8 +4,11 @@ This folder is a separate Godot project. Existing `../ps5-hfr1/` and the PS5
 report are unrelated user work and must not be moved or modified for this game.
 
 The user asked for engine extraction, a book adaptation plan and an implementation
-report, then a pause for their next goal. Story production is currently pending
-that discussion. Do not silently mark campaign entries approved or playable.
+report, then a pause for their next goal. The user subsequently chose Level 3 top-down 2D gameplay as the main format
+and simple illustrated lore scenes inspired by This Is the Police. Preserve
+the released Level 3 mechanics; do not redesign the project as a main FPS.
+Two gameplay exceptions are requested but not assigned. Story production is
+currently pending that discussion. Do not silently mark campaign entries approved or playable.
 
 Use `docs/ADAPTATION_PLAN.md` and `provenance/book-source.json` as the narrative
 baseline. The novel is Alexander Bushkov's Piranha book, not Bulgakov's work.

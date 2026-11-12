@@ -30,6 +30,11 @@ def main():
     dialogues=json.loads((ROOT/'data/dialogue_selection.json').read_text())
     scenes={d['id']:d for d in dialogues['scenes']}
     ids=[m['id'] for m in campaign['missions']]
+    if campaign.get('format_direction_approval')!='user_confirmed' or campaign.get('gameplay_baseline')!='Arkon v1.68 Level 3':errors.append('The user-confirmed Level 3 direction was lost')
+    if campaign.get('narrative_presentation')!='illustrated_panels':errors.append('Illustrated lore presentation was lost')
+    exceptions=campaign.get('exceptions',{})
+    if exceptions.get('count')!=2:errors.append('The two requested gameplay exceptions were lost')
+    if exceptions.get('status')=='pending_author_choice' and exceptions.get('assignments'):errors.append('Unreviewed exceptions were silently assigned')
     if len(ids)!=len(set(ids)):errors.append('Duplicate mission ID')
     covered=set()
     used=set()

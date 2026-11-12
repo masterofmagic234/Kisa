@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ArkonWeaponData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/arkon_runtime/combat/weapon_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+resource_name = "Level 3 Bat"
+weapon_id = &"bat"
+display_name = "БИТА"
+damage = 100
+pellets = 1
+spread_angles = PackedFloat32Array(0)
+fire_interval = 0.38
+max_distance = 64.0
+projectile_speed = 0.0
+projectile_fps = 0.0
+projectile_scale = Vector2(1, 1)
+projectile_texture = ""
+muzzle_texture = ""
+movement_sprite = ""
+attack_sprite = ""
+overlay_texture = ""
+projectile_spawn_muzzle = false
+consumes_ammo = false
+melee = true
+action_range = 48.0

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://addons/arkon_runtime/topdown/level3_pickup.gd" id="1_pickup"]
+
+[sub_resource type="CircleShape2D" id="PickupShape"]
+radius = 9.0
+
+[node name="ArkonLevel3Pickup" type="Area2D"]
+script = ExtResource("1_pickup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("PickupShape")
+
+[node name="Visual" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1

@@ -45,7 +45,7 @@
         "scripts/level1_player.gd"
       ],
       "changes": "Remove heist, portrait, level actions and dependencies; retain body motion and raycast contract",
-      "status": "implemented_and_behaviour_checked"
+      "status": "reserve_adapter_loaded_not_main_gameplay"
     },
     {
       "target": "addons/arkon_runtime/presentation/cinematic_cues.gd",
@@ -61,6 +61,48 @@
       "target_sha256": "ad6b372be1cc188a9c31e0d0351982f8a97fab06e2110690d733678a5d5528ed",
       "sources": [],
       "changes": "New authored sequence adapter required by book adaptation",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/topdown/fixtures/actor_animator.gd",
+      "target_sha256": "9e8324d6c17ff60d009b7d14008234fd72860bd180c71b674c143f8fcadad8a4",
+      "sources": [],
+      "changes": "New neutral presentation stub using the release call interface; no AI/combat replacement",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/topdown/fixtures/asset_visual.gd",
+      "target_sha256": "82abd670be90ee16744aba4027b222d43be9096adcee57f03afb2e2551e2b982",
+      "sources": [],
+      "changes": "New neutral presentation stub using the release call interface; no AI/combat replacement",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/topdown/fixtures/enemy_visual.gd",
+      "target_sha256": "7d5873ab1d58d15b4ab542647a14560ae69e6b92f6e44314ea78c41f186f07c2",
+      "sources": [],
+      "changes": "New neutral presentation stub using the release call interface; no AI/combat replacement",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/topdown/fixtures/feedback.gd",
+      "target_sha256": "7e0ad84ebe1f5d72c28630ff1122a547c8808c56b61eae04c654c16e4ea1c61e",
+      "sources": [],
+      "changes": "New neutral presentation stub using the release call interface; no AI/combat replacement",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/topdown/fixtures/hero_visual.gd",
+      "target_sha256": "a754aa60e127ea6ac3797d9fba96b64980fd356d2df1e62ab0c102d1ec575563",
+      "sources": [],
+      "changes": "New neutral presentation stub using the release call interface; no AI/combat replacement",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/narrative/illustrated_sequence.gd",
+      "target_sha256": "cd1959c155d268339aedb14768df1f1ffe20e42c2cea59affc2b1d60de95bd6a",
+      "sources": [],
+      "changes": "New static-panel reader with pause and idempotent completion/skip; no implicit progress writes",
       "status": "implemented_and_behaviour_checked"
     }
   ]

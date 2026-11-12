@@ -60,6 +60,8 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('destination',type=Path)
     args=ap.parse_args();out=args.destination;out.mkdir(parents=True,exist_ok=True)
+    summary=json.loads((ROOT/'provenance/preparation-summary.json').read_text())
+    file_count=summary['portable_files'];checks=summary['headless_checks']
     doc=Document()
     section=doc.sections[0]
     section.page_width=Mm(210);section.page_height=Mm(297)
@@ -74,9 +76,9 @@ def main():
     field=OxmlElement('w:fldSimple');field.set(qn('w:instr'),'PAGE');footer._p.append(field)
     doc.add_heading('БЕЛАЯ ГВАРДИЯ',0)
     doc.add_paragraph('Игровая экранизация книги Александра Бушкова',style='Subtitle')
-    doc.add_paragraph('План, переносимая основа Arkon Hunter и следующий производственный этап')
+    doc.add_paragraph('Level 3 топ-даун · рисованные сцены по примеру This Is the Police')
     doc.add_paragraph('Статус: подготовка для обсуждения. Сюжетные уровни ещё не реализованы.')
-    doc.add_paragraph('9 эпизодов · 11 глав источника · 12 обязательных диалоговых сцен · 58 перенесённых файлов · 88 проверок')
+    doc.add_paragraph(f'9 эпизодов · 11 глав источника · 12 обязательных диалоговых сцен · {file_count} перенесённых файлов · {checks} проверок')
     doc.add_paragraph(REPO)
     doc.add_page_break()
     toc=[];parts=[];heading_number=0
@@ -120,7 +122,7 @@ def main():
         parts.append('</section>')
         if filename!=DOCUMENTS[-1]:doc.add_page_break()
     screenshots=[]
-    for filename,label in [('planning-room.png','Редакторский просмотр плана'),('runtime-lab.png','Технический стенд — не сюжетный уровень')]:
+    for filename,label in [('planning-room.png','Редакторский просмотр плана'),('runtime-lab.png','Level 3: 2D стенд, не сюжетный уровень'),('illustration-lab.png','Макет читателя рисованных сцен, без финального рисунка')]:
         p=ROOT/'test-results'/filename
         if p.exists():
             screenshots.append('<figure><img src="'+image_data(p)+'"><figcaption>'+html.escape(label)+' · X11 / GL Compatibility / llvmpipe</figcaption></figure>')
@@ -133,10 +135,11 @@ def main():
     """.replace('BODYFONT',font).replace('TITLEFONT',title_font)
     nav='<nav><strong>Содержание</strong>'+''.join(f'<a class="{"sub" if level==2 else ""}" href="#{ident}">{html.escape(title)}</a>' for level,ident,title in toc)+'</nav>'
     cover='''<header><span class="badge">ПОДГОТОВЛЕНО ДЛЯ ОБСУЖДЕНИЯ</span><h1>Белая гвардия</h1><p>Игровая экранизация книги Александра Бушкова. План кампании, отбор диалогов, переносимая основа Arkon Hunter и производственный маршрут.</p><div class="stats"><span>11 глав → 9 эпизодов</span><span>12 обязательных разговоров</span><span>58 перенесённых файлов</span><span>88 проверок</span></div><p>Сюжетные уровни ещё не созданы. Следующий этап начинается после решения автора проекта.</p><p><a href="'''+REPO+'''">Проект и исходные документы в GitHub</a></p></header><div class="actions"><button onclick="window.print()">Печатать / сохранить PDF</button></div>'''
+    cover=cover.replace('58 перенесённых файлов',f'{file_count} перенесённых файлов').replace('88 проверок',f'{checks} проверок').replace('План кампании, отбор диалогов, переносимая основа Arkon Hunter и производственный маршрут.','Level 3 топ-даун и рисованные сцены по примеру This Is the Police. План кампании, отбор диалогов и производственный маршрут.')
     document='<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Белая гвардия — план экранизации</title><style>'+css+'</style><main>'+cover+nav+''.join(parts)+''.join(screenshots)+'</main></html>'
     (out/'White-Guard-Review.html').write_text(document)
     doc.save(out/'White-Guard-Review.docx')
-    (out/'report-manifest.json').write_text(json.dumps({'documents':DOCUMENTS,'source_release':'v1.68','source_commit':'a1fd971558fcfe8d8fb99e944cc532edee5c32ba','story_approval':'pending','headless_checks':88},ensure_ascii=False,indent=2))
+    (out/'report-manifest.json').write_text(json.dumps({'documents':DOCUMENTS,'source_release':'v1.68','source_commit':'a1fd971558fcfe8d8fb99e944cc532edee5c32ba','format_direction':'user_confirmed_top_down_level3_and_illustrated_lore','story_approval':'pending','headless_checks':checks,'portable_files':file_count},ensure_ascii=False,indent=2))
     print(out/'White-Guard-Review.html');print(out/'White-Guard-Review.docx')
 
 if __name__=='__main__':main()

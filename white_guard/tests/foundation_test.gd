@@ -5,6 +5,7 @@ const Data = preload("res://addons/arkon_runtime/combat/weapon_data.gd")
 const Gate = preload("res://addons/arkon_runtime/core/startup_gate.gd")
 const Cues = preload("res://addons/arkon_runtime/presentation/cinematic_cues.gd")
 const Dialogue = preload("res://addons/arkon_runtime/narrative/dialogue_runner.gd")
+const Panels = preload("res://addons/arkon_runtime/narrative/illustrated_sequence.gd")
 const Powertrain = preload("res://addons/arkon_runtime/vehicle/race_powertrain.gd")
 const RoadProjection = preload("res://addons/arkon_runtime/vehicle/race_projection.gd")
 var failures: Array[String] = []
@@ -25,6 +26,7 @@ func _run() -> void:
     _weapon()
     _clock()
     _narrative()
+    await _panels()
     _vehicle()
     _save()
     _load_scripts("res://addons/arkon_runtime")
@@ -113,6 +115,31 @@ func _vehicle() -> void:
     check(clipped.size()>=4,"Road projection lost a crossing screen polygon")
     for point in clipped:check(absf(point.x)<=1.001 and absf(point.y)<=1.001,"Projection escaped the screen clip")
 
+func _panels() -> void:
+    var reader := Panels.new()
+    root.add_child(reader)
+    var completions: Array = []
+    reader.finished.connect(func(id: StringName, facts: Dictionary, skipped: bool): completions.append([id, facts, skipped]))
+    check(reader.play(&"one", [{"text":"a","minimum_hold":10.0},{"text":"b"}], {"pact_known":true})==OK,"Illustrated sequence refused valid panels")
+    check(not reader.advance(),"Reading hold was bypassed by a repeated advance")
+    check(reader.play(&"bad", [{}])==ERR_INVALID_DATA and reader.sequence_id==&"one","Invalid panels destroyed the active story")
+    var held: float = reader.get("_held")
+    root.get_node("PauseManager").set_paused(true)
+    for i in range(4): await process_frame
+    check(is_equal_approx(reader.get("_held"),held),"Paused panel consumed reading time")
+    root.get_node("PauseManager").resume()
+    reader.skip()
+    reader.skip()
+    reader.advance()
+    check(completions.size()==1 and completions[0][1].pact_known and completions[0][2],"Skip lost facts or emitted completion twice")
+    check(root.get_node("GameState").facts.is_empty(),"Reader wrote story progress without its scene owner")
+    reader.play(&"two", [{"text":"a"},{"text":"b"}], {"pact_known":true})
+    reader.advance()
+    check(reader.active and reader.index==1,"Reader skipped the second panel")
+    reader.advance()
+    check(completions.size()==2 and completions[1][1]==completions[0][1] and not completions[1][2],"Normal and skipped completion disagree on story facts")
+    reader.queue_free()
+
 func _save() -> void:
     var state := root.get_node("GameState")
     state.reset_run()
@@ -156,17 +183,81 @@ func _scenes() -> void:
     check(current_scene!=null and current_scene.name=="RuntimeLab" and not flow.is_loading_gameplay(),"Actual asynchronous planning-to-lab transition failed")
     if current_scene==null or current_scene.name!="RuntimeLab":return
     for i in range(4): await physics_frame
-    var actor = current_scene.get("actor")
-    var target := current_scene.get_node("FixtureTarget2") if current_scene.has_node("FixtureTarget2") else null
-    for child in current_scene.get_children():
-        if child.name.to_lower().contains("fixturetarget") and absf(child.position.x)<0.1:target=child
-    check(target!=null,"Combat fixture target is missing")
-    if target!=null:
-        actor.camera.look_at(target.global_position)
-        check(actor.fire(),"FPS adapter refused its injected weapon")
-        check(target.get_node("Health").current_health==75,"Physical ray did not reach transferred hitbox/health components")
+    await _topdown(current_scene)
+    flow.go_to(&"illustrations")
+    for i in range(240):
+        await process_frame
+        if not flow.is_loading_gameplay():break
+    check(current_scene!=null and current_scene.name=="IllustrationLab","Illustrated scene route failed")
+    if current_scene!=null and current_scene.name=="IllustrationLab":
+        check(current_scene.sequence.active and current_scene.sequence.index==0,"Storyboard view did not start its first panel")
+        current_scene.sequence.advance()
+        check(current_scene.sequence.index==1,"View did not receive the next panel")
     flow.go_to(&"planning")
     for i in range(240):
         await process_frame
         if not flow.is_loading_gameplay():break
     check(current_scene!=null and current_scene.name=="AdaptationPlanningRoom","Return transition failed")
+
+func _topdown(world: Node2D) -> void:
+    world.set("_manual_inputs",true)
+    var actor = world.player
+    check(actor is CharacterBody2D and world.navigation.ready,"Level 3 player/navigation were replaced or not ready")
+    check(actor.move_speed==120.0 and actor.acceleration==900.0 and actor.friction==1100.0,"Release movement tuning drifted")
+    check(not world.has_line_of_sight(Vector2(210,260),Vector2(620,165)),"Enemy can see through a solid wall")
+    check(world.is_body_path_clear(Vector2(210,260),Vector2(360,260)) and not world.is_body_path_clear(Vector2(410,260),Vector2(470,260)),"Body sweep ignores wall clearance")
+    check(not world.navigation.path(Vector2(210,260),Vector2(620,260)).is_empty(),"Closed-door route cannot be planned")
+    var start: Vector2 = actor.global_position
+    actor.set_input(Vector2.RIGHT,Vector2.RIGHT,false,false,false,false)
+    for i in range(20):await physics_frame
+    check(actor.global_position.x>start.x+25 and actor.global_position.x<start.x+50,"Transferred acceleration/move_and_slide did not move the player")
+    actor.clear_controls()
+    var edges := [0,0]
+    actor.action_requested.connect(func():edges[0]+=1)
+    actor.throw_requested.connect(func(_at: Vector2,_aim: Vector2):edges[1]+=1)
+    actor.set_input(Vector2.ZERO,Vector2.RIGHT,false,true,true,false)
+    for i in range(3):await physics_frame
+    check(edges==[1,1] and actor.throwable==&"","Action/throw edge repeated across physics ticks")
+    var enemy = world._enemies[0]
+    actor.global_position=Vector2(210,260)
+    enemy.global_position=Vector2(340,260)
+    for i in range(3):await physics_frame
+    actor.set_input(Vector2.ZERO,Vector2.RIGHT,true,false,false,false)
+    for i in range(2):await physics_frame
+    actor.set_input(Vector2.ZERO,Vector2.RIGHT,false,false,false,false)
+    for i in range(25):await physics_frame
+    check(enemy.state==enemy.State.DEAD,"Swept projectile did not damage the transferred enemy/hitbox")
+    check(actor.health==100,"Player's projectile hit its own shooter")
+    var second = world._enemies[1]
+    second.global_position=Vector2(620,260)
+    for i in range(3):await physics_frame
+    world._trace_weapon_shot(Vector2(210,260),Vector2.RIGHT,actor)
+    for i in range(45):await physics_frame
+    check(second.state!=second.State.DEAD,"Shot crossed a wall and killed a hidden enemy")
+    check(world._projectile_pool.active_count()==0,"Finished projectiles were not recycled")
+    var door = world._doors[0]
+    check(not world.has_line_of_sight(Vector2(410,236),Vector2(470,236)),"Closed door did not occlude the room")
+    door.locked=true
+    check(not door.interact(Vector2(410,236),true),"Locked door accepted a slam")
+    door.locked=false
+    check(door.interact(Vector2(410,236),true),"Unlocked release door rejected a slam")
+    door._on_hit_area_body_entered(second)
+    check(second.is_stunned(),"Door slam failed to stun an enemy")
+    for i in range(12):await physics_frame
+    check(door.is_open and world.has_line_of_sight(Vector2(410,236),Vector2(470,236)),"Opened door kept its closed collider")
+    var medkit = world.pickups_root.get_child(0)
+    actor.global_position = medkit.global_position
+    actor.clear_controls()
+    for i in range(12):await physics_frame
+    check(is_instance_valid(medkit) and not medkit.consumed,"Full-health player consumed a health pickup")
+    actor.take_damage(40)
+    for i in range(20):await physics_frame
+    check(actor.health==95 and not is_instance_valid(medkit),"Standing wounded player did not collect exactly one +35 medkit")
+    second.global_position=Vector2(720,350)
+    actor.global_position=Vector2(620,165)
+    second.stun(0.01)
+    second.set_physics_process(true)
+    for i in range(20):await physics_frame
+    check(second.state==second.State.ALERT and second.last_known_position.distance_to(actor.global_position)<1,"Release AI did not reacquire a visible player after stun")
+    second.set_physics_process(false)
+    actor.clear_controls()

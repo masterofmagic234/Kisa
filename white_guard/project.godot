@@ -2,7 +2,7 @@ config_version=5
 
 [application]
 config/name="Белая гвардия — план экранизации"
-config/version="0.1.0-foundation"
+config/version="0.2.0-topdown-foundation"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="WhiteGuardFoundation"
 config/features=PackedStringArray("4.6", "GL Compatibility")
