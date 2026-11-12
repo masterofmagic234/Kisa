@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "title": "Белая гвардия",
+  "author": "Александр Бушков",
+  "series": "Пиранья",
+  "uploaded_archive": "Бушков Александр. Белая гвардия - royallib.com.txt.zip",
+  "text_encoding": "windows-1251",
+  "source_text_sha256": "d0667077fee4e2ffccc54f46c70348a9ae7f78971d1140dd495901eb6900c13d",
+  "raw_text_bytes": 431717,
+  "normalized_characters": 428327,
+  "source_full_text_committed": false,
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Мужичка того недреманная стража взяла…",
+      "source_start_line": 21,
+      "source_end_line": 140,
+      "mission_ids": [
+        "p00"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Сюрпризы третьей категории",
+      "source_start_line": 141,
+      "source_end_line": 392,
+      "mission_ids": [
+        "m01"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Сюрпризов прибавляется",
+      "source_start_line": 393,
+      "source_end_line": 746,
+      "mission_ids": [
+        "m01"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Невольница и и сахиб",
+      "source_start_line": 747,
+      "source_end_line": 1051,
+      "mission_ids": [
+        "m01"
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Лавка древностей",
+      "source_start_line": 1052,
+      "source_end_line": 1307,
+      "mission_ids": [
+        "m01"
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Боевой сподвижник и прочие",
+      "source_start_line": 1308,
+      "source_end_line": 1605,
+      "mission_ids": [
+        "m01"
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Школьные торжества с местным колоритом",
+      "source_start_line": 1606,
+      "source_end_line": 1860,
+      "mission_ids": [
+        "m02"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Чьи ж вы, хлопцы, будете, кто вас в бой ведет?",
+      "source_start_line": 1861,
+      "source_end_line": 2214,
+      "mission_ids": [
+        "m03"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Провинциальное сватовство",
+      "source_start_line": 2215,
+      "source_end_line": 2496,
+      "mission_ids": [
+        "m04"
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Кто там крадется вдоль стены…",
+      "source_start_line": 2497,
+      "source_end_line": 2791,
+      "mission_ids": [
+        "m05"
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Гобсанто как оно есть",
+      "source_start_line": 2792,
+      "source_end_line": 3390,
+      "mission_ids": [
+        "m06",
+        "m07",
+        "e00"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+extends Node2D
+class_name ArkonTopdownWorld
+## Host seam for selected v1.68 Level3Store methods. Map and story live outside.
+const ProjectileScene = preload("res://addons/arkon_runtime/topdown/scenes/projectile.tscn")
+const LAYOUT_SCALE: float = 1.5
+const Feedback = preload("res://addons/arkon_runtime/topdown/fixtures/feedback.gd")
+signal combat_feedback(kind: StringName, at: Vector2)
+var player: ArkonLevel3Player
+var pickups_root: Node2D
+var _enemies: Array[ArkonLevel3Enemy] = []
+var _doors: Array[ArkonLevel3Door] = []
+var navigation := ArkonLevel3Navigation.new()
+var _projectile_pool: ArkonObjectPool
+var _player_dead := false
+var _level_complete_started := false
+var _camera_kick := Vector2.ZERO
+var audio: Node = null
+var feedback := Feedback.new()
+var combat_paused := false
+var _body_query := PhysicsShapeQueryParameters2D.new()
+
+func initialize_combat() -> void:
+    _projectile_pool = ArkonObjectPool.new(ProjectileScene, 24, self, 64)
+    var shape := CircleShape2D.new()
+    shape.radius = 7.8
+    _body_query.shape = shape
+    _body_query.collision_mask = 1
+    _body_query.collide_with_areas = false
+    player.fire_requested.connect(_on_player_fire_requested)
+    player.throw_requested.connect(_on_throw_requested)
+    player.died.connect(func(): _player_dead = true)
+    get_node("/root/SignalBus").item_collected.connect(_on_bus_item_collected)
+    for enemy in _enemies:
+        enemy.shot_requested.connect(_on_enemy_shot_requested)
+
+func is_combat_paused() -> bool:
+    return combat_paused or _player_dead or _level_complete_started
+
+func can_player_attack() -> bool:
+    return player.combat_enabled and not is_combat_paused()
+
+func _on_throw_requested(origin: Vector2, direction: Vector2) -> void:
+    if not can_player_attack(): return
+    _notify_noise(origin)
+    origin = safe_muzzle(player.global_position, direction, 12.0)
+    var target := _find_throw_target(origin, direction)
+    var endpoint := target.global_position if target != null else _find_throw_endpoint(origin, direction)
+    _spawn_bottle_projectile(origin, endpoint, target)
+
+func _draw_shot_feedback(at: Vector2, _end: Vector2, _color: Color) -> void:
+    combat_feedback.emit(&"shot", at)
+
+func _spawn_muzzle_flash(at: Vector2, _angle: float, _cone_weapon := false) -> void:
+    combat_feedback.emit(&"muzzle", at)
+
+func _spawn_blood_feedback(at: Vector2, _direction: Vector2, _permanent: bool, _strength: float) -> void:
+    combat_feedback.emit(&"hit", at)
+
+func _spawn_bottle_impact(at: Vector2) -> void:
+    combat_feedback.emit(&"glass", at)
+
+func _set_hint(_message: String) -> void: pass
+func _update_hud() -> void: pass
+
+func _exit_tree() -> void:
+    if _projectile_pool != null: _projectile_pool.release_all()
+    _projectile_pool = null

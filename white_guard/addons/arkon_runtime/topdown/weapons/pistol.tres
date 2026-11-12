@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ArkonWeaponData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/arkon_runtime/combat/weapon_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+resource_name = "Level 3 Pistol"
+weapon_id = &"pistol"
+display_name = "ПИСТОЛЕТ"
+damage = 100
+pellets = 1
+spread_angles = PackedFloat32Array(0)
+fire_interval = 0.28
+max_distance = 650.0
+projectile_speed = 650.0
+projectile_fps = 14.0
+projectile_scale = Vector2(1.1, 1.1)
+projectile_texture = "res://assets/fixtures/projectile.svg"
+muzzle_texture = "res://assets/fixtures/projectile.svg"
+movement_sprite = ""
+attack_sprite = ""
+overlay_texture = ""
+projectile_spawn_muzzle = true
+consumes_ammo = true
+melee = false
+action_range = 32.0

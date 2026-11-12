@@ -1,0 +1,847 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/masterofmagic234/Arkon",
+  "release": "v1.68",
+  "source_commit": "a1fd971558fcfe8d8fb99e944cc532edee5c32ba",
+  "selection": "Portable systems plus Level 3 top-down logic with neutral fixture visuals; personal media and old story excluded",
+  "files": [
+    {
+      "source": "assets/presentation163/fonts/FONT_NOTICE.md",
+      "target": "assets/reused/fonts/FONT_NOTICE.md",
+      "source_sha256": "1616b5bda4b345f42a87d93d7156de97a2d3651fe4eef800ea875e4f306f0c64",
+      "target_sha256": "1616b5bda4b345f42a87d93d7156de97a2d3651fe4eef800ea875e4f306f0c64",
+      "bytes": 230,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "assets/presentation163/fonts/Forum-OFL.txt",
+      "target": "assets/reused/fonts/Forum-OFL.txt",
+      "source_sha256": "1bfe7d2aca99042eabf37079152fef8abdda2c36dad454ae89b858a3cb1078c5",
+      "target_sha256": "1bfe7d2aca99042eabf37079152fef8abdda2c36dad454ae89b858a3cb1078c5",
+      "bytes": 4399,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "assets/presentation163/fonts/Forum-Regular.ttf",
+      "target": "assets/reused/fonts/Forum-Regular.ttf",
+      "source_sha256": "5c9fbe9c4ce76d0269f5088d921d57e58082fd9c28433eacb6de95baf938adf8",
+      "target_sha256": "5c9fbe9c4ce76d0269f5088d921d57e58082fd9c28433eacb6de95baf938adf8",
+      "bytes": 303316,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "assets/presentation163/fonts/Manrope-OFL.txt",
+      "target": "assets/reused/fonts/Manrope-OFL.txt",
+      "source_sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "target_sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "bytes": 4387,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "assets/presentation163/fonts/Manrope-Variable.ttf",
+      "target": "assets/reused/fonts/Manrope-Variable.ttf",
+      "source_sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "target_sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "bytes": 164700,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "resources/race/race_track_default.tres",
+      "target": "addons/arkon_runtime/vehicle/fixtures/race_track_default.tres",
+      "source_sha256": "33802442c1d7ca487e0aeb62bffd4335b5b6068ddba4e66ec128eabad8e4c383",
+      "target_sha256": "6f0de1970dcba65691a035b5542e693ae68afdfcd24540139f620654f0b154de",
+      "bytes": 495,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "resources/weapons/level3_bat.tres",
+      "target": "addons/arkon_runtime/topdown/weapons/bat.tres",
+      "source_sha256": "e639272d86ebaa211089527dc510cf531ebe858542ed1bfac16dce9be659f3a4",
+      "target_sha256": "1ff0fbdf1512d3ac465bd9397043b46db5b7fc093cf11858110a03717a9015d4",
+      "bytes": 662,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "resources/weapons/level3_pistol.tres",
+      "target": "addons/arkon_runtime/topdown/weapons/pistol.tres",
+      "source_sha256": "84e86c95e137ac151d9229acc4fe690834d97b143966d9afb5cc1bab93865d16",
+      "target_sha256": "397dc7105ec28c8f4776c3284bf117317b777e9a6fdbbfda70d06c28e094628d",
+      "bytes": 755,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "resources/weapons/level3_shotgun.tres",
+      "target": "addons/arkon_runtime/topdown/weapons/shotgun.tres",
+      "source_sha256": "4836a79f075c843eada0fcd641f6ebca10c44baa676d7b1711044df1b2fcc488",
+      "target_sha256": "015847736c83e454b0ca26769f60521d421326c91cc2721496bc8e3ca71ff7f0",
+      "bytes": 783,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_door.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/door.tscn",
+      "source_sha256": "5e948c62e0223eca22ab923ae606f7ae4517e3791bf3d8460c142d202562500f",
+      "target_sha256": "de4530e0b6a8941e73cb31e6801f77321f6fb647aba77ba1b50647bfd4014b11",
+      "bytes": 1357,
+      "transformations": [
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_enemy.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/enemy.tscn",
+      "source_sha256": "d4b973e2ba27fedd89c36860fc798e4bafe484958e3fdc175606664744af25b0",
+      "target_sha256": "339b251656083e70db4d63e999be784bcd7a4251add39aa42cae26c4c21b1a47",
+      "bytes": 1496,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_pickup.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/pickup.tscn",
+      "source_sha256": "0b2864043441c7aa44a136d6aeaf306240ea8698463029846498f317cb59be11",
+      "target_sha256": "9f828a71861e6a4442f1a8cb940b3e955cc70afcf783e9500bc6d10f1b9ec56b",
+      "bytes": 509,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_player.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/player.tscn",
+      "source_sha256": "56fa85218ec558284689fe236a39baf78ab66342c162dd847fa529bee4f4630a",
+      "target_sha256": "c67013633531b84e1776c0636f876fc1f4b1f2c41b80021e8a68d08d7ac5f5dc",
+      "bytes": 1905,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scenes/level3_projectile.tscn",
+      "target": "addons/arkon_runtime/topdown/scenes/projectile.tscn",
+      "source_sha256": "edb48c79dd15d52c32671a824457d01de592dcf382929e3360183994f2e5e901",
+      "target_sha256": "d756ddc86bd2aadca62e8f83b16115606400784ba1750de1f737776b20ae513b",
+      "bytes": 445,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/ammo_math.gd",
+      "target": "addons/arkon_runtime/math/ammo_math.gd",
+      "source_sha256": "d911ac538abbe781d3ec2e48c7e81dd4cd7c04feb5f5ee9d005d12ad70df8087",
+      "target_sha256": "935da1458d2b4a18651d974f44432ecbd01571bf4d5b82dfab2a422035412f1c",
+      "bytes": 124,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/audio_manager.gd",
+      "target": "addons/arkon_runtime/audio/audio_manager.gd",
+      "source_sha256": "4f7b4166e356034b1f3ef2a232a43975417172ebf4718e718a3b2678dede2582",
+      "target_sha256": "ff8725ecc13651c010da2d1bb9839e69b2e10367083861842bd1c43447529438",
+      "bytes": 7176,
+      "transformations": [
+        "inject_audio_catalog_remove_game_sfx"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/callable_state.gd",
+      "target": "addons/arkon_runtime/core/callable_state.gd",
+      "source_sha256": "ce6af78b6990217bbb25b4ee579b6b25477daede334ea2e472e72438d41d05d7",
+      "target_sha256": "ce6af78b6990217bbb25b4ee579b6b25477daede334ea2e472e72438d41d05d7",
+      "bytes": 560,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/components/health_component.gd",
+      "target": "addons/arkon_runtime/combat/health_component.gd",
+      "source_sha256": "7c54ed519e22f20d1af9971465c5ae623b3dd308100a1f03b048beb34a816cc9",
+      "target_sha256": "1f6857b915a2997c04143a9d26a5b1160c0f53abf50f2f6e6868ab6c27ad4045",
+      "bytes": 2509,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/components/hitbox_3d_component.gd",
+      "target": "addons/arkon_runtime/combat/hitbox_3d_component.gd",
+      "source_sha256": "b709a4b4540244f6a0965d2ace6607349d53c778b4dd0557343df72887b22248",
+      "target_sha256": "0f0c300c00b1525699adf0b310d0efbe60b79ed840764cf9be75442a3e96cf6d",
+      "bytes": 741,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/components/hitbox_component.gd",
+      "target": "addons/arkon_runtime/combat/hitbox_component.gd",
+      "source_sha256": "7ac8e6beb624bccc0decbd2bfed5f35d6423f1d6c6df926a29c6d4429ff3b2fc",
+      "target_sha256": "5605061802bcf15f63c98d6a7676b58aadfc01d4ea93a515aabd8216a2e59dd5",
+      "bytes": 851,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/components/weapon_component.gd",
+      "target": "addons/arkon_runtime/topdown/weapon_component.gd",
+      "source_sha256": "2d089abaf68dc8858a9de15df58d79380b7da9f22fed255b3a250719fb8caa09",
+      "target_sha256": "192f77bc2fae97af9dd2efd915fd793e32aa3d72e0deb1d696dfe62718eb667c",
+      "bytes": 3000,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/cone_query.gd",
+      "target": "addons/arkon_runtime/math/cone_query.gd",
+      "source_sha256": "30383a40eb61d6df6c785d2c5b6ed2280e60472cafdb16e32e41d3b58ddda9fe",
+      "target_sha256": "71d3aa7be2cbdabbe97a2b6c8b55c8897b3f468aa80f8a4196409ad5911ea4de",
+      "bytes": 214,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/death_query.gd",
+      "target": "addons/arkon_runtime/math/death_query.gd",
+      "source_sha256": "2bfb196591ccde4cfabeaabc6d4a3994e2bd25f52b9d000c38ca885d2bb04e73",
+      "target_sha256": "b24607e5715af27a22acad5953e70d7c43ee08e71e5d0415c63f138ee2f3ba56",
+      "bytes": 152,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/fire_query.gd",
+      "target": "addons/arkon_runtime/math/fire_query.gd",
+      "source_sha256": "8852475b7d8900db23bdd4ca239319782cd31a7ed37ba1c65525b17f0f16f0b2",
+      "target_sha256": "2b14d8bb1ff4aa7370f67bb67010f5c6c226e3f63952a6ec12fcd71767f56b37",
+      "bytes": 354,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/graphics_monitor156.gd",
+      "target": "addons/arkon_runtime/graphics/graphics_monitor156.gd",
+      "source_sha256": "7e1bc8ea7a8b00835dade6d6214264615675790678536b02f9a818ce35fa2916",
+      "target_sha256": "7e1bc8ea7a8b00835dade6d6214264615675790678536b02f9a818ce35fa2916",
+      "bytes": 2489,
+      "transformations": [
+        "replace_campaign_ids_with_render_contexts"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/graphics_policy156.gd",
+      "target": "addons/arkon_runtime/graphics/graphics_policy156.gd",
+      "source_sha256": "701152b260e953de5a8e3b30247e3fcbe0e9ae763ccdf226fcbc4cddc6ffe955",
+      "target_sha256": "e67256db95ca30dbc2ff2197ca747715f56955dc365dad35bb7b800f2e133479",
+      "bytes": 10234,
+      "transformations": [
+        "replace_campaign_ids_with_render_contexts"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/graphics_settings.gd",
+      "target": "addons/arkon_runtime/graphics/graphics_settings.gd",
+      "source_sha256": "ae95ec5c3913eb5f78f3c4de1be51cfc3229dc454d72e2a63be9a928488a2f62",
+      "target_sha256": "b0348efdbe50c66116d50304910f336712bf23b5ea34b714076d0afcf08e809f",
+      "bytes": 10710,
+      "transformations": [
+        "relocate_resource_paths",
+        "replace_campaign_ids_with_render_contexts"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/graphics_store156.gd",
+      "target": "addons/arkon_runtime/graphics/graphics_store156.gd",
+      "source_sha256": "a8c9434e80f0d369e513203e8be6a65cdad6a17e114c8e514b2bb0abdc87d492",
+      "target_sha256": "86bb8ae803139df25864e8edb477fabc3365e31a8e63d4c67bc74340c57de6bc",
+      "bytes": 1504,
+      "transformations": [
+        "replace_campaign_ids_with_render_contexts"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/grounded_step_motion.gd",
+      "target": "addons/arkon_runtime/locomotion/grounded_step_motion.gd",
+      "source_sha256": "91b80d4ccc177151fcf38b9df9c8aa94f09844e7379a041ecfbd87948ed62f97",
+      "target_sha256": "91b80d4ccc177151fcf38b9df9c8aa94f09844e7379a041ecfbd87948ed62f97",
+      "bytes": 2982,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/health_math.gd",
+      "target": "addons/arkon_runtime/math/health_math.gd",
+      "source_sha256": "487918541f975a08cc81d1204a57d7de07d3891117208e2cdbc643eb6b715e07",
+      "target_sha256": "241d2c114c8b1404875c5e5bb6c70cb8a40c58ecdd2a73375703211aed9552b0",
+      "bytes": 149,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/joystick_math.gd",
+      "target": "addons/arkon_runtime/math/joystick_math.gd",
+      "source_sha256": "c3dd412a52a72b18b5cddaff198637e0e6d4d771f6741ceaeef36109d855afad",
+      "target_sha256": "ba2e325346644d7a03e3d561b44264bd2ffec74252833a422ff55883ceb0f771",
+      "bytes": 468,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_door.gd",
+      "target": "addons/arkon_runtime/topdown/level3_door.gd",
+      "source_sha256": "4a310eaca0bdb14efdb56e1ea09c10f9fa089f05cdb53709dbd1b52b36056a68",
+      "target_sha256": "e6a38178e01bca269242ca97ff8c1968af5b13fbfc6f375cf89794a30e74ee29",
+      "bytes": 6774,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_enemy.gd",
+      "target": "addons/arkon_runtime/topdown/level3_enemy.gd",
+      "source_sha256": "bf075672ece17cb6840e5f76659e84f1a9faf4556c659aead5e505d2fb889b96",
+      "target_sha256": "8d7cbcc1ddf27537b24b50a8d2ebd8387a8b1466f701ef2028b6d1db4b518e1f",
+      "bytes": 14564,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_map_resource.gd",
+      "target": "addons/arkon_runtime/topdown/level3_map_resource.gd",
+      "source_sha256": "541fdd2a849a88e73def767025ceab2aecf2301826e80b9e4c8c8085807cce70",
+      "target_sha256": "3746f9ea991205403a69fa83ba02269efb773133056e62516a14329d8b122466",
+      "bytes": 1124,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_navigation.gd",
+      "target": "addons/arkon_runtime/topdown/level3_navigation.gd",
+      "source_sha256": "e96d57576b2cab19413234e6a2097bff5f02d22e0f4ed7cdb7302b4eddeafe11",
+      "target_sha256": "3b257bafd6bb2612661ca411b91c1af9a08e6745e691eb688d80f4416235552a",
+      "bytes": 3834,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_pickup.gd",
+      "target": "addons/arkon_runtime/topdown/level3_pickup.gd",
+      "source_sha256": "21c3ff0e2d1fd5c2b8700b5b6590a567d67f839eeee100647befc6fc0706757e",
+      "target_sha256": "46ed6a062c8265ffe4b5f59eef22fde819ead339c87b3f21f5156315419065be",
+      "bytes": 3982,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_player.gd",
+      "target": "addons/arkon_runtime/topdown/level3_player.gd",
+      "source_sha256": "ec0a4e6752c3df67d83d72e9c83fe667fae44d4d282d47a69d141879682b7f15",
+      "target_sha256": "2c9b79b2a753663f015a52a2145538906fbc08a3803d510cc5441bc7fca1897c",
+      "bytes": 9598,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_projectile.gd",
+      "target": "addons/arkon_runtime/topdown/level3_projectile.gd",
+      "source_sha256": "7787bbd56abd04935a9cf9c73b32da1539930a3e884e2f153e91d0d1ca797b7c",
+      "target_sha256": "34057d2396d39f0e61a27cccb67fd6003d0907b1d1df4a22ad4af3148105e583",
+      "bytes": 5885,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_touch_joystick.gd",
+      "target": "addons/arkon_runtime/topdown/level3_touch_joystick.gd",
+      "source_sha256": "cb710a8c20a23f3413a6bb74999b538d76214c6862beaa2b94deb6c6557fb3f6",
+      "target_sha256": "c566ec902acf9d54e36e0bba663c087dc4e85e0856e66bdee84f582e772f1515",
+      "bytes": 1816,
+      "transformations": [
+        "namespace_classes",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/mission_progress_query.gd",
+      "target": "addons/arkon_runtime/math/mission_progress_query.gd",
+      "source_sha256": "c9f7c25f4e1ad563789269e77484792ce0161494a8a4f3a73ca378d98ca73841",
+      "target_sha256": "652820c89bd936631e5d974d9cf4294e45ab43ba61ef2db44796cbb15785339b",
+      "bytes": 225,
+      "transformations": [
+        "namespace_classes",
+        "neutral_objective_parameter"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/mission_state_query.gd",
+      "target": "addons/arkon_runtime/math/mission_state_query.gd",
+      "source_sha256": "c78bbbf3707e6f0320ce55957bbedc451033d0c6503e89b86e9a1402c33a59f2",
+      "target_sha256": "ecc3a0e96fe65b2256489be07f36c7144bdc170cb58d229cd129ca31a5f87d4d",
+      "bytes": 387,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/movement_math.gd",
+      "target": "addons/arkon_runtime/math/movement_math.gd",
+      "source_sha256": "15b66ab2ad497e76f421149043103f4aea8c5e2dae51e1a3c0705271479f6f4a",
+      "target_sha256": "49add479172e9616061d1d9cdf69be6f05107d3d8fb4afa2ae8af7f3f55bbed4",
+      "bytes": 443,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/object_pool.gd",
+      "target": "addons/arkon_runtime/topdown/object_pool.gd",
+      "source_sha256": "ff5ce3be89941f142f2842107b777f3afc18e0c35336706d7bdd913f4cfaafe2",
+      "target_sha256": "1564b5790e428fc1a1f035ca28de6c3e91c54dc735cca4f18470783f1d7f6595",
+      "bytes": 2488,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/pause_manager.gd",
+      "target": "addons/arkon_runtime/core/pause_manager.gd",
+      "source_sha256": "22aa9a8f8c29c1918ce553e4376ca1c075a6396f9df0434451b510146356ee21",
+      "target_sha256": "22aa9a8f8c29c1918ce553e4376ca1c075a6396f9df0434451b510146356ee21",
+      "bytes": 663,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/pickup_query.gd",
+      "target": "addons/arkon_runtime/math/pickup_query.gd",
+      "source_sha256": "84e95a034f074bfcf792583a55dc41b17cefac7555a716ae145071fcd9f1823a",
+      "target_sha256": "348d5a40359fe09e7969e4dc0bec1bc9ad39b59d7b1322f1dcb8cef36f1a060b",
+      "bytes": 308,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/presentation_style163.gd",
+      "target": "addons/arkon_runtime/presentation/presentation_style163.gd",
+      "source_sha256": "897487d6ea29a05776f6c814d7d9fa1df1183f44e2d6581432737215ce2b28c6",
+      "target_sha256": "22c014953655d2c64ac2dc1d8c17f7d11a0127c83330ff014eb2e89bdc978ff6",
+      "bytes": 2770,
+      "transformations": [
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_ai_assist.gd",
+      "target": "addons/arkon_runtime/vehicle/race_ai_assist.gd",
+      "source_sha256": "196b96fcb4d089539f9825cf8462e4bc88a6018c60170688a860b0df1fba2e91",
+      "target_sha256": "de63e6b4516ec5ca5dce485f2c81a3070daae5193c970704414ee447aabd0f63",
+      "bytes": 543,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_ai_controller.gd",
+      "target": "addons/arkon_runtime/vehicle/race_ai_controller.gd",
+      "source_sha256": "d0830f7f3b483c5f8855434ac623ebcdfbf9e384d7f2714cec79ffebfe5ac608",
+      "target_sha256": "8b714c665d01ee025470d1c6d089fbd2e67e6a54665a8ced754fff88b046f1f1",
+      "bytes": 8057,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_barriers.gd",
+      "target": "addons/arkon_runtime/vehicle/race_barriers.gd",
+      "source_sha256": "1657127ed2803799e8bd2cf8879b1a798d5b750f2baa9915769c104117c2c4fb",
+      "target_sha256": "27e76fc0ad19f4844366586c0760022c76963907b48366b7eb73eae380b5fbaf",
+      "bytes": 2829,
+      "transformations": [
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_camera_state.gd",
+      "target": "addons/arkon_runtime/vehicle/race_camera_state.gd",
+      "source_sha256": "7430384bbc8cd3aead5368c3640307786e5c706f964135508d2c293038d5da07",
+      "target_sha256": "7fd3771e6d7d3f87c047fdb45a58c37ae34b96f266fd560113c75f3c72decf79",
+      "bytes": 3241,
+      "transformations": [
+        "namespace_classes",
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_canvas_batch.gd",
+      "target": "addons/arkon_runtime/vehicle/race_canvas_batch.gd",
+      "source_sha256": "4cbf841493b336500718a669bc085daa65ee0ef914a3d8ec05fbcf808eff8784",
+      "target_sha256": "4cbf841493b336500718a669bc085daa65ee0ef914a3d8ec05fbcf808eff8784",
+      "bytes": 2493,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_car_controller.gd",
+      "target": "addons/arkon_runtime/vehicle/race_car_controller.gd",
+      "source_sha256": "35739f8724e7f4a8290d9fd0cb9207e3f062665134f54571c4cb65847d7a2944",
+      "target_sha256": "f691e135c416862a2fd3364cf25bca38c82339f361aefd23dbc435784f1c54c1",
+      "bytes": 14479,
+      "transformations": [
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_level_data.gd",
+      "target": "addons/arkon_runtime/vehicle/race_level_data.gd",
+      "source_sha256": "67ebc10a4141c66ae45fe472c83761ba5c399c9cba5c047d93651d9f81d8cefc",
+      "target_sha256": "9930067f96b0490cb1da06ca231b9695f2e3db2771d7ac0f8097ec554759badc",
+      "bytes": 6314,
+      "transformations": [
+        "mark_release_calibration_fixture",
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_math.gd",
+      "target": "addons/arkon_runtime/vehicle/race_math.gd",
+      "source_sha256": "7a813217e6f975c21e07db51ec6f93a0b34e5cb46ec19b2f24c796cb61525fc4",
+      "target_sha256": "7a813217e6f975c21e07db51ec6f93a0b34e5cb46ec19b2f24c796cb61525fc4",
+      "bytes": 14116,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_powertrain.gd",
+      "target": "addons/arkon_runtime/vehicle/race_powertrain.gd",
+      "source_sha256": "c57ca79bda2e05a8a6ecec95640c528513eda16f1e8d88b9a3cbbdeb0af4e8ef",
+      "target_sha256": "66e3754316ae0581a0b3a6cb05757d5d5f98f8e1d9ad48c54c00328f5747f64e",
+      "bytes": 4859,
+      "transformations": [
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_projection.gd",
+      "target": "addons/arkon_runtime/vehicle/race_projection.gd",
+      "source_sha256": "3050edb8ad105798398919afd3fcb4c29ae2e98b07c3825e98f422f9531eba92",
+      "target_sha256": "3050edb8ad105798398919afd3fcb4c29ae2e98b07c3825e98f422f9531eba92",
+      "bytes": 4732,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_projection_frame.gd",
+      "target": "addons/arkon_runtime/vehicle/race_projection_frame.gd",
+      "source_sha256": "08638eaa1f8cb84571bf5309e0ba43ae99275c233ff1737a8d0817ff96f8cfb1",
+      "target_sha256": "08638eaa1f8cb84571bf5309e0ba43ae99275c233ff1737a8d0817ff96f8cfb1",
+      "bytes": 3977,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_queries.gd",
+      "target": "addons/arkon_runtime/vehicle/race_queries.gd",
+      "source_sha256": "0ee0b04284958acb1102b3fa3635a6e99d8fe264c9744c93c15b23cffe15c06c",
+      "target_sha256": "0ee0b04284958acb1102b3fa3635a6e99d8fe264c9744c93c15b23cffe15c06c",
+      "bytes": 497,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_road_mesh.gd",
+      "target": "addons/arkon_runtime/vehicle/race_road_mesh.gd",
+      "source_sha256": "2cfc217d6045f93095933601600b40f13b0e2b26c9530245240423b321acf592",
+      "target_sha256": "189f43914e85dd870082fd3ddedb18aae3410ed742110387f7424ed4aa90fb97",
+      "bytes": 13681,
+      "transformations": [
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_skid_marks.gd",
+      "target": "addons/arkon_runtime/vehicle/race_skid_marks.gd",
+      "source_sha256": "cfa2f58a5f204d96e19e8b660863c4c9f152117469f579dcd9e2941fafa9433d",
+      "target_sha256": "bc459e293e9eb87bb9dafbcd0c211da15f9bc260db1dc00fc404cce4dd9186bd",
+      "bytes": 2237,
+      "transformations": [
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_state.gd",
+      "target": "addons/arkon_runtime/vehicle/race_state.gd",
+      "source_sha256": "378bee88db452193e7472ce5da50d100ed36b0818b7ea091bf093ef80f228076",
+      "target_sha256": "378bee88db452193e7472ce5da50d100ed36b0818b7ea091bf093ef80f228076",
+      "bytes": 1221,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_track_data.gd",
+      "target": "addons/arkon_runtime/vehicle/race_track_data.gd",
+      "source_sha256": "4d7bc2be24550b9852c8c97138f38b8be37f9e8b9583021ea7fbb325ef5200a0",
+      "target_sha256": "7e2e940b49644e89e39e9882f71da62260ca960ae4ee8df0d9ba306fc157a1f6",
+      "bytes": 689,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/race_vehicle_contacts.gd",
+      "target": "addons/arkon_runtime/vehicle/race_vehicle_contacts.gd",
+      "source_sha256": "036ca5206f75c0fe0c5e76c3080bf4ca9c1c595de820aeed23f1c568c404f137",
+      "target_sha256": "036ca5206f75c0fe0c5e76c3080bf4ca9c1c595de820aeed23f1c568c404f137",
+      "bytes": 5384,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/signal_bus.gd",
+      "target": "addons/arkon_runtime/core/signal_bus.gd",
+      "source_sha256": "ad9c2461a1e67b0e8c6ee25754537c73ae6f59f91155ee8771f7eb7a4a4f13d2",
+      "target_sha256": "ad9c2461a1e67b0e8c6ee25754537c73ae6f59f91155ee8771f7eb7a4a4f13d2",
+      "bytes": 2164,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/turn_math.gd",
+      "target": "addons/arkon_runtime/math/turn_math.gd",
+      "source_sha256": "2f20eb334565c2f70821d0761362649a03ed21668a8d2d28bc2bcb939f44e1bc",
+      "target_sha256": "5bbfb9acee29cf4d3647b0a5bec9b10a1fbbdf52ffc2c4723ef055887726555c",
+      "bytes": 270,
+      "transformations": [
+        "namespace_classes"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/weapon_data.gd",
+      "target": "addons/arkon_runtime/combat/weapon_data.gd",
+      "source_sha256": "a41b508a527d79389a4a5204245d82511e956b9065cd2f9ef86e43248a87af1e",
+      "target_sha256": "4d50106639fab5f80ec2f106da5f4daaccf254b928b0de9c131ca6aaf4a70aab",
+      "bytes": 865,
+      "transformations": [
+        "namespace_classes",
+        "remove_campaign_sprite_defaults"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/woodland_audio_surfaces.gd",
+      "target": "addons/arkon_runtime/audio/woodland_audio_surfaces.gd",
+      "source_sha256": "ac059df1fb7b965ca65859420596c0c4c964e9b0a61df0c668d252c5f153236e",
+      "target_sha256": "790baa533518aa47323a313313d62049c6fc08220f3e540c49e2e316a33b2bd1",
+      "bytes": 3498,
+      "transformations": [
+        "replace_game_actor_groups"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "shaders/race_ground.gdshader",
+      "target": "addons/arkon_runtime/shaders/race_ground.gdshader",
+      "source_sha256": "c310df27de03dddccb82aef8168111a6a0dfd7a38d6aeb6f98580ab6e2d89364",
+      "target_sha256": "c310df27de03dddccb82aef8168111a6a0dfd7a38d6aeb6f98580ab6e2d89364",
+      "bytes": 4940,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "shaders/woodland/GODOT_MATERIAL_LICENSE.txt",
+      "target": "addons/arkon_runtime/shaders/GODOT_MATERIAL_LICENSE.txt",
+      "source_sha256": "b3a0be584498c2dec265d64cf6c4f77f804db7cef1e49e16393ba9545abb7aad",
+      "target_sha256": "b3a0be584498c2dec265d64cf6c4f77f804db7cef1e49e16393ba9545abb7aad",
+      "bytes": 1393,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "shaders/woodland/bark.gdshader",
+      "target": "addons/arkon_runtime/shaders/bark.gdshader",
+      "source_sha256": "5e616bc9503b760c7be4262b0f8f30b19fcb169ece792dd039075c083f13112f",
+      "target_sha256": "5e616bc9503b760c7be4262b0f8f30b19fcb169ece792dd039075c083f13112f",
+      "bytes": 249,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "shaders/woodland/fabricated_metal163.gdshader",
+      "target": "addons/arkon_runtime/shaders/fabricated_metal163.gdshader",
+      "source_sha256": "4f369a50474e93fc9d3ec2a1fe16c7f6643a26c0d6ab9f3bbb06261856dd6cdd",
+      "target_sha256": "4f369a50474e93fc9d3ec2a1fe16c7f6643a26c0d6ab9f3bbb06261856dd6cdd",
+      "bytes": 1529,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "shaders/woodland/foliage.gdshader",
+      "target": "addons/arkon_runtime/shaders/foliage.gdshader",
+      "source_sha256": "5fd36ef42c3234c3955fc9b0f5211fd20662c643b1880a4afeb480e559bbd739",
+      "target_sha256": "5fd36ef42c3234c3955fc9b0f5211fd20662c643b1880a4afeb480e559bbd739",
+      "bytes": 447,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "shaders/woodland/garden_color.gdshaderinc",
+      "target": "addons/arkon_runtime/shaders/garden_color.gdshaderinc",
+      "source_sha256": "c8957051693936510b7279d05ded4ecc4176c8cb4dd31bc34693f4e0e0d55807",
+      "target_sha256": "c8957051693936510b7279d05ded4ecc4176c8cb4dd31bc34693f4e0e0d55807",
+      "bytes": 591,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "shaders/woodland/garden_triplanar.gdshader",
+      "target": "addons/arkon_runtime/shaders/garden_triplanar.gdshader",
+      "source_sha256": "23920e387f1372cac8eb4f37f56919af9945c6c796971eb3f5da8b8dc13d26e4",
+      "target_sha256": "5be216bbcde4322ece7c02e002a71778b160735075fdb892ba9cdd1e07a20961",
+      "bytes": 2537,
+      "transformations": [
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "shaders/woodland/ground.gdshader",
+      "target": "addons/arkon_runtime/shaders/ground.gdshader",
+      "source_sha256": "bc71e363df7f1c7a5cc9fd921f2289eb2d9f65e1d78cc401b0556c87fda6b525",
+      "target_sha256": "bc71e363df7f1c7a5cc9fd921f2289eb2d9f65e1d78cc401b0556c87fda6b525",
+      "bytes": 1015,
+      "transformations": [],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "shaders/woodland/water.gdshader",
+      "target": "addons/arkon_runtime/shaders/water.gdshader",
+      "source_sha256": "4ed6606e66559acc0a7e8921665f7d01342ff0826ab1cd59916746d20733db57",
+      "target_sha256": "1f6cffc7806025493599ffef5d4f0cad68cc536bdcf2ce300620f06b6e03570c",
+      "bytes": 1156,
+      "transformations": [
+        "relocate_resource_paths"
+      ],
+      "origin": "Arkon release v1.68"
+    },
+    {
+      "source": "scripts/level3_store.gd",
+      "target": "addons/arkon_runtime/topdown/world.gd",
+      "source_sha256": "1bb58e81021cd89f54853398c8e06d8692bbf04cd5a34f8cb1e1b52f85317b2d",
+      "target_sha256": "aa7cbf4d59c5ccfa23acb4b5ad2c1b185a46820f1a4e1257056838e05c61d614",
+      "bytes": 17234,
+      "transformations": [
+        "inject_map_story_feedback_host",
+        "namespace_classes",
+        "select_release_combat_methods",
+        "substitute_neutral_fixture_visuals_only"
+      ],
+      "origin": "Arkon release v1.68"
+    }
+  ]
+}

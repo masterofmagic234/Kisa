@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://addons/arkon_runtime/topdown/level3_door.gd" id="1_door"]
+[ext_resource type="Texture2D" path="res://assets/fixtures/door.svg" id="2_door_tex"]
+[ext_resource type="Texture2D" path="res://assets/fixtures/door.svg" id="3_frame_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(28, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hit"]
+size = Vector2(36, 14)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_door")
+
+[node name="FrameSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_frame_tex")
+texture_filter = 1
+z_index = 0
+
+[node name="Pivot" type="AnimatableBody2D" parent="."]
+position = Vector2(-16, 0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+position = Vector2(16, 0)
+texture = ExtResource("2_door_tex")
+texture_filter = 1
+z_index = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="HitArea" type="Area2D" parent="Pivot"]
+position = Vector2(16, 0)
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HitArea"]
+shape = SubResource("RectangleShape2D_hit")

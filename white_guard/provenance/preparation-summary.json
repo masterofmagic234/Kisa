@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "source_release": "v1.68",
+  "runtime_files_changed": 0,
+  "historical_notes_archived": 37,
+  "export_policy_exclusions": 85,
+  "portable_files": 77,
+  "runtime_scripts": 67,
+  "headless_checks": 132,
+  "godot_tested": "4.6.3.stable.official.7d41c59c4",
+  "visual_renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "performance_benchmark": false,
+  "story_levels_implemented": 0,
+  "approval": "pending_user_review",
+  "format_direction": "user_confirmed_top_down_level3_and_illustrated_lore",
+  "exception_assignments": []
+}
