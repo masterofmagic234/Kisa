@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "source_commit": "a1fd971558fcfe8d8fb99e944cc532edee5c32ba",
+  "files": [
+    {
+      "target": "addons/arkon_runtime/core/game_state.gd",
+      "target_sha256": "acceeaafe98959182714bcf17c0ee7ad83a58263e5239a7f4727e363387d73ce",
+      "sources": [
+        "scripts/game_state.gd"
+      ],
+      "changes": "Remove campaign fields; add isolated versioned atomic progress",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/core/scene_flow.gd",
+      "target_sha256": "f06fd48ab078004ef840f19d1c78f7394f956a85e07174818f9097266b32c57d",
+      "sources": [
+        "scripts/scene_flow.gd"
+      ],
+      "changes": "Inject scene registry and separate readiness/error ownership",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/core/startup_gate.gd",
+      "target_sha256": "7b0f40d81bc7ac745d77c1cdd3460826716a464107ab69dd16e4bf94a5ec4f45",
+      "sources": [
+        "scripts/scene_flow.gd"
+      ],
+      "changes": "Extract foreground/pause startup-clock policy",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/combat/weapon_component.gd",
+      "target_sha256": "b48f891cd0dfb72fa18bbcab0536e6dd944ad2e81100c37a3dae83fd57aab105",
+      "sources": [
+        "scripts/components/weapon_component.gd"
+      ],
+      "changes": "Inject weapon catalog; retain per-weapon ammunition and cooldown",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/locomotion/first_person_actor.gd",
+      "target_sha256": "15442c3e6347e5a7ceeb46514c0a0fa81f2b3bfa3819531adec754117023f1a2",
+      "sources": [
+        "scripts/level1_player.gd"
+      ],
+      "changes": "Remove heist, portrait, level actions and dependencies; retain body motion and raycast contract",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/presentation/cinematic_cues.gd",
+      "target_sha256": "da55934fdfd274abc19f7bdfd6ca484ba7b45b2b3ee50ba80b0cc5c27dbbf710",
+      "sources": [
+        "scripts/intro_cinematic_v2.gd"
+      ],
+      "changes": "Extract decoded-time cue ownership without old film/voices",
+      "status": "implemented_and_behaviour_checked"
+    },
+    {
+      "target": "addons/arkon_runtime/narrative/dialogue_runner.gd",
+      "target_sha256": "ad6b372be1cc188a9c31e0d0351982f8a97fab06e2110690d733678a5d5528ed",
+      "sources": [],
+      "changes": "New authored sequence adapter required by book adaptation",
+      "status": "implemented_and_behaviour_checked"
+    }
+  ]
+}

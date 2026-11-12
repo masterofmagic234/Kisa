@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "notice": "Реплики — короткие адаптационные наброски, не цитаты и не утверждённый сценарий. Полный текст книги не включён.",
+  "mandatory_minutes": 19.3,
+  "scenes": [
+    {
+      "id": "D01",
+      "title": "Пост охраны",
+      "source_chapters": [
+        1
+      ],
+      "required": true,
+      "budget_seconds": 40,
+      "purpose": "Короткие команды вводят охранную задачу и сектора; длинный брифинг перед первой опасностью не нужен.",
+      "invariant": "Сохранить президента; не переносить огонь на гражданских.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Мазур",
+          "text": "Держим свой сектор. За крышами следите вы.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Лаврик",
+          "text": "Понял. Кортеж не останавливаем.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "title": "Недостающая картина",
+      "source_chapters": [
+        2,
+        3
+      ],
+      "required": true,
+      "budget_seconds": 130,
+      "purpose": "Объединить тревогу Мтанги и разбор с Лавриком; показать, что профессионалы не всеведущи.",
+      "invariant": "Подозрения остаются подозрениями; Мазур не получает приказ ликвидировать или ранить президента.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Мтанга",
+          "text": "Доказательств переворота нет. Но что-то складывается неправильно.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Лаврик",
+          "text": "Наша задача пока прежняя — охрана. За пределами этого приказа не действуем.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "title": "Приказ и контракт",
+      "source_chapters": [
+        3
+      ],
+      "required": true,
+      "budget_seconds": 100,
+      "purpose": "Договор с Леоном и информация о запасном ходе должны быть услышаны и поняты до финала.",
+      "invariant": "Мазур не обещает предать живого президента; договор касается катастрофы после его гибели.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Леон",
+          "text": "Пока президент жив, у вас приказ, у меня контракт.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "Если приказ и контракт потеряют смысл — выбираться лучше вместе.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "title": "Два поколения",
+      "source_chapters": [
+        5
+      ],
+      "required": true,
+      "budget_seconds": 100,
+      "purpose": "Представить князя и Татьяну как людей, а не подсвеченных злодеев; заложить эмигрантскую тему.",
+      "invariant": "Князь — Илларион Петрович Акинфиев, Татьяна — его дочь. Её русский не равен её самоидентификации.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Татьяна",
+          "text": "Отец по-прежнему говорит «мы, русские». Для меня родной язык — французский.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "На корабле вы гостья, Татьяна Илларионовна.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "title": "Не только принцесса",
+      "source_chapters": [
+        4,
+        7
+      ],
+      "required": true,
+      "budget_seconds": 80,
+      "purpose": "Одним разговором сохранить отношения и политическую самостоятельность Натали.",
+      "invariant": "Натали — племянница президента, не его дочь; она амбициозна и обучена, а не беспомощная награда.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Натали",
+          "text": "Я хочу, чтобы ко мне относились серьёзно. Не только из-за моего дяди.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "Тогда и риск будем считать всерьёз.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "title": "Церемония продолжается",
+      "source_chapters": [
+        7
+      ],
+      "required": true,
+      "budget_seconds": 100,
+      "purpose": "После предотвращённого взрыва показать профессиональный масштаб угрозы и исчезнувший след.",
+      "invariant": "Ребёнок не понимает, что несёт; организатор — не доказан; не выдумывать признание.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Мтанга",
+          "text": "Малышку никто не обвиняет. Ей дали букет.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "Тот, кто всё подготовил, уже исчез. Это не работа случайного одиночки.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "title": "Единственная задача",
+      "source_chapters": [
+        8
+      ],
+      "required": true,
+      "budget_seconds": 110,
+      "purpose": "Папа поручает охрану Натали в рейде; Лаврик подтверждает участие.",
+      "invariant": "Игрок не командует всей операцией и не выбирает внешнюю политику страны.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Олонго",
+          "text": "В операцию идёт Натали. Ваша задача — чтобы она вернулась живой.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "Леон ведёт группу. Я прикрываю Натали.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "title": "Пустой базар",
+      "source_chapters": [
+        8
+      ],
+      "required": true,
+      "budget_seconds": 90,
+      "purpose": "Разговор следует после наблюдения игроком улик; вывод Леона опирается на предметы в мире.",
+      "invariant": "Пустой рынок, свежий грузовик, отсутствие жителей складываются в засаду; сверхъестественное объяснение не подтверждается.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Леон",
+          "text": "Сегодня базарный день. Где люди? И зачем тут этот грузовик?",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "Слишком спокойно. Сначала предупредим остальных.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "title": "Связь и передышка",
+      "source_chapters": [
+        9
+      ],
+      "required": true,
+      "budget_seconds": 80,
+      "purpose": "Сохранить спасение геологов и человечность Натали; договориться о ночной остановке.",
+      "invariant": "Спасённые не превращаются в расходник для следующей волны.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Мазур",
+          "text": "Связь работает. Люди освобождены.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Натали",
+          "text": "Я вымоталась. Останемся до утра?",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D10",
+      "title": "Мне не к кому обратиться",
+      "source_chapters": [
+        10
+      ],
+      "required": true,
+      "budget_seconds": 130,
+      "purpose": "Тревожный звонок, встреча и короткий штурмовой брифинг — единая сцена с двумя моментами запуска.",
+      "invariant": "Игрок спасает Татьяну до раскрытия её роли; постановка не подсказывает ответ монтажом злодейки.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Татьяна",
+          "text": "В магазине появились люди. Я не могу говорить по телефону.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "Оставайтесь там, где безопасно. Я приеду.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D11",
+      "title": "Приказ больше не действует",
+      "source_chapters": [
+        11
+      ],
+      "required": true,
+      "budget_seconds": 120,
+      "purpose": "Нестыковка с телефонным звонком, убийство и возвращение к договору с Леоном — смысловой шарнир финала.",
+      "invariant": "Не превращать подозрение о князе в подтверждённую сцену заговора.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Мазур",
+          "text": "Почему она позвонила мне, а не Натали? Они ведь давно знакомы.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Лаврик",
+          "text": "Президента убили. Если взорвут связь — начался переворот.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Леон",
+          "text": "Договор в силе. Выводим людей.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "D12",
+      "title": "В безопасности",
+      "source_chapters": [
+        11
+      ],
+      "required": true,
+      "budget_seconds": 80,
+      "purpose": "Снять боевой накал и сохранить горькую иронию; закончить спасением человека, не победой над заговором.",
+      "invariant": "Оружие остаётся в автобусе; последнего босса и охоты за Татьяной нет.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Натали",
+          "text": "Всё кончилось? Я у красных?",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "Ты в безопасности. Остальное потом.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "O01",
+      "title": "Цена чужой тайны",
+      "source_chapters": [
+        9
+      ],
+      "required": false,
+      "budget_seconds": 65,
+      "purpose": "Необязательный, но важный для циничного тона обмен с Леоном о компромате.",
+      "invariant": "Личную сцену и снимки не показывать. Не выдавать эксплуатацию людей за награду игроку.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Леон",
+          "text": "Каждый ищет свой способ заработать.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "И каждый секрет кому-нибудь пригодится.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    },
+    {
+      "id": "O02",
+      "title": "Политическое руководство",
+      "source_chapters": [
+        6,
+        8
+      ],
+      "required": false,
+      "budget_seconds": 45,
+      "purpose": "Короткая сатира на распоряжения Панкратова готовит ироническую встречу в посольстве.",
+      "invariant": "Не воспроизводить целиком застолье, песни и бытовые анекдоты.",
+      "status": "adaptation_sketch_not_final_script",
+      "lines": [
+        {
+          "speaker": "Лаврик",
+          "text": "Теперь даже домино велено сдать на хранение. Конспирация.",
+          "origin": "adaptation_paraphrase"
+        },
+        {
+          "speaker": "Мазур",
+          "text": "Лишь бы нам самим разрешили работать.",
+          "origin": "adaptation_paraphrase"
+        }
+      ]
+    }
+  ]
+}

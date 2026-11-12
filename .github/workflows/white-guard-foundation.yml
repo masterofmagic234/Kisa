@@ -1,0 +1,50 @@
+name: White Guard foundation
+on:
+  push:
+    paths: ["white_guard/**", ".github/workflows/white-guard-foundation.yml"]
+  pull_request:
+    paths: ["white_guard/**", ".github/workflows/white-guard-foundation.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: white_guard
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check transported snapshot and adaptation data
+        run: python3 tools/validate_foundation.py
+      - name: Install pinned official Godot
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/white-guard-godot"
+          cd "$RUNNER_TEMP/white-guard-godot"
+          curl -fsSL --retry 3 -O https://github.com/godotengine/godot-builds/releases/download/4.6.3-stable/Godot_v4.6.3-stable_linux.x86_64.zip
+          curl -fsSL --retry 3 -O https://github.com/godotengine/godot-builds/releases/download/4.6.3-stable/SHA512-SUMS.txt
+          python3 - <<'PY'
+          import hashlib
+          from pathlib import Path
+          name = 'Godot_v4.6.3-stable_linux.x86_64.zip'
+          entries = [line.split() for line in Path('SHA512-SUMS.txt').read_text().splitlines() if line.strip()]
+          expected = next(row[0] for row in entries if row[-1].lstrip('*') == name)
+          assert hashlib.sha512(Path(name).read_bytes()).hexdigest() == expected
+          PY
+          unzip -q Godot_v4.6.3-stable_linux.x86_64.zip
+          chmod +x Godot_v4.6.3-stable_linux.x86_64
+          echo "GODOT_BIN=$RUNNER_TEMP/white-guard-godot/Godot_v4.6.3-stable_linux.x86_64" >> "$GITHUB_ENV"
+      - name: Import and run behavioural checks
+        shell: bash
+        run: |
+          "$GODOT_BIN" --headless --editor --import --quit --path . 2>&1 | tee /tmp/white-guard-import.log
+          ! grep -E 'SCRIPT ERROR|Parse Error|ERROR:' /tmp/white-guard-import.log
+          "$GODOT_BIN" --headless --path . --script res://tests/foundation_test.gd 2>&1 | tee /tmp/white-guard-foundation.log
+          ! grep -E 'SCRIPT ERROR|Parse Error|ERROR:' /tmp/white-guard-foundation.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: white-guard-foundation-results
+          path: white_guard/test-results/

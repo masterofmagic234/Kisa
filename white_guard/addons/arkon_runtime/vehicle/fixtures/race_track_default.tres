@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ArkonRaceTrackData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/arkon_runtime/vehicle/race_track_data.gd" id="1_track"]
+
+[resource]
+script = ExtResource("1_track")
+resource_name = "MOONLIGHT RUN — Forest to City Sprint"
+section_types = PackedInt32Array(0, 2, 0, 1, 0, 2, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 2, 0, 1, 0)
+section_counts = PackedInt32Array(12, 4, 14, 4, 10, 4, 5, 5, 50, 4, 19, 4, 12, 4, 13, 5, 16, 4, 11, 4, 18)

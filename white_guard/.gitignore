@@ -1,0 +1,7 @@
+.godot/
+build/
+test-results/
+*.tmp
+*.log
+source-private*
+*.keystore
