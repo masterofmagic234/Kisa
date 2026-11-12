@@ -1,0 +1,35 @@
+{
+  "source_commit": "8207adbe7fddb7f6166f68a0300783e1f00b62c7",
+  "files": [
+    {
+      "name": "White-Guard-Intro.mp4",
+      "bytes": 64319993,
+      "sha256": "477cfdb3c47e299d2a3cf81c6410527298cf783ff52909526816c821bf8fb8fb",
+      "parts": [
+        "parts/White-Guard-Intro.mp4.part00",
+        "parts/White-Guard-Intro.mp4.part01",
+        "parts/White-Guard-Intro.mp4.part02",
+        "parts/White-Guard-Intro.mp4.part03",
+        "parts/White-Guard-Intro.mp4.part04",
+        "parts/White-Guard-Intro.mp4.part05"
+      ]
+    },
+    {
+      "name": "White-Guard-Intro-Browser.zip",
+      "bytes": 21134401,
+      "sha256": "71626ec48bdbfcb7ef1908ba08307b4bb990222e4b8257a12f2a43d459e3f1db",
+      "parts": [
+        "parts/White-Guard-Intro-Browser.zip.part00",
+        "parts/White-Guard-Intro-Browser.zip.part01"
+      ]
+    },
+    {
+      "name": "White-Guard-Intro.srt",
+      "bytes": 14769,
+      "sha256": "b293b7c874975aab903a879d66d790bb9f50795229cc4b5a7a363126fbb393bc",
+      "parts": [
+        "parts/White-Guard-Intro.srt.part00"
+      ]
+    }
+  ]
+}
