@@ -1,12 +1,12 @@
 config_version=5
 
 [application]
-config/name="Белая гвардия — план экранизации"
-config/version="0.2.0-topdown-foundation"
+config/name="Белая гвардия — вступление"
+config/version="0.3.0-intro"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="WhiteGuardFoundation"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-run/main_scene="res://scenes/planning_room.tscn"
+run/main_scene="res://scenes/intro.tscn"
 
 [autoload]
 SignalBus="*res://addons/arkon_runtime/core/signal_bus.gd"

@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "scope": "intro_only",
+  "book_title": "Белая гвардия",
+  "book_author": "Александр Бушков",
+  "source_chapter": 1,
+  "source_paragraph_indices": [
+    2,
+    13
+  ],
+  "adaptation_sha256": "644b96a04a076cf4d0e1f6ecadf777d628c68ad66528349dcdcb2d3e76424842",
+  "original_words": 1058,
+  "adapted_words": 1018,
+  "reduction_percent": 3.78,
+  "style_reference": "This Is the Police illustrated story scenes; original art, no copied screenshots or characters",
+  "voice": {
+    "speaker": "Мазур",
+    "language": "ru-RU",
+    "voice": "DmitryNeural",
+    "service": "Microsoft online TTS via edge-tts",
+    "rate": "-5%",
+    "pitch": "-4Hz",
+    "alignment": "actual_word_boundaries",
+    "runway_credits_for_production_audio": 0,
+    "runway_audition_task": "3814851f-24ee-446b-8a15-d7a1163a02d8",
+    "runway_audition_used_in_intro": false
+  },
+  "voice_duration_seconds": 472.344,
+  "source_full_book_included": false,
+  "files": [
+    {
+      "path": "assets/intro/audio/intro-01.mp3",
+      "bytes": 124848,
+      "sha256": "c504b48dd57fa21062c41ddd9cfad7d2790563a25458887288898c0f7ad6550a",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-02.mp3",
+      "bytes": 265680,
+      "sha256": "fb221a46375dacab6d35314f1c3564e004eb36bddb8d0e502c9c898920beb3d3",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-03.mp3",
+      "bytes": 300096,
+      "sha256": "3463815ac68f1953ede09a0bb1ed0e8356cc97c30a461903443a1c93fc013007",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-04.mp3",
+      "bytes": 196704,
+      "sha256": "c8508df313d0bf54ac6ab3b1803ec620b1e4d475511b5582cd4870aa66984c39",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-05.mp3",
+      "bytes": 34272,
+      "sha256": "3223d01ab5278a7c53eb9405d4a0b3cbd09a9acb5142c25c67cee06e6ab17b58",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-06.mp3",
+      "bytes": 314208,
+      "sha256": "3f063d26aa9068d58bed3e3e27be8ff8a90d8bae73036c038ef1a9db487b6112",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-07.mp3",
+      "bytes": 245088,
+      "sha256": "4e6f19072b479043980a0d793120f8f3fd372a634a7bac0c27587383d71cdb29",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-08.mp3",
+      "bytes": 359424,
+      "sha256": "4d3618b7e2acdddafbd9079ab16716132d7e15c7fe6cffa2148086ebe6a27b5a",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-09.mp3",
+      "bytes": 142848,
+      "sha256": "24c2c0dccb65e6941e14bf7b183697895f98480c6aef1517c0da38c0283b005d",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-10.mp3",
+      "bytes": 545276,
+      "sha256": "00b8c12c2a186370c11e938e83945d3d30cefd9e2c8797a5f0e0bf709d363562",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-11.mp3",
+      "bytes": 77616,
+      "sha256": "2631b6aec4839b5d3705b000252196f8e18cb20528fccbbb178c1a22c63fd235",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/audio/intro-12.mp3",
+      "bytes": 228476,
+      "sha256": "2cd267e764f12d428f7bb85aca617b4bbb2ec157f4f0ad002b8e0ae1711fccc4",
+      "origin": "Russian synthetic narration"
+    },
+    {
+      "path": "assets/intro/opening-atlas-a.png",
+      "bytes": 2404018,
+      "sha256": "32e77a46119d1979eb4506f8848c0ad35c00f052a302c6e87c9c42e81d41a4cb",
+      "origin": "image_gen original illustration"
+    },
+    {
+      "path": "assets/intro/opening-atlas-b.png",
+      "bytes": 2511128,
+      "sha256": "0a82df8fc5306c734945099928631f241b4f482fcf5985054a710f969a541db8",
+      "origin": "image_gen original illustration"
+    },
+    {
+      "path": "assets/intro/road-ambience.ogg",
+      "bytes": 47173,
+      "sha256": "b53b830ea9bb14c34a32576401394608dc28b6f7137543501f76bfb9dd5ee1c3",
+      "origin": "Original procedural road ambience"
+    }
+  ]
+}

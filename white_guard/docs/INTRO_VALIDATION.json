@@ -1,0 +1,12 @@
+{
+  "scope": "intro_only",
+  "godot": "4.6.3.stable.official.7d41c59c4",
+  "intro_behaviour_checks": 32,
+  "foundation_checks": 132,
+  "failures": 0,
+  "browser_http_requests": 0,
+  "browser_javascript_errors": 0,
+  "visual_renderer": "X11 / GL Compatibility / llvmpipe",
+  "performance_measurement": false,
+  "convoy_gameplay_changed": false
+}

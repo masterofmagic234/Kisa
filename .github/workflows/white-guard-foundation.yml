@@ -43,6 +43,9 @@ jobs:
           ! grep -E 'SCRIPT ERROR|Parse Error|ERROR:' /tmp/white-guard-import.log
           "$GODOT_BIN" --headless --path . --script res://tests/foundation_test.gd 2>&1 | tee /tmp/white-guard-foundation.log
           ! grep -E 'SCRIPT ERROR|Parse Error|ERROR:' /tmp/white-guard-foundation.log
+          python3 tools/validate_intro.py
+          "$GODOT_BIN" --headless --path . --script res://tests/intro_test.gd 2>&1 | tee /tmp/white-guard-intro.log
+          ! grep -E 'SCRIPT ERROR|Parse Error|ERROR:' /tmp/white-guard-intro.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:

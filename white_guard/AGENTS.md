@@ -7,8 +7,14 @@ The user asked for engine extraction, a book adaptation plan and an implementati
 report, then a pause for their next goal. The user subsequently chose Level 3 top-down 2D gameplay as the main format
 and simple illustrated lore scenes inspired by This Is the Police. Preserve
 the released Level 3 mechanics; do not redesign the project as a main FPS.
-Two gameplay exceptions are requested but not assigned. Story production is
-currently pending that discussion. Do not silently mark campaign entries approved or playable.
+Two gameplay exceptions are requested but not assigned. Story production beyond
+the authorized intro is pending discussion. Do not silently mark campaign entries approved or playable.
+
+Latest user scope: leave the wider game alone. Produce ONLY the illustrated
+opening now; convoy gameplay is next and is not authorized for implementation
+in this change. Narration is Mazur's first-person interior monologue from the
+book, shortened only slightly. Intro production is authorized; other campaign
+entries remain proposals. Do not substitute character dialogue for his thoughts.
 
 Use `docs/ADAPTATION_PLAN.md` and `provenance/book-source.json` as the narrative
 baseline. The novel is Alexander Bushkov's Piranha book, not Bulgakov's work.
