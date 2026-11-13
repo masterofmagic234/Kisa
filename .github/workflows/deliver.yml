@@ -17,5 +17,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload white-guard-intro-preview dist/White-Guard-Intro.mp4 dist/White-Guard-Intro-Browser.zip dist/White-Guard-Intro.srt dist/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --clobber
-          gh release edit white-guard-intro-preview --draft=false --prerelease --latest=false --repo "$GITHUB_REPOSITORY"
+          gh release upload white-guard-intro-staged dist/White-Guard-Intro.mp4 dist/White-Guard-Intro-Browser.zip dist/White-Guard-Intro.srt dist/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --clobber
+          gh release edit white-guard-intro-staged --draft=false --prerelease --latest=false --repo "$GITHUB_REPOSITORY"
