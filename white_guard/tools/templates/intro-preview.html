@@ -82,7 +82,7 @@ window.INTRO={book,start,playBlock,finish,setPaused,renderAt,getState:()=>({stat
  if(seconds<book.duration)return renderAt(seconds);
  ctx.fillStyle='#151915';ctx.fillRect(0,0,1280,720);ctx.textAlign='center';ctx.fillStyle='#eee7d5';ctx.font='20px Title';ctx.fillText('ГЛАВА ПЕРВАЯ',640,280);ctx.font='64px Title';ctx.fillText('КОРТЕЖ',640,380);ctx.textAlign='left';
 }};
-const paths=new Set(book.visuals.shots.flatMap(s=>[s.asset,...s.layers.map(l=>l.asset)]));
+const paths=new Set(book.visuals.art?[]:book.visuals.shots.flatMap(s=>[s.asset,...(s.layers||[]).map(l=>l.asset)]));
 Promise.all([...paths].map(path=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{images[path]=image;resolve()};image.onerror=reject;image.src=media[path]}))).then(()=>{$('start').disabled=false;draw()});
 </script>
 </html>

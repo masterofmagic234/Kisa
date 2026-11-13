@@ -21,6 +21,14 @@ slightly shortened monologue/voice intact unless the user authorizes another
 text edit. Stage concrete actions, cut inside paragraphs and use independent
 layers; do not revert to paragraph-long slides or a large default text panel.
 
+The user rejected the rigid sliding-car revision. The current direction is in
+`data/intro_direction.json`: authored actions, perspective motion and sequential
+comic panels, rendered from shared original vector art. Rebuild through
+`tools/build_intro_art.py`; do not edit the generated library by hand. Review
+rendered frames and motion as well as tests. Verified visual reference sources
+and their limits are recorded in `docs/INTRO.md`; do not claim an unverified
+production technique or copy reference-game frames into the project.
+
 Use `docs/ADAPTATION_PLAN.md` and `provenance/book-source.json` as the narrative
 baseline. The novel is Alexander Bushkov's Piranha book, not Bulgakov's work.
 Natalie is the president's niece. Preserve the late Tatiana reveal and the

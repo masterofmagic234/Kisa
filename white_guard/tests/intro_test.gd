@@ -10,6 +10,29 @@ func check(value: bool, message: String) -> void:
         failures.append(message)
         push_error(message)
 
+func _nodes_below(nodes: Array) -> Array:
+    var result: Array = []
+    for node: Dictionary in nodes:
+        result.append(node)
+        result.append_array(_nodes_below(node.get("children", [])))
+    return result
+
+func _articulation_sample(art: Dictionary) -> Dictionary:
+    for record: Dictionary in art.scenes.values():
+        for node: Dictionary in _nodes_below(record.nodes):
+            var base: Dictionary = node.get("transform", {})
+            var previous_time := 0.0
+            var previous_value: float = float(base.get("rotation", 0.0))
+            for key: Dictionary in node.get("keys", []):
+                if not key.has("rotation"): continue
+                var time: float = float(key.time)
+                var value: float = float(key.rotation)
+                if time > previous_time and not is_equal_approx(previous_value, value):
+                    return {"node": node, "a": previous_time, "b": (previous_time+time)*0.5}
+                previous_time = time
+                previous_value = value
+    return {}
+
 func _run() -> void:
     await process_frame
     var scene := (load("res://scenes/intro.tscn") as PackedScene).instantiate()
@@ -20,13 +43,33 @@ func _run() -> void:
     check(scene.state==scene.State.TITLE and not scene._audio.playing, "Voice played before the start screen")
     check(scene.book.blocks.size()==12 and scene._streams.size()==12, "Opening paragraph or voice is missing")
     check(not scene.captions_enabled and not scene._caption_panel.visible, "The picture is covered by default captions")
-    check(scene.storyboard.shots.size()>=60, "Visual staging fell back to one image per paragraph")
+    check(int(scene.storyboard.schema)==2, "Intro did not load the vector staging revision")
     var first_shot: Dictionary = scene._art.shot_at(0)
-    check(not first_shot.layers.is_empty(), "The convoy is not staged with moving actors")
-    var vehicle: Dictionary = first_shot.layers[0]
-    check(scene._art.layer_rect(vehicle,0).position!=scene._art.layer_rect(vehicle,1).position, "The moving convoy is only a camera zoom")
-    var cut: Dictionary = scene._art.shot_at(6)
-    check(cut.id!=first_shot.id, "The shot did not change inside a spoken paragraph")
+    var vector_art: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/intro_art.json"))
+    var articulation := _articulation_sample(vector_art)
+    check(not articulation.is_empty(), "The scene library has no articulated rotation")
+    if not articulation.is_empty():
+        var pose_a: Dictionary = scene._art.state_at(articulation.node, articulation.a)
+        var pose_b: Dictionary = scene._art.state_at(articulation.node, articulation.b)
+        check(not is_equal_approx(float(pose_a.rotation), float(pose_b.rotation)), "The articulated pose stayed rigid during its actual key interval")
+        check(scene._art.state_at(articulation.node, articulation.a)==pose_a, "Seeking back did not restore the original pose")
+    var reveal_shot: Dictionary = {}
+    for shot: Dictionary in scene.storyboard.shots:
+        if shot.get("panels", []).size()<2: continue
+        for panel: Dictionary in shot.panels:
+            if float(panel.get("reveal", 0))>0: reveal_shot = shot
+        if not reveal_shot.is_empty(): break
+    check(not reveal_shot.is_empty(), "No composition reveals a detail panel during narration")
+    if not reveal_shot.is_empty():
+        var panel_rects: Array = scene._art.panel_rects(reveal_shot, Vector2(1280,720))
+        check(panel_rects.size()==reveal_shot.panels.size(), "Panel layout omitted a staged detail")
+        for panel_rect: Rect2 in panel_rects:
+            check(panel_rect.has_area() and Rect2(0,0,1280,720).encloses(panel_rect), "A panel escaped or collapsed outside the picture")
+    var cut: Dictionary = scene._art.shot_at(float(first_shot.end)+0.01)
+    check(cut.id!=first_shot.id, "Seeking through a cut kept the preceding composition")
+    scene._art.show_at(float(first_shot.end)+0.01)
+    scene._art.show_at(0)
+    check(scene._art.current_shot.id==first_shot.id, "Seeking back kept a future composition")
     for i in range(scene.book.blocks.size()):
         check(absf(scene._streams[i].get_length()-float(scene.book.blocks[i].duration))<0.18, "Voice duration does not match captions: %d" % i)
     var facts: Dictionary = root.get_node("GameState").facts.duplicate(true)

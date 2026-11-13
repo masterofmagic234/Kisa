@@ -1,16 +1,15 @@
 {
+  "status": "PASS",
   "scope": "intro_only",
-  "godot": "4.6.3.stable.official.7d41c59c4",
-  "intro_behaviour_checks": 39,
-  "foundation_checks": 132,
-  "failures": 0,
-  "browser_http_requests": 0,
-  "browser_javascript_errors": 0,
-  "visual_renderer": "X11 / GL Compatibility / llvmpipe",
-  "performance_measurement": false,
-  "convoy_gameplay_changed": false,
-  "shots": 67,
-  "visual_cells_used": 30,
-  "captions_default": false,
-  "monologue_and_voice_changed": false
+  "shots": 40,
+  "vector_scenes": 32,
+  "animated_nodes": 13998,
+  "articulated_nodes": 13960,
+  "panel_reveals": 33,
+  "spoken_paragraphs": 12,
+  "adapted_words": 1018,
+  "word_reduction_percent": 3.78,
+  "voice_seconds": 472.344,
+  "visual_quality_assessed": false,
+  "errors": []
 }
