@@ -1,26 +1,22 @@
 {
-  "source_commit": "8207adbe7fddb7f6166f68a0300783e1f00b62c7",
+  "source_commit": "8fd7d2c58b12afa3d510ee475281ca29adb666ce",
+  "release_tag": "white-guard-intro-staged",
   "files": [
     {
       "name": "White-Guard-Intro.mp4",
-      "bytes": 64319993,
-      "sha256": "477cfdb3c47e299d2a3cf81c6410527298cf783ff52909526816c821bf8fb8fb",
+      "bytes": 23972353,
+      "sha256": "358159a80b0f82e9e100eb2c3925d3d7ed10931ab8ba47bb6df590a387c3afb3",
       "parts": [
         "parts/White-Guard-Intro.mp4.part00",
-        "parts/White-Guard-Intro.mp4.part01",
-        "parts/White-Guard-Intro.mp4.part02",
-        "parts/White-Guard-Intro.mp4.part03",
-        "parts/White-Guard-Intro.mp4.part04",
-        "parts/White-Guard-Intro.mp4.part05"
+        "parts/White-Guard-Intro.mp4.part01"
       ]
     },
     {
       "name": "White-Guard-Intro-Browser.zip",
-      "bytes": 21134401,
-      "sha256": "71626ec48bdbfcb7ef1908ba08307b4bb990222e4b8257a12f2a43d459e3f1db",
+      "bytes": 6242249,
+      "sha256": "e8f6f3c502895d4a135fb68c844e91fd77f445bf7c14cb8a42650eec38638fdc",
       "parts": [
-        "parts/White-Guard-Intro-Browser.zip.part00",
-        "parts/White-Guard-Intro-Browser.zip.part01"
+        "parts/White-Guard-Intro-Browser.zip.part00"
       ]
     },
     {
