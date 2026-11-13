@@ -186,8 +186,8 @@
     },
     {
       "path": "assets/intro/motion-memory.png",
-      "bytes": 1432340,
-      "sha256": "b7d26828e8f8fc6344e1ea3fce0239e04495fefb1e3874a1c67b8f982b0be447",
+      "bytes": 1432070,
+      "sha256": "c96db8218f17b36c930432e60ccb9f5e7e801ee5e2e2012837868af78a658751",
       "origin": "Past-episode plates, foreground ridge and existing painted figure and flashes from opening-atlas-e.png"
     },
     {
@@ -204,8 +204,8 @@
     },
     {
       "path": "assets/intro/motion-police.png",
-      "bytes": 1516637,
-      "sha256": "251e240ce24c2beb7d73c8f250ffdd3dc260fbad4239d2916e89b9893ecc3750",
+      "bytes": 1508490,
+      "sha256": "ec0cd306b636d22d940ef635f63c08e68ee126cf4cef08ec73a3fa125e6b5305",
       "origin": "Local police head and glove poses from opening-atlas-a.png"
     },
     {
