@@ -20,13 +20,19 @@ func _run() -> void:
     check(scene.state==scene.State.TITLE and not scene._audio.playing, "Voice played before the start screen")
     check(scene.book.blocks.size()==12 and scene._streams.size()==12, "Opening paragraph or voice is missing")
     check(not scene.captions_enabled and not scene._caption_panel.visible, "The picture is covered by default captions")
-    check(scene.storyboard.shots.size()>=60, "Visual staging fell back to one image per paragraph")
     var first_shot: Dictionary = scene._art.shot_at(0)
-    check(not first_shot.layers.is_empty(), "The convoy is not staged with moving actors")
-    var vehicle: Dictionary = first_shot.layers[0]
-    check(scene._art.layer_rect(vehicle,0).position!=scene._art.layer_rect(vehicle,1).position, "The moving convoy is only a camera zoom")
-    var cut: Dictionary = scene._art.shot_at(6)
-    check(cut.id!=first_shot.id, "The shot did not change inside a spoken paragraph")
+    var fleet: Dictionary = scene.storyboard.formations[first_shot.panels[0].traffic.fleet]
+    var leaders: Array = fleet.vehicles.slice(-3)
+    check(leaders.size()==3 and leaders.all(func(vehicle): return vehicle[0]=="patrol_front"), "Opening does not establish three police cars")
+    for vehicle: Array in leaders:
+        var near_start: Dictionary = scene._art.vehicle_placement(fleet.projection, vehicle, 0.0)
+        var later: Dictionary = scene._art.vehicle_placement(fleet.projection, vehicle, 0.43)
+        check(later.ground.y > near_start.ground.y and later.scale > near_start.scale, "An approaching car did not grow with road depth")
+        var horizon := Vector2(689, 117)
+        check(absf((near_start.ground-horizon).cross(later.ground-horizon)) < 0.1, "A leading car changed its lane in perspective")
+    check(scene._art.shot_at(6).id != first_shot.id, "The opening did not cut inside the first paragraph")
+    check(scene._art.shot_at(470.2).panels[0].layers[0].pose == "mazur_snap", "The final audible reaction lost its own pose")
+    check(scene._art.shot_at(471.8).panels.is_empty(), "The last beat revealed action past the intro boundary")
     for i in range(scene.book.blocks.size()):
         check(absf(scene._streams[i].get_length()-float(scene.book.blocks[i].duration))<0.18, "Voice duration does not match captions: %d" % i)
     var facts: Dictionary = root.get_node("GameState").facts.duplicate(true)

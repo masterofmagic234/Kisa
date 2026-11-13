@@ -16,22 +16,13 @@ def main():
     args=parser.parse_args()
     book=json.loads((ROOT/'data/intro.json').read_text())
     book['visuals']=json.loads((ROOT/book['storyboard'].removeprefix('res://')).read_text())
-    vector_art = book['visuals'].get('schema') == 2
-    if vector_art:
-        art_path=book['visuals'].get('art_path','res://data/intro_art.json')
-        book['visuals']['art']=json.loads((ROOT/art_path.removeprefix('res://')).read_text())
-    media={}
+    media = {}
     for block in book['blocks']:
-        entries=[('audio','audio/mpeg')]
-        if not vector_art:entries.append(('atlas','image/png'))
-        for key,mime in entries:
-            name=block[key]
-            if name not in media:media[name]=uri(ROOT/name.removeprefix('res://'),mime)
-    if not vector_art:
-        for shot in book['visuals']['shots']:
-            for entry in [shot,*shot['layers']]:
-                name=entry['asset']
-                if name not in media:media[name]=uri(ROOT/name.removeprefix('res://'),'image/png')
+        path = block['audio']
+        media[path] = uri(ROOT / path.removeprefix('res://'), 'audio/mpeg')
+    for path, *_ in book['visuals']['art'].values():
+        if path not in media:
+            media[path] = uri(ROOT / path.removeprefix('res://'), 'image/png')
     media['ambience']=uri(ROOT/'assets/intro/road-ambience.ogg','audio/ogg')
     body=uri(ROOT/'assets/reused/fonts/Manrope-Variable.ttf','font/ttf')
     title=uri(ROOT/'assets/reused/fonts/Forum-Regular.ttf','font/ttf')
