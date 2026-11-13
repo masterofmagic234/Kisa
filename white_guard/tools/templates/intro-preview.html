@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Белая гвардия — вступление</title>
+<style>
+@font-face{font-family:Body;src:url('__BODY_FONT__')}@font-face{font-family:Title;src:url('__TITLE_FONT__')}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#151915;color:#eee7d5;font-family:Body,sans-serif}
+body{display:grid;place-items:center}main{position:relative;width:min(100vw,177.7778vh);aspect-ratio:16/9;overflow:hidden;background:#151915}
+canvas{width:100%;height:100%;display:block}button{font:inherit;font-size:clamp(11px,1.1vw,14px);color:#eee7d5;padding:10px 17px;background:#141c18b8;border:1px solid #b39c6359;border-radius:3px;cursor:pointer}
+button:hover,button:focus-visible{border-color:#d7bd84;background:#26342b}button:disabled{opacity:.5;cursor:wait}
+.card{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:20px}.card p,.card h1{margin:0;font-family:Title,serif;font-weight:normal}.card .kicker{font-size:clamp(12px,1.3vw,16px)}h1{font-size:clamp(32px,5vw,64px)}.card .subtitle{font-size:clamp(14px,1.6vw,20px)}.card button{margin-top:8px}
+#controls{position:absolute;top:20px;right:24px;display:flex;gap:8px}#captions{position:absolute;bottom:20px;left:8.2%;right:8.2%;padding:12px 22px;background:#070907b8;border-radius:3px}#line{font-size:clamp(12px,1.72vw,22px);line-height:1.4;margin:0;white-space:pre-line}#progress{position:absolute;bottom:0;left:0;height:3px;background:#c0a46d;transform-origin:left;width:100%;transform:scaleX(0)}[hidden]{display:none!important}
+@media(max-width:700px){#controls{top:6px;right:6px;gap:4px}button{padding:6px 8px}#captions{padding:10px 18px 14px}#speaker{margin-bottom:5px}#line{font-size:clamp(12px,2vw,18px)}}
+</style>
+<main aria-label="Вступление Белой гвардии">
+<canvas width="1280" height="720" aria-label="Иллюстрации вступления"></canvas>
+<section id="captions" hidden><p id="line" aria-live="off"></p></section>
+<nav id="controls" aria-label="Просмотр" hidden>
+<button id="pause">Пауза</button><button id="subtitles">Субтитры</button><button id="mute">Звук: вкл</button><button id="skip">Пропустить</button>
+</nav>
+<div id="progress" hidden></div>
+<section id="title" class="card"><p class="kicker">АЛЕКСАНДР БУШКОВ</p><h1>БЕЛАЯ ГВАРДИЯ</h1><p class="subtitle">Мысли Кирилла Мазура</p><button id="start" disabled>Начать</button></section>
+<section id="ending" class="card" hidden><p class="kicker">ГЛАВА ПЕРВАЯ</p><h1>КОРТЕЖ</h1><p class="subtitle">Мужичка того недреманная стража взяла…</p><button id="replay">Повторить вступление</button></section>
+</main>
+<script>
+'use strict';
+__INTRO_STAGE__
+const book=__INTRO_BOOK__,media=__INTRO_MEDIA__;
+const $=id=>document.getElementById(id),canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');
+const audio=new Audio(),road=new Audio(media.ambience);road.loop=true;road.volume=.045;
+const images={};let state='title',index=-1,paused=false,muted=false,captions=false,completionCount=0,revision=0,controlsUntil=0;
+const before=book.blocks.map((_,i)=>book.blocks.slice(0,i).reduce((n,b)=>n+b.duration,0));
+function updateButtons(){
+ $('pause').textContent=paused?'Продолжить':'Пауза';$('mute').textContent=muted?'Звук: выкл':'Звук: вкл';$('subtitles').textContent=captions?'Субтитры: вкл':'Субтитры';
+ $('captions').hidden=state!=='playing'||!captions;
+}
+function playVoice(){
+ const token=revision;audio.play().catch(()=>{if(state==='playing'&&token===revision)setPaused(true)});
+ road.play().catch(()=>{});
+}
+function playBlock(i){
+ if(state!=='playing'||i<0||i>=book.blocks.length)return;
+ revision++;audio.pause();index=i;audio.src=media[book.blocks[index].audio];audio.load();
+ audio.muted=muted;road.muted=muted;if(!paused)playVoice();renderCaption(0);
+}
+function start(){
+ revision++;state='playing';paused=false;$('title').hidden=true;$('ending').hidden=true;$('controls').hidden=false;$('progress').hidden=false;
+ controlsUntil=performance.now()+2250;
+ road.currentTime=0;playBlock(0);updateButtons();
+}
+function setPaused(value){
+ if(state!=='playing')return;paused=value;
+ if(paused){audio.pause();road.pause()}else playVoice();updateButtons();
+}
+function finish(skipped){
+ if(state!=='playing')return;revision++;state='finished';completionCount++;audio.pause();road.pause();paused=false;
+ $('controls').hidden=true;$('captions').hidden=true;$('progress').hidden=true;$('ending').hidden=false;
+ document.dispatchEvent(new CustomEvent('intro-finished',{detail:{skipped}}));
+}
+function renderCaption(t){
+ if(index<0)return;const block=book.blocks[index],cue=block.timed_captions.find(c=>t>=c.start&&t<c.end)||block.timed_captions.at(-1);
+ $('line').textContent=cue.text;$('progress').style.transform=`scaleX(${Math.min(1,(before[index]+t)/book.duration)})`;
+}
+function renderAt(seconds){return window.drawIntroStage(ctx,book.visuals,images,seconds)}
+function draw(){
+ const seconds=index<0?0:before[index]+audio.currentTime;
+ renderAt(seconds);
+ if(state!=='playing'){ctx.fillStyle=state==='title'?'#0009':'#000c';ctx.fillRect(0,0,1280,720)}
+ else{$('controls').hidden=!paused&&performance.now()>controlsUntil;$('progress').hidden=$('controls').hidden}
+ if(state==='playing')renderCaption(audio.currentTime);
+ requestAnimationFrame(draw);
+}
+audio.addEventListener('ended',()=>{if(state!=='playing'||!audio.ended)return;if(index+1<book.blocks.length)playBlock(index+1);else finish(false)});
+$('start').onclick=start;$('replay').onclick=start;$('pause').onclick=()=>setPaused(!paused);$('skip').onclick=()=>finish(true);
+$('mute').onclick=()=>{muted=!muted;audio.muted=muted;road.muted=muted;if(muted)captions=true;updateButtons()};
+$('subtitles').onclick=()=>{if(muted&&captions)return;captions=!captions;updateButtons()};
+document.addEventListener('keydown',e=>{if(e.repeat)return;if(e.code==='Space'||e.code==='Enter'){e.preventDefault();state==='playing'?setPaused(!paused):start()}else if(e.code==='Escape'&&state==='playing'){e.preventDefault();setPaused(!paused)}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&state==='playing')setPaused(true)});
+const reveal=()=>{controlsUntil=performance.now()+2250};document.addEventListener('mousemove',reveal);document.addEventListener('touchstart',reveal);
+window.INTRO={book,start,playBlock,finish,setPaused,renderAt,getState:()=>({state,index,paused,muted,captions,completionCount,time:audio.currentTime}),seek:(seconds)=>{audio.currentTime=seconds;renderCaption(seconds)},renderMovieFrame:(seconds)=>{
+ if(seconds<book.duration)return renderAt(seconds);
+ ctx.fillStyle='#151915';ctx.fillRect(0,0,1280,720);ctx.textAlign='center';ctx.fillStyle='#eee7d5';ctx.font='20px Title';ctx.fillText('ГЛАВА ПЕРВАЯ',640,280);ctx.font='64px Title';ctx.fillText('КОРТЕЖ',640,380);ctx.textAlign='left';
+}};
+const paths=new Set(Object.values(book.visuals.art).map(asset=>asset[0]));
+Promise.all([...paths].map(path=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{images[path]=image;resolve()};image.onerror=reject;image.src=media[path]}))).then(()=>{$('start').disabled=false;draw()});
+</script>
+</html>
