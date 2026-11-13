@@ -1,11 +1,8 @@
 {
   "status": "PASS",
   "scope": "intro_only",
-  "shots": 40,
-  "vector_scenes": 32,
-  "animated_nodes": 13998,
-  "articulated_nodes": 13960,
-  "panel_reveals": 33,
+  "shots": 67,
+  "art_cells": 30,
   "spoken_paragraphs": 12,
   "adapted_words": 1018,
   "word_reduction_percent": 3.78,

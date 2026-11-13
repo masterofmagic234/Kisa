@@ -1,2106 +1,1847 @@
 {
-  "schema": 2,
-  "id": "white_guard_opening_direction_v3",
+  "schema": 1,
   "duration": 472.344,
-  "text_and_voice_unchanged": true,
-  "narration_sha256": "abae3e2111fbb65a3996b6d1bcae290c0bd21fd188ab9d51372e931eb79d27fc",
-  "sync_source": "data/intro.json blocks[].timed_captions, actual voice word boundaries",
-  "reference_policy": "Use observed staging principles; do not copy reference frames or assert an unverified production pipeline.",
-  "composition": {
-    "background": "#090b0d",
-    "default_view": [
-      0,
-      0,
-      1,
-      1
-    ],
-    "panel_reveal": "0.12 second opacity only; no flying or scaling panels",
-    "default_camera": "locked",
-    "motion": "Authored physical action in the scene; view rectangles are not a substitute for animation."
-  },
-  "scene_ids": [
-    "attack_memory_gunman",
-    "attack_memory_late_police",
-    "attack_memory_response",
-    "attack_memory_rocket",
-    "convoy_civilian",
-    "convoy_flanks",
-    "convoy_overhead",
-    "convoy_rear",
-    "convoy_tracking",
-    "convoy_wheel",
-    "escort_interior",
-    "escort_motorcycles",
-    "mazur_eyes",
-    "mazur_interior",
-    "memory_appointment",
-    "memory_attempts",
-    "president_limo",
-    "president_window",
-    "resolve_alarm",
-    "resolve_helmet",
-    "resolve_president",
-    "security_insignia",
-    "security_orders",
-    "security_portrait",
-    "security_team",
-    "street_cordon",
-    "street_hand",
-    "warehouses_roof",
-    "warehouses_wide",
-    "warehouses_wire"
-  ],
-  "shots": [
-    {
-      "id": "d001",
-      "start": 0,
-      "end": 8.258,
-      "block": 0,
-      "audio_offset": 0,
-      "scene": "convoy_tracking",
-      "variant": "tracking",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "convoy_tracking",
-          "variant": "tracking",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "keep_spacing",
-          "staging": "Низкая боковая точка сопровождает колонну; вращение колёс, тень и дорожные полосы согласованы."
-        }
-      ],
-      "beat": "Сначала зритель понимает скорость и выучку колонны.",
-      "mode": "present"
-    },
-    {
-      "id": "d002",
-      "start": 8.258,
-      "end": 17.221,
-      "block": 0,
-      "audio_offset": 8.258,
-      "scene": "convoy_wheel",
-      "variant": "wheel",
-      "layout": "split",
-      "panels": [
-        {
-          "scene": "convoy_wheel",
-          "variant": "wheel",
-          "reveal": 0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "wheel_rotation"
-        },
-        {
-          "scene": "convoy_overhead",
-          "variant": "overhead",
-          "reveal": 1.5,
-          "framing": "wide",
-          "time_offset": 8.258,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "keep_spacing"
-        }
-      ],
-      "beat": "Колесо и точные промежутки между машинами дают зрительный смысл французской выучке.",
-      "mode": "present"
-    },
-    {
-      "id": "d003",
-      "start": 17.221,
-      "end": 20.808,
-      "block": 0,
-      "audio_offset": 17.221,
-      "scene": "convoy_tracking",
-      "variant": "tracking",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "convoy_tracking",
-          "variant": "tracking",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 17.221,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "keep_spacing"
-        }
-      ],
-      "beat": "Кортеж продолжает путь под историческую ассоциацию; не выдумываем эпизод с де Голлем.",
-      "mode": "present"
-    },
-    {
-      "id": "d004",
-      "start": 20.808,
-      "end": 28.869,
-      "block": 1,
-      "audio_offset": 0,
-      "scene": "convoy_overhead",
-      "variant": "overhead",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "convoy_overhead",
-          "variant": "overhead",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "advance_patrol",
-          "staging": "Впереди ровно три ярко окрашенные полицейские машины, без добавочного гражданского движения."
-        }
-      ],
-      "beat": "Передовой дозор прочёсывает улицу.",
-      "mode": "present"
-    },
-    {
-      "id": "d005",
-      "start": 28.869,
-      "end": 44.476,
-      "block": 1,
-      "audio_offset": 8.061,
-      "scene": "street_cordon",
-      "variant": "cordon",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "street_cordon",
-          "variant": "cordon",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "empty_street",
-          "staging": "В перспективе оцепление и закрытые фасады; зритель успевает заметить отсутствие толпы."
-        }
-      ],
-      "beat": "Улица пуста: поездка президента не превратилась в народное торжество.",
-      "mode": "present"
-    },
-    {
-      "id": "d006",
-      "start": 44.476,
-      "end": 52.069,
-      "block": 1,
-      "audio_offset": 23.668,
-      "scene": "street_cordon",
-      "variant": "cordon",
-      "layout": "strip",
-      "panels": [
-        {
-          "scene": "street_cordon",
-          "variant": "cordon",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "stand_guard"
-        },
-        {
-          "scene": "street_cordon",
-          "variant": "cordon",
-          "reveal": 1.5,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0.08,
-            0.12,
-            0.43,
-            0.74
-          ],
-          "view_to": [
-            0.08,
-            0.12,
-            0.43,
-            0.74
-          ],
-          "action": "check_left",
-          "staging": "Белая форма, оранжевый берет, лицо отвёрнуто от проезжей части."
-        },
-        {
-          "scene": "street_cordon",
-          "variant": "cordon",
-          "reveal": 4.0,
-          "framing": "medium",
-          "time_offset": 2,
-          "view_from": [
-            0.5,
-            0.12,
-            0.43,
-            0.74
-          ],
-          "view_to": [
-            0.5,
-            0.12,
-            0.43,
-            0.74
-          ],
-          "action": "check_right",
-          "staging": "Жандарм отличается чёрным беретом, а не другим этническим типажом."
-        }
-      ],
-      "beat": "Два вида оцепления показаны сравнением конкретных деталей.",
-      "mode": "present"
-    },
-    {
-      "id": "d007",
-      "start": 52.069,
-      "end": 65.088,
-      "block": 1,
-      "audio_offset": 31.261,
-      "scene": "street_cordon",
-      "variant": "cordon",
-      "layout": "split",
-      "panels": [
-        {
-          "scene": "street_cordon",
-          "variant": "cordon",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "head_check"
-        },
-        {
-          "scene": "street_hand",
-          "variant": "hand",
-          "reveal": 3.0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "ready_hand",
-          "staging": "Кисть сначала свободна, затем ближе к кобуре. Палец остаётся вне спусковой скобы."
-        }
-      ],
-      "beat": "За неподвижной церемониальной формой обнаруживается готовность к бою.",
-      "mode": "present"
-    },
-    {
-      "id": "d008",
-      "start": 65.088,
-      "end": 81.506,
-      "block": 2,
-      "audio_offset": 0,
-      "scene": "convoy_civilian",
-      "variant": "civilian",
-      "layout": "triptych",
-      "panels": [
-        {
-          "scene": "convoy_civilian",
-          "variant": "civilian",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "civilian_escort"
-        },
-        {
-          "scene": "escort_interior",
-          "variant": "interior",
-          "reveal": 7.745,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "scan_sides"
-        },
-        {
-          "scene": "escort_interior",
-          "variant": "interior",
-          "reveal": 10,
-          "framing": "close",
-          "time_offset": 2,
-          "view_from": [
-            0.22,
-            0.48,
-            0.58,
-            0.4
-          ],
-          "view_to": [
-            0.22,
-            0.48,
-            0.58,
-            0.4
-          ],
-          "action": "weapon_ready",
-          "staging": "Деталь автомата на коленях; пассажиры в штатском, а не в парадных мундирах."
-        }
-      ],
-      "beat": "Большие гражданские машины раскрываются как вооружённое сопровождение.",
-      "mode": "present"
-    },
-    {
-      "id": "d009",
-      "start": 81.506,
-      "end": 89.914,
-      "block": 2,
-      "audio_offset": 16.418,
-      "scene": "escort_motorcycles",
-      "variant": "motorcycles",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "escort_motorcycles",
-          "variant": "motorcycles",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "seven_rider_wedge",
-          "staging": "Семь белых шлемов образуют клин 1–2–2–2; сохраняются расстояния и направление движения."
-        }
-      ],
-      "beat": "Мотоциклетный клин связывает передовой дозор с президентскими машинами.",
-      "mode": "present"
-    },
-    {
-      "id": "d010",
-      "start": 89.914,
-      "end": 98.73,
-      "block": 2,
-      "audio_offset": 24.826,
-      "scene": "president_limo",
-      "variant": "limo",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "president_limo",
-          "variant": "limo",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "three_identical_cars",
-          "staging": "Три одинаковых чёрных автомобиля; камера не указывает, какой из них настоящий."
-        }
-      ],
-      "beat": "Повтор одинаковых машин выглядит частью системы охраны.",
-      "mode": "present"
-    },
-    {
-      "id": "d011",
-      "start": 98.73,
-      "end": 115.104,
-      "block": 2,
-      "audio_offset": 33.642,
-      "scene": "president_limo",
-      "variant": "limo",
-      "layout": "triptych",
-      "panels": [
-        {
-          "scene": "president_limo",
-          "variant": "limo",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 9,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "three_identical_cars"
-        },
-        {
-          "scene": "president_window",
-          "variant": "window",
-          "reveal": 2.0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "opaque_glass"
-        },
-        {
-          "scene": "president_window",
-          "variant": "window",
-          "reveal": 7.0,
-          "framing": "close",
-          "time_offset": 2,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "opaque_glass"
-        }
-      ],
-      "beat": "Чёрные окна повторяются; ни одна панель не раскрывает местонахождение президента.",
-      "mode": "present"
-    },
-    {
-      "id": "d012",
-      "start": 115.104,
-      "end": 123.309,
-      "block": 3,
-      "audio_offset": 0,
-      "scene": "convoy_flanks",
-      "variant": "flanks",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "convoy_flanks",
-          "variant": "flanks",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "four_flank_jeeps",
-          "staging": "Четыре джипа: два слева, два справа от тройки лимузинов. Все спецназовцы белые, в пятнистом камуфляже с красными погонами и беретами."
-        }
-      ],
-      "beat": "Фланговая охрана дополняет географию кортежа.",
-      "mode": "present"
-    },
-    {
-      "id": "d013",
-      "start": 123.309,
-      "end": 139.943,
-      "block": 3,
-      "audio_offset": 8.205,
-      "scene": "security_portrait",
-      "variant": "portrait",
-      "layout": "strip",
-      "panels": [
-        {
-          "scene": "security_portrait",
-          "variant": "portrait",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "watch_road"
-        },
-        {
-          "scene": "security_insignia",
-          "variant": "insignia",
-          "reveal": 2.0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "epaulette",
-          "staging": "Красный погон и берет."
-        },
-        {
-          "scene": "security_insignia",
-          "variant": "insignia",
-          "reveal": 9,
-          "framing": "close",
-          "time_offset": 3,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "patches"
-        }
-      ],
-      "beat": "Внимание переходит от людей к красным погонам и претенциозным шевронам.",
-      "mode": "present"
-    },
-    {
-      "id": "d014",
-      "start": 139.943,
-      "end": 147.888,
-      "block": 3,
-      "audio_offset": 24.839,
-      "scene": "security_team",
-      "variant": "team",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "security_team",
-          "variant": "team",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 8,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "scan_sides"
-        }
-      ],
-      "beat": "Пауза на собранной группе под ироническую оценку Мазура.",
-      "mode": "present"
-    },
-    {
-      "id": "d015",
-      "start": 147.888,
-      "end": 153.6,
-      "block": 4,
-      "audio_offset": 0,
-      "scene": "convoy_flanks",
-      "variant": "flanks",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "convoy_flanks",
-          "variant": "flanks",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 32.784,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "four_flank_jeeps"
-        }
-      ],
-      "beat": "Короткая мысль об интернационале остаётся внутренней; новых справок и титров нет.",
-      "mode": "present"
-    },
-    {
-      "id": "d016",
-      "start": 153.6,
-      "end": 163.084,
-      "block": 5,
-      "audio_offset": 0,
-      "scene": "mazur_interior",
-      "variant": "interior",
-      "layout": "split",
-      "panels": [
-        {
-          "scene": "mazur_interior",
-          "variant": "interior",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "watch_road"
-        },
-        {
-          "scene": "security_team",
-          "variant": "team",
-          "reveal": 1.0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "leon_left_flank"
-        }
-      ],
-      "beat": "Мазур справа, Леон слева: расположение читается до знакомства с именами.",
-      "mode": "present"
-    },
-    {
-      "id": "d017",
-      "start": 163.084,
-      "end": 178.939,
-      "block": 5,
-      "audio_offset": 9.484,
-      "scene": "security_portrait",
-      "variant": "portrait",
-      "layout": "triptych",
-      "panels": [
-        {
-          "scene": "security_portrait",
-          "variant": "portrait",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "leon_head_turn"
-        },
-        {
-          "scene": "mazur_interior",
-          "variant": "interior",
-          "reveal": 6.0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "lavrik_back_seat",
-          "staging": "Лаврик действительно находится за спиной Мазура."
-        },
-        {
-          "scene": "security_portrait",
-          "variant": "portrait",
-          "reveal": 12.0,
-          "framing": "close",
-          "time_offset": 3,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "watch_road"
-        }
-      ],
-      "beat": "Леон и Лаврик представлены рабочими действиями, без говорящих голов и биографических карточек.",
-      "mode": "present"
-    },
-    {
-      "id": "d018",
-      "start": 178.939,
-      "end": 193.137,
-      "block": 5,
-      "audio_offset": 25.339,
-      "scene": "security_team",
-      "variant": "team",
-      "layout": "strip",
-      "panels": [
-        {
-          "scene": "security_team",
-          "variant": "team",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "scan_sides"
-        },
-        {
-          "scene": "security_portrait",
-          "variant": "portrait",
-          "reveal": 2.5,
-          "framing": "close",
-          "time_offset": 4,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "watch_road"
-        },
-        {
-          "scene": "escort_interior",
-          "variant": "interior",
-          "reveal": 7.0,
-          "framing": "medium",
-          "time_offset": 5,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "scan_sides"
-        }
-      ],
-      "beat": "Несколько различных лиц и поз показывают разнородный отряд; не приписываем конкретным людям неуказанные преступления.",
-      "mode": "present"
-    },
-    {
-      "id": "d019",
-      "start": 193.137,
-      "end": 205.968,
-      "block": 5,
-      "audio_offset": 39.537,
-      "scene": "security_team",
-      "variant": "team",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "security_team",
-          "variant": "team",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 13,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "scan_sides"
-        }
-      ],
-      "beat": "Вопрос происхождения людей оставлен открытым; охрана продолжает смотреть наружу.",
-      "mode": "present"
-    },
-    {
-      "id": "d020",
-      "start": 205.968,
-      "end": 223.781,
-      "block": 6,
-      "audio_offset": 0,
-      "scene": "mazur_interior",
-      "variant": "interior",
-      "layout": "triptych",
-      "panels": [
-        {
-          "scene": "mazur_interior",
-          "variant": "interior",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "watch_road"
-        },
-        {
-          "scene": "mazur_eyes",
-          "variant": "eyes",
-          "reveal": 4.0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "scan_then_hold"
-        },
-        {
-          "scene": "mazur_interior",
-          "variant": "interior",
-          "reveal": 9.103,
-          "framing": "close",
-          "time_offset": 4,
-          "view_from": [
-            0.3,
-            0.5,
-            0.46,
-            0.36
-          ],
-          "view_to": [
-            0.3,
-            0.5,
-            0.46,
-            0.36
-          ],
-          "action": "weapon_ready",
-          "staging": "Крупно автомат именно у Мазура в камуфляже; не подменять охранником из гражданского сопровождения."
-        }
-      ],
-      "beat": "Имя Мазура впервые получает устойчивый зрительный образ; автомат и взгляд объясняют его занятие.",
-      "mode": "present"
-    },
-    {
-      "id": "d021",
-      "start": 223.781,
-      "end": 230.571,
-      "block": 6,
-      "audio_offset": 17.813,
-      "scene": "memory_appointment",
-      "variant": "appointment",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "memory_appointment",
-          "variant": "appointment",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "present_order",
-          "staging": "Бланк раскрывается на столе или в руках; герб и подпись дают понять характер документа без чтения абзацев."
-        }
-      ],
-      "beat": "Воспоминание о законном местном назначении.",
-      "mode": "memory"
-    },
-    {
-      "id": "d022",
-      "start": 230.571,
-      "end": 246.816,
-      "block": 6,
-      "audio_offset": 24.603,
-      "scene": "memory_appointment",
-      "variant": "appointment",
-      "layout": "triptych",
-      "panels": [
-        {
-          "scene": "memory_appointment",
-          "variant": "appointment",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 7,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "hold_order"
-        },
-        {
-          "scene": "security_orders",
-          "variant": "orders",
-          "reveal": 1.0,
-          "framing": "close",
-          "time_offset": 8,
-          "view_from": [
-            0.46,
-            0.58,
-            0.2,
-            0.25
-          ],
-          "view_to": [
-            0.46,
-            0.58,
-            0.2,
-            0.25
-          ],
-          "action": "stamp_detail",
-          "staging": "Крупный лист приказа: две отдельные круглые печати, красная и синяя. Обрезку сверить с итоговым рисунком."
-        },
-        {
-          "scene": "security_orders",
-          "variant": "orders",
-          "reveal": 7.0,
-          "framing": "close",
-          "time_offset": 10,
-          "view_from": [
-            0.22,
-            0.62,
-            0.4,
-            0.21
-          ],
-          "view_to": [
-            0.22,
-            0.62,
-            0.4,
-            0.21
-          ],
-          "action": "signature_detail",
-          "staging": "Подпись Олонго занимает примерно четверть листа. Обрезка показывает её росчерк и масштаб на бумаге."
-        }
-      ],
-      "beat": "Красная и синяя печати, затем чрезмерная подпись становятся предметной шуткой.",
-      "mode": "memory"
-    },
-    {
-      "id": "d023",
-      "start": 246.816,
-      "end": 262.827,
-      "block": 7,
-      "audio_offset": 0,
-      "scene": "memory_appointment",
-      "variant": "appointment",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "memory_appointment",
-          "variant": "appointment",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 24,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "fold_order"
-        }
-      ],
-      "beat": "Бумага складывается; Мазур мысленно расстаётся с сувениром.",
-      "mode": "memory"
-    },
-    {
-      "id": "d024",
-      "start": 262.827,
-      "end": 281.669,
-      "block": 7,
-      "audio_offset": 16.011,
-      "scene": "mazur_interior",
-      "variant": "interior",
-      "layout": "split",
-      "panels": [
-        {
-          "scene": "mazur_interior",
-          "variant": "interior",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "settle_ready"
-        },
-        {
-          "scene": "mazur_interior",
-          "variant": "interior",
-          "reveal": 5.0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0.31,
-            0.52,
-            0.44,
-            0.34
-          ],
-          "view_to": [
-            0.31,
-            0.52,
-            0.44,
-            0.34
-          ],
-          "action": "ready_hand",
-          "staging": "Руки Мазура рядом с автоматом в салоне; не белая форма полицейского и не кобура уличного оцепления."
-        }
-      ],
-      "beat": "Переход от отвлечённых мыслей к настоящему дежурству выражен телом и руками.",
-      "mode": "present"
-    },
-    {
-      "id": "d025",
-      "start": 281.669,
-      "end": 296.274,
-      "block": 7,
-      "audio_offset": 34.853,
-      "scene": "resolve_president",
-      "variant": "president",
-      "layout": "triptych",
-      "panels": [
-        {
-          "scene": "resolve_president",
-          "variant": "president",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "public_image"
-        },
-        {
-          "scene": "memory_attempts",
-          "variant": "attempts",
-          "reveal": 3.0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "four_attempts"
-        },
-        {
-          "scene": "mazur_eyes",
-          "variant": "eyes",
-          "reveal": 8.0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "scan_then_hold"
-        }
-      ],
-      "beat": "Официальное спокойствие соседствует с четырьмя знаками недавних покушений и вниманием охранника.",
-      "mode": "present"
-    },
-    {
-      "id": "d026",
-      "start": 296.274,
-      "end": 306.72,
-      "block": 7,
-      "audio_offset": 49.458,
-      "scene": "mazur_eyes",
-      "variant": "eyes",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "mazur_eyes",
-          "variant": "eyes",
-          "reveal": 0,
-          "framing": "close",
-          "time_offset": 4,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "scan_then_hold"
-        }
-      ],
-      "beat": "Короткая остановка на взгляде: охрана выигрывала, но расслабляться нельзя.",
-      "mode": "present"
-    },
-    {
-      "id": "d027",
-      "start": 306.72,
-      "end": 315.204,
-      "block": 8,
-      "audio_offset": 0,
-      "scene": "mazur_interior",
-      "variant": "interior",
-      "layout": "split",
-      "panels": [
-        {
-          "scene": "mazur_interior",
-          "variant": "interior",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "look_back"
-        },
-        {
-          "scene": "convoy_rear",
-          "variant": "rear",
-          "reveal": 1.0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "four_rear_cars",
-          "staging": "Ответный взгляд назад показывает ровно четыре гражданские машины сопровождения. Рисунок зеркала с двумя задними пассажирами не подменяет этот общий план."
-        }
-      ],
-      "beat": "Поворот головы и ответный план назад связывают героя с четырьмя задними машинами колонны.",
-      "mode": "present"
-    },
-    {
-      "id": "d028",
-      "start": 315.204,
-      "end": 330.528,
-      "block": 8,
-      "audio_offset": 8.484,
-      "scene": "convoy_rear",
-      "variant": "rear",
-      "layout": "triptych",
-      "panels": [
-        {
-          "scene": "convoy_rear",
-          "variant": "rear",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "four_rear_cars"
-        },
-        {
-          "scene": "convoy_rear",
-          "variant": "rear",
-          "reveal": 1.0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0.48,
-            0.35,
-            0.23,
-            0.35
-          ],
-          "view_to": [
-            0.48,
-            0.35,
-            0.23,
-            0.35
-          ],
-          "action": "barrel_out_window",
-          "staging": "Крупная деталь той же задней охранной машины: ствол из опущенного правого переднего окна. Никаких выстрелов; итоговую обрезку сверить на рисунке."
-        },
-        {
-          "scene": "convoy_rear",
-          "variant": "rear",
-          "reveal": 7.132,
-          "framing": "wide",
-          "time_offset": 14,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "four_rear_cars"
-        }
-      ],
-      "beat": "Ствол за окном показан будничной деталью продолжающегося движения.",
-      "mode": "present"
-    },
-    {
-      "id": "d029",
-      "start": 330.528,
-      "end": 344.642,
-      "block": 9,
-      "audio_offset": 0,
-      "scene": "warehouses_wide",
-      "variant": "wide",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "warehouses_wide",
-          "variant": "wide",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "pass_warehouses",
-          "staging": "Панорама не ползёт независимо от машин: близкие столбы идут быстрее дальних складов."
-        }
-      ],
-      "beat": "Городская улица уступает место неудобной для охраны промышленной зоне.",
-      "mode": "present"
-    },
-    {
-      "id": "d030",
-      "start": 344.642,
-      "end": 358.609,
-      "block": 9,
-      "audio_offset": 14.114,
-      "scene": "warehouses_wide",
-      "variant": "wide",
-      "layout": "triptych",
-      "panels": [
-        {
-          "scene": "warehouses_wide",
-          "variant": "wide",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 14.114,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "pass_warehouses"
-        },
-        {
-          "scene": "warehouses_wire",
-          "variant": "wire",
-          "reveal": 1.0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "passing_wire"
-        },
-        {
-          "scene": "warehouses_roof",
-          "variant": "roof",
-          "reveal": 6.362,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "empty_roof"
-        }
-      ],
-      "beat": "Колючая проволока и пустые крыши заставляют искать угрозу без преждевременного показа нынешнего нападающего.",
-      "mode": "present"
-    },
-    {
-      "id": "d031",
-      "start": 358.609,
-      "end": 376.18,
-      "block": 9,
-      "audio_offset": 28.081,
-      "scene": "street_cordon",
-      "variant": "cordon",
-      "layout": "split",
-      "panels": [
-        {
-          "scene": "street_cordon",
-          "variant": "cordon",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 3,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "stand_guard"
-        },
-        {
-          "scene": "warehouses_roof",
-          "variant": "roof",
-          "reveal": 8.832,
-          "framing": "wide",
-          "time_offset": 4,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "empty_roof"
-        }
-      ],
-      "beat": "Оцепление стоит на месте, пока опасные поверхности остаются открытыми.",
-      "mode": "present"
-    },
-    {
-      "id": "d032",
-      "start": 376.18,
-      "end": 383.68,
-      "block": 9,
-      "audio_offset": 45.652,
-      "scene": "attack_memory_gunman",
-      "variant": "gunman",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "attack_memory_gunman",
-          "variant": "gunman",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "rise_from_cover",
-          "staging": "Отдельная приглушённая палитра и чёрная рамка: это мысленная реконструкция прежнего покушения, не очевидное воспоминание Мазура."
-        }
-      ],
-      "beat": "Рассказ переходит к прежнему покушению; источник знания героя не подменяется его личным присутствием.",
-      "mode": "reconstruction",
-      "label": "ПРЕЖНЕЕ ПОКУШЕНИЕ"
-    },
-    {
-      "id": "d033",
-      "start": 383.68,
-      "end": 393.129,
-      "block": 9,
-      "audio_offset": 53.152,
-      "scene": "attack_memory_gunman",
-      "variant": "gunman",
-      "layout": "split",
-      "panels": [
-        {
-          "scene": "attack_memory_gunman",
-          "variant": "gunman",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 7.5,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "raise_launcher"
-        },
-        {
-          "scene": "attack_memory_response",
-          "variant": "response",
-          "reveal": 4.0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "raise_rifles"
-        }
-      ],
-      "beat": "Нападающий поднимается и берёт оружие; охрана отвечает согласованным поворотом и вскидыванием автоматов.",
-      "mode": "reconstruction"
-    },
-    {
-      "id": "d034",
-      "start": 393.129,
-      "end": 400.366,
-      "block": 9,
-      "audio_offset": 62.601,
-      "scene": "attack_memory_response",
-      "variant": "response",
-      "layout": "triptych",
-      "panels": [
-        {
-          "scene": "attack_memory_response",
-          "variant": "response",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 4,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "controlled_burst"
-        },
-        {
-          "scene": "attack_memory_gunman",
-          "variant": "gunman",
-          "reveal": 0.7,
-          "framing": "medium",
-          "time_offset": 17,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "fall_and_launch"
-        },
-        {
-          "scene": "attack_memory_rocket",
-          "variant": "rocket",
-          "reveal": 2.5,
-          "framing": "wide",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "rocket_upward"
-        }
-      ],
-      "beat": "Короткая очередь сбивает прицел; снаряд уходит вверх от дороги.",
-      "mode": "reconstruction"
-    },
-    {
-      "id": "d035",
-      "start": 400.366,
-      "end": 421.368,
-      "block": 9,
-      "audio_offset": 69.838,
-      "scene": "attack_memory_rocket",
-      "variant": "rocket",
-      "layout": "split",
-      "panels": [
-        {
-          "scene": "attack_memory_rocket",
-          "variant": "rocket",
-          "reveal": 0,
-          "framing": "wide",
-          "time_offset": 7,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "distant_burst"
-        },
-        {
-          "scene": "attack_memory_late_police",
-          "variant": "police",
-          "reveal": 8.051,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "draw_then_raise_then_fire",
-          "staging": "Руки проходят фазы кобура→извлечение→подъём оружия; стрельба начинается уже после нейтрализации угрозы."
-        }
-      ],
-      "beat": "Запоздалая суета полиции завершает реконструкцию и иронию Мазура.",
-      "mode": "reconstruction"
-    },
-    {
-      "id": "d036",
-      "start": 421.368,
-      "end": 434.304,
-      "block": 10,
-      "audio_offset": 0,
-      "scene": "mazur_interior",
-      "variant": "interior",
-      "layout": "split",
-      "panels": [
-        {
-          "scene": "mazur_interior",
-          "variant": "interior",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            0.63
-          ],
-          "action": "low_sector_scan"
-        },
-        {
-          "scene": "warehouses_roof",
-          "variant": "roof",
-          "reveal": 7.784,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "upper_sector_scan",
-          "staging": "Вторую панель открываем на упоминании людей заднего сиденья; линия взглядов поднята к крышам."
-        }
-      ],
-      "beat": "Возвращение к нынешней поездке: Мазур держит низ, люди сзади проверяют верх.",
-      "mode": "present"
-    },
-    {
-      "id": "d037",
-      "start": 434.304,
-      "end": 450.84,
-      "block": 11,
-      "audio_offset": 0,
-      "scene": "resolve_president",
-      "variant": "president",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "resolve_president",
-          "variant": "president",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "stay_course",
-          "staging": "Спокойная фигура и продолжающаяся дорога дают стойкость без героизирующей эмблематики."
-        }
-      ],
-      "beat": "Несмотря на угрозы, президент продолжает маршрут.",
-      "mode": "present"
-    },
-    {
-      "id": "d038",
-      "start": 450.84,
-      "end": 459.844,
-      "block": 11,
-      "audio_offset": 16.536,
-      "scene": "resolve_president",
-      "variant": "president",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "resolve_president",
-          "variant": "president",
-          "reveal": 0,
-          "framing": "close",
-          "time_offset": 16.536,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "public_image"
-        }
-      ],
-      "beat": "Золото формы и невозмутимая поза соседствуют с нелестными мыслями Мазура.",
-      "mode": "present"
-    },
-    {
-      "id": "d039",
-      "start": 459.844,
-      "end": 468.304,
-      "block": 11,
-      "audio_offset": 25.54,
-      "scene": "resolve_helmet",
-      "variant": "helmet",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "resolve_helmet",
-          "variant": "helmet",
-          "reveal": 0,
-          "framing": "medium",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "put_on_helmet",
-          "staging": "Показываем президента в камуфляже и каске; людей Леона не изображаем мятежной пехотой. Если рисунок начинается уже с надетой каской, не утверждать выполненную фазу надевания."
-        }
-      ],
-      "beat": "Начинается мысль о прежнем мятеже: президент в камуфляже и каске. Сам мятеж не разворачивается до обрыва мысли.",
-      "mode": "memory"
-    },
-    {
-      "id": "d040",
-      "start": 468.304,
-      "end": 472.344,
-      "block": 11,
-      "audio_offset": 34.0,
-      "scene": "resolve_alarm",
-      "variant": "alarm",
-      "layout": "single",
-      "panels": [
-        {
-          "scene": "resolve_alarm",
-          "variant": "alarm",
-          "reveal": 0,
-          "framing": "close",
-          "time_offset": 0,
-          "view_from": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "view_to": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "action": "snap_attention",
-          "staging": "На 35-й секунде блока Мазур резко поворачивает голову; реакция примерно на секунду опережает возглас. Источник угрозы вне кадра. После финального слова — обрыв, без взрыва и без начала уровня."
-        }
-      ],
-      "beat": "Мысль обрывается реакцией Мазура; нынешнее нападение не показано.",
-      "mode": "present"
-    }
-  ],
   "captions_default": false,
   "controls_idle_seconds": 2.25,
   "source_text_unchanged": true,
-  "art_path": "res://data/intro_art.json"
+  "shots": [
+    {
+      "id": "s001",
+      "block": 0,
+      "start": 0,
+      "end": 5.5,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 1,
+          "from": [
+            -0.65,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            1.15,
+            0.34,
+            0.55,
+            0.652
+          ]
+        },
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 1,
+          "from": [
+            -1.35,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            0.44999999999999996,
+            0.34,
+            0.55,
+            0.652
+          ]
+        },
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 1,
+          "from": [
+            -2.05,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            -0.25,
+            0.34,
+            0.55,
+            0.652
+          ]
+        }
+      ],
+      "label": "",
+      "effect": "",
+      "beat": "Три машины прочёсывают дорогу; колонна действительно движется."
+    },
+    {
+      "id": "s002",
+      "block": 0,
+      "start": 5.5,
+      "end": 11.734,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Строй и дистанция читаются в общем плане."
+    },
+    {
+      "id": "s003",
+      "block": 0,
+      "start": 11.734,
+      "end": 16.3,
+      "asset": "res://assets/intro/opening-atlas-c.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Чёрное стекло изолирует охраняемого пассажира."
+    },
+    {
+      "id": "s004",
+      "block": 0,
+      "start": 16.3,
+      "end": 20.808,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 0,
+          "from": [
+            -0.65,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            1.15,
+            0.34,
+            0.55,
+            0.652
+          ]
+        },
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 0,
+          "from": [
+            -1.35,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            0.44999999999999996,
+            0.34,
+            0.55,
+            0.652
+          ]
+        }
+      ],
+      "label": "",
+      "effect": "",
+      "beat": "Автомобиль уходит через кадр: выучка водителей видна в движении."
+    },
+    {
+      "id": "s005",
+      "block": 1,
+      "start": 20.808,
+      "end": 27.308,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 1,
+          "from": [
+            -0.65,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            1.15,
+            0.34,
+            0.55,
+            0.652
+          ]
+        },
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 1,
+          "from": [
+            -1.35,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            0.44999999999999996,
+            0.34,
+            0.55,
+            0.652
+          ]
+        }
+      ],
+      "label": "",
+      "effect": "",
+      "beat": "Передовой полицейский дозор."
+    },
+    {
+      "id": "s006",
+      "block": 1,
+      "start": 27.308,
+      "end": 34.569,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 0,
+      "view_from": [
+        0.01,
+        0.37,
+        0.65,
+        0.63
+      ],
+      "view_to": [
+        0.06,
+        0.38,
+        0.6,
+        0.6
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Передние машины, а не вся колонна одним пятном."
+    },
+    {
+      "id": "s007",
+      "block": 1,
+      "start": 34.569,
+      "end": 41.808,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Пустая улица и редкое оцепление вместо ликующей толпы."
+    },
+    {
+      "id": "s008",
+      "block": 1,
+      "start": 41.808,
+      "end": 50.463,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Различимые оранжевый и чёрный береты, белая форма."
+    },
+    {
+      "id": "s009",
+      "block": 1,
+      "start": 50.463,
+      "end": 57.308,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0.38,
+        0.68,
+        0.62
+      ],
+      "view_to": [
+        0.02,
+        0.37,
+        0.64,
+        0.6
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Руки у оружия; спины развёрнуты к дороге."
+    },
+    {
+      "id": "s010",
+      "block": 1,
+      "start": 57.308,
+      "end": 65.088,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Сектор у проёмов и кустов остаётся под наблюдением."
+    },
+    {
+      "id": "s011",
+      "block": 2,
+      "start": 65.088,
+      "end": 73.088,
+      "asset": "res://assets/intro/opening-atlas-c.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "В штатской машине вооружённая охрана."
+    },
+    {
+      "id": "s012",
+      "block": 2,
+      "start": 73.088,
+      "end": 81.506,
+      "asset": "res://assets/intro/opening-atlas-c.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Мотоциклетный клин — отдельный читаемый план."
+    },
+    {
+      "id": "s013",
+      "block": 2,
+      "start": 81.506,
+      "end": 88.088,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Три совершенно одинаковых лимузина."
+    },
+    {
+      "id": "s014",
+      "block": 2,
+      "start": 88.088,
+      "end": 94.77,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 0,
+          "from": [
+            -0.65,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            1.15,
+            0.34,
+            0.55,
+            0.652
+          ]
+        },
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 0,
+          "from": [
+            -1.35,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            0.44999999999999996,
+            0.34,
+            0.55,
+            0.652
+          ]
+        },
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 0,
+          "from": [
+            -2.05,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            -0.25,
+            0.34,
+            0.55,
+            0.652
+          ]
+        }
+      ],
+      "label": "",
+      "effect": "",
+      "beat": "Три одинаковых силуэта проходят один за другим."
+    },
+    {
+      "id": "s015",
+      "block": 2,
+      "start": 94.77,
+      "end": 103.088,
+      "asset": "res://assets/intro/opening-atlas-c.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Лиц за непрозрачным стеклом не видно."
+    },
+    {
+      "id": "s016",
+      "block": 2,
+      "start": 103.088,
+      "end": 112.059,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 2,
+      "view_from": [
+        0.05,
+        0.04,
+        0.9,
+        0.9
+      ],
+      "view_to": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Возврат к трём машинам: выбрать нужную снаружи невозможно."
+    },
+    {
+      "id": "s017",
+      "block": 2,
+      "start": 112.059,
+      "end": 115.104,
+      "asset": "res://assets/intro/opening-atlas-c.png",
+      "quadrant": 2,
+      "view_from": [
+        0.2,
+        0.12,
+        0.74,
+        0.74
+      ],
+      "view_to": [
+        0.2,
+        0.12,
+        0.74,
+        0.74
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Чёрное отражающее окно удерживает последний вопрос."
+    },
+    {
+      "id": "s018",
+      "block": 3,
+      "start": 115.104,
+      "end": 120.104,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 2,
+          "from": [
+            -0.65,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            1.15,
+            0.34,
+            0.55,
+            0.652
+          ]
+        },
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 2,
+          "from": [
+            -1.35,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            0.44999999999999996,
+            0.34,
+            0.55,
+            0.652
+          ]
+        }
+      ],
+      "label": "",
+      "effect": "",
+      "beat": "Джипы прикрытия проходят по флангу."
+    },
+    {
+      "id": "s019",
+      "block": 3,
+      "start": 120.104,
+      "end": 126.43,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Алые береты и камуфляж отделяют военную охрану."
+    },
+    {
+      "id": "s020",
+      "block": 3,
+      "start": 126.43,
+      "end": 133.604,
+      "asset": "res://assets/intro/opening-atlas-c.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Погон и герб — крупная деталь вместо словесной описи."
+    },
+    {
+      "id": "s021",
+      "block": 3,
+      "start": 133.604,
+      "end": 140.604,
+      "asset": "res://assets/intro/opening-atlas-c.png",
+      "quadrant": 3,
+      "view_from": [
+        0.04,
+        0.15,
+        0.65,
+        0.7
+      ],
+      "view_to": [
+        0.02,
+        0.2,
+        0.62,
+        0.65
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Лев и скрещённые клинки читаются на нашивке."
+    },
+    {
+      "id": "s022",
+      "block": 3,
+      "start": 140.604,
+      "end": 147.888,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Парадные знаки соседствуют с настоящим оружием."
+    },
+    {
+      "id": "s023",
+      "block": 4,
+      "start": 147.888,
+      "end": 153.6,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Разные лица и силуэты отряда подтверждают мысль об интернационале."
+    },
+    {
+      "id": "s024",
+      "block": 5,
+      "start": 153.6,
+      "end": 160.1,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Две группы на противоположных сторонах колонны."
+    },
+    {
+      "id": "s025",
+      "block": 5,
+      "start": 160.1,
+      "end": 167.6,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "ЛЕОН",
+      "effect": "",
+      "beat": "Знакомство с командиром соседней группы."
+    },
+    {
+      "id": "s026",
+      "block": 5,
+      "start": 167.6,
+      "end": 175.324,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "ЛАВРИК",
+      "effect": "",
+      "beat": "Лаврик сидит сзади и проверяет верхний сектор."
+    },
+    {
+      "id": "s027",
+      "block": 5,
+      "start": 175.324,
+      "end": 183.6,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 0,
+      "view_from": [
+        0.04,
+        0.04,
+        0.82,
+        0.88
+      ],
+      "view_to": [
+        0.07,
+        0.03,
+        0.78,
+        0.84
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Взгляды наёмников распределены по разным направлениям."
+    },
+    {
+      "id": "s028",
+      "block": 5,
+      "start": 183.6,
+      "end": 193.1,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Мазур изучает соседей, оставаясь на своём посту."
+    },
+    {
+      "id": "s029",
+      "block": 5,
+      "start": 193.1,
+      "end": 199.6,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 0,
+      "view_from": [
+        0.02,
+        0.05,
+        0.65,
+        0.7
+      ],
+      "view_to": [
+        0.02,
+        0.05,
+        0.65,
+        0.7
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Деталь бойцов; они не становятся однотипной толпой."
+    },
+    {
+      "id": "s030",
+      "block": 5,
+      "start": 199.6,
+      "end": 205.968,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Мазур возвращает внимание своему сектору."
+    },
+    {
+      "id": "s031",
+      "block": 6,
+      "start": 205.968,
+      "end": 217.502,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "КИРИЛЛ МАЗУР",
+      "effect": "",
+      "beat": "Герой впервые показан отдельно от группы."
+    },
+    {
+      "id": "s032",
+      "block": 6,
+      "start": 217.502,
+      "end": 225.968,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "ИВАНОВ",
+      "effect": "",
+      "beat": "Местное имя связывается с официальным назначением."
+    },
+    {
+      "id": "s033",
+      "block": 6,
+      "start": 225.968,
+      "end": 233.66,
+      "asset": "res://assets/intro/opening-atlas-c.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Полковничий погон — видимое звание, а не одна реплика."
+    },
+    {
+      "id": "s034",
+      "block": 6,
+      "start": 233.66,
+      "end": 239.968,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 1,
+      "view_from": [
+        0.2,
+        0.43,
+        0.75,
+        0.55
+      ],
+      "view_to": [
+        0.2,
+        0.43,
+        0.75,
+        0.55
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Две большие печати на приказе."
+    },
+    {
+      "id": "s035",
+      "block": 6,
+      "start": 239.968,
+      "end": 246.816,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 1,
+      "view_from": [
+        0.18,
+        0.05,
+        0.73,
+        0.65
+      ],
+      "view_to": [
+        0.12,
+        0.02,
+        0.8,
+        0.72
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Пышность герба и бумаги подчёркивает иронию."
+    },
+    {
+      "id": "s036",
+      "block": 7,
+      "start": 246.816,
+      "end": 254.816,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Указ как возможный сувенир."
+    },
+    {
+      "id": "s037",
+      "block": 7,
+      "start": 254.816,
+      "end": 262.833,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Героя больше занимает служба, чем сувенир."
+    },
+    {
+      "id": "s038",
+      "block": 7,
+      "start": 262.833,
+      "end": 269.816,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Настоящее боевое дежурство: оружие и опасные проёмы."
+    },
+    {
+      "id": "s039",
+      "block": 7,
+      "start": 269.816,
+      "end": 277.458,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 3,
+      "view_from": [
+        0.03,
+        0.06,
+        0.88,
+        0.88
+      ],
+      "view_to": [
+        0.03,
+        0.06,
+        0.88,
+        0.88
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Сосредоточенность вместо расслабленного сопровождения."
+    },
+    {
+      "id": "s040",
+      "block": 7,
+      "start": 277.458,
+      "end": 288.466,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "ЧЕТЫРЕ ПОКУШЕНИЯ / ДВА МЕСЯЦА",
+      "effect": "four_attempts",
+      "beat": "Парадный культ и четыре тревожные отметки сталкиваются в одном кадре."
+    },
+    {
+      "id": "s041",
+      "block": 7,
+      "start": 288.466,
+      "end": 296.816,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Мазур оценивает повторяющийся риск."
+    },
+    {
+      "id": "s042",
+      "block": 7,
+      "start": 296.816,
+      "end": 306.72,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Президент цел и по-прежнему невозмутим."
+    },
+    {
+      "id": "s043",
+      "block": 8,
+      "start": 306.72,
+      "end": 314.72,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Взгляд назад показывает правильный строй прикрытия."
+    },
+    {
+      "id": "s044",
+      "block": 8,
+      "start": 314.72,
+      "end": 323.935,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 2,
+      "view_from": [
+        0.12,
+        0.18,
+        0.78,
+        0.72
+      ],
+      "view_to": [
+        0.15,
+        0.18,
+        0.74,
+        0.7
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Крупнее открытое окно и пулемёт."
+    },
+    {
+      "id": "s045",
+      "block": 8,
+      "start": 323.935,
+      "end": 330.528,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 0,
+          "from": [
+            -0.65,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            1.15,
+            0.34,
+            0.55,
+            0.652
+          ]
+        },
+        {
+          "asset": "res://assets/intro/actors.png",
+          "quadrant": 0,
+          "from": [
+            -1.35,
+            0.34,
+            0.55,
+            0.652
+          ],
+          "to": [
+            0.44999999999999996,
+            0.34,
+            0.55,
+            0.652
+          ]
+        }
+      ],
+      "label": "",
+      "effect": "",
+      "beat": "Вооружённая машина продолжает обычное сопровождение."
+    },
+    {
+      "id": "s046",
+      "block": 9,
+      "start": 330.528,
+      "end": 337.704,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Возврат к собранному взгляду Мазура."
+    },
+    {
+      "id": "s047",
+      "block": 9,
+      "start": 337.704,
+      "end": 344.528,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        0.92,
+        1
+      ],
+      "view_to": [
+        0.08,
+        0,
+        0.92,
+        1
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Колючая проволока и склады скользят вдоль дороги."
+    },
+    {
+      "id": "s048",
+      "block": 9,
+      "start": 344.528,
+      "end": 350.993,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Заросли разрывают обзор между постройками."
+    },
+    {
+      "id": "s049",
+      "block": 9,
+      "start": 350.993,
+      "end": 356.028,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 2,
+      "view_from": [
+        0.03,
+        0.15,
+        0.6,
+        0.65
+      ],
+      "view_to": [
+        0.08,
+        0.1,
+        0.6,
+        0.65
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Отдельный опасный оконный проём."
+    },
+    {
+      "id": "s050",
+      "block": 9,
+      "start": 356.028,
+      "end": 360.795,
+      "asset": "res://assets/intro/stages.png",
+      "quadrant": 2,
+      "view_from": [
+        0.15,
+        0,
+        0.68,
+        0.65
+      ],
+      "view_to": [
+        0.2,
+        0,
+        0.68,
+        0.65
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Крыша — другой возможный сектор огня."
+    },
+    {
+      "id": "s051",
+      "block": 9,
+      "start": 360.795,
+      "end": 368.728,
+      "asset": "res://assets/intro/opening-atlas-a.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0.35,
+        0.7,
+        0.65
+      ],
+      "view_to": [
+        0,
+        0.35,
+        0.7,
+        0.65
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Обычная полиция ещё держит руки у кобур."
+    },
+    {
+      "id": "s052",
+      "block": 9,
+      "start": 368.728,
+      "end": 376.182,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Мазур сохраняет свой контроль дороги."
+    },
+    {
+      "id": "s053",
+      "block": 9,
+      "start": 376.182,
+      "end": 382.128,
+      "asset": "res://assets/intro/opening-atlas-e.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "ПРЕДПОСЛЕДНЕЕ ПОКУШЕНИЕ",
+      "effect": "",
+      "beat": "Реконструкция прежнего нападения: фигура появляется на крыше."
+    },
+    {
+      "id": "s054",
+      "block": 9,
+      "start": 382.128,
+      "end": 389.116,
+      "asset": "res://assets/intro/opening-atlas-e.png",
+      "quadrant": 0,
+      "view_from": [
+        0.33,
+        0,
+        0.65,
+        0.66
+      ],
+      "view_to": [
+        0.33,
+        0,
+        0.65,
+        0.66
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Гранатомёт показан прежде, чем прозвучит ответ охраны."
+    },
+    {
+      "id": "s055",
+      "block": 9,
+      "start": 389.116,
+      "end": 395.328,
+      "asset": "res://assets/intro/opening-atlas-e.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "rifle_fire",
+      "beat": "Охрана Леона реагирует первой."
+    },
+    {
+      "id": "s056",
+      "block": 9,
+      "start": 395.328,
+      "end": 402.36,
+      "asset": "res://assets/intro/opening-atlas-e.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "rocket",
+      "beat": "Ракета уходит вверх и далеко от дороги."
+    },
+    {
+      "id": "s057",
+      "block": 9,
+      "start": 402.36,
+      "end": 408.528,
+      "asset": "res://assets/intro/opening-atlas-e.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Полицейские только теперь выхватывают оружие."
+    },
+    {
+      "id": "s058",
+      "block": 9,
+      "start": 408.528,
+      "end": 415.028,
+      "asset": "res://assets/intro/opening-atlas-e.png",
+      "quadrant": 3,
+      "view_from": [
+        0.28,
+        0.02,
+        0.7,
+        0.6
+      ],
+      "view_to": [
+        0.28,
+        0.02,
+        0.7,
+        0.6
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "На крыше уже никого; запоздалая стрельба лишена цели."
+    },
+    {
+      "id": "s059",
+      "block": 9,
+      "start": 415.028,
+      "end": 421.368,
+      "asset": "res://assets/intro/opening-atlas-b.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "СЕЙЧАС",
+      "effect": "",
+      "beat": "Возврат из реконструкции к нынешнему маршруту."
+    },
+    {
+      "id": "s060",
+      "block": 10,
+      "start": 421.368,
+      "end": 427.868,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Мазур держит обочину на человеческом росте."
+    },
+    {
+      "id": "s061",
+      "block": 10,
+      "start": 427.868,
+      "end": 434.304,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 1,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Лаврик и Журавель проверяют крыши."
+    },
+    {
+      "id": "s062",
+      "block": 11,
+      "start": 434.304,
+      "end": 445.971,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Папа не меняет маршрута после угроз."
+    },
+    {
+      "id": "s063",
+      "block": 11,
+      "start": 445.971,
+      "end": 454.304,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 2,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Пышный образ диктатора и государственный культ."
+    },
+    {
+      "id": "s064",
+      "block": 11,
+      "start": 454.304,
+      "end": 459.843,
+      "asset": "res://assets/intro/opening-atlas-d.png",
+      "quadrant": 3,
+      "view_from": [
+        0.12,
+        0.06,
+        0.82,
+        0.88
+      ],
+      "view_to": [
+        0.12,
+        0.06,
+        0.82,
+        0.88
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Невозмутимость без идеализации."
+    },
+    {
+      "id": "s065",
+      "block": 11,
+      "start": 459.843,
+      "end": 468.304,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 0,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "ГОДОМ РАНЬШЕ",
+      "effect": "",
+      "beat": "Папа сам выходит к военным во время прежнего мятежа."
+    },
+    {
+      "id": "s066",
+      "block": 11,
+      "start": 468.304,
+      "end": 471.304,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 3,
+      "view_from": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "view_to": [
+        0.025,
+        0.025,
+        0.95,
+        0.95
+      ],
+      "layers": [],
+      "label": "СЕЙЧАС",
+      "effect": "",
+      "beat": "Мазур резко замечает что-то вне кадра."
+    },
+    {
+      "id": "s067",
+      "block": 11,
+      "start": 471.304,
+      "end": 472.344,
+      "asset": "res://assets/intro/opening-atlas-f.png",
+      "quadrant": 3,
+      "view_from": [
+        0.12,
+        0.08,
+        0.7,
+        0.72
+      ],
+      "view_to": [
+        0.12,
+        0.08,
+        0.7,
+        0.72
+      ],
+      "layers": [],
+      "label": "",
+      "effect": "",
+      "beat": "Обрыв на реакции героя, до текущего нападения."
+    }
+  ]
 }

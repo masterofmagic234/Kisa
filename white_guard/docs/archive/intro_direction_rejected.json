@@ -2098,5 +2098,10 @@
       "beat": "Мысль обрывается реакцией Мазура; нынешнее нападение не показано.",
       "mode": "present"
     }
-  ]
+  ],
+  "handoff_status": {
+    "active": false,
+    "user_approved": false,
+    "reason": "Historical proposal from the rejected vector art redesign. Current PNG art is approved; directing still needs work."
+  }
 }

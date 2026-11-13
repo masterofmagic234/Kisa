@@ -1,0 +1,214 @@
+{
+  "status": "PASS",
+  "baseline": "8207adbe7fddb7f6166f68a0300783e1f00b62c7",
+  "art_status": "original PNG style explicitly approved by user",
+  "direction_status": "unfinished; previous 67-shot staging restored only as working base",
+  "byte_identical_to_baseline": [
+    {
+      "path": "white_guard/assets/intro/actors.png",
+      "git_blob": "62c9e2dbc16cf7c34eeaa3d56d71032994646742"
+    },
+    {
+      "path": "white_guard/assets/intro/actors.png.import",
+      "git_blob": "01f228b6c51e8f5bcc45c9c1a4d9d13bb09b145e"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-01.mp3",
+      "git_blob": "b1c532605f4e0ade2706ddf2e46db856e89d1ce4"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-01.mp3.import",
+      "git_blob": "7e0a0ca59066b129714e4f7523ebc773f5420fa6"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-02.mp3",
+      "git_blob": "d40e3bc3fc97543fe9f5c1d23685cdce01dc7c08"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-02.mp3.import",
+      "git_blob": "2ebe843f1d5de8a88306579a65ce72146f932794"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-03.mp3",
+      "git_blob": "362c47d74d04b9d95b81be4db14e9133591c4d58"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-03.mp3.import",
+      "git_blob": "abd616b4422cbbc8edc0808a34d6292533586d1b"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-04.mp3",
+      "git_blob": "2e99d86de5289f6753a7ab43ac268eca3bed9c34"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-04.mp3.import",
+      "git_blob": "32464ec26587c82581dd55bb9be0695a489fca3d"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-05.mp3",
+      "git_blob": "ebceb749ef152b60556bd5dfae9848bfbd22dc38"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-05.mp3.import",
+      "git_blob": "ac14106df5643c092b25c3a45e0a7cb182c6e99f"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-06.mp3",
+      "git_blob": "c3e6a62545ef49b99c2da37c0f302145daed26e5"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-06.mp3.import",
+      "git_blob": "f5a8f13e28454fce18181b33f799075122eede27"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-07.mp3",
+      "git_blob": "62ea462ef632908a116e573282820bc7fb5c99ed"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-07.mp3.import",
+      "git_blob": "f8ca60feefdee99744c42e6eb46342f0860d1d0a"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-08.mp3",
+      "git_blob": "a7d88134aaae1982712bbd7ed355e42d0d92bda4"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-08.mp3.import",
+      "git_blob": "5be1245ef79982ed9367cd359d5f547eb228807e"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-09.mp3",
+      "git_blob": "c435eeaeac0899bdeb35040e7538a4993f1bbcae"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-09.mp3.import",
+      "git_blob": "7d8114554b64b0ec3faf7afda4e64054cf9762ca"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-10.mp3",
+      "git_blob": "ef6e2bd150bf0f5ac94b8bae6b89b2e884806666"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-10.mp3.import",
+      "git_blob": "fa90c101786467f8c858705aa7a8b1f1d06e13e0"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-11.mp3",
+      "git_blob": "46c6cacea39ca5176b005c4282f953bf2399f6d3"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-11.mp3.import",
+      "git_blob": "861ac82811a5606393f84034d1eca5884a97238b"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-12.mp3",
+      "git_blob": "e5815df6b2c6f4578e2207bcf059230b940efdfb"
+    },
+    {
+      "path": "white_guard/assets/intro/audio/intro-12.mp3.import",
+      "git_blob": "b1d4ecc1834b0a0cef9dd5488a104fd735de4132"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-a.png",
+      "git_blob": "462da2fbe659aeb6ad93fc1b14065b82d4d06b55"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-a.png.import",
+      "git_blob": "e20b9354af136e32b1713a5d362b39edd042842d"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-b.png",
+      "git_blob": "d66b602e059e039c3f58fb164064dec9b37b8239"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-b.png.import",
+      "git_blob": "7b4beb00722b00c45ab8091a5233ab3cff726d2f"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-c.png",
+      "git_blob": "32d66bb1d41c554457f7daae5fdecbd7b6e8ad24"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-c.png.import",
+      "git_blob": "1f0a92541ffcb88a00d5de6b8e7b97bf34e41179"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-d.png",
+      "git_blob": "85af99fe5707c9fdcb850cb47cb387b3edd31dc7"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-d.png.import",
+      "git_blob": "0cec233d48d63a0a49325ebc4e1dbb8645ec8962"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-e.png",
+      "git_blob": "683252c504a89c3df62a02f74b63855aebcdb1c3"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-e.png.import",
+      "git_blob": "405b582bb3a455b61fa4a1650ba569a13d4355b2"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-f.png",
+      "git_blob": "e8ec17a3b20567a0ff642090095cb8a49cbaba28"
+    },
+    {
+      "path": "white_guard/assets/intro/opening-atlas-f.png.import",
+      "git_blob": "f88c9845946dbe2f9b8223c3bd806346d27b1999"
+    },
+    {
+      "path": "white_guard/assets/intro/road-ambience.ogg",
+      "git_blob": "74ac0f621f542596d995942d63e7f39280bf1a71"
+    },
+    {
+      "path": "white_guard/assets/intro/road-ambience.ogg.import",
+      "git_blob": "3d30bfe2fa2964e524588b8bd995191d8f9d0953"
+    },
+    {
+      "path": "white_guard/assets/intro/stages.png",
+      "git_blob": "a7d1c24282aa69666a16b43b56f1e0cd4f9e6772"
+    },
+    {
+      "path": "white_guard/assets/intro/stages.png.import",
+      "git_blob": "8e424d251672a5350ff9509f36e62a8bbc9f6fca"
+    },
+    {
+      "path": "white_guard/data/intro.json",
+      "git_blob": "c6ee173ee9634e6e909fed00e78f756a097e63a9"
+    },
+    {
+      "path": "white_guard/data/intro_shots.json",
+      "git_blob": "f2ae37bb3dcbb93fd4e27eb9884e0b6862d5b60d"
+    },
+    {
+      "path": "white_guard/scripts/intro.gd",
+      "git_blob": "c9eb9fb6235862bebc9238b20658a6c2afb4549d"
+    },
+    {
+      "path": "white_guard/scripts/intro_stage.gd",
+      "git_blob": "e9037673ad375f11656a9a621320b004e1fc74bc"
+    },
+    {
+      "path": "white_guard/tests/intro_test.gd",
+      "git_blob": "3c712e288e8efd845d38b105d10d3bc5cc1f4403"
+    },
+    {
+      "path": "white_guard/tools/templates/intro-stage.js",
+      "git_blob": "832d5b48db78e99121ae528747d8398cf73067d4"
+    },
+    {
+      "path": "white_guard/tools/test_intro_preview.cjs",
+      "git_blob": "993f903d5b20237e7ec73beaaba4358d88432ac8"
+    }
+  ],
+  "technical": {
+    "godot": "4.6.3",
+    "foundation_checks": 132,
+    "intro_checks": 39,
+    "browser": "PASS",
+    "browser_http_requests": 0,
+    "browser_js_errors": 0
+  },
+  "new_art_generated": false,
+  "new_direction_produced": false
+}

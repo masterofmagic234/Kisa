@@ -21,13 +21,20 @@ slightly shortened monologue/voice intact unless the user authorizes another
 text edit. Stage concrete actions, cut inside paragraphs and use independent
 layers; do not revert to paragraph-long slides or a large default text panel.
 
-The user rejected the rigid sliding-car revision. The current direction is in
-`data/intro_direction.json`: authored actions, perspective motion and sequential
-comic panels, rendered from shared original vector art. Rebuild through
-`tools/build_intro_art.py`; do not edit the generated library by hand. Review
-rendered frames and motion as well as tests. Verified visual reference sources
-and their limits are recorded in `docs/INTRO.md`; do not claim an unverified
-production technique or copy reference-game frames into the project.
+Latest explicit correction: the user says the ORIGINAL PNG DRAWING STYLE WAS
+ALREADY IDEAL. The objection was ONLY direction and the bad car movement.
+The procedural/vector redesign was a misunderstanding and is rejected. Keep
+all original PNG illustrations and the established character/colour design.
+The active PNG runtime/timeline is restored from commit
+8207adbe7fddb7f6166f68a0300783e1f00b62c7. This restores the drawing, not an
+approved direction: the old sliding-car animation still needs replacement.
+Do not regenerate or replace the whole art style, restore the rejected vector
+renderer, shorten the monologue, or call test passes artistic approval.
+
+Current assignment ends with restoration and handoff. Read
+`docs/HANDOFF_INTRO_DIRECTION.md` and `docs/NEXT_CHAT_PROMPT.txt` before further
+production. Reference sources, exact status and remaining directing work are
+recorded there. `docs/archive/` contains rejected historical proposals only.
 
 Use `docs/ADAPTATION_PLAN.md` and `provenance/book-source.json` as the narrative
 baseline. The novel is Alexander Bushkov's Piranha book, not Bulgakov's work.
