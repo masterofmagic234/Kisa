@@ -18,6 +18,10 @@ namespace Arkon.Unity
         [Tooltip("Default Unity legacy Mouse axes have sensitivity 0.1. Adjust this conversion if InputManager differs; core look is radians per actual source pixel.")]
         public float LegacyMousePixelsPerUnit = 10;
         public bool ReadLegacyMouseLook = true;
+        public bool ReadLegacyKeyboard = true, ReadLegacyFire = true;
+        public Vector2 PitchRangeDegrees = new Vector2(-80.21409f, 80.21409f);
+        public Vector2 ExternalMoveAxis { get; set; }
+        public Func<Vector3?> OverridePlanarVelocity { get; set; }
         public FirstPersonMotor Motor { get; } = new FirstPersonMotor();
         public event Action FireRequested;
         private CapsuleBodySweep3D sweeps;
@@ -52,9 +56,23 @@ namespace Arkon.Unity
         {
             SynchronizePolicy();
             if (!Motor.ApplyLookPixels(relativePixels, pointerCaptured)) return false;
+            ApplyOrientation();
+            return true;
+        }
+
+        public void ApplyLookRadians(float yawDelta, float pitchDelta)
+        {
+            if (!InputEnabled || damage.Health.Dead) return;
+            Motor.SetOrientation(Motor.Yaw + yawDelta, Motor.Pitch + pitchDelta);
+            ApplyOrientation();
+        }
+
+        private void ApplyOrientation()
+        {
+            var pitch = Mathf.Clamp(Motor.Pitch, PitchRangeDegrees.x * Mathf.Deg2Rad, PitchRangeDegrees.y * Mathf.Deg2Rad);
+            Motor.SetOrientation(Motor.Yaw, pitch);
             transform.rotation = Quaternion.Euler(0, -Motor.Yaw * Mathf.Rad2Deg, 0);
             if (ViewCamera) ViewCamera.transform.localRotation = Quaternion.Euler(-Motor.Pitch * Mathf.Rad2Deg, 0, 0);
-            return true;
         }
         private void Update()
         {
@@ -66,16 +84,24 @@ namespace Arkon.Unity
             if (ReadLegacyMouseLook)
                 ApplySourceLookPixels(new Vec2(Input.GetAxisRaw("Mouse X") * LegacyMousePixelsPerUnit,
                     -Input.GetAxisRaw("Mouse Y") * LegacyMousePixelsPerUnit), true);
-            if (Input.GetMouseButtonDown(0)) FireRequested?.Invoke();
+            if (ReadLegacyFire && Input.GetMouseButtonDown(0)) FireRequested?.Invoke();
         }
         private void FixedUpdate()
         {
             SynchronizePolicy();
-            var axis = new Vec2((Input.GetKey(KeyCode.D) ? 1 : 0) - (Input.GetKey(KeyCode.A) ? 1 : 0),
-                (Input.GetKey(KeyCode.S) ? 1 : 0) - (Input.GetKey(KeyCode.W) ? 1 : 0)).LimitLength();
+            var axis = new Vec2(ExternalMoveAxis.x, ExternalMoveAxis.y);
+            if (ReadLegacyKeyboard)
+                axis += new Vec2((Input.GetKey(KeyCode.D) ? 1 : 0) - (Input.GetKey(KeyCode.A) ? 1 : 0),
+                    (Input.GetKey(KeyCode.S) ? 1 : 0) - (Input.GetKey(KeyCode.W) ? 1 : 0));
             var grounded = body.isGrounded; var dt = Time.fixedDeltaTime;
-            if (!Motor.PrepareMovement(axis, grounded, dt)) return;
+            if (!Motor.PrepareMovement(axis.LimitLength(), grounded, dt)) return;
             var wanted = Motor.Velocity;
+            var overrideVelocity = OverridePlanarVelocity?.Invoke();
+            if (overrideVelocity.HasValue)
+            {
+                var sourceVelocity = CapsuleBodySweep3D.ToSource(overrideVelocity.Value);
+                wanted = new MotionVector3(sourceVelocity.X, wanted.Y, sourceVelocity.Z);
+            }
             var horizontal = new MotionVector3(wanted.X, 0, wanted.Z) * dt;
             var up = CapsuleBodySweep3D.ToSource(transform.up).Normalized;
             var origin = CapsuleBodySweep3D.ToSource(transform.position);
