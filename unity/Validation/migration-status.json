@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "status": "migration_in_progress",
+  "complete_game_port": false,
+  "source_release": "Arkon v1.68",
+  "source_commit": "a1fd971558fcfe8d8fb99e944cc532edee5c32ba",
+  "white_guard_source": "b09cb3b2c6835101b5fe3fd2b06e48ccc21729ac",
+  "unity_version": "6000.3.28f1",
+  "white_guard_art_changed": false,
+  "white_guard_direction_changed": false,
+  "original_godot_projects_changed": false,
+  "public_private_boundary": "Full Acorn maps/media/scene inventory remain in private Arkon repository. Public Kisa contains only the already-public selected core and White Guard media.",
+  "implemented": [
+    {
+      "area": "Health, weapons, input latch and topdown motor",
+      "evidence": "C#9/netstandard2.1 compile and Godot execution oracle",
+      "native_unity_validation": false
+    },
+    {
+      "area": "Enemy/door/navigation/pool/projectile/pickup decisions",
+      "evidence": "Independent behavior cases",
+      "native_unity_validation": false
+    },
+    {
+      "area": "Race powertrain/reverse/track/projection/contacts math",
+      "evidence": "Independent cases with source Godot golden values",
+      "native_unity_validation": false
+    },
+    {
+      "area": "PNG/MP3 intro renderer/player and original data",
+      "evidence": "Unchanged media hashes, portable geometry/cue cases, genuine Unity API compilation",
+      "native_unity_validation": false
+    },
+    {
+      "area": "Unity2D query/body/input/projectile ports and Editor check commands",
+      "evidence": "Genuine Unity API compilation",
+      "native_unity_validation": false
+    }
+  ],
+  "remaining": [
+    "Unity Editor import, actual playback and native PlayMode physics tests",
+    "Full original Acorn menu/intro/level1/park_escape/level2/chase_arrival/level3/ending scenes and orchestration",
+    "3D actor and stair movement, full race controller/AI/camera/meshes/renderer",
+    "Shaders/materials and original-game assets/media import/conversion",
+    "Full gameplay audio/UI/touch and platform packaging",
+    "Godot save migration and arbitrary nested story facts",
+    "Physical movement/AI phase/path comparison against source",
+    "ReaderSequence supports boolean completion facts; full arbitrary Godot Variant facts still need a codec/contract."
+  ],
+  "blockers": [
+    {
+      "kind": "editor_not_installed",
+      "editor_required_installed_bytes": 8738580480,
+      "available_bytes_before_work": 7858266112,
+      "action": "Use a machine with sufficient disk and an activated Unity6.3LTS Editor; official managed references only allow API compilation."
+    },
+    {
+      "kind": "activation_not_confirmed",
+      "action": "Unity Personal activation is through Unity Hub; credentials are not requested in chat."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "com.arkon.runtime",
+  "version": "0.1.0",
+  "displayName": "Arkon Shared Runtime",
+  "description": "C# migration of the Acorn Hunter 1.68 systems used by White Guard. Migration in progress; Unity Editor validation is required.",
+  "unity": "6000.3",
+  "author": { "name": "masterofmagic234" }
+}

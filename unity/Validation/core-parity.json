@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": 675,
+  "groups": [
+    "CombatCases",
+    "GoldenCases",
+    "LeaseCases",
+    "NarrativeCases",
+    "StateCases",
+    "VehicleCases",
+    "WorldCases"
+  ],
+  "failures": [],
+  "compiler_target": "C# 9 / .NET Standard 2.1 core",
+  "execution_host": ".NET 10",
+  "unity_editor_verified": false,
+  "scope": "Independent models only: no Unity lifecycle, physics, shader, asset import or platform build verification."
+}
