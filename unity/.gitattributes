@@ -11,5 +11,8 @@
 # Keep the copied PNG/audio/JSON/fonts exactly as in the source manifest.
 WhiteGuard/Assets/Resources/WhiteGuardIntro/** -text
 
+# Unity serializes empty YAML fields with a trailing space.
+WhiteGuard/Assets/Resources/WhiteGuardIntro/**/*.meta text eol=lf whitespace=-blank-at-eol
+
 # Upstream license notices are copied byte-for-byte with their source fonts.
 WhiteGuard/Assets/Resources/WhiteGuardIntro/fonts/*-OFL.txt -whitespace

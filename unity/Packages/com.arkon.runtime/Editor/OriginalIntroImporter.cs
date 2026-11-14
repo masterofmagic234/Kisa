@@ -6,11 +6,15 @@ namespace Arkon.Unity.Editor
     public sealed class OriginalIntroImporter : AssetPostprocessor
     {
         private bool IsOriginalIntro => assetPath.StartsWith("Assets/Resources/WhiteGuardIntro/");
+
+        public override uint GetVersion() => 1;
+
         private void OnPreprocessTexture()
         {
             if (!IsOriginalIntro) return;
             var importer = (TextureImporter)assetImporter;
             importer.textureType = TextureImporterType.Default;
+            importer.textureShape = TextureImporterShape.Texture2D;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
             importer.maxTextureSize = 4096;
             importer.npotScale = TextureImporterNPOTScale.None;

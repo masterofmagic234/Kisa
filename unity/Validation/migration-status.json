@@ -30,22 +30,30 @@
     },
     {
       "area": "Public FirstPersonActor movement, look and three-sweep stair planner; Unity CharacterController/capsule adapter",
-      "evidence": "Portable planner replays real Godot query traces; native PhysX equivalence is not established",
+      "evidence": "Portable planner replays real Godot query traces. Native PhysX CharacterController passed floor, ceiling, airborne motion and isolated 0.15/0.25 m stair probes in Unity 6000.3.28f1.",
+      "native_physics_fixtures": true,
       "native_unity_validation": false
     },
     {
       "area": "PNG/MP3 intro renderer/player and original data",
-      "evidence": "41 unchanged media files; schema3 compositor replays 363 Godot samples and 1021 draw commands; genuine Unity API compilation",
+      "evidence": "41 unchanged media files; schema3 compositor replays 363 Godot samples and 1021 draw commands; VerifyIntroImports passed in Unity 6000.3.28f1 after explicitly importing atlases as Texture2D",
+      "native_editor_import": true,
+      "linux_development_player_built": true,
+      "linux_player_smoke_tested": true,
+      "editor_playback_completed_with_pause": true,
+      "unity_output_audio_compared": true,
+      "subjective_audio_review": false,
       "native_unity_validation": false
     },
     {
       "area": "Unity2D queries/body/input/projectiles, scene-local AI/navigation/door/pickup adapters and native check commands",
-      "evidence": "Genuine Unity API compilation",
+      "evidence": "Unity 6000.3.28f1 passed VerifyNativePhysics, 10 PlayMode lifecycle assertions, 15 door/underfoot medkit assertions and 17 AI, navigation and additive world assertions",
+      "native_queries_and_lifecycle": true,
       "native_unity_validation": false
     }
   ],
   "remaining": [
-    "Unity Editor import, actual playback and native PlayMode physics tests",
+    "Subjective listening review of the recorded White Guard opening; scene-level Unity gameplay regressions beyond the reported fixtures",
     "Full original Acorn menu/intro/level1/park_escape/level2/chase_arrival/level3/ending scenes and orchestration",
     "Native 3D movement/stair comparison and full private Level1 mission controller; full race controller/AI/camera/meshes/renderer",
     "Shaders/materials and original-game assets/media import/conversion",
@@ -56,14 +64,8 @@
   ],
   "blockers": [
     {
-      "kind": "editor_not_installed",
-      "editor_required_installed_bytes": 8738580480,
-      "available_bytes_before_work": 7858266112,
-      "action": "Use a machine with sufficient disk and an activated Unity6.3LTS Editor; official managed references only allow API compilation."
-    },
-    {
-      "kind": "activation_not_confirmed",
-      "action": "Unity Personal activation is through Unity Hub; credentials are not requested in chat."
+      "kind": "private_local_checkout_pending",
+      "action": "Complete GitHub CLI sign-in on the PC for the private Acorn checkout."
     }
   ]
 }

@@ -46,10 +46,65 @@ feat/unity-migration https://github.com/masterofmagic234/Kisa.git` и анало
 Компиляция runtime/Editor-кода против 139 проверенных managed DLL официального
 Unity 6000.3.28f1 прошла с 0 warnings / 0 errors. GitHub portable CI прошёл.
 
-Отчёты: `unity/Validation/core-parity.json`, `unity-api-compilation.json`,
-`migration-status.json`. Это **не** результаты Unity Editor, GPU, декодера,
-PhysX/Physics2D или готового Player: такие проверки ещё **не запускались**.
-Подготовленные ниже native-команды тоже пока не исполнены.
+Исходные отчёты `unity/Validation/core-parity.json` и
+`unity-api-compilation.json` относятся к переносимым моделям и компиляции.
+Нативные результаты с ПК перечислены ниже и в `migration-status.json`.
+
+### Проверено на ПК 14 ноября 2026 года
+
+На Arch Linux x86_64 установлен официальный Unity Hub 4 и распакован Linux
+Editor 6000.3.28f1 (`8f082d2fe476`). Версия и контрольная сумма архива сверены
+по Unity Release API. Активация выполнена через Hub. Рабочая ветка начата
+с `ce5d642bc6db1420ed5fc36f3f804b9100958f6c` в отдельной копии Kisa.
+
+- `validate_layout.py` подтвердил 41 исходный файл, 1018 слов и 84 плана.
+  `check_core.py` на SDK 10.0.404 повторил 5558 portable assertions.
+- Реальный импорт завершился с кодом 1: Unity импортировала PNG-атлас как
+  Cubemap, а Resources не мог вернуть его как `Texture2D`. Импортер теперь
+  явно задаёт форму Texture2D и версию постобработки. Зафиксированы настройки
+  импорта с прежними GUID. Повторный `VerifyIntroImports` вернул 0.
+- `VerifyNativePhysics` и `PhysicsLifecycleChecks.Run` вернули 0.
+  Lifecycle был запущен без `-quit` и подтвердил 10 assertions. В его журнале
+  также есть исключение Unity Quick Search при фоновом индексировании.
+- Дополнительные PlayMode-команды `Arkon.Unity.Editor.TopdownGameplayChecks.Run`
+  и `Arkon.Unity.Editor.FirstPersonPhysicsChecks.Run` запускаются без `-quit`.
+  Первая подтвердила 15 assertions для удара дверью при 84 px/s, занятого
+  закрытия и подбора аптечки под стоящим игроком. Вторая подтвердила падение,
+  заземление, потолок и пробы ступеней через PhysX. На ступени 0,15 м капсула
+  прошла 0,999992 м с подъёмом 0,150000 м. На препятствии 0,25 м продвижение
+  составило 0,451447 м и подъём 0,200806 м, близко к частичному шагу Godot.
+  Это изолированные регрессии. Исполнение миссий Level 1 и Level 3 ещё предстоит.
+- `Arkon.Unity.Editor.TopdownWorldChecks.Run` без `-quit` подтвердил 17
+  assertions: фильтрацию запросов Physics2D между двумя additive-сценами,
+  отмену и перестроение сетки, LOS и задержку выстрела у угла, единственный
+  урон 8 по цели нужной сцены и сохранение второй сцены после выгрузки первой.
+- `BuildLinuxIntro` завершился с кодом 0 (`Build Finished, Result: Success`).
+  Development Player StandaloneLinux64/Mono запущен на AMD Oberon через
+  OpenGL Core. В окне 1024×768 проверены титр, Enter, Escape, letterbox,
+  автоматические субтитры при выключении звука, пропуск и повтор по Space.
+  Бинарник и UnityPlayer.so лежат рядом в `migration-builds/WhiteGuard-linux`.
+  Сборка содержит `Opening.unity`.
+- Графический PlayMode дошёл до карточки «Кортеж». Воспроизведение продолжилось
+  с позиции паузы после 91,244 секунды. Сопоставлены 84 кадра с исходными
+  композициями Godot и 591 речевой фрагмент из всех 12 MP3 с отдельной записью
+  FMOD. Проверено естественное завершение голоса и дорожного фона. Визуальное
+  сравнение выполнено по контактным листам. Для субъективного прослушивания
+  остаются исходные записи Unity. В одном из предыдущих прогонов редактор
+  завершился с нативным сбоем при остановке FMOD. Причина остановки неизвестна.
+- В отдельной копии графическая проверка управления подтвердила 33 assertions.
+  Проверены `Time.timeScale`, `AudioListener.pause`, позиция потока после
+  отключения компонента и объекта, звук/субтитры, пропуск и повтор.
+- Локальные журналы в соседнем с Kisa каталоге `migration-logs`:
+  `intro-import.log`, `intro-import-retry.log`, `native-physics.log`,
+  `native-lifecycle.log`, `TopdownGameplayChecks.log`, `FirstPersonPhysicsChecks.log`,
+  `native-topdown-world.log`,
+  `kisa-layout.log`, `kisa-portable-online.log`, `white-guard-linux-build.log`,
+  `white-guard-player-1024x768.log`. Снимки Player начинаются с
+  `white-guard-player-`. Отчёты PlayMode: `opening-stable-frame-qa`,
+  `opening-stable-audio-verification.json`, `opening-interaction.log`.
+  Первичная запись и продолжение сохранены с префиксами `opening-stable-`
+  и `opening-resume-`. `opening-editor-chapter-card.png` снят после естественного
+  завершения. Полный игровой маршрут Acorn предстоит переносить в Arkon.
 
 ## Сохранить авторский материал
 
