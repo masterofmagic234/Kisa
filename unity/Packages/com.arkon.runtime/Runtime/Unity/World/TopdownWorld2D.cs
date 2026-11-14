@@ -218,7 +218,7 @@ namespace Arkon.Unity
             if (WallRay(origin, endpoint, null, out var wall)) endpoint = wall;
             projectiles.Spawn(origin, endpoint, WorldCombatQueries.EnemyBulletSpeed,
                 SourceCollisionMasks.Walls | SourceCollisionMasks.PlayerHitboxes, enemy.ActorId,
-                WorldCombatQueries.EnemyBulletDamage, _ => { });
+                WorldCombatQueries.EnemyBulletDamage, _ => { }, ProjectileAppearance.EnemyRound);
             CombatFeedback?.Invoke("enemy_shot", origin);
         }
 
@@ -350,7 +350,7 @@ namespace Arkon.Unity
                     if (!this || !isActiveAndEnabled) return;
                     if (impact.HasCollider && impact.Hit.DamageableHitbox) EnemyById(impact.Hit.ActorId)?.Stun(WorldCombatQueries.BottleStun);
                     CombatFeedback?.Invoke("glass", impact.Position);
-                });
+                }, ProjectileAppearance.ThrownItem);
         }
 
         private Vec2 SafeMuzzle(Vec2 center, Vec2 direction, float distance)

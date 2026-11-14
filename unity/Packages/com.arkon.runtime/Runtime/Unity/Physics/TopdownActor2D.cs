@@ -32,6 +32,7 @@ namespace Arkon.Unity
         public event Action<TopdownActor2D> ActionRequested;
         public event Action<TopdownActor2D> ThrowRequested;
         public event Action<TopdownActor2D, WeaponDefinition> MeleeRequested;
+        public event Action<Vec2, Vec2> PlayerShotHit;
 
         private void Awake()
         {
@@ -96,6 +97,7 @@ namespace Arkon.Unity
             if (CanSpawnPlayerShotQuery?.Invoke() == false) return;
             var data = Weapons.CurrentDefinition;
             if (data.Melee) { MeleeRequested?.Invoke(this, data); return; }
+            var appearance = data.Pellets > 1 ? ProjectileAppearance.PlayerPellet : ProjectileAppearance.PlayerRound;
             var origin = WorldCombatQueries.SafeMuzzle(Position, motor.AimDirection, 18, world);
             var volley = new ShotHitCache();
             foreach (var angle in data.SpreadAngles)
@@ -108,8 +110,11 @@ namespace Arkon.Unity
                     {
                         // Player damage is callback-owned. Direct projectile damage MUST stay zero.
                         if (hit.HasCollider && hit.Hit.DamageableHitbox && volley.TryHit(hit.Hit.ActorId))
+                        {
                             world.DamageHitbox(hit.Hit, data.Damage, identity.Id);
-                    });
+                            PlayerShotHit?.Invoke(hit.Position, direction);
+                        }
+                    }, appearance);
             }
         }
         private void OnDisable() { input.Clear(); motor.ClearControls(); }
