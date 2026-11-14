@@ -14,6 +14,9 @@ namespace Arkon.Unity
         public Transform VisualPivot;
         public Camera AimCamera;
         public Physics2DPort AssignedWorld;
+        // The scene owner supplies live predicates; no per-frame cached gate.
+        public Func<bool> TransitionBlockedQuery;
+        public Func<bool> CanSpawnPlayerShotQuery;
         private readonly InputLatch input = new InputLatch();
         private readonly TopdownMotor motor = new TopdownMotor();
         private KinematicBodyPort2D body;
@@ -35,6 +38,8 @@ namespace Arkon.Unity
             body = GetComponent<KinematicBodyPort2D>(); identity = GetComponent<ActorIdentity2D>();
             receiver = GetComponent<DamageReceiver2D>();
             Weapons = new WeaponModel(InfiniteAmmo);
+            if (AssignedWorld && (!AssignedWorld.isActiveAndEnabled || AssignedWorld.gameObject.scene != gameObject.scene))
+                throw new InvalidOperationException("Assigned projectile world must be active and belong to the actor's scene.");
             world = AssignedWorld ? AssignedWorld : SceneObjects.Find<Physics2DPort>(this);
             if (!world)
             {
@@ -52,6 +57,7 @@ namespace Arkon.Unity
         private void Update()
         {
             if (Time.timeScale <= 0) { input.Clear(); motor.ClearControls(); return; }
+            if (TransitionBlockedQuery?.Invoke() == true) { input.Clear(); return; }
             if (!ReadKeyboardMouse) return;
             var movement = new Vec2((Input.GetKey(KeyCode.D) ? 1 : 0) - (Input.GetKey(KeyCode.A) ? 1 : 0),
                 (Input.GetKey(KeyCode.S) ? 1 : 0) - (Input.GetKey(KeyCode.W) ? 1 : 0));
@@ -67,10 +73,12 @@ namespace Arkon.Unity
         public void FeedInput(Vec2 movement, Vec2 aim, bool fire, bool action, bool throwing, bool sprint)
         {
             if (Time.timeScale <= 0) { input.Clear(); motor.ClearControls(); return; }
+            if (TransitionBlockedQuery?.Invoke() == true) { input.Clear(); return; }
             input.Sample(movement, aim, fire, action, throwing, sprint, CombatEnabled);
         }
         private void FixedUpdate()
         {
+            if (TransitionBlockedQuery?.Invoke() == true) { input.Clear(); return; }
             var delta = Time.fixedDeltaTime; motor.CombatEnabled = CombatEnabled;
             Weapons.Tick(delta); var commands = motor.Step(input.Consume(), delta);
             motor.SetResolvedVelocity(body.Move(motor.Velocity, delta));
@@ -82,6 +90,8 @@ namespace Arkon.Unity
         private void Fire()
         {
             if (!Weapons.ConsumeShot()) return;
+            // Godot consumes the actor shot before the world's combat gate.
+            if (CanSpawnPlayerShotQuery?.Invoke() == false) return;
             var data = Weapons.CurrentDefinition;
             if (data.Melee) { MeleeRequested?.Invoke(this, data); return; }
             var origin = WorldCombatQueries.SafeMuzzle(Position, motor.AimDirection, 18, world);

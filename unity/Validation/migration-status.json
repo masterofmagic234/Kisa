@@ -4,7 +4,9 @@
   "complete_game_port": false,
   "source_release": "Arkon v1.68",
   "source_commit": "a1fd971558fcfe8d8fb99e944cc532edee5c32ba",
-  "white_guard_source": "b09cb3b2c6835101b5fe3fd2b06e48ccc21729ac",
+  "white_guard_source": "e63c20e53aebac24022796ec583a83db9a9e3adb",
+  "white_guard_stage_schema": 3,
+  "white_guard_shots": 84,
   "unity_version": "6000.3.28f1",
   "white_guard_art_changed": false,
   "white_guard_direction_changed": false,
@@ -27,12 +29,17 @@
       "native_unity_validation": false
     },
     {
-      "area": "PNG/MP3 intro renderer/player and original data",
-      "evidence": "Unchanged media hashes, portable geometry/cue cases, genuine Unity API compilation",
+      "area": "Public FirstPersonActor movement, look and three-sweep stair planner; Unity CharacterController/capsule adapter",
+      "evidence": "Portable planner replays real Godot query traces; native PhysX equivalence is not established",
       "native_unity_validation": false
     },
     {
-      "area": "Unity2D query/body/input/projectile ports and Editor check commands",
+      "area": "PNG/MP3 intro renderer/player and original data",
+      "evidence": "41 unchanged media files; schema3 compositor replays 363 Godot samples and 1021 draw commands; genuine Unity API compilation",
+      "native_unity_validation": false
+    },
+    {
+      "area": "Unity2D queries/body/input/projectiles, scene-local AI/navigation/door/pickup adapters and native check commands",
       "evidence": "Genuine Unity API compilation",
       "native_unity_validation": false
     }
@@ -40,7 +47,7 @@
   "remaining": [
     "Unity Editor import, actual playback and native PlayMode physics tests",
     "Full original Acorn menu/intro/level1/park_escape/level2/chase_arrival/level3/ending scenes and orchestration",
-    "3D actor and stair movement, full race controller/AI/camera/meshes/renderer",
+    "Native 3D movement/stair comparison and full private Level1 mission controller; full race controller/AI/camera/meshes/renderer",
     "Shaders/materials and original-game assets/media import/conversion",
     "Full gameplay audio/UI/touch and platform packaging",
     "Godot save migration and arbitrary nested story facts",

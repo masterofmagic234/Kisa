@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Arkon.Core;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Arkon.Unity
         private readonly List<RaycastHit2D> hits = new List<RaycastHit2D>(16);
         public float RadiusPixels = 7;
         public float SkinPixels = .1f;
+        public event Action<IReadOnlyList<Collider2D>, float> BlockingCollisions;
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>(); shape = GetComponent<CircleCollider2D>();
@@ -25,6 +27,7 @@ namespace Arkon.Unity
         {
             if (delta <= 0) return Vec2.Zero;
             var initial = body.position; var position = initial;
+            List<Collider2D> contacts = null;
             var resolvedVelocity = ArkonCoordinates.ToUnity(velocity);
             var remaining = ArkonCoordinates.ToUnity(velocity) * delta;
             var filter = new ContactFilter2D { useLayerMask = true, useTriggers = false,
@@ -36,12 +39,18 @@ namespace Arkon.Unity
                 var distance = remaining.magnitude;
                 shape.Cast(remaining / distance, filter, hits, distance + skin, true);
                 var nearest = float.PositiveInfinity; var normal = Vector2.zero;
+                Collider2D nearestCollider = null;
                 foreach (var hit in hits)
                 {
                     if (!hit.collider || hit.collider.attachedRigidbody == body || hit.collider.gameObject.scene != gameObject.scene) continue;
-                    if (hit.distance < nearest) { nearest = hit.distance; normal = hit.normal; }
+                    if (hit.distance < nearest) { nearest = hit.distance; normal = hit.normal; nearestCollider = hit.collider; }
                 }
                 if (float.IsPositiveInfinity(nearest)) { position += remaining; remaining = Vector2.zero; break; }
+                if (BlockingCollisions != null && nearestCollider)
+                {
+                    if (contacts == null) contacts = new List<Collider2D>(4);
+                    contacts.Add(nearestCollider);
+                }
                 var travelled = Mathf.Clamp(nearest - skin, 0, distance);
                 position += remaining / distance * travelled;
                 remaining *= 1 - travelled / distance;
@@ -55,6 +64,7 @@ namespace Arkon.Unity
                 else break;
             }
             body.position = position;
+            if (contacts != null) BlockingCollisions?.Invoke(contacts, velocity.Length);
             // Godot velocity is collision-projected; displacement/delta would
             // instead be get_real_velocity and changes subsequent acceleration.
             return ArkonCoordinates.ToSource(resolvedVelocity);

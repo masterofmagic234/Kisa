@@ -19,6 +19,7 @@ namespace Arkon.Unity
         public bool Spawn(Vec2 start, Vec2 target, float speed, int mask, int actorId,
             int directDamage, Action<ProjectileImpact> callback)
         {
+            if (!isActiveAndEnabled || pool == null || !world || !world.isActiveAndEnabled) return false;
             var lease = pool.Acquire();
             if (!lease.Valid) return false;
             lease.Item.Setup(start, target, speed, callback, true, mask, actorId, directDamage, _ => pool.Release(lease));

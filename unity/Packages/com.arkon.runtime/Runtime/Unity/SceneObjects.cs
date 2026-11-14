@@ -9,8 +9,12 @@ namespace Arkon.Unity
         {
             foreach (var root in owner.gameObject.scene.GetRootGameObjects())
             {
-                var component = root.GetComponentInChildren<T>(true);
-                if (component) return component;
+                foreach (var component in root.GetComponentsInChildren<T>(false))
+                {
+                    if (!component || !component.gameObject.activeInHierarchy) continue;
+                    if (component is Behaviour behaviour && !behaviour.isActiveAndEnabled) continue;
+                    return component;
+                }
             }
             return null;
         }

@@ -13,6 +13,7 @@ namespace Arkon.Unity.Editor
             importer.textureType = TextureImporterType.Default;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
             importer.maxTextureSize = 4096;
+            importer.npotScale = TextureImporterNPOTScale.None;
             importer.sRGBTexture = true;
             importer.alphaIsTransparency = true;
             importer.mipmapEnabled = false;

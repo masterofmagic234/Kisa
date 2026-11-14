@@ -39,7 +39,16 @@ def main():
         record=dict(source=str(original.relative_to(ROOT)),target=str(destination.relative_to(ROOT)),bytes=len(data),sha256=hashlib.sha256(data).hexdigest())
         if destination.suffix=='.png': record['width'],record['height']=struct.unpack('>II',data[16:24])
         records.append(record)
-    (PROJECT/'Assets/original-media-manifest.json').write_text(json.dumps(dict(schema=1,source_art_baseline='8207adbe7fddb7f6166f68a0300783e1f00b62c7',art_redesigned=False,direction_reworked=False,files=records),ensure_ascii=False,indent=2)+'\n')
+    stage = json.loads((source/'data/intro_shots.json').read_text())
+    (PROJECT/'Assets/original-media-manifest.json').write_text(json.dumps(dict(
+        schema=1,
+        source_art_baseline='8207adbe7fddb7f6166f68a0300783e1f00b62c7',
+        source_direction_revision='e63c20e53aebac24022796ec583a83db9a9e3adb',
+        source_stage_schema=stage['schema'],
+        source_shot_count=len(stage['shots']),
+        art_redesigned=False,
+        direction_reworked=False,
+        files=records),ensure_ascii=False,indent=2)+'\n')
     manifest={'dependencies':{'com.arkon.runtime':'file:../../Packages/com.arkon.runtime',**{'com.unity.modules.'+name:'1.0.0' for name in ['audio','imgui','jsonserialize','physics','physics2d','ui','video']}}}
     (PROJECT/'Packages/manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     (PROJECT/'ProjectSettings/ProjectVersion.txt').write_text('m_EditorVersion: 6000.3.28f1\nm_EditorVersionWithRevision: 6000.3.28f1 (8f082d2fe476)\n')

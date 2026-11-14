@@ -105,6 +105,10 @@ namespace Arkon.Core
             _dutyPatrolSeed = dutyPatrolSeed;
         }
 
+        /// <summary>Report velocity projected by the engine's collision slide,
+        /// as CharacterBody2D.move_and_slide updates its velocity in Godot.</summary>
+        public void SetResolvedVelocity(Vec2 value) => Velocity = value;
+
         public bool Tick(float delta, IEnemyWorld world)
         {
             if (world == null) throw new ArgumentNullException(nameof(world));

@@ -1,6 +1,9 @@
 {
   "schema": 1,
   "source_art_baseline": "8207adbe7fddb7f6166f68a0300783e1f00b62c7",
+  "source_direction_revision": "e63c20e53aebac24022796ec583a83db9a9e3adb",
+  "source_stage_schema": 3,
+  "source_shot_count": 84,
   "art_redesigned": false,
   "direction_reworked": false,
   "files": [
@@ -13,8 +16,8 @@
     {
       "source": "white_guard/data/intro_shots.json",
       "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/intro_shots.json",
-      "bytes": 37747,
-      "sha256": "653e2c2c25560b3a23586a45dce68960227659575df73705f4dd951f0b18fb82"
+      "bytes": 52559,
+      "sha256": "a2f82c87dd16d70f0c67c9f2e79400caf8837674e03785a1e25bdd08e18fbff2"
     },
     {
       "source": "white_guard/assets/intro/actors.png",
@@ -23,6 +26,110 @@
       "sha256": "ff21d3caf2e62890d596b13846076062b5e2e6197bf2adcbbd6ba6ae87150486",
       "width": 1536,
       "height": 1024
+    },
+    {
+      "source": "white_guard/assets/intro/motion-avenue.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-avenue.png",
+      "bytes": 443086,
+      "sha256": "8c65286944b2cb7ffd9595614ee566975cf1327313c3671673a2f969ed866436",
+      "width": 1487,
+      "height": 490
+    },
+    {
+      "source": "white_guard/assets/intro/motion-crew.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-crew.png",
+      "bytes": 530163,
+      "sha256": "c01a94a614498bed908ed9e8eb1d1513e5fb77e0d2f93fc4bac777392db8bea2",
+      "width": 1456,
+      "height": 426
+    },
+    {
+      "source": "white_guard/assets/intro/motion-glances.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-glances.png",
+      "bytes": 1279874,
+      "sha256": "c8743cf99f227c06b11280eabd016c6f0e51513a784b7f039cf031179b8d7088",
+      "width": 1466,
+      "height": 1014
+    },
+    {
+      "source": "white_guard/assets/intro/motion-glass.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-glass.png",
+      "bytes": 1156300,
+      "sha256": "ed6f63d7be54c805b0dac3dbbaa680933a205bcdd07851725bf911530825c033",
+      "width": 1318,
+      "height": 1080
+    },
+    {
+      "source": "white_guard/assets/intro/motion-interior.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-interior.png",
+      "bytes": 1809815,
+      "sha256": "5cf3b9542f23963c60984f37f4f4b92596ae6f84d84f2fe1b3bb55bc81206ed1",
+      "width": 772,
+      "height": 1548
+    },
+    {
+      "source": "white_guard/assets/intro/motion-memory.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-memory.png",
+      "bytes": 1432070,
+      "sha256": "c96db8218f17b36c930432e60ccb9f5e7e801ee5e2e2012837868af78a658751",
+      "width": 1122,
+      "height": 1032
+    },
+    {
+      "source": "white_guard/assets/intro/motion-order.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-order.png",
+      "bytes": 1031445,
+      "sha256": "2abe98d838db1e335bd21d60e83cf34bbf273cbb96d19406fa4c63d0933ceb35",
+      "width": 1414,
+      "height": 709
+    },
+    {
+      "source": "white_guard/assets/intro/motion-passing.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-passing.png",
+      "bytes": 1116057,
+      "sha256": "5f9e28833afc710df116937f30741b80baaa6f7fa938d7e7fe4d0c01a150c4c3",
+      "width": 1504,
+      "height": 504
+    },
+    {
+      "source": "white_guard/assets/intro/motion-police.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-police.png",
+      "bytes": 1508490,
+      "sha256": "ec0cd306b636d22d940ef635f63c08e68ee126cf4cef08ec73a3fa125e6b5305",
+      "width": 1502,
+      "height": 1080
+    },
+    {
+      "source": "white_guard/assets/intro/motion-reaction.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-reaction.png",
+      "bytes": 1725382,
+      "sha256": "94bc9a58abfe5201ca1880544e9427489c1cb8dd6154964789fbc4b4cd1aacf1",
+      "width": 1424,
+      "height": 1250
+    },
+    {
+      "source": "white_guard/assets/intro/motion-side.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-side.png",
+      "bytes": 399335,
+      "sha256": "af83ed6c09884a8c1ce4eab1b1e06ffc262e2f1c9586f1dc7276f870cb92485c",
+      "width": 1424,
+      "height": 413
+    },
+    {
+      "source": "white_guard/assets/intro/motion-sky.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-sky.png",
+      "bytes": 824311,
+      "sha256": "5bfa28898e8be1a10bcbb2a50506116414a68ad5f4e9258c61cb969a7209d03f",
+      "width": 1254,
+      "height": 516
+    },
+    {
+      "source": "white_guard/assets/intro/motion-wheels.png",
+      "target": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-wheels.png",
+      "bytes": 115465,
+      "sha256": "482b30c0383c00c3b69e37437f26a36d9d6d27cd18f55fdd352c08fd9736a135",
+      "width": 1408,
+      "height": 57
     },
     {
       "source": "white_guard/assets/intro/opening-atlas-a.png",

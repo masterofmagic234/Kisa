@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 using Arkon.Core;
 using Arkon.Unity.Intro;
 using UnityEditor;
@@ -23,9 +24,11 @@ namespace Arkon.Unity.Editor
             var stageFile = Resources.Load<TextAsset>("WhiteGuardIntro/intro_shots");
             Require(bookFile && stageFile, "The unchanged intro JSON was not imported.");
             var book = JsonUtility.FromJson<IntroBookData>(bookFile.text);
-            var stage = JsonUtility.FromJson<IntroStageData>(IntroJsonDefaults.WithLayerAlpha(stageFile.text));
+            var stage = IntroStageJson.Parse(stageFile.text);
             Require(IntroDataValidation.Validate(book, stage, out var error), error);
             Require(book.blocks.Length == 12, "Narration paragraph count changed.");
+            Require(Resources.Load<Font>("WhiteGuardIntro/fonts/Manrope-Variable"), "The preserved Manrope font was not imported.");
+            Require(Resources.Load<Font>("WhiteGuardIntro/fonts/Forum-Regular"), "The preserved Forum font was not imported.");
             foreach (var block in book.blocks)
             {
                 var relative = block.audio.Substring("res://assets/intro/".Length);
@@ -33,12 +36,50 @@ namespace Arkon.Unity.Editor
                 Require(clip, "Missing MP3 import: " + relative);
                 Require(Math.Abs(clip.length - block.duration) < .18, "Decoded duration changed: " + relative);
             }
-            foreach (var name in new[] { "opening-atlas-a", "opening-atlas-b", "opening-atlas-c", "opening-atlas-d", "opening-atlas-e", "opening-atlas-f", "stages", "actors" })
+            if (stage.schema == 3)
             {
-                var texture = Resources.Load<Texture2D>("WhiteGuardIntro/" + name);
-                Require(texture && texture.width >= 1024, "Missing or downscaled original atlas: " + name);
+                var textures = new Dictionary<string, Texture2D>(StringComparer.Ordinal);
+                foreach (var art in stage.Stage3.Art.Values)
+                {
+                    if (!textures.TryGetValue(art.Asset, out var texture))
+                    { texture = VerifyIllustrationTexture(art.Asset); textures.Add(art.Asset, texture); }
+                    Require(art.Source.X >= 0 && art.Source.Y >= 0 && art.Source.Width > 0 && art.Source.Height > 0 &&
+                        art.Source.X + art.Source.Width <= texture.width + .001 &&
+                        art.Source.Y + art.Source.Height <= texture.height + .001,
+                        "Authored atlas region exceeds its unchanged texture: " + art.Id);
+                }
+                Require(stage.Stage3.Art.Count > 0 && textures.Count > 0, "No schema3 illustration regions were checked.");
+            }
+            else
+            {
+                var paths = new HashSet<string>(StringComparer.Ordinal);
+                foreach (var shot in stage.shots)
+                {
+                    paths.Add(shot.asset);
+                    foreach (var layer in shot.layers ?? Array.Empty<IntroLayerData>()) paths.Add(layer.asset);
+                }
+                foreach (var path in paths) VerifyIllustrationTexture(path);
             }
             Debug.Log("UNITY INTRO IMPORT CHECK PASSED. Playback and visual parity still need PlayMode review.");
+        }
+
+        private static Texture2D VerifyIllustrationTexture(string sourcePath)
+        {
+            const string prefix = "res://assets/intro/";
+            Require(sourcePath != null && sourcePath.StartsWith(prefix, StringComparison.Ordinal),
+                "Illustration reference is outside the preserved intro directory.");
+            var relative = sourcePath.Substring(prefix.Length);
+            var key = "WhiteGuardIntro/" + relative.Substring(0, relative.LastIndexOf('.'));
+            var texture = Resources.Load<Texture2D>(key);
+            Require(texture, "Missing illustration texture: " + relative);
+            var importer = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(texture)) as TextureImporter;
+            Require(importer != null, "The illustration does not have a TextureImporter: " + relative);
+            importer.GetSourceTextureWidthAndHeight(out var width, out var height);
+            Require(texture.width == width && texture.height == height,
+                "An illustration was resized during import: " + relative);
+            Require(!importer.mipmapEnabled && importer.textureCompression == TextureImporterCompression.Uncompressed && importer.sRGBTexture,
+                "Illustration import must preserve sRGB pixels without mipmaps or lossy compression: " + relative);
+            return texture;
         }
 
         [MenuItem("Arkon/Migration/Verify Native 2D Projectile Queries")]

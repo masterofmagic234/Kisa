@@ -44,6 +44,9 @@ namespace Arkon.Core
         public bool captions_default;
         public double controls_idle_seconds;
         public IntroShotData[] shots;
+        // Schema3 dictionaries and mixed arrays are decoded by IntroStageJson,
+        // not JsonUtility. Legacy shot metadata remains available to callers.
+        public IntroStage3Data Stage3;
     }
 
     [Serializable] public sealed class IntroShotData
@@ -136,7 +139,7 @@ namespace Arkon.Core
         {
             error = null;
             if (book == null || stage == null || book.blocks == null || book.blocks.Length == 0 ||
-                stage.schema != 1 || stage.shots == null || stage.shots.Length == 0)
+                (stage.schema != 1 && stage.schema != 3) || stage.shots == null || stage.shots.Length == 0)
             { error = "Missing book or unsupported PNG storyboard schema."; return false; }
             double total = 0;
             foreach (var block in book.blocks)
@@ -159,6 +162,13 @@ namespace Arkon.Core
             if (!Positive(book.duration) || !Positive(stage.duration) || !Finite(stage.controls_idle_seconds) || stage.controls_idle_seconds < 0 ||
                 Math.Abs(book.duration - total) > .002 || Math.Abs(stage.duration - total) > .002)
             { error = "Book, voice blocks and visual duration disagree."; return false; }
+            if (stage.schema == 3)
+            {
+                if (stage.Stage3 == null || stage.Stage3.Shots == null || stage.Stage3.Shots.Length != stage.shots.Length ||
+                    Math.Abs(stage.Stage3.Duration - total) > .002)
+                { error = "Schema3 must be decoded and validated by IntroStageJson."; return false; }
+                return true;
+            }
             double previous = 0;
             foreach (var shot in stage.shots)
             {

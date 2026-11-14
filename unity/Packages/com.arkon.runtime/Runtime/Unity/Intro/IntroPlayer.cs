@@ -76,7 +76,9 @@ namespace Arkon.Unity.Intro
                 var stageAsset = Resources.Load<TextAsset>(prefix + "/intro_shots");
                 if (bookAsset == null || stageAsset == null) throw new InvalidOperationException("Missing intro JSON in Resources/" + prefix);
                 var book = JsonUtility.FromJson<IntroBookData>(bookAsset.text);
-                var stage = JsonUtility.FromJson<IntroStageData>(IntroJsonDefaults.WithLayerAlpha(stageAsset.text));
+                // Schema3 has dictionaries and mixed-type arrays. Decode it with
+                // the portable parser; JsonUtility silently loses that data.
+                var stage = IntroStageJson.Parse(stageAsset.text);
                 if (!IntroDataValidation.Validate(book, stage, out var error)) throw new InvalidOperationException(error);
                 var clips = new AudioClip[book.blocks.Length]; var offsets = new double[clips.Length];
                 double elapsed = 0;
@@ -90,11 +92,14 @@ namespace Arkon.Unity.Intro
                 var road = Resources.Load<AudioClip>(prefix + "/road-ambience");
                 if (road == null) throw new InvalidOperationException("Missing road ambience.");
                 road.LoadAudioData();
+                var bodyFont = Resources.Load<Font>(prefix + "/fonts/Manrope-Variable");
+                var titleFont = Resources.Load<Font>(prefix + "/fonts/Forum-Regular");
+                if (bodyFont == null || titleFont == null)
+                    throw new InvalidOperationException("The preserved intro fonts were not imported.");
                 var renderer = new IntroStageRenderer(stage, path => Resources.Load<Texture2D>(MediaKey(prefix, path)));
                 StopSources(); _renderer?.Dispose(); _renderer = renderer;
                 resourcePrefix = prefix; _book = book; _stage = stage; _clips = clips; _offsets = offsets; _roadClip = road;
-                _bodyFont = Resources.Load<Font>(prefix + "/fonts/Manrope-Variable");
-                _titleFont = Resources.Load<Font>(prefix + "/fonts/Forum-Regular");
+                _bodyFont = bodyFont; _titleFont = titleFont;
                 _body = null; _title = null; _small = null; _button = null; _caption = null;
                 Ready = false; Paused = false; State = IntroPlaybackState.Title; BlockIndex = -1;
                 _lastDecoded = 0; Caption = ""; LastError = null;

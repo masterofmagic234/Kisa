@@ -26,12 +26,17 @@
 Здоровье/неуязвимость, оружие и раздельные резервы, входные action/throw edges,
 движение Level 3, AI-решения и room-duty, A* и навигационная сетка, двери,
 оглушение, предметы, ограниченный пул, swept-projectile policy и выбор целей.
+Из публичного FirstPersonActor перенесены 3D-движение, взгляд, гравитация и
+планирование шага up/forward/down. Unity-адаптер использует CharacterController
+и capsule queries; миссионная логика полного Level 1 сюда не подмешана.
 Для гонки — исходная трансмиссия, reverse interlock, сплайн/прогресс,
 проекция/clipping и контактная математика. Полный контроллер и renderer гонки
 ещё не портированы; WheelCollider их не подменяет.
 
-Написаны Unity-адаптеры 2D query/body/input/projectile, хранения прогресса и
-PNG/MP3-вступления. Компиляция адаптера и работа в настоящем Unity — разные
+Написаны Unity-адаптеры 2D query/body/input/projectile, scene-local world,
+AI, дверей, предметов, хранения прогресса и PNG/MP3-вступления. Вход игрока
+читает живой transition gate; столкновения передают контакты для door slam.
+Компиляция адаптера и работа в настоящем Unity — разные
 проверки. Цикл сцены, импорт, звук, физика и платформенная сборка требуют Editor.
 Нативный формат Unity-progress поддерживает примитивные факты; автоматического
 чтения прежнего Godot ConfigFile и произвольных вложенных Variant пока нет.
@@ -43,9 +48,10 @@ PNG/MP3-вступления. Компиляция адаптера и рабо�
 `Assets/Scenes/Opening.unity` и нажать Play. Автоматически создаются камера,
 AudioListener и проигрыватель. Ввод использует legacy Input, настройка0.
 
-Это перенос текущего вступления на другой движок. Его прежние 67 планов и
-недостатки режиссуры сохранены; режиссура не считается исправленной или
-одобренной. Изображения и голос не перерисовываются и не переозвучиваются.
+Источником служит актуальное вступление из `e63c20e`: schema3, 84 плана,
+PNG-сценки, ракурсы, позы, колёса и движение кортежа из Godot. Unity читает
+ту же разметку. Изображения и голос не перерисовываются и не переозвучиваются.
+Соответствие движков не означает художественного одобрения постановки.
 
 Для настоящего Editor предусмотрены команды:
 
@@ -54,9 +60,15 @@ Unity -batchmode -nographics -quit -projectPath /path/to/Kisa/unity/WhiteGuard \
   -executeMethod Arkon.Unity.Editor.MigrationChecks.VerifyIntroImports -logFile intro-import.log
 Unity -batchmode -nographics -quit -projectPath /path/to/Kisa/unity/WhiteGuard \
   -executeMethod Arkon.Unity.Editor.MigrationChecks.VerifyNativePhysics -logFile native-physics.log
+Unity -batchmode -nographics -projectPath /path/to/Kisa/unity/WhiteGuard \
+  -executeMethod Arkon.Unity.Editor.PhysicsLifecycleChecks.Run -logFile native-lifecycle.log
 ```
 
 Эти команды подготовлены, но в текущей Cloud-среде **не выполнялись**.
+Проверка lifecycle сама входит в PlayMode и завершает batch-процесс после
+результата; к ней не добавляется `-quit`. Она создаёт временную сцену для
+проверки FixedUpdate, неактивного world и повторного использования пула внутри
+impact callback, затем выгружает её без сохранения.
 Linux development build: `Arkon.Unity.Editor.MigrationChecks.BuildLinuxIntro`.
 
 ## Проверить доступное без Editor
@@ -72,14 +84,33 @@ GDScript/TRES. Для свежего снимка после импорта Godo
 ```bash
 godot --headless --editor --import --quit --path white_guard
 godot --headless --path white_guard --script /absolute/path/to/Kisa/unity/Tools/export_combat_parity.gd -- /tmp/combat-oracle.json
-python3 unity/Tools/check_core.py --dotnet /path/to/dotnet --oracle /tmp/combat-oracle.json
+godot --headless --path white_guard --script /absolute/path/to/Kisa/unity/Tools/export_intro_parity.gd -- /tmp/intro-oracle.json
+godot --headless --path white_guard --script /absolute/path/to/Kisa/unity/Tools/export_movement3d_parity.gd -- /tmp/movement3d-oracle.json
+python3 unity/Tools/check_core.py --dotnet /path/to/dotnet --oracle /tmp/combat-oracle.json --intro-oracle /tmp/intro-oracle.json --movement3d-oracle /tmp/movement3d-oracle.json
 ```
+
+Для вступления источник выполняется в Godot с записью конечных команд рисования
+вместо отправки на GPU. Снимок содержит 363 момента всех 84 планов, включая
+границы появления панелей. Проверяются порядок слоёв, source/destination rect,
+отражение и tint. Надписи и фактический GPU-вывод требуют визуальной проверки.
+
+Для 3D снимок `godot168-movement3d.json` содержит движение и настоящие Godot
+capsule-query traces для ступеней. Это проверка решений планировщика;
+эквивалентность GodotPhysics и PhysX ещё нужно проверить в Unity.
 
 API-компиляция против DLL из официального дистрибутива 6000.3.28f1:
 
 ```bash
 dotnet build unity/Tests/UnityApi/Arkon.UnityApi.csproj \
   -p:UnityReferenceRoot=/path/to/verified-managed-reference-root
+```
+
+Если рядом с извлечёнными DLL есть `extraction-complete.json`, можно проверить
+их SHA-256 и обновить привязанный к исходникам отчёт одной командой:
+
+```bash
+python3 unity/Tools/check_unity_api.py --dotnet /path/to/dotnet \
+  --reference-root /path/to/verified-managed-reference-root
 ```
 
 Это не запуск Unity, не native physics test и не измерение FPS.

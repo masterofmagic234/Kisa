@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Arkon.Unity.Intro
 {
     /// <summary>
-    /// Engine adapter for the approved PNG art and existing schema1 direction.
+    /// Engine adapter for original PNG art and the source compositor schemas.
     /// Ported from white_guard/scripts/intro_stage.gd. The direction itself is
     /// deliberately unchanged and has not received artistic acceptance.
     /// Requires actual Unity Editor/platform rendering verification.
@@ -16,14 +16,23 @@ namespace Arkon.Unity.Intro
         private readonly IntroStageData _stage;
         private readonly Dictionary<string, Texture2D> _textures = new Dictionary<string, Texture2D>(StringComparer.Ordinal);
         private Texture2D _circle;
+        private IReadOnlyList<IntroSpriteDraw> _draws;
+        private double _drawTime = double.NaN;
 
         public IntroStageRenderer(IntroStageData stage, Func<string, Texture2D> loadTexture)
         {
             _stage = stage ?? throw new ArgumentNullException(nameof(stage));
-            foreach (var shot in stage.shots)
+            if (stage.schema == 3 && stage.Stage3 != null)
             {
-                Load(shot.asset, loadTexture);
-                foreach (var layer in shot.layers ?? Array.Empty<IntroLayerData>()) Load(layer.asset, loadTexture);
+                foreach (var art in stage.Stage3.Art.Values) Load(art.Asset, loadTexture);
+            }
+            else
+            {
+                foreach (var shot in stage.shots)
+                {
+                    Load(shot.asset, loadTexture);
+                    foreach (var layer in shot.layers ?? Array.Empty<IntroLayerData>()) Load(layer.asset, loadTexture);
+                }
             }
         }
 
@@ -40,6 +49,7 @@ namespace Arkon.Unity.Intro
         /// <summary>Call inside a clipped GUI group in a 1280×720 design frame.</summary>
         public void Draw(double seconds, Color tint, Font bodyFont)
         {
+            if (_stage.schema == 3) { DrawPanels(seconds, tint, bodyFont); return; }
             var shot = ShotAt(seconds); if (shot == null) return;
             var elapsed = seconds - shot.start;
             var progress = Math.Max(0, Math.Min(1, elapsed / (shot.end - shot.start)));
@@ -67,6 +77,41 @@ namespace Arkon.Unity.Intro
                 GUI.Label(new Rect(34, 22, width + 2, 37), shot.label, style);
             }
             DrawEffects(shot.effect, elapsed);
+            GUI.color = Color.white;
+        }
+
+        private void DrawPanels(double seconds, Color tint, Font bodyFont)
+        {
+            const float scale = 1280f / 768f;
+            Solid(new Rect(0, 0, 1280, 720), new Color(20f / 255 * tint.r, 23f / 255 * tint.g, 19f / 255 * tint.b, tint.a));
+            if (_draws == null || seconds != _drawTime)
+            { _draws = IntroStageCompositor.BuildDrawCommands(_stage, seconds); _drawTime = seconds; }
+            foreach (var draw in _draws)
+            {
+                var image = _textures[draw.Texture];
+                var uv = IntroStageGeometry.ToBottomLeftUv(draw.Source, image.width, image.height);
+                var x = (float)uv.X; var width = (float)uv.Width;
+                if (draw.MirrorX) { x += width; width = -width; }
+                GUI.color = new Color((float)draw.Tint[0] * tint.r, (float)draw.Tint[1] * tint.g,
+                    (float)draw.Tint[2] * tint.b, (float)draw.Tint[3] * tint.a);
+                GUI.DrawTextureWithTexCoords(new Rect((float)draw.Destination.X * scale, (float)draw.Destination.Y * scale,
+                    (float)draw.Destination.Width * scale, (float)draw.Destination.Height * scale), image,
+                    new Rect(x, (float)uv.Y, width, (float)uv.Height), true);
+            }
+            GUI.color = Color.white;
+            var shot = IntroStageCompositor.ShotAt(_stage.Stage3, seconds);
+            if (shot == null || string.IsNullOrEmpty(shot.Label)) return;
+            var elapsed = Math.Max(0, seconds - shot.Start);
+            var opacity = Mathf.Clamp01((float)(4.4 - elapsed) * 1.5f);
+            if (opacity <= 0) return;
+            var pos = new Vector2(28, 46) * scale;
+            var fontSize = Math.Max(12, (int)Math.Floor(14 * scale + .5));
+            var style = new GUIStyle(GUI.skin.label) { font = bodyFont, fontSize = fontSize, alignment = TextAnchor.MiddleLeft };
+            style.normal.textColor = new Color(.94f * tint.r, .9f * tint.g, .8f * tint.b, opacity * tint.a);
+            var labelWidth = style.CalcSize(new GUIContent(shot.Label)).x;
+            Solid(new Rect(pos.x - 10 * scale, pos.y - 20 * scale, labelWidth + 20 * scale, 28 * scale),
+                new Color(.08f * tint.r, .09f * tint.g, .07f * tint.b, .88f * opacity * tint.a));
+            GUI.Label(new Rect(pos.x, pos.y - 20 * scale, labelWidth + 2, 28 * scale), shot.Label, style);
             GUI.color = Color.white;
         }
 
@@ -140,6 +185,7 @@ namespace Arkon.Unity.Intro
                 else UnityEngine.Object.DestroyImmediate(_circle);
             }
             _circle = null; _textures.Clear();
+            _draws = null; _drawTime = double.NaN;
         }
     }
 }

@@ -1,23 +1,28 @@
 {
   "status": "PASS",
-  "check": "Compilation against official Unity managed API assemblies",
+  "check": "Compilation against official Unity managed API assemblies; warnings treated as errors",
   "unity_version": "6000.3.28f1",
   "unity_revision": "8f082d2fe476",
   "source_url": "https://download.unity3d.com/download_unity/8f082d2fe476/LinuxEditorInstaller/Unity-6000.3.28f1.tar.xz",
   "archive_md5": "ccbe0a59c4fbee234991a841d9506ad8",
   "archive_bytes_verified": 4556838576,
-  "warnings": 0,
-  "errors": 0,
+  "reference_assemblies_verified": 139,
+  "compiler_exit_code": 0,
+  "source_unchanged_during_build": true,
   "unity_editor_executed": false,
   "unity_native_runtime_executed": false,
   "files": [
     {
       "path": "unity/Packages/com.arkon.runtime/Editor/MigrationChecks.cs",
-      "sha256": "af091ccadc76809abbc5d35f4187277abf37f5bb7fc491c9faf7529d3e69c645"
+      "sha256": "91c50c2ae72e2574bbb013a7dcb33785cc1caac7cc3a7cc53159f5a21733cd7b"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Editor/OriginalIntroImporter.cs",
-      "sha256": "902e71a77d7f1ce9380505554c87391de64d1a2d587bfd3c629876488203b0e3"
+      "sha256": "ba24ba8ae7373c3e9598ea5554d8f6b1b84239075519b59ab10f451b8f9320f7"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Editor/PhysicsLifecycleChecks.cs",
+      "sha256": "2c8429fe34ad807249d26cad1dba978c001cc6864bfaea55d40d7911a039abdf"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Combat/HealthModel.cs",
@@ -40,8 +45,36 @@
       "sha256": "3a55454103c52dfe95359416b7ac0cab8e4f453baef6cbf09d03593f8a09b13d"
     },
     {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Movement3D/FirstPersonMotor.cs",
+      "sha256": "76ac0f6392854ca6e7f59a35dcde80e94780c6065ad422b4e41f95f80dc364a9"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Movement3D/GroundedStepMotion3D.cs",
+      "sha256": "0e4573e035040a6e6e1ec4b6402a5cc2443564ada7ca1e048b539bcc34d136fb"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Movement3D/MotionVector3.cs",
+      "sha256": "0094a1b9de2c89f6101c9161bd1aade4182c6668fe3619a56e6875b8a6d08da8"
+    },
+    {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/IntroData.cs",
-      "sha256": "e67dfc695ac2856bfac3c919d349d6395756731ea6f0ae27b00d6e644850974e"
+      "sha256": "7577d2e4eb1ca46f31d84ab159b2e77aa128050e50768aeb2ada70b7319e7ca6"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/IntroStage3Data.cs",
+      "sha256": "58778a3fb2637ad17ea2ce40871e5a20fdcc8da1cfe4d74ce8b81e4974fc2774"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/IntroStageCompositor.cs",
+      "sha256": "51bb099c3c287c95b2ff304bc234bdae7e08c3bb3765b496789c6169b0201b15"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/IntroStageJson.cs",
+      "sha256": "ea61a0257c916944ad4fc3feb2e5add07f9eedcb6e87e785c09d24fd27d70c30"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/PortableJson.cs",
+      "sha256": "c5bf066bcd9575032606619267846402b63f9ea78725bbb5a618142fa2f7c482"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/ReaderSequence.cs",
@@ -105,7 +138,7 @@
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/EnemyModel.cs",
-      "sha256": "910917b5dd0d82790806da40eacf9faa20d0fa91b8fc86385b26673c89810da4"
+      "sha256": "e62997e5c0df51148633fd4c57153a5a16a8077e91a8da8bf94d3666ab048446"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/LeasePool.cs",
@@ -128,12 +161,16 @@
       "sha256": "784d8250de64fe70293f50e0063568cf74bbcd9e084fcf8500b335811b9fa2ea"
     },
     {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Diagnostics/PhysicsLifecycleProbe.cs",
+      "sha256": "d9fb5d69d3fe45999e07f37bdcef09a7e25e245bcfedd917ee3b79352b7a4112"
+    },
+    {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Intro/IntroPlayer.cs",
-      "sha256": "f402b0afead89038f5ecc6dfcc85b5886263fbd5eae18d0228b6cddb49383cc0"
+      "sha256": "0ae870f572204099d82bafb2e30c031e4e03b3a9d9ea23c903b7f8f5c2c70fec"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Intro/IntroStageRenderer.cs",
-      "sha256": "9ec41a62ce2ed8bf49fcf4e2f5f15ff6b1e67b336a0c4e00a88fb566c47ca907"
+      "sha256": "cf73a4ec8d79effec4b7e3e131e551be2cca10f19c7fd958d7f4f0ecdae47a2b"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/ActorIdentity2D.cs",
@@ -149,7 +186,7 @@
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/KinematicBodyPort2D.cs",
-      "sha256": "392207dc8072f560bf5ce325bd1779355558b54eb955aebb2997e0f4fbcf1d17"
+      "sha256": "d554b7594fdfb5aa87be9bc1a95393236c0d9dec7db46212ddb5ae09030bfd5a"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/Physics2DPort.cs",
@@ -157,15 +194,27 @@
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/ProjectilePool2D.cs",
-      "sha256": "5c83f2fdb93a4524bdfda13c8a6ca447286256953a0bfc1cb5e586880784b355"
+      "sha256": "9c07826f00fc56ea8fec02656e7c182c0762490d3125c52041127c2f7ac183b7"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/TopdownActor2D.cs",
-      "sha256": "03b6e925fb8d564bd113fe22b5ac5837b9e112c4c00360bf8449811ddab574d7"
+      "sha256": "d16ea27c792bf7507e2c2022325f88320827a5eb99e50ebd562ae153d4f52936"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics3D/CapsuleBodySweep3D.cs",
+      "sha256": "cf82ea15f052244315c920f32dc98b7ac519f29bbea52a0d54fa26d6443b3787"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics3D/DamageReceiver3D.cs",
+      "sha256": "eb0748eaf5b960f75d5db88b20f6136abb555ec5290a24dd14884bd4f0156632"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics3D/FirstPersonActor3D.cs",
+      "sha256": "fb1e29fb0fd54cb47217a78eb4405c3e736af6abbeee46b4a1df0ecc72ba894f"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/SceneObjects.cs",
-      "sha256": "1e9c8693806727e93afe18fbd6e89a3da1b0629cbdabe461ae25b3c318c9f6d6"
+      "sha256": "84236ca0a8f3d20029ff7790fd4ff5702330171f6bdf774a3a2ed61f34890827"
     },
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/State/UnityProgressStore.cs",
@@ -174,6 +223,30 @@
     {
       "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/WhiteGuardBootstrap.cs",
       "sha256": "49ce6fd2392ae77cf9d9be492a29c930652550c76b2e44b8a54217dca8301c59"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/World/DoorPort2D.cs",
+      "sha256": "d380119769ce4defd138c72da0e4a0e9765f604a005584481937d8a83aa092c7"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/World/EnemyPort2D.cs",
+      "sha256": "ddf7661ad4b78fdf3955cfbfbff9ace1052601feacc1c65765a01f341f624630"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/World/PickupPort2D.cs",
+      "sha256": "6c273d86b584de36546dbd76935c7bfbd09b979f2b729734d09eed6fbdb3e366"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/World/TopdownWorld2D.cs",
+      "sha256": "618b4f95848bc87f7c10360bbe970aa1e86387c1d51390c57dde8aa06fcb6536"
+    },
+    {
+      "path": "unity/Tests/Core/Arkon.Core.csproj",
+      "sha256": "5740248c5fdedef327aa7a6f266497a42262d6447db31d56da4f3528e4bed726"
+    },
+    {
+      "path": "unity/Tests/UnityApi/Arkon.UnityApi.csproj",
+      "sha256": "1ee7b1787c1aeb1da24dd89ef1cc6ec37cc513c1caab1d2aa2463a82d771299a"
     }
   ]
 }
