@@ -27,6 +27,8 @@ namespace Arkon.Unity
         private CapsuleBodySweep3D sweeps;
         private CharacterController body;
         private DamageReceiver3D damage;
+        private MotionVector3 lastPlanarDirection;
+        private bool lateralControllerStall;
 
         private void Awake()
         {
@@ -94,7 +96,7 @@ namespace Arkon.Unity
                 axis += new Vec2((Input.GetKey(KeyCode.D) ? 1 : 0) - (Input.GetKey(KeyCode.A) ? 1 : 0),
                     (Input.GetKey(KeyCode.S) ? 1 : 0) - (Input.GetKey(KeyCode.W) ? 1 : 0));
             var grounded = body.isGrounded; var dt = Time.fixedDeltaTime;
-            if (!Motor.PrepareMovement(axis.LimitLength(), grounded, dt)) return;
+            if (!Motor.PrepareMovement(axis.LimitLength(), grounded, dt)) { lateralControllerStall = false; return; }
             var wanted = Motor.Velocity;
             var overrideVelocity = OverridePlanarVelocity?.Invoke();
             if (overrideVelocity.HasValue)
@@ -105,9 +107,15 @@ namespace Arkon.Unity
             var horizontal = new MotionVector3(wanted.X, 0, wanted.Z) * dt;
             var up = CapsuleBodySweep3D.ToSource(transform.up).Normalized;
             var origin = CapsuleBodySweep3D.ToSource(transform.position);
+            var direction = horizontal.Normalized;
+            // A confirmed native side stop can be slightly outside the inset
+            // capsule cast. Recheck the same direction with the full body radius.
+            sweeps.HasControllerSideContact = lateralControllerStall && MotionVector3.Dot(direction, lastPlanarDirection) > .95f;
             CollisionFlags flags;
+            // The PhysX controller may already be supported by the upper edge
+            // of the riser while its forward motion is blocked by that face.
             if (GroundedStepMotion3D.TryPlan(sweeps, origin, horizontal, up, grounded, wanted.Y,
-                MaximumFloorAngleDegrees * Mathf.Deg2Rad, sweeps.SourceSafeMargin, out var step))
+                MaximumFloorAngleDegrees * Mathf.Deg2Rad, sweeps.SourceSafeMargin, 0, out var step))
             {
                 // Every executed leg re-enters native collision recovery if another actor has moved since prediction.
                 body.Move(CapsuleBodySweep3D.ToUnity(step.Up));
@@ -124,6 +132,12 @@ namespace Arkon.Unity
             }
             if ((flags & CollisionFlags.Below) != 0 || body.isGrounded) Motor.SetVerticalVelocity(0);
             else if ((flags & CollisionFlags.Above) != 0 && Motor.Velocity.Y > 0) Motor.SetVerticalVelocity(0);
+            var resolved = CapsuleBodySweep3D.ToSource(transform.position) - origin;
+            lateralControllerStall = body.isGrounded && horizontal.LengthSquared > .000001f &&
+                MotionVector3.Dot(resolved, direction) < horizontal.Length * .1f &&
+                (flags & CollisionFlags.Sides) != 0;
+            lastPlanarDirection = direction;
+            sweeps.HasControllerSideContact = false;
         }
         private void SnapToFloor(MotionVector3 up)
         {

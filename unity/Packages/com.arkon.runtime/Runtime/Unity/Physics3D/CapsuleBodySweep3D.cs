@@ -15,6 +15,7 @@ namespace Arkon.Unity
     {
         public LayerMask SolidLayers = ~0;
         public float SourceSafeMargin = .001f;
+        internal bool HasControllerSideContact;
         private CharacterController controller;
         public CharacterController Controller => controller ? controller : (controller = GetComponent<CharacterController>());
         public static MotionVector3 ToSource(Vector3 value) => new MotionVector3(value.x, value.y, -value.z);
@@ -31,9 +32,11 @@ namespace Arkon.Unity
             var center = ToUnity(from) + transform.TransformVector(body.center);
             var margin = Mathf.Max(0, safeMargin);
             // A tiny query inset avoids a starting floor overlap masquerading as a horizontal wall.
-            var queryRadius = Mathf.Max(.0001f, radius - margin);
+            var direction = movement / distance;
+            var lateral = Mathf.Abs(Vector3.Dot(direction, up)) < .0001f;
+            var queryRadius = Mathf.Max(.0001f, radius - (lateral && HasControllerSideContact ? 0 : margin));
             var hits = Physics.CapsuleCastAll(center - up * halfLine, center + up * halfLine, queryRadius,
-                movement / distance, distance + margin, SolidLayers, QueryTriggerInteraction.Ignore);
+                direction, distance + margin, SolidLayers, QueryTriggerInteraction.Ignore);
             Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
             var nearest = float.PositiveInfinity;
             var normals = new List<MotionVector3>();
@@ -43,7 +46,19 @@ namespace Arkon.Unity
                 if (float.IsPositiveInfinity(nearest)) nearest = hit.distance;
                 // Only the nearest contact manifold, not a distant floor behind a blocking wall.
                 if (hit.distance > nearest + Mathf.Max(margin * 2, .0005f)) break;
-                if (normals.Count < Mathf.Max(1, maximumCollisions)) normals.Add(ToSource(hit.normal));
+                if (normals.Count < Mathf.Max(1, maximumCollisions))
+                {
+                    var normal = hit.normal;
+                    // Mesh edge contacts can blend the flat tread with its
+                    // vertical riser. Confirm the actual blocking face just
+                    // below the edge without changing cast travel or landing normals.
+                    if (lateral && hit.collider is MeshCollider && Vector3.Dot(normal, up) > 0 &&
+                        hit.collider.Raycast(new Ray(hit.point - up * .003f - direction * .005f, direction), out var surface, .01f))
+                    {
+                        normal = surface.normal;
+                    }
+                    normals.Add(ToSource(normal));
+                }
             }
             if (float.IsPositiveInfinity(nearest)) return new MotionProbe3D(false, motion);
             var travel = Mathf.Min(distance, Mathf.Max(0, nearest - margin));

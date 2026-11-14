@@ -47,7 +47,7 @@ namespace Arkon.Unity.Editor
 
             SessionState.SetBool(Pending, false);
             var passed = SessionState.GetBool(Passed, false);
-            if (passed) Debug.Log("Native PhysX checks passed (floor, airborne motion, ceiling and stair fixtures).");
+            if (passed) Debug.Log("Native PhysX checks passed (floor, airborne motion, ceiling, stairs and mesh slopes).");
             else Debug.LogError("Native PhysX checks failed or exited before completion.");
             if (Application.isBatchMode) EditorApplication.Exit(passed ? 0 : 1);
         }
@@ -81,6 +81,8 @@ namespace Arkon.Unity.Editor
                 VerifyCeiling(scene, new Vector3(96, 0, 64));
                 VerifyStair(scene, new Vector3(128, 0, 64), .15f, 1f, .1539461f);
                 VerifyStair(scene, new Vector3(160, 0, 64), .25f, .4453125f, .199907f);
+                VerifyMeshSlope(scene, new Vector3(192, 0, 64), 30, true);
+                VerifyMeshSlope(scene, new Vector3(224, 0, 64), 60, false);
                 SessionState.SetBool(Passed, true);
             }
             catch (Exception error) { Debug.LogException(error); }
@@ -180,6 +182,42 @@ namespace Arkon.Unity.Editor
         private static bool TryStep(CapsuleBodySweep3D sweeps, MotionVector3 origin, bool grounded, out StepPlan3D plan) =>
             GroundedStepMotion3D.TryPlan(sweeps, origin, ForwardSweep, MotionVector3.Up, grounded,
                 FirstPersonMotor.GroundedPull, FloorAngle * Mathf.Deg2Rad, SafeMargin, out plan);
+
+        private static void VerifyMeshSlope(Scene scene, Vector3 offset, float degrees, bool walkable)
+        {
+            var rise = Mathf.Tan(degrees * Mathf.Deg2Rad) * 2;
+            var surface = new GameObject("Native mesh slope");
+            SceneManager.MoveGameObjectToScene(surface, scene);
+            surface.transform.position = offset;
+            var mesh = new Mesh
+            {
+                vertices = new[] { new Vector3(0, 0, -2), new Vector3(0, 0, 2),
+                    new Vector3(2, rise, -2), new Vector3(2, rise, 2) },
+                triangles = new[] { 0, 1, 2, 2, 1, 3 }
+            };
+            surface.AddComponent<MeshCollider>().sharedMesh = mesh;
+            try
+            {
+                AddFloor(scene, offset);
+                var sweeps = AddCapsule(scene, offset + new Vector3(-.6f, .9f, 0));
+                sweeps.Controller.Move(Vector3.up * (FirstPersonMotor.GroundedPull * FixedStep));
+                var origin = CapsuleBodySweep3D.ToSource(sweeps.transform.position);
+                var contact = sweeps.TestMotion(origin, ForwardSweep, SafeMargin, 4);
+                var isFloor = contact.Normals.Any(normal => normal.Y >= Mathf.Cos(FloorAngle * Mathf.Deg2Rad));
+                Require(contact.Collided && isFloor == walkable,
+                    $"A {degrees:F0}° mesh retained the wrong floor classification after the lateral face query.");
+                if (walkable)
+                {
+                    Require(!TryStep(sweeps, origin, true, out _), "A gradual mesh slope was mistaken for a discrete stair.");
+                    var movement = new Vector3(.055f, FirstPersonMotor.GroundedPull * FixedStep, 0);
+                    for (var tick = 0; tick < 32; tick++) sweeps.Controller.Move(movement);
+                    Require(sweeps.transform.position.x > offset.x + .5f && sweeps.transform.position.y > offset.y + 1.1f,
+                        "The native capsule did not climb the walkable mesh slope.");
+                }
+                Debug.Log($"PhysX mesh slope {degrees:F0}° retained its native floor classification.");
+            }
+            finally { UnityEngine.Object.Destroy(mesh); }
+        }
 
         private static CapsuleBodySweep3D AddStair(Scene scene, Vector3 offset, float height)
         {

@@ -32,6 +32,12 @@ namespace Arkon.Core
         public const float MinimumRise = .002f, MaximumRise = Height + .001f;
         public static bool TryPlan(IBodySweep3D body, MotionVector3 origin, MotionVector3 horizontal,
             MotionVector3 upDirection, bool grounded, float verticalVelocity, float maximumFloorAngle, float safeMargin, out StepPlan3D plan)
+            => TryPlan(body, origin, horizontal, upDirection, grounded, verticalVelocity, maximumFloorAngle, safeMargin, MinimumRise, out plan);
+
+        /// <summary>Lets an adapter account for rise its native controller has already resolved at the riser.</summary>
+        public static bool TryPlan(IBodySweep3D body, MotionVector3 origin, MotionVector3 horizontal,
+            MotionVector3 upDirection, bool grounded, float verticalVelocity, float maximumFloorAngle, float safeMargin,
+            float minimumRise, out StepPlan3D plan)
         {
             plan = default;
             if (!grounded || verticalVelocity > 0 || horizontal.LengthSquared <= .000001f) return false;
@@ -53,7 +59,7 @@ namespace Arkon.Core
             foreach (var normal in landing.Normals) if (MotionVector3.Dot(normal, upDirection) >= floorDot) walkable = true;
             if (!walkable) return false;
             var rise = MotionVector3.Dot(up + landing.Travel, upDirection);
-            if (rise < MinimumRise || rise > MaximumRise) return false;
+            if (rise < minimumRise || rise > MaximumRise) return false;
             plan = new StepPlan3D(up, forward, landing.Travel);
             return true;
         }
