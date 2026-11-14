@@ -1,0 +1,9 @@
+# Godot execution fixtures hash these source bytes on Linux and Windows.
+white_guard/addons/arkon_runtime/**/*.gd text eol=lf
+white_guard/addons/arkon_runtime/**/*.tres text eol=lf
+white_guard/scripts/intro_stage.gd text eol=lf
+white_guard/data/intro*.json text eol=lf
+
+# Approved source media and font notices are copied byte-for-byte into Unity.
+white_guard/assets/intro/** -text
+white_guard/assets/reused/fonts/** -text

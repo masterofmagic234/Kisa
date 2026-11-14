@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "status": "migration_in_progress",
+  "complete_game_port": false,
+  "source_release": "Arkon v1.68",
+  "source_commit": "a1fd971558fcfe8d8fb99e944cc532edee5c32ba",
+  "white_guard_source": "e63c20e53aebac24022796ec583a83db9a9e3adb",
+  "white_guard_stage_schema": 3,
+  "white_guard_shots": 84,
+  "unity_version": "6000.3.28f1",
+  "white_guard_art_changed": false,
+  "white_guard_direction_changed": false,
+  "original_godot_projects_changed": false,
+  "public_private_boundary": "Full Acorn maps/media/scene inventory remain in private Arkon repository. Public Kisa contains only the already-public selected core and White Guard media.",
+  "implemented": [
+    {
+      "area": "Health, weapons, input latch and topdown motor",
+      "evidence": "C#9/netstandard2.1 compile and Godot execution oracle",
+      "native_unity_validation": false
+    },
+    {
+      "area": "Enemy/door/navigation/pool/projectile/pickup decisions",
+      "evidence": "Independent behavior cases",
+      "native_unity_validation": false
+    },
+    {
+      "area": "Race powertrain/reverse/track/projection/contacts math",
+      "evidence": "Independent cases with source Godot golden values",
+      "native_unity_validation": false
+    },
+    {
+      "area": "Public FirstPersonActor movement, look and three-sweep stair planner; Unity CharacterController/capsule adapter",
+      "evidence": "Portable planner replays real Godot query traces. Native PhysX CharacterController passed floor, ceiling, airborne motion and isolated 0.15/0.25 m stair probes in Unity 6000.3.28f1.",
+      "native_physics_fixtures": true,
+      "native_unity_validation": false
+    },
+    {
+      "area": "PNG/MP3 intro renderer/player and original data",
+      "evidence": "41 unchanged media files; schema3 compositor replays 363 Godot samples and 1021 draw commands; VerifyIntroImports passed in Unity 6000.3.28f1 after explicitly importing atlases as Texture2D",
+      "native_editor_import": true,
+      "linux_development_player_built": true,
+      "linux_player_smoke_tested": true,
+      "editor_playback_completed_with_pause": true,
+      "unity_output_audio_compared": true,
+      "subjective_audio_review": false,
+      "native_unity_validation": false
+    },
+    {
+      "area": "Unity2D queries/body/input/projectiles, scene-local AI/navigation/door/pickup adapters and native check commands",
+      "evidence": "Unity 6000.3.28f1 passed VerifyNativePhysics, 10 PlayMode lifecycle assertions, 15 door/underfoot medkit assertions and 17 AI, navigation and additive world assertions",
+      "native_queries_and_lifecycle": true,
+      "native_unity_validation": false
+    }
+  ],
+  "remaining": [
+    "Subjective listening review of the recorded White Guard opening; scene-level Unity gameplay regressions beyond the reported fixtures",
+    "Full original Acorn menu/intro/level1/park_escape/level2/chase_arrival/level3/ending scenes and orchestration",
+    "Native 3D movement/stair comparison and full private Level1 mission controller; full race controller/AI/camera/meshes/renderer",
+    "Shaders/materials and original-game assets/media import/conversion",
+    "Full gameplay audio/UI/touch and platform packaging",
+    "Godot save migration and arbitrary nested story facts",
+    "Physical movement/AI phase/path comparison against source",
+    "ReaderSequence supports boolean completion facts; full arbitrary Godot Variant facts still need a codec/contract."
+  ],
+  "blockers": [
+    {
+      "kind": "private_local_checkout_pending",
+      "action": "Complete GitHub CLI sign-in on the PC for the private Acorn checkout."
+    }
+  ]
+}

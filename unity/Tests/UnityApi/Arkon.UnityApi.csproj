@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AssemblyName>Arkon.UnityApi.CompileOnly</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Core/Arkon.Core.csproj" />
+    <Compile Include="../../Packages/com.arkon.runtime/Runtime/Unity/**/*.cs" />
+    <Compile Include="../../Packages/com.arkon.runtime/Editor/**/*.cs" />
+    <Reference Include="$(UnityReferenceRoot)/UnityEngine/*.dll" Private="false" />
+  </ItemGroup>
+  <Target Name="RequireOfficialUnityReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(UnityReferenceRoot)/UnityEngine/UnityEngine.CoreModule.dll')" Text="Set UnityReferenceRoot to the extracted official Unity 6000.3.28f1 managed references. This is an API compilation check, not Editor validation." />
+  </Target>
+</Project>
