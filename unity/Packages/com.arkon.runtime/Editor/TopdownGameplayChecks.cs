@@ -123,12 +123,64 @@ namespace Arkon.Unity.Editor
             Physics2D.SyncTransforms();
         }
 
+        private static void CheckInitialOverlap(Scene scene)
+        {
+            var bodyRoot = CreateRoot(scene, "Sweep probe", Vec2.Zero);
+            var sweep = bodyRoot.AddComponent<KinematicBodyPort2D>();
+            var body = bodyRoot.GetComponent<Rigidbody2D>();
+            var circle = bodyRoot.GetComponent<CircleCollider2D>();
+            bodyRoot.SetActive(true);
+
+            var corner = CreateRoot(scene, "Scaled corner", Vec2.Zero);
+            corner.layer = ArkonCoordinates.WallsLayer;
+            corner.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+            var solid = corner.AddComponent<BoxCollider2D>();
+            solid.size = new Vector2(.2f, .22f);
+            corner.SetActive(true);
+
+            var start = new Vector2(.214f, .18f);
+            body.position = start;
+            Physics2D.SyncTransforms();
+            var contact = circle.Distance(solid);
+            Require(contact.isOverlapped && contact.distance < 0, "The sweep probe must start overlapping the scaled corner.");
+            var resolved = sweep.Move(new Vec2(120, 0), .02f);
+            var displacement = body.position - start;
+            Require(displacement.x >= .023f && Mathf.Abs(displacement.y) < .00001f && resolved.X > 119,
+                $"The initial corner overlap trapped an outward sweep: {displacement}, velocity {resolved}.");
+
+            body.position = start;
+            Physics2D.SyncTransforms();
+            sweep.Move(ArkonCoordinates.ToSource(contact.normal) * 120, .02f);
+            Physics2D.SyncTransforms();
+            var penetration = circle.Distance(solid).distance;
+            Require(penetration >= contact.distance - .00001f,
+                $"An inward sweep deepened the initial overlap from {contact.distance} to {penetration}.");
+
+            var flat = CreateRoot(scene, "Straight wall", new Vec2(-200, 200));
+            flat.layer = ArkonCoordinates.WallsLayer;
+            flat.AddComponent<BoxCollider2D>().size = new Vector2(.2f, .8f);
+            flat.SetActive(true);
+            var tangentStart = new Vector2(-1.833f, -2);
+            body.position = tangentStart;
+            Physics2D.SyncTransforms();
+            var tangent = sweep.Move(new Vec2(0, 120), .02f);
+            var tangentDisplacement = body.position - tangentStart;
+            Require(Mathf.Abs(tangentDisplacement.x) < .00001f && tangentDisplacement.y <= -.023f && tangent.Y > 119,
+                $"Initial wall contact interrupted tangent motion: {tangentDisplacement}, velocity {tangent}.");
+
+            bodyRoot.SetActive(false);
+            corner.SetActive(false);
+            flat.SetActive(false);
+            Debug.Log("Native top-down initial overlap allowed outward motion and preserved inward blocking and tangent motion.");
+        }
+
         private static IEnumerator Exercise()
         {
             Require(Mathf.Abs(Time.fixedDeltaTime - 1f / 60) < .000001f, "Expected the source 60 Hz fixed timestep.");
             Require(Physics2D.simulationMode == SimulationMode2D.FixedUpdate, "Expected native FixedUpdate simulation.");
 
             var scene = SceneManager.CreateScene("Arkon top-down gameplay checks");
+            CheckInitialOverlap(scene);
             var worldRoot = CreateRoot(scene, "Scene world", Vec2.Zero);
             var world = worldRoot.AddComponent<TopdownWorld2D>();
             worldRoot.SetActive(true);

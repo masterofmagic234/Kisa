@@ -43,6 +43,13 @@ namespace Arkon.Unity
                 foreach (var hit in hits)
                 {
                     if (!hit.collider || hit.collider.attachedRigidbody == body || hit.collider.gameObject.scene != gameObject.scene) continue;
+                    // A cast may report an initial overlap even when moving
+                    // away. Confirm its geometric normal before allowing exit.
+                    if (hit.distance == 0 && Vector2.Dot(remaining, hit.normal) > 0)
+                    {
+                        var contact = shape.Distance(hit.collider);
+                        if (contact.isOverlapped && Vector2.Dot(remaining, contact.normal) < 0) continue;
+                    }
                     if (hit.distance < nearest) { nearest = hit.distance; normal = hit.normal; nearestCollider = hit.collider; }
                 }
                 if (float.IsPositiveInfinity(nearest)) { position += remaining; remaining = Vector2.zero; break; }
