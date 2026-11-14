@@ -6,6 +6,21 @@ using UnityEngine;
 
 namespace Arkon.Unity
 {
+    public enum TopdownActionKind { None, Finish, Pickup, Door }
+
+    /// <summary>An available target at the actor's current position and aim.</summary>
+    public readonly struct TopdownAction2D
+    {
+        public TopdownActionKind Kind { get; }
+        public EnemyPort2D Enemy { get; }
+        public PickupPort2D Pickup { get; }
+        public DoorPort2D Door { get; }
+
+        internal TopdownAction2D(EnemyPort2D enemy) : this() { Kind = TopdownActionKind.Finish; Enemy = enemy; }
+        internal TopdownAction2D(PickupPort2D pickup) : this() { Kind = TopdownActionKind.Pickup; Pickup = pickup; }
+        internal TopdownAction2D(DoorPort2D door) : this() { Kind = TopdownActionKind.Door; Door = door; }
+    }
+
     /// <summary>
     /// Scene-local physics/navigation host for the released Level3 policies.
     /// An authored level owner supplies geometry, bounds, target and mission gates.
@@ -38,6 +53,7 @@ namespace Arkon.Unity
         private readonly List<EnemyPort2D> enemies = new List<EnemyPort2D>();
         private readonly List<DoorPort2D> doors = new List<DoorPort2D>();
         private readonly List<PickupPort2D> pickups = new List<PickupPort2D>();
+        private readonly List<CombatTarget> combatTargets = new List<CombatTarget>();
         private readonly List<EnemyNeighbour> neighbours = new List<EnemyNeighbour>();
         private readonly List<RaycastHit2D> rayHits = new List<RaycastHit2D>(16);
         private readonly List<RaycastHit2D> bodyHits = new List<RaycastHit2D>(16);
@@ -272,10 +288,10 @@ namespace Arkon.Unity
 
         private List<CombatTarget> Targets()
         {
-            var result = new List<CombatTarget>(enemies.Count);
+            combatTargets.Clear();
             foreach (var enemy in enemies) if (enemy && enemy.Model != null && enemy.isActiveAndEnabled)
-                result.Add(new CombatTarget(enemy.ActorId, enemy.Position, enemy.Model.State));
-            return result;
+                combatTargets.Add(new CombatTarget(enemy.ActorId, enemy.Position, enemy.Model.State));
+            return combatTargets;
         }
 
         private EnemyPort2D EnemyById(int id)
@@ -284,32 +300,49 @@ namespace Arkon.Unity
             return null;
         }
 
-        private void OnAction(TopdownActor2D actor)
+        /// <summary>Resolve the same non-mutating interaction query used when the actor requests an action.</summary>
+        public TopdownAction2D QueryAction(TopdownActor2D actor)
         {
-            if (actor != Target || !CanSimulateCombat) return;
+            if (!actor || actor != Target || !CanSimulateCombat) return default;
+            var position = actor.Position;
             // Source disables combat interactions while unarmed, but ordinary doors remain usable.
             if (actor.CombatEnabled)
             {
-                var execution = WorldCombatQueries.SelectExecutionTarget(actor.Position, actor.Motor.AimDirection,
+                var execution = WorldCombatQueries.SelectExecutionTarget(position, actor.Motor.AimDirection,
                     actor.Weapons.CurrentDefinition.ActionRange, Targets(), HasLineOfSight);
-                if (execution.HasValue) { EnemyById(execution.Value.Id)?.Kill(); return; }
+                if (execution.HasValue)
+                {
+                    var enemy = EnemyById(execution.Value.Id);
+                    return enemy ? new TopdownAction2D(enemy) : default;
+                }
                 PickupPort2D nearestPickup = null; var pickupDistance = 32f;
                 foreach (var pickup in pickups)
                 {
                     if (!pickup || pickup.Model == null || pickup.Model.Consumed || pickup.Model.Automatic) continue;
-                    var distance = Vec2.Distance(actor.Position, pickup.Position);
-                    if (distance <= pickupDistance && HasLineOfSight(actor.Position, pickup.Position)) { nearestPickup = pickup; pickupDistance = distance; }
+                    var distance = Vec2.Distance(position, pickup.Position);
+                    if (distance <= pickupDistance && HasLineOfSight(position, pickup.Position)) { nearestPickup = pickup; pickupDistance = distance; }
                 }
-                if (nearestPickup) { nearestPickup.TryCollect(actor); return; }
+                if (nearestPickup) return new TopdownAction2D(nearestPickup);
             }
             DoorPort2D nearestDoor = null; var doorDistance = 41f;
             foreach (var door in doors)
             {
                 if (!door || door.Model == null || door.Model.IsOpen || door.Model.IsOpening) continue;
-                var distance = Vec2.Distance(actor.Position, door.Position);
-                if (distance <= doorDistance && !WallRay(actor.Position, door.Position, door.SolidCollider, out _)) { nearestDoor = door; doorDistance = distance; }
+                var distance = Vec2.Distance(position, door.Position);
+                if (distance <= doorDistance && !WallRay(position, door.Position, door.SolidCollider, out _)) { nearestDoor = door; doorDistance = distance; }
             }
-            if (nearestDoor) nearestDoor.Interact(actor.Position);
+            return nearestDoor ? new TopdownAction2D(nearestDoor) : default;
+        }
+
+        private void OnAction(TopdownActor2D actor)
+        {
+            var action = QueryAction(actor);
+            switch (action.Kind)
+            {
+                case TopdownActionKind.Finish: action.Enemy.Kill(); break;
+                case TopdownActionKind.Pickup: action.Pickup.TryCollect(actor); break;
+                case TopdownActionKind.Door: action.Door.Interact(actor.Position); break;
+            }
         }
 
         private void OnMelee(TopdownActor2D actor, WeaponDefinition weapon)

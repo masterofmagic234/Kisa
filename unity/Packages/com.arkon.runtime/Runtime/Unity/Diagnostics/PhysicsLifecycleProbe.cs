@@ -103,6 +103,69 @@ namespace Arkon.Unity.Diagnostics
             for (var i = 0; i < 120 && freshImpacts == 0; i++) yield return new WaitForFixedUpdate();
             Require(oldImpacts == 1 && freshAccepted && freshImpacts == 1,
                 "Disable/enable inside an impact retired or duplicated the replacement projectile lease.");
+
+            var interactions = VerifyActions();
+            while (interactions.MoveNext()) yield return interactions.Current;
+        }
+
+        private IEnumerator VerifyActions()
+        {
+            var root = Root("Native interaction world");
+            var world = root.AddComponent<TopdownWorld2D>();
+            var actorObject = Root("Native interaction actor", false);
+            // Keep the previous lifecycle actor outside the interaction radius.
+            actorObject.transform.position = ArkonCoordinates.ToUnity(new Vec2(300, 300));
+            var actor = actorObject.AddComponent<TopdownActor2D>();
+            actor.AssignedWorld = root.GetComponent<Physics2DPort>();
+            actor.ReadKeyboardMouse = false;
+            actorObject.SetActive(true);
+            world.Target = actor;
+
+            var enemyObject = Root("Native stunned target", false);
+            enemyObject.transform.position = ArkonCoordinates.ToUnity(new Vec2(321, 300));
+            var enemy = enemyObject.AddComponent<EnemyPort2D>();
+            enemy.AssignedWorld = world;
+            enemy.AIEnabled = false;
+            enemyObject.SetActive(true);
+
+            var pickupObject = Root("Native manual pickup", false);
+            pickupObject.transform.position = ArkonCoordinates.ToUnity(new Vec2(321, 290));
+            var pickup = pickupObject.AddComponent<PickupPort2D>();
+            pickup.AssignedWorld = world;
+            pickup.Kind = "shotgun";
+            pickupObject.SetActive(true);
+
+            var doorObject = Root("Native door", false);
+            doorObject.transform.position = ArkonCoordinates.ToUnity(new Vec2(336, 310));
+            var door = doorObject.AddComponent<DoorPort2D>();
+            door.AssignedWorld = world;
+            doorObject.SetActive(true);
+            yield return null;
+            yield return new WaitForFixedUpdate();
+
+            enemy.Stun(3);
+            Require(world.QueryAction(actor).Enemy == enemy && enemy.Model.State == EnemyState.Stunned,
+                "An action preview must offer the stunned enemy ahead of a pickup or door without consuming it.");
+            world.CombatPaused = true;
+            Require(world.QueryAction(actor).Kind == TopdownActionKind.None,
+                "A paused world exposed an action preview.");
+            world.CombatPaused = false;
+            actor.FeedInput(Vec2.Zero, Vec2.Right, false, true, false, false);
+            yield return new WaitForFixedUpdate();
+            Require(enemy.Model.State == EnemyState.Dead && world.QueryAction(actor).Pickup == pickup && !pickup.Model.Consumed,
+                "The native action did not execute the previewed enemy and offer the pickup next.");
+
+            actor.FeedInput(Vec2.Zero, Vec2.Right, false, true, false, false);
+            yield return new WaitForFixedUpdate();
+            Require(actor.Weapons.CurrentId == "shotgun" && world.QueryAction(actor).Door == door && !door.Model.IsOpening,
+                "The native action did not apply the previewed pickup and then offer the closed door.");
+
+            actor.CombatEnabled = false;
+            Require(world.QueryAction(actor).Door == door, "An unarmed actor lost the ordinary door action.");
+            actor.FeedInput(Vec2.Zero, Vec2.Right, false, true, false, false);
+            yield return new WaitForFixedUpdate();
+            Require((door.Model.IsOpening || door.Model.IsOpen) && world.QueryAction(actor).Kind == TopdownActionKind.None,
+                "The native action did not open the previewed door.");
         }
 
         private void OnDestroy()
