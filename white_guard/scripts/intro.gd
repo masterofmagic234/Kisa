@@ -1,5 +1,5 @@
 extends Control
-## The opening only: Mazur's interior voice, decoder-timed captions and eight drawings.
+## The opening only: Mazur's interior voice, decoder-timed captions and a raster storyboard.
 signal finished(skipped: bool)
 const Style = preload("res://addons/arkon_runtime/presentation/presentation_style163.gd")
 const Cues = preload("res://addons/arkon_runtime/presentation/cinematic_cues.gd")
@@ -64,7 +64,7 @@ func _build_view() -> void:
     _art = Stage.new()
     _full(_art)
     add_child(_art)
-    _art.configure(storyboard.shots)
+    _art.configure(storyboard)
     _caption_panel = PanelContainer.new()
     _caption_panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
     _caption_panel.offset_left = 105

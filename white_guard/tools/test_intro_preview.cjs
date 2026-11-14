@@ -4,7 +4,7 @@ const {chromium} = require('playwright');
 (async()=>{
   const [source, output] = process.argv.slice(2);
   fs.mkdirSync(output,{recursive:true});
-  const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+  const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH || (fs.existsSync('/usr/bin/chromium') ? '/usr/bin/chromium' : undefined),headless:true,args:['--no-sandbox']});
   const page=await browser.newPage({viewport:{width:1280,height:720}});
   const errors=[],requests=[];
   page.on('pageerror',e=>errors.push(e.message));
@@ -27,12 +27,33 @@ const {chromium} = require('playwright');
   await page.click('#subtitles');assert(await page.locator('#captions').isHidden());
   await page.click('#mute');assert(await page.locator('#captions').isVisible());
   await page.click('#mute');
-  const first=await page.evaluate(()=>window.INTRO.book.visuals.shots[0]);
-  assert(first.layers.length>0,'No animated convoy');
-  assert.notDeepEqual(first.layers[0].from,first.layers[0].to,'Only the camera moves');
-  for(const [name,time] of [['convoy',3],['roof',380],['leon',395]]){
-    const png=await page.evaluate(t=>{window.INTRO.renderAt(t);return document.querySelector('canvas').toDataURL('image/png')},time);
-    fs.writeFileSync(output+'/visual-'+name+'.png',Buffer.from(png.split(',')[1],'base64'));
+  const first = await page.evaluate(() => window.INTRO.book.visuals.shots[0]);
+  assert.equal(first.panels[0].traffic.fleet, 'escort');
+  const samples = await page.evaluate(() => {
+    const live = document.querySelector('canvas');
+    const frame = document.createElement('canvas');
+    frame.width = 1280;
+    frame.height = 720;
+    const ctx = frame.getContext('2d');
+    const capture = (time, pixel) => {
+      window.INTRO.renderAt(time);
+      ctx.drawImage(live, 0, 0);
+      return pixel ? Array.from(ctx.getImageData(...pixel, 1, 1).data) : frame.toDataURL('image/png');
+    };
+    return {
+      street: [capture(.3, [80, 105]), capture(3.7, [80, 105])],
+      convoy: [capture(.3), capture(3.7)],
+      glance: [capture(469.82), capture(470.45)],
+      still: capture(471.8, [640, 360]),
+      frames: [capture(3), capture(385.5), capture(393.35)],
+    };
+  });
+  assert.deepEqual(...samples.street, 'The fixed camera moved the avenue');
+  assert.notEqual(...samples.convoy, 'The convoy stalled on the avenue');
+  assert.notEqual(...samples.glance, 'Mazur held one drawing through the reaction');
+  assert.deepEqual(samples.still, [20, 23, 19, 255], 'The last beat must cut to the matte');
+  for (const [i, name] of ['convoy', 'roof', 'leon'].entries()) {
+    fs.writeFileSync(`${output}/visual-${name}.png`, Buffer.from(samples.frames[i].split(',')[1], 'base64'));
   }
   await page.evaluate(()=>window.INTRO.playBlock(6));
   await page.waitForTimeout(100);
@@ -51,7 +72,7 @@ const {chromium} = require('playwright');
   await page.setViewportSize({width:390,height:844});
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Mobile overflow');
   assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
-  const result={status:'PASS',offline_http_requests:requests.length,javascript_errors:errors,checks:['start','actual audio playback','pause clock','word captions','mute captions','atlas view','skip once','replay','real decoder next paragraph','real decoder ending','mobile overflow']};
+  const result={status:'PASS',offline_http_requests:requests.length,javascript_errors:errors,checks:['start','actual audio playback','pause clock','word captions','mute captions','fixed street and moving convoy','reaction pose and cut to black','skip once','replay','real decoder next paragraph','real decoder ending','mobile overflow']};
   fs.writeFileSync(output+'/browser-validation.json',JSON.stringify(result,null,2));
   console.log(JSON.stringify(result));await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

@@ -153,6 +153,84 @@
       "bytes": 2351901,
       "sha256": "08cf00bde75aadac70c40ae1445b0752072c0ac4cc4c37938a9ebde3ed009195",
       "origin": "image_gen original illustration / scene layer"
+    },
+    {
+      "path": "assets/intro/motion-avenue.png",
+      "bytes": 443086,
+      "sha256": "8c65286944b2cb7ffd9595614ee566975cf1327313c3671673a2f969ed866436",
+      "origin": "Cutouts and depth-matched copies from opening-atlas-a.png, opening-atlas-c.png, actors.png and stages.png"
+    },
+    {
+      "path": "assets/intro/motion-crew.png",
+      "bytes": 530163,
+      "sha256": "c01a94a614498bed908ed9e8eb1d1513e5fb77e0d2f93fc4bac777392db8bea2",
+      "origin": "Local pose drawings from opening-atlas-c.png and opening-atlas-d.png"
+    },
+    {
+      "path": "assets/intro/motion-glass.png",
+      "bytes": 1156300,
+      "sha256": "ed6f63d7be54c805b0dac3dbbaa680933a205bcdd07851725bf911530825c033",
+      "origin": "Reflection poses sampled from opening-atlas-c.png"
+    },
+    {
+      "path": "assets/intro/motion-glances.png",
+      "bytes": 1279874,
+      "sha256": "c8743cf99f227c06b11280eabd016c6f0e51513a784b7f039cf031179b8d7088",
+      "origin": "Local pose drawings from opening-atlas-a.png, opening-atlas-d.png and opening-atlas-f.png"
+    },
+    {
+      "path": "assets/intro/motion-interior.png",
+      "bytes": 1809815,
+      "sha256": "5cf3b9542f23963c60984f37f4f4b92596ae6f84d84f2fe1b3bb55bc81206ed1",
+      "origin": "Foreground mattes from opening-atlas-b.png, opening-atlas-f.png and stages.png"
+    },
+    {
+      "path": "assets/intro/motion-memory.png",
+      "bytes": 1432070,
+      "sha256": "c96db8218f17b36c930432e60ccb9f5e7e801ee5e2e2012837868af78a658751",
+      "origin": "Past-episode plates, foreground ridge and existing painted figure and flashes from opening-atlas-e.png"
+    },
+    {
+      "path": "assets/intro/motion-order.png",
+      "bytes": 1031445,
+      "sha256": "2abe98d838db1e335bd21d60e83cf34bbf273cbb96d19406fa4c63d0933ceb35",
+      "origin": "Signature and hand poses on the original order in opening-atlas-b.png"
+    },
+    {
+      "path": "assets/intro/motion-passing.png",
+      "bytes": 1116057,
+      "sha256": "5f9e28833afc710df116937f30741b80baaa6f7fa938d7e7fe4d0c01a150c4c3",
+      "origin": "Extended street plate from stages.png"
+    },
+    {
+      "path": "assets/intro/motion-police.png",
+      "bytes": 1508490,
+      "sha256": "ec0cd306b636d22d940ef635f63c08e68ee126cf4cef08ec73a3fa125e6b5305",
+      "origin": "Local police head and glove poses from opening-atlas-a.png"
+    },
+    {
+      "path": "assets/intro/motion-reaction.png",
+      "bytes": 1725382,
+      "sha256": "94bc9a58abfe5201ca1880544e9427489c1cb8dd6154964789fbc4b4cd1aacf1",
+      "origin": "Local head and hand poses from opening-atlas-f.png"
+    },
+    {
+      "path": "assets/intro/motion-side.png",
+      "bytes": 399335,
+      "sha256": "af83ed6c09884a8c1ce4eab1b1e06ffc262e2f1c9586f1dc7276f870cb92485c",
+      "origin": "Cropped transparent vehicle drawings and civilian paint variants from actors.png"
+    },
+    {
+      "path": "assets/intro/motion-sky.png",
+      "bytes": 824311,
+      "sha256": "5bfa28898e8be1a10bcbb2a50506116414a68ad5f4e9258c61cb969a7209d03f",
+      "origin": "Clean sky and painted plume from opening-atlas-e.png"
+    },
+    {
+      "path": "assets/intro/motion-wheels.png",
+      "bytes": 115465,
+      "sha256": "482b30c0383c00c3b69e37437f26a36d9d6d27cd18f55fdd352c08fd9736a135",
+      "origin": "Rotating hub crops from actors.png"
     }
   ],
   "visual_revision": {

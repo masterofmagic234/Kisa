@@ -10,7 +10,7 @@ const {chromium}=require('playwright');
   const policy=JSON.stringify({version:1,fps,width,height,jpegQuality,encodeArgs});
   const digest=crypto.createHash('sha256').update(source).update(policy).digest('hex');
   const cache=destination+'.render-chunks/'+digest.slice(0,16);fs.mkdirSync(cache,{recursive:true});
-  const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+  const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH || (fs.existsSync('/usr/bin/chromium') ? '/usr/bin/chromium' : undefined),headless:true,args:['--no-sandbox']});
   const pages=await Promise.all([0,1].map(async()=>{
     const page=await browser.newPage({viewport:{width,height}});page.errors=[];
     page.on('pageerror',e=>page.errors.push(e.message));
