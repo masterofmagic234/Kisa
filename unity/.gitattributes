@@ -1,2 +1,15 @@
+*.cs text eol=lf
+*.csproj text eol=lf
+*.py text eol=lf
+*.gd text eol=lf
+*.json text eol=lf
+*.asmdef text eol=lf
+*.meta text eol=lf
+*.unity text eol=lf
+*.asset text eol=lf
+
+# Keep the copied PNG/audio/JSON/fonts exactly as in the source manifest.
+WhiteGuard/Assets/Resources/WhiteGuardIntro/** -text
+
 # Upstream license notices are copied byte-for-byte with their source fonts.
 WhiteGuard/Assets/Resources/WhiteGuardIntro/fonts/*-OFL.txt -whitespace

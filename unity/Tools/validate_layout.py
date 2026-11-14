@@ -15,8 +15,8 @@ timing=re.search(r'Fixed Timestep:\s*([0-9.eE+-]+)',(P/'ProjectSettings/TimeMana
 if timing is None or abs(float(timing.group(1))-1/60)>1e-7:errors.append('Physics timestep does not match the Godot source default60Hz.')
 media=json.loads((P/'Assets/original-media-manifest.json').read_text())
 source=ROOT/'white_guard'
-expected_sources={str(p.relative_to(ROOT)) for p in (source/'assets/intro').glob('*.png')}
-expected_sources.update(str(p.relative_to(ROOT)) for p in (source/'assets/intro/audio').glob('*.mp3'))
+expected_sources={p.relative_to(ROOT).as_posix() for p in (source/'assets/intro').glob('*.png')}
+expected_sources.update(p.relative_to(ROOT).as_posix() for p in (source/'assets/intro/audio').glob('*.mp3'))
 expected_sources.update('white_guard/'+p for p in [
     'data/intro.json','data/intro_shots.json','assets/intro/road-ambience.ogg',
     *['assets/reused/fonts/'+name for name in ['Manrope-Variable.ttf','Forum-Regular.ttf','Manrope-OFL.txt','Forum-OFL.txt','FONT_NOTICE.md']]])
@@ -28,7 +28,7 @@ for entry in media['files']:
 stage=json.loads((source/'data/intro_shots.json').read_text())
 if media.get('source_stage_schema')!=stage['schema'] or media.get('source_shot_count')!=len(stage['shots']):
     errors.append('Generated stage metadata is stale; rerun prepare_white_guard.py.')
-source_textures={str(p.relative_to(source)) for p in (source/'assets/intro').glob('*.png')}
+source_textures={p.relative_to(source).as_posix() for p in (source/'assets/intro').glob('*.png')}
 for art_id,art in stage.get('art',{}).items():
     if art[0].removeprefix('res://') not in source_textures:
         errors.append('Missing schema3 artwork: '+art_id)

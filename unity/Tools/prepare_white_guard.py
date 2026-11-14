@@ -14,7 +14,7 @@ PACKAGE = UNITY / 'Packages/com.arkon.runtime'
 GUID_NAMESPACE = uuid.UUID('148da6b4-dd8f-4fc4-9fac-eaa35141a82e')
 
 def guid(path):
-    return uuid.uuid5(GUID_NAMESPACE, str(path.relative_to(UNITY))).hex
+    return uuid.uuid5(GUID_NAMESPACE, path.relative_to(UNITY).as_posix()).hex
 
 def meta(path, folder=False):
     target = Path(str(path)+'.meta')
@@ -36,7 +36,7 @@ def main():
         shutil.copyfile(original,destination)
         data=destination.read_bytes()
         assert data==original.read_bytes()
-        record=dict(source=str(original.relative_to(ROOT)),target=str(destination.relative_to(ROOT)),bytes=len(data),sha256=hashlib.sha256(data).hexdigest())
+        record=dict(source=original.relative_to(ROOT).as_posix(),target=destination.relative_to(ROOT).as_posix(),bytes=len(data),sha256=hashlib.sha256(data).hexdigest())
         if destination.suffix=='.png': record['width'],record['height']=struct.unpack('>II',data[16:24])
         records.append(record)
     stage = json.loads((source/'data/intro_shots.json').read_text())
