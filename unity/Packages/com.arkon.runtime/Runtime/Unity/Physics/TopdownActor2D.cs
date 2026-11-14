@@ -38,7 +38,9 @@ namespace Arkon.Unity
             body = GetComponent<KinematicBodyPort2D>(); identity = GetComponent<ActorIdentity2D>();
             receiver = GetComponent<DamageReceiver2D>();
             Weapons = new WeaponModel(InfiniteAmmo);
-            if (AssignedWorld && (!AssignedWorld.isActiveAndEnabled || AssignedWorld.gameObject.scene != gameObject.scene))
+            // The assigned component may not have received OnEnable yet when a scene loads.
+            if (AssignedWorld && (!AssignedWorld.enabled || !AssignedWorld.gameObject.activeInHierarchy ||
+                AssignedWorld.gameObject.scene != gameObject.scene))
                 throw new InvalidOperationException("Assigned projectile world must be active and belong to the actor's scene.");
             world = AssignedWorld ? AssignedWorld : SceneObjects.Find<Physics2DPort>(this);
             if (!world)
