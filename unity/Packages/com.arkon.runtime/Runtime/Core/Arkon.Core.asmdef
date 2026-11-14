@@ -1,0 +1,7 @@
+{
+  "name": "Arkon.Core",
+  "rootNamespace": "Arkon.Core",
+  "references": [],
+  "autoReferenced": true,
+  "noEngineReferences": true
+}

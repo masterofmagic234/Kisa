@@ -1,0 +1,483 @@
+{
+  "schema": 3,
+  "duration": 472.344,
+  "captions_default": false,
+  "controls_idle_seconds": 2.25,
+  "art": {
+    "a2": ["res://assets/intro/opening-atlas-a.png", 0, 512, 768, 512],
+    "a3": ["res://assets/intro/opening-atlas-a.png", 768, 512, 768, 512],
+    "b0": ["res://assets/intro/opening-atlas-b.png", 0, 0, 768, 512],
+    "b2": ["res://assets/intro/opening-atlas-b.png", 0, 512, 768, 512],
+    "b3": ["res://assets/intro/opening-atlas-b.png", 768, 512, 768, 512],
+    "c0": ["res://assets/intro/opening-atlas-c.png", 0, 0, 768, 512],
+    "c2": ["res://assets/intro/opening-atlas-c.png", 0, 512, 768, 512],
+    "c3": ["res://assets/intro/opening-atlas-c.png", 768, 512, 768, 512],
+    "d0": ["res://assets/intro/opening-atlas-d.png", 0, 0, 768, 512],
+    "d1": ["res://assets/intro/opening-atlas-d.png", 768, 0, 768, 512],
+    "d2": ["res://assets/intro/opening-atlas-d.png", 0, 512, 768, 512],
+    "d3": ["res://assets/intro/opening-atlas-d.png", 768, 512, 768, 512],
+    "e0": ["res://assets/intro/opening-atlas-e.png", 0, 0, 768, 512],
+    "e3": ["res://assets/intro/opening-atlas-e.png", 768, 512, 768, 512],
+    "f0": ["res://assets/intro/opening-atlas-f.png", 0, 0, 768, 512],
+    "f1": ["res://assets/intro/opening-atlas-f.png", 768, 0, 768, 512],
+    "f2": ["res://assets/intro/opening-atlas-f.png", 0, 512, 768, 512],
+    "f3": ["res://assets/intro/opening-atlas-f.png", 768, 512, 768, 512],
+    "t0": ["res://assets/intro/stages.png", 0, 0, 768, 512],
+    "t1": ["res://assets/intro/stages.png", 768, 0, 768, 512],
+    "t2": ["res://assets/intro/stages.png", 0, 512, 768, 512],
+    "patrol_front": ["res://assets/intro/motion-avenue.png", 2, 2, 170, 111],
+    "saloon_front": ["res://assets/intro/motion-avenue.png", 176, 2, 170, 111],
+    "saloon_sand_front": ["res://assets/intro/motion-avenue.png", 350, 2, 170, 111],
+    "mercedes_front": ["res://assets/intro/motion-avenue.png", 1022, 2, 150, 88],
+    "bike_front": ["res://assets/intro/motion-avenue.png", 1176, 2, 160, 207],
+    "jeep_front": ["res://assets/intro/motion-avenue.png", 1340, 2, 145, 109],
+    "avenue_roof": ["res://assets/intro/motion-avenue.png", 2, 262, 109, 226],
+    "mercedes_side": ["res://assets/intro/motion-side.png", 2, 2, 352, 146],
+    "mercedes_side_hub0_0": ["res://assets/intro/motion-wheels.png", 2, 2, 17, 33],
+    "mercedes_side_hub0_1": ["res://assets/intro/motion-wheels.png", 23, 2, 17, 33],
+    "mercedes_side_hub0_2": ["res://assets/intro/motion-wheels.png", 44, 2, 17, 33],
+    "mercedes_side_hub0_3": ["res://assets/intro/motion-wheels.png", 65, 2, 17, 33],
+    "mercedes_side_hub0_4": ["res://assets/intro/motion-wheels.png", 86, 2, 17, 33],
+    "mercedes_side_hub0_5": ["res://assets/intro/motion-wheels.png", 107, 2, 17, 33],
+    "mercedes_side_hub0_6": ["res://assets/intro/motion-wheels.png", 128, 2, 17, 33],
+    "mercedes_side_hub0_7": ["res://assets/intro/motion-wheels.png", 149, 2, 17, 33],
+    "mercedes_side_hub1_0": ["res://assets/intro/motion-wheels.png", 170, 2, 25, 43],
+    "mercedes_side_hub1_1": ["res://assets/intro/motion-wheels.png", 199, 2, 25, 43],
+    "mercedes_side_hub1_2": ["res://assets/intro/motion-wheels.png", 228, 2, 25, 43],
+    "mercedes_side_hub1_3": ["res://assets/intro/motion-wheels.png", 257, 2, 25, 43],
+    "mercedes_side_hub1_4": ["res://assets/intro/motion-wheels.png", 286, 2, 25, 43],
+    "mercedes_side_hub1_5": ["res://assets/intro/motion-wheels.png", 315, 2, 25, 43],
+    "mercedes_side_hub1_6": ["res://assets/intro/motion-wheels.png", 344, 2, 25, 43],
+    "mercedes_side_hub1_7": ["res://assets/intro/motion-wheels.png", 373, 2, 25, 43],
+    "patrol_side": ["res://assets/intro/motion-side.png", 358, 2, 352, 165],
+    "saloon_side": ["res://assets/intro/motion-side.png", 714, 2, 352, 165],
+    "saloon_sand_side": ["res://assets/intro/motion-side.png", 1070, 2, 352, 165],
+    "patrol_side_hub0_0": ["res://assets/intro/motion-wheels.png", 402, 2, 17, 35],
+    "patrol_side_hub0_1": ["res://assets/intro/motion-wheels.png", 423, 2, 17, 35],
+    "patrol_side_hub0_2": ["res://assets/intro/motion-wheels.png", 444, 2, 17, 35],
+    "patrol_side_hub0_3": ["res://assets/intro/motion-wheels.png", 465, 2, 17, 35],
+    "patrol_side_hub0_4": ["res://assets/intro/motion-wheels.png", 486, 2, 17, 35],
+    "patrol_side_hub0_5": ["res://assets/intro/motion-wheels.png", 507, 2, 17, 35],
+    "patrol_side_hub0_6": ["res://assets/intro/motion-wheels.png", 528, 2, 17, 35],
+    "patrol_side_hub0_7": ["res://assets/intro/motion-wheels.png", 549, 2, 17, 35],
+    "patrol_side_hub1_0": ["res://assets/intro/motion-wheels.png", 570, 2, 25, 43],
+    "patrol_side_hub1_1": ["res://assets/intro/motion-wheels.png", 599, 2, 25, 43],
+    "patrol_side_hub1_2": ["res://assets/intro/motion-wheels.png", 628, 2, 25, 43],
+    "patrol_side_hub1_3": ["res://assets/intro/motion-wheels.png", 657, 2, 25, 43],
+    "patrol_side_hub1_4": ["res://assets/intro/motion-wheels.png", 686, 2, 25, 43],
+    "patrol_side_hub1_5": ["res://assets/intro/motion-wheels.png", 715, 2, 25, 43],
+    "patrol_side_hub1_6": ["res://assets/intro/motion-wheels.png", 744, 2, 25, 43],
+    "patrol_side_hub1_7": ["res://assets/intro/motion-wheels.png", 773, 2, 25, 43],
+    "jeep_side": ["res://assets/intro/motion-side.png", 2, 171, 352, 228],
+    "jeep_side_hub0_0": ["res://assets/intro/motion-wheels.png", 802, 2, 33, 51],
+    "jeep_side_hub0_1": ["res://assets/intro/motion-wheels.png", 839, 2, 33, 51],
+    "jeep_side_hub0_2": ["res://assets/intro/motion-wheels.png", 876, 2, 33, 51],
+    "jeep_side_hub0_3": ["res://assets/intro/motion-wheels.png", 913, 2, 33, 51],
+    "jeep_side_hub0_4": ["res://assets/intro/motion-wheels.png", 950, 2, 33, 51],
+    "jeep_side_hub0_5": ["res://assets/intro/motion-wheels.png", 987, 2, 33, 51],
+    "jeep_side_hub0_6": ["res://assets/intro/motion-wheels.png", 1024, 2, 33, 51],
+    "jeep_side_hub0_7": ["res://assets/intro/motion-wheels.png", 1061, 2, 33, 51],
+    "jeep_side_hub1_0": ["res://assets/intro/motion-wheels.png", 1098, 2, 35, 53],
+    "jeep_side_hub1_1": ["res://assets/intro/motion-wheels.png", 1137, 2, 35, 53],
+    "jeep_side_hub1_2": ["res://assets/intro/motion-wheels.png", 1176, 2, 35, 53],
+    "jeep_side_hub1_3": ["res://assets/intro/motion-wheels.png", 1215, 2, 35, 53],
+    "jeep_side_hub1_4": ["res://assets/intro/motion-wheels.png", 1254, 2, 35, 53],
+    "jeep_side_hub1_5": ["res://assets/intro/motion-wheels.png", 1293, 2, 35, 53],
+    "jeep_side_hub1_6": ["res://assets/intro/motion-wheels.png", 1332, 2, 35, 53],
+    "jeep_side_hub1_7": ["res://assets/intro/motion-wheels.png", 1371, 2, 35, 53],
+    "bike_side": ["res://assets/intro/motion-side.png", 358, 171, 285, 240],
+    "mazur_check_0": ["res://assets/intro/motion-glances.png", 2, 2, 235, 274],
+    "mazur_check_1": ["res://assets/intro/motion-glances.png", 241, 2, 235, 274],
+    "mazur_check_2": ["res://assets/intro/motion-glances.png", 480, 2, 235, 274],
+    "mazur_check_3": ["res://assets/intro/motion-glances.png", 719, 2, 235, 274],
+    "mazur_check_4": ["res://assets/intro/motion-glances.png", 958, 2, 235, 274],
+    "mazur_check_5": ["res://assets/intro/motion-glances.png", 1197, 2, 235, 274],
+    "mazur_check_6": ["res://assets/intro/motion-glances.png", 2, 280, 235, 274],
+    "mazur_brace_0": ["res://assets/intro/motion-glances.png", 241, 280, 241, 240],
+    "mazur_brace_1": ["res://assets/intro/motion-glances.png", 486, 280, 241, 240],
+    "mazur_brace_2": ["res://assets/intro/motion-glances.png", 731, 280, 241, 240],
+    "mazur_brace_3": ["res://assets/intro/motion-glances.png", 976, 280, 241, 240],
+    "mazur_brace_4": ["res://assets/intro/motion-glances.png", 1221, 280, 241, 240],
+    "mazur_brace_5": ["res://assets/intro/motion-glances.png", 2, 558, 241, 240],
+    "mazur_brace_6": ["res://assets/intro/motion-glances.png", 247, 558, 241, 240],
+    "lavrik_look_0": ["res://assets/intro/motion-glances.png", 492, 558, 240, 210],
+    "lavrik_look_1": ["res://assets/intro/motion-glances.png", 736, 558, 240, 210],
+    "lavrik_look_2": ["res://assets/intro/motion-glances.png", 980, 558, 240, 210],
+    "lavrik_look_3": ["res://assets/intro/motion-glances.png", 1224, 558, 240, 210],
+    "lavrik_look_4": ["res://assets/intro/motion-glances.png", 2, 802, 240, 210],
+    "lavrik_look_5": ["res://assets/intro/motion-glances.png", 246, 802, 240, 210],
+    "lavrik_look_6": ["res://assets/intro/motion-glances.png", 490, 802, 240, 210],
+    "mazur_snap_0": ["res://assets/intro/motion-reaction.png", 2, 2, 352, 345],
+    "mazur_snap_1": ["res://assets/intro/motion-reaction.png", 358, 2, 352, 345],
+    "mazur_snap_2": ["res://assets/intro/motion-reaction.png", 714, 2, 352, 345],
+    "mazur_snap_3": ["res://assets/intro/motion-reaction.png", 1070, 2, 352, 345],
+    "mazur_snap_4": ["res://assets/intro/motion-reaction.png", 2, 351, 352, 345],
+    "mazur_snap_5": ["res://assets/intro/motion-reaction.png", 358, 351, 352, 345],
+    "mazur_snap_6": ["res://assets/intro/motion-reaction.png", 714, 351, 352, 345],
+    "mazur_snap_7": ["res://assets/intro/motion-reaction.png", 1070, 351, 352, 345],
+    "mazur_snap_8": ["res://assets/intro/motion-reaction.png", 2, 700, 352, 345],
+    "mazur_grip_0": ["res://assets/intro/motion-reaction.png", 358, 700, 315, 199],
+    "mazur_grip_1": ["res://assets/intro/motion-reaction.png", 677, 700, 315, 199],
+    "mazur_grip_2": ["res://assets/intro/motion-reaction.png", 996, 700, 315, 199],
+    "mazur_grip_3": ["res://assets/intro/motion-reaction.png", 2, 1049, 315, 199],
+    "mazur_grip_4": ["res://assets/intro/motion-reaction.png", 321, 1049, 315, 199],
+    "mazur_grip_5": ["res://assets/intro/motion-reaction.png", 640, 1049, 315, 199],
+    "mazur_grip_6": ["res://assets/intro/motion-reaction.png", 959, 1049, 315, 199],
+    "police_layer": ["res://assets/intro/motion-police.png", 2, 2, 768, 512],
+    "police_look_0": ["res://assets/intro/motion-police.png", 774, 2, 361, 200],
+    "police_look_1": ["res://assets/intro/motion-police.png", 1139, 2, 361, 200],
+    "police_look_2": ["res://assets/intro/motion-police.png", 2, 518, 361, 200],
+    "police_look_3": ["res://assets/intro/motion-police.png", 367, 518, 361, 200],
+    "police_look_4": ["res://assets/intro/motion-police.png", 732, 518, 361, 200],
+    "police_look_5": ["res://assets/intro/motion-police.png", 1097, 518, 361, 200],
+    "police_look_6": ["res://assets/intro/motion-police.png", 2, 722, 361, 200],
+    "police_look_7": ["res://assets/intro/motion-police.png", 367, 722, 361, 200],
+    "police_glove_0": ["res://assets/intro/motion-police.png", 732, 722, 161, 152],
+    "police_glove_1": ["res://assets/intro/motion-police.png", 897, 722, 161, 152],
+    "police_glove_2": ["res://assets/intro/motion-police.png", 1062, 722, 161, 152],
+    "police_glove_3": ["res://assets/intro/motion-police.png", 1227, 722, 161, 152],
+    "police_glove_4": ["res://assets/intro/motion-police.png", 2, 926, 161, 152],
+    "police_glove_5": ["res://assets/intro/motion-police.png", 167, 926, 161, 152],
+    "police_glove_6": ["res://assets/intro/motion-police.png", 332, 926, 161, 152],
+    "mazur_pov": ["res://assets/intro/motion-interior.png", 2, 2, 768, 512],
+    "warehouse_jeep": ["res://assets/intro/motion-interior.png", 2, 518, 768, 512],
+    "window_frame": ["res://assets/intro/motion-interior.png", 2, 1034, 768, 512],
+    "order_signed": ["res://assets/intro/motion-order.png", 2, 2, 768, 512],
+    "order_hands_0": ["res://assets/intro/motion-order.png", 774, 2, 210, 189],
+    "order_hands_1": ["res://assets/intro/motion-order.png", 988, 2, 210, 189],
+    "order_hands_2": ["res://assets/intro/motion-order.png", 1202, 2, 210, 189],
+    "order_hands_3": ["res://assets/intro/motion-order.png", 2, 518, 210, 189],
+    "order_hands_4": ["res://assets/intro/motion-order.png", 216, 518, 210, 189],
+    "order_hands_5": ["res://assets/intro/motion-order.png", 430, 518, 210, 189],
+    "order_hands_6": ["res://assets/intro/motion-order.png", 644, 518, 210, 189],
+    "roof_plate": ["res://assets/intro/motion-memory.png", 2, 2, 768, 512],
+    "roof_figure": ["res://assets/intro/motion-memory.png", 774, 2, 101, 105],
+    "roof_eave": ["res://assets/intro/motion-memory.png", 879, 2, 241, 415],
+    "leon_plate": ["res://assets/intro/motion-memory.png", 2, 518, 768, 512],
+    "flare_near": ["res://assets/intro/motion-memory.png", 774, 518, 79, 61],
+    "flare_far": ["res://assets/intro/motion-memory.png", 857, 518, 59, 39],
+    "sky_plate": ["res://assets/intro/motion-sky.png", 2, 2, 768, 512],
+    "sky_trail": ["res://assets/intro/motion-sky.png", 774, 2, 478, 298],
+    "glass_reflection_0": ["res://assets/intro/motion-glass.png", 2, 2, 655, 266],
+    "glass_reflection_1": ["res://assets/intro/motion-glass.png", 661, 2, 655, 266],
+    "glass_reflection_2": ["res://assets/intro/motion-glass.png", 2, 272, 655, 266],
+    "glass_reflection_3": ["res://assets/intro/motion-glass.png", 661, 272, 655, 266],
+    "glass_reflection_4": ["res://assets/intro/motion-glass.png", 2, 542, 655, 266],
+    "glass_reflection_5": ["res://assets/intro/motion-glass.png", 661, 542, 655, 266],
+    "glass_reflection_6": ["res://assets/intro/motion-glass.png", 2, 812, 655, 266],
+    "leon_nod_0": ["res://assets/intro/motion-crew.png", 2, 2, 204, 225],
+    "leon_nod_1": ["res://assets/intro/motion-crew.png", 210, 2, 204, 225],
+    "leon_nod_2": ["res://assets/intro/motion-crew.png", 418, 2, 204, 225],
+    "leon_nod_3": ["res://assets/intro/motion-crew.png", 626, 2, 204, 225],
+    "leon_nod_4": ["res://assets/intro/motion-crew.png", 834, 2, 204, 225],
+    "leon_nod_5": ["res://assets/intro/motion-crew.png", 1042, 2, 204, 225],
+    "leon_nod_6": ["res://assets/intro/motion-crew.png", 1250, 2, 204, 225],
+    "escort_look_0": ["res://assets/intro/motion-crew.png", 2, 231, 174, 193],
+    "escort_look_1": ["res://assets/intro/motion-crew.png", 180, 231, 174, 193],
+    "escort_look_2": ["res://assets/intro/motion-crew.png", 358, 231, 174, 193],
+    "escort_look_3": ["res://assets/intro/motion-crew.png", 536, 231, 174, 193],
+    "escort_look_4": ["res://assets/intro/motion-crew.png", 714, 231, 174, 193],
+    "escort_look_5": ["res://assets/intro/motion-crew.png", 892, 231, 174, 193],
+    "escort_look_6": ["res://assets/intro/motion-crew.png", 1070, 231, 174, 193],
+    "t0_panorama": ["res://assets/intro/motion-passing.png", 2, 2, 1500, 500]
+  },
+  "poses": {
+    "mercedes_side_hub0": ["mercedes_side_hub0_0", "mercedes_side_hub0_1", "mercedes_side_hub0_2", "mercedes_side_hub0_3", "mercedes_side_hub0_4", "mercedes_side_hub0_5", "mercedes_side_hub0_6", "mercedes_side_hub0_7"],
+    "mercedes_side_hub1": ["mercedes_side_hub1_0", "mercedes_side_hub1_1", "mercedes_side_hub1_2", "mercedes_side_hub1_3", "mercedes_side_hub1_4", "mercedes_side_hub1_5", "mercedes_side_hub1_6", "mercedes_side_hub1_7"],
+    "patrol_side_hub0": ["patrol_side_hub0_0", "patrol_side_hub0_1", "patrol_side_hub0_2", "patrol_side_hub0_3", "patrol_side_hub0_4", "patrol_side_hub0_5", "patrol_side_hub0_6", "patrol_side_hub0_7"],
+    "patrol_side_hub1": ["patrol_side_hub1_0", "patrol_side_hub1_1", "patrol_side_hub1_2", "patrol_side_hub1_3", "patrol_side_hub1_4", "patrol_side_hub1_5", "patrol_side_hub1_6", "patrol_side_hub1_7"],
+    "jeep_side_hub0": ["jeep_side_hub0_0", "jeep_side_hub0_1", "jeep_side_hub0_2", "jeep_side_hub0_3", "jeep_side_hub0_4", "jeep_side_hub0_5", "jeep_side_hub0_6", "jeep_side_hub0_7"],
+    "jeep_side_hub1": ["jeep_side_hub1_0", "jeep_side_hub1_1", "jeep_side_hub1_2", "jeep_side_hub1_3", "jeep_side_hub1_4", "jeep_side_hub1_5", "jeep_side_hub1_6", "jeep_side_hub1_7"],
+    "mazur_check": ["mazur_check_0", "mazur_check_1", "mazur_check_2", "mazur_check_3", "mazur_check_4", "mazur_check_5", "mazur_check_6"],
+    "mazur_brace": ["mazur_brace_0", "mazur_brace_1", "mazur_brace_2", "mazur_brace_3", "mazur_brace_4", "mazur_brace_5", "mazur_brace_6"],
+    "lavrik_look": ["lavrik_look_0", "lavrik_look_1", "lavrik_look_2", "lavrik_look_3", "lavrik_look_4", "lavrik_look_5", "lavrik_look_6"],
+    "mazur_snap": ["mazur_snap_0", "mazur_snap_1", "mazur_snap_2", "mazur_snap_3", "mazur_snap_4", "mazur_snap_5", "mazur_snap_6", "mazur_snap_7", "mazur_snap_8"],
+    "mazur_grip": ["mazur_grip_0", "mazur_grip_1", "mazur_grip_2", "mazur_grip_3", "mazur_grip_4", "mazur_grip_5", "mazur_grip_6"],
+    "police_look": ["police_look_0", "police_look_1", "police_look_2", "police_look_3", "police_look_4", "police_look_5", "police_look_6", "police_look_7"],
+    "police_glove": ["police_glove_0", "police_glove_1", "police_glove_2", "police_glove_3", "police_glove_4", "police_glove_5", "police_glove_6"],
+    "order_hands": ["order_hands_0", "order_hands_1", "order_hands_2", "order_hands_3", "order_hands_4", "order_hands_5", "order_hands_6"],
+    "glass_reflection": ["glass_reflection_0", "glass_reflection_1", "glass_reflection_2", "glass_reflection_3", "glass_reflection_4", "glass_reflection_5", "glass_reflection_6"],
+    "leon_nod": ["leon_nod_0", "leon_nod_1", "leon_nod_2", "leon_nod_3", "leon_nod_4", "leon_nod_5", "leon_nod_6"],
+    "escort_look": ["escort_look_0", "escort_look_1", "escort_look_2", "escort_look_3", "escort_look_4", "escort_look_5", "escort_look_6"]
+  },
+  "wheels": {
+    "mercedes_side": [["mercedes_side_hub0", 38, 78], ["mercedes_side_hub1", 190, 86]],
+    "patrol_side": [["patrol_side_hub0", 40, 101], ["patrol_side_hub1", 178, 110]],
+    "jeep_side": [["jeep_side_hub0", 49, 150], ["jeep_side_hub1", 201, 159]]
+  },
+  "formations": {
+    "escort": {"projection": "avenue", "vehicles": [["saloon_front", 395, 5.7, 166, 0.6, 0.96], ["saloon_front", 285, 5.31, 166, 0.6, 0.96], ["saloon_sand_front", 415, 4.92, 166, 0.6, 0.96], ["saloon_front", 295, 4.53, 166, 0.6, 0.96], ["mercedes_front", 327, 4.03, 167, 0.52, 0.95], ["jeep_front", 106, 3.85, 134, 0.44, 0.97], ["jeep_front", 534, 3.85, 134, 0.44, 0.97], ["mercedes_front", 327, 3.62, 167, 0.52, 0.95], ["jeep_front", 106, 3.3200000000000003, 134, 0.44, 0.97], ["jeep_front", 534, 3.3200000000000003, 134, 0.44, 0.97], ["mercedes_front", 327, 3.21, 167, 0.52, 0.95], ["bike_front", 76, 2.79, 85, 0.73, 0.81], ["bike_front", 554, 2.79, 85, 0.73, 0.81], ["bike_front", 152, 2.59, 85, 0.73, 0.81], ["bike_front", 488, 2.59, 85, 0.73, 0.81], ["bike_front", 236, 2.41, 85, 0.73, 0.81], ["bike_front", 414, 2.41, 85, 0.73, 0.81], ["bike_front", 330, 2.25, 85, 0.73, 0.81], ["saloon_sand_front", 447, 1.93, 166, 0.6, 0.96], ["saloon_front", 226, 1.88, 166, 0.6, 0.96], ["patrol_front", 113, 1.37, 166, 0.61, 0.96], ["patrol_front", 330, 1.37, 166, 0.61, 0.96], ["patrol_front", 545, 1.37, 166, 0.61, 0.96]]},
+    "patrol": {"projection": "avenue", "vehicles": [["patrol_front", 113, 1.42, 166, 0.61, 0.96], ["patrol_front", 330, 1.42, 166, 0.61, 0.96], ["patrol_front", 545, 1.42, 166, 0.61, 0.96]]},
+    "wedge": {"projection": "avenue", "vehicles": [["bike_front", 76, 1.96, 85, 0.73, 0.81], ["bike_front", 554, 1.96, 85, 0.73, 0.81], ["bike_front", 152, 1.76, 85, 0.73, 0.81], ["bike_front", 488, 1.76, 85, 0.73, 0.81], ["bike_front", 236, 1.58, 85, 0.73, 0.81], ["bike_front", 414, 1.58, 85, 0.73, 0.81], ["bike_front", 330, 1.42, 85, 0.73, 0.81]]},
+    "core": {"projection": "avenue", "vehicles": [["mercedes_front", 327, 2.24, 167, 0.52, 0.95], ["jeep_front", 106, 2.06, 134, 0.44, 0.97], ["jeep_front", 534, 2.06, 134, 0.44, 0.97], ["mercedes_front", 327, 1.83, 167, 0.52, 0.95], ["jeep_front", 106, 1.53, 134, 0.44, 0.97], ["jeep_front", 534, 1.53, 134, 0.44, 0.97], ["mercedes_front", 327, 1.42, 167, 0.52, 0.95]]},
+    "solo": {"projection": "side", "vehicles": [["bike_side", 426, 414, 300, 0.54, 0.97]]},
+    "limousines": {"projection": "avenue", "vehicles": [["mercedes_front", 327, 2.24, 167, 0.52, 0.95], ["mercedes_front", 327, 1.83, 167, 0.52, 0.95], ["mercedes_front", 327, 1.42, 167, 0.52, 0.95]]},
+    "wheel": {"projection": "side", "vehicles": [["patrol_side", 145, 468, 550, 0.54, 0.97]]},
+    "patrol_side": {"projection": "side", "vehicles": [["patrol_side", 105, 399, 245, 0.54, 0.97], ["patrol_side", 43, 444, 290, 0.54, 0.97], ["patrol_side", -48, 482, 336, 0.54, 0.97]]},
+    "cruisers": {"projection": "side", "vehicles": [["saloon_sand_side", -382, 420, 266, 0.54, 0.97], ["saloon_side", -35, 437, 312, 0.54, 0.97]]},
+    "black_glass": {"projection": "side", "vehicles": [["mercedes_side", -710, 448, 286, 0.54, 0.97], ["mercedes_side", -376, 448, 286, 0.54, 0.97], ["mercedes_side", -42, 448, 286, 0.54, 0.97]]},
+    "flank_side": {"projection": "side", "vehicles": [["mercedes_side", 23, 407, 281, 0.54, 0.97], ["jeep_side", -208, 450, 265, 0.54, 0.97], ["jeep_side", 123, 450, 265, 0.54, 0.97]]}
+  },
+  "shots": [
+    {"id": "s001", "start": 0, "end": 5.86, "block": 0, "beat": "Общий с верхней точки. Машины проходят от дворца к камере по своим полосам.", "panels": [
+      {"crop": [0, 31, 768, 432], "art": "t1", "layers": [{"at": [659, 284], "art": "avenue_roof"}], "traffic": {"fleet": "escort", "rate": 0.126, "offset": 0}}
+    ]},
+    {"id": "s002", "start": 5.86, "end": 11.42, "block": 0, "beat": "По движению склейка на передовую машину. Дорожная тень и колёса проходят под камерой.", "panels": [
+      {"crop": [16, 125, 744, 375], "art": "t0", "camera": [[0, 0, 0], [5.5, 5, 0]], "traffic": {"fleet": "wheel", "rate": 119, "offset": 2}, "mirror": true}
+    ]},
+    {"id": "s003", "start": 11.42, "end": 16.38, "block": 0, "beat": "Держим чёрное стекло. Вопрос о французской выучке остаётся за отражением.", "panels": [
+      {"crop": [21, 32, 713, 401], "art": "c2", "layers": [{"at": [96, 95], "pose": "glass_reflection", "phase": [[0, 0], [1.18, 0], [4.9, 1]]}]}
+    ]},
+    {"id": "s004", "start": 16.38, "end": 20.808, "block": 0, "beat": "Возврат к улице в движении. Горизонт остаётся на месте, передний ряд приближается.", "panels": [
+      {"crop": [66, 76, 688, 387], "art": "t1", "layers": [{"at": [659, 284], "art": "avenue_roof"}], "traffic": {"fleet": "escort", "rate": 0.103, "offset": 0.16}}
+    ]},
+    {"id": "s005", "start": 20.808, "end": 28.86, "block": 1, "beat": "Три машины передового дозора разом выходят из дальнего плана.", "panels": [
+      {"crop": [96, 86, 672, 378], "art": "t1", "layers": [{"at": [659, 284], "art": "avenue_roof"}], "traffic": {"fleet": "patrol", "rate": 0.092, "offset": -0.06}}
+    ]},
+    {"id": "s006", "start": 28.86, "end": 34.6, "block": 1, "beat": "Обочина остаётся за караулом. Проезд машины закрывает нижнюю половину фасада.", "panels": [
+      {"crop": [0, 43, 768, 432], "art": "t0", "traffic": {"fleet": "patrol_side", "rate": 149, "offset": -310}, "mirror": true}
+    ]},
+    {"id": "s007", "start": 34.6, "end": 40.65, "block": 1, "beat": "После проезда в кадре остаётся только улица и люди за ограждением.", "panels": [
+      {"crop": [0, 56, 660, 371], "art": "t1"}
+    ]},
+    {"id": "s008", "start": 40.65, "end": 47.85, "block": 1, "beat": "Двое караульных в белой форме. Дальний замечает движение у проёмов первым.", "panels": [
+      {"crop": [6, 45, 754, 424], "art": "t0", "layers": [{"at": [0, 0], "art": "police_layer"}, {"at": [63, 45], "pose": "police_look", "phase": [[0, 0], [1.7, 0], [2.45, 0.85], [4.1, 0.85], [5.15, 0.15]]}, {"at": [231, 360], "pose": "police_glove", "phase": [[0, 0]]}]}
+    ]},
+    {"id": "s009", "start": 47.85, "end": 54.88, "block": 1, "beat": "На одной оси остаются чёрный и оранжевый береты. Передний провожает взглядом противоположный край улицы.", "panels": [
+      {"crop": [24, 61, 535, 302], "art": "t0", "layers": [{"at": [0, 0], "art": "police_layer"}, {"at": [63, 45], "pose": "police_look", "phase": [[0, 0.15], [1.4, 0.15], [2.35, 1], [4.15, 0.93], [5.6, 0]]}, {"at": [231, 360], "pose": "police_glove", "phase": [[0, 0]]}]}
+    ]},
+    {"id": "s010", "start": 54.88, "end": 61.65, "block": 1, "beat": "Крупно. Локоть меняет опору, перчатка ложится на кобуру.", "panels": [
+      {"crop": [125, 265, 426, 240], "art": "t0", "layers": [{"at": [0, 0], "art": "police_layer"}, {"at": [63, 45], "pose": "police_look", "phase": [[0, 0]]}, {"at": [231, 360], "pose": "police_glove", "phase": [[0, 0], [2.1, 0], [2.72, 1], [3.55, 1], [4.18, 0.42], [6.6, 0.42]]}]}
+    ]},
+    {"id": "s011", "start": 61.65, "end": 65.088, "block": 1, "beat": "Ответный план из джипа. Проёмы уходят за стойку кузова.", "panels": [
+      {"crop": [8, 37, 750, 422], "layers": [{"at": [0, 0], "art": "window_frame"}], "behind": [{"at": [-66, 0], "art": "t0_panorama", "motion": [[0, 0, 0, 1], [3.438, -205, 0, 1]], "ease": false}]}
+    ]},
+    {"id": "s012", "start": 65.088, "end": 70.22, "block": 2, "beat": "Две гражданские машины проходят боковым ракурсом, сохраняя интервал.", "panels": [
+      {"crop": [0, 45, 768, 432], "art": "t0", "traffic": {"fleet": "cruisers", "rate": 166, "offset": 0}, "mirror": true}
+    ]},
+    {"id": "s013", "start": 70.22, "end": 75.14, "block": 2, "beat": "Внутри головной гражданской машины. Ближний охранник отвлекается от окна и возвращает взгляд на дорогу.", "panels": [
+      {"crop": [11, 40, 744, 419], "art": "c0", "layers": [{"at": [128, 58], "pose": "escort_look", "phase": [[0, 0], [0.8, 0], [1.36, 1], [2.22, 1], [3.5, 0]]}]}
+    ]},
+    {"id": "s014", "start": 75.14, "end": 79.8, "block": 2, "beat": "Мотоциклы входят одним клином. Все семь мест в строю остаются различимыми.", "panels": [
+      {"crop": [137, 70, 620, 349], "art": "t1", "layers": [{"at": [659, 284], "art": "avenue_roof"}], "traffic": {"fleet": "wedge", "rate": 0.064, "offset": -0.01}}
+    ]},
+    {"id": "s015", "start": 79.8, "end": 81.506, "block": 2, "beat": "Вклейка переднего мотоциклиста. Уличный фон проходит за ним.", "panels": [
+      {"crop": [156, 172, 525, 295], "art": "t0", "traffic": {"fleet": "solo", "rate": 68, "offset": 0}, "mirror": true}
+    ]},
+    {"id": "s016", "start": 81.506, "end": 87.28, "block": 2, "beat": "Общий на три одинаковых Mercedes. Едут по одной оси, не догоняют друг друга.", "panels": [
+      {"crop": [119, 71, 638, 359], "art": "t1", "layers": [{"at": [659, 284], "art": "avenue_roof"}], "traffic": {"fleet": "limousines", "rate": 0.089, "offset": -0.06}}
+    ]},
+    {"id": "s017", "start": 87.28, "end": 94.62, "block": 2, "beat": "Уровень колёс. Три машины последовательно проходят одну и ту же точку.", "panels": [
+      {"crop": [18, 98, 732, 410], "art": "t0", "traffic": {"fleet": "black_glass", "rate": 147, "offset": 27}, "mirror": true}
+    ]},
+    {"id": "s018", "start": 94.62, "end": 101.49, "block": 2, "beat": "Останавливаем взгляд на непрозрачном стекле. В отражении только улица.", "panels": [
+      {"crop": [33, 57, 668, 376], "art": "c2", "layers": [{"at": [96, 95], "pose": "glass_reflection", "phase": [[0, 0.13], [5.9, 1]]}]}
+    ]},
+    {"id": "s019", "start": 101.49, "end": 111.1, "block": 2, "beat": "Снова три машины. Две детали стекла открываются поочерёдно сбоку от общего плана.", "panels": [
+      {"crop": [26, 0, 732, 480], "art": "a2", "rect": [22, 21, 545, 390], "mirror": true},
+      {"crop": [14, 36, 330, 296], "art": "c2", "rect": [575, 21, 171, 190], "reveal": 2.1},
+      {"crop": [386, 100, 370, 324], "art": "c2", "rect": [575, 220, 171, 191], "reveal": 5.0}
+    ]},
+    {"id": "s020", "start": 111.1, "end": 115.104, "block": 2, "beat": "Уравниваем три силуэта в проезде через тень фасада.", "panels": [
+      {"crop": [24, 155, 719, 354], "art": "t0", "traffic": {"fleet": "black_glass", "rate": 146, "offset": 464}, "mirror": true}
+    ]},
+    {"id": "s021", "start": 115.104, "end": 121.63, "block": 3, "beat": "Вид сверху на фланги. По два джипа с каждой стороны трёх лимузинов.", "panels": [
+      {"crop": [63, 49, 705, 396], "art": "t1", "layers": [{"at": [659, 284], "art": "avenue_roof"}], "traffic": {"fleet": "core", "rate": 0.076, "offset": -0.12}}
+    ]},
+    {"id": "s022", "start": 121.63, "end": 127.12, "block": 3, "beat": "Низкий ракурс с той же стороны. Джип на переднем плане перекрывает лимузин, затем открывает его.", "panels": [
+      {"crop": [26, 90, 700, 394], "art": "t0", "traffic": {"fleet": "flank_side", "rate": 136, "offset": -25}, "mirror": true}
+    ]},
+    {"id": "s023", "start": 127.12, "end": 134.4, "block": 3, "beat": "Склейка по красному погону. Сначала плечо, потом нижняя часть нашивки.", "panels": [
+      {"crop": [47, 66, 555, 312], "art": "c3", "camera": [[0, 0, 0], [4.5, 19, 19]]}
+    ]},
+    {"id": "s024", "start": 134.4, "end": 142.37, "block": 3, "beat": "Нарукавный знак и рука в одном кадре. Мазур переносит внимание с людей на улицу.", "panels": [
+      {"crop": [4, 85, 389, 420], "art": "c3", "rect": [28, 29, 353, 374]},
+      {"crop": [121, 4, 390, 413], "art": "a3", "rect": [389, 29, 351, 374], "layers": [{"at": [130, 0], "pose": "mazur_check", "phase": [[0, 0], [0.8, 0], [1.6, 0.8], [3.8, 0.8]]}], "reveal": 2.55}
+    ]},
+    {"id": "s025", "start": 142.37, "end": 147.888, "block": 3, "beat": "Открытый кузов. Несколько разных силуэтов видны одновременно.", "panels": [
+      {"crop": [0, 73, 768, 432], "art": "b0"}
+    ]},
+    {"id": "s026", "start": 147.888, "end": 153.6, "block": 4, "beat": "Держим группу Леона в одном кадре. Короткая мысль об интернационале.", "panels": [
+      {"crop": [43, 88, 693, 390], "art": "d0", "layers": [{"at": [266, 85], "pose": "leon_nod", "phase": [[0, 0], [2, 0], [2.58, 0.72], [3.12, 0.5], [4.24, 0]]}]}
+    ]},
+    {"id": "s027", "start": 153.6, "end": 159.07, "block": 5, "beat": "С правой стороны Мазур переводит взгляд влево через колонну.", "panels": [
+      {"crop": [9, 5, 750, 422], "art": "a3", "layers": [{"at": [130, 0], "pose": "mazur_check", "phase": [[0, 0.78], [0.85, 0.78], [1.63, 0], [4, 0]]}]}
+    ]},
+    {"id": "s028", "start": 159.07, "end": 165.89, "block": 5, "beat": "Склейка на левый фланг: Леон принимает взгляд и едва кивает.", "panels": [
+      {"crop": [185, 85, 477, 268], "art": "d0", "layers": [{"at": [266, 85], "pose": "leon_nod", "phase": [[0, 0], [1.35, 0], [1.9, 1], [2.53, 0.65], [3.07, 0]]}]}
+    ]},
+    {"id": "s029", "start": 165.89, "end": 170.295, "block": 5, "beat": "Леон между своими людьми. У ближнего собеседника движение уже закончилось.", "panels": [
+      {"crop": [27, 96, 699, 394], "art": "d0"}
+    ]},
+    {"id": "s030", "start": 170.295, "end": 174.78, "block": 5, "beat": "Мазур смотрит назад через плечо. Следом — Лаврик в зеркале.", "panels": [
+      {"crop": [124, 105, 556, 313], "art": "f2", "layers": [{"at": [173, 125], "pose": "mazur_brace", "phase": [[0, 0.83], [1.1, 0.83], [1.68, 0.18], [2.2, 0]]}]}
+    ]},
+    {"id": "s031", "start": 174.78, "end": 181.22, "block": 5, "beat": "Лаврик в зеркале поднимает подбородок. Второй человек остаётся на краю отражения.", "panels": [
+      {"crop": [12, 79, 742, 417], "art": "d1", "layers": [{"at": [274, 125], "pose": "lavrik_look", "phase": [[0, 0], [0.91, 0], [1.62, 1], [3.85, 1], [5.15, 0.57]]}]}
+    ]},
+    {"id": "s032", "start": 181.22, "end": 187.68, "block": 5, "beat": "Проезд двух сторон колонны держит пространственную связь между собеседниками.", "panels": [
+      {"crop": [35, 40, 720, 405], "art": "t1", "layers": [{"at": [659, 284], "art": "avenue_roof"}], "traffic": {"fleet": "core", "rate": 0.079, "offset": 0.02}}
+    ]},
+    {"id": "s033", "start": 187.68, "end": 196.96, "block": 5, "beat": "Детали команды Леона. По отдельности раскрываются лица слева и справа.", "panels": [
+      {"crop": [103, 120, 253, 276], "art": "d0", "rect": [24, 34, 232, 364]},
+      {"crop": [265, 83, 246, 348], "art": "d0", "rect": [264, 34, 238, 364], "reveal": 2.08},
+      {"crop": [468, 145, 247, 299], "art": "d0", "rect": [510, 34, 234, 364], "reveal": 4.39}
+    ]},
+    {"id": "s034", "start": 196.96, "end": 202.3, "block": 5, "beat": "Мазур оставляет лица Леона позади. Обратная склейка на сторону дороги.", "panels": [
+      {"crop": [16, 13, 732, 412], "art": "a3", "layers": [{"at": [130, 0], "pose": "mazur_check", "phase": [[0, 0], [1.45, 0], [2.28, 1], [3.85, 1], [4.45, 0.63]]}]}
+    ]},
+    {"id": "s035", "start": 202.3, "end": 205.968, "block": 5, "beat": "Заканчиваем мысль через окно пассажира: столбы перебивают вид.", "panels": [
+      {"crop": [8, 37, 750, 422], "layers": [{"at": [0, 0], "art": "window_frame"}], "behind": [{"at": [-66, 0], "art": "t0_panorama", "motion": [[0, 0, 0, 1], [3.668, -185, 0, 1]], "ease": false}]}
+    ]},
+    {"id": "s036", "start": 205.968, "end": 213.78, "block": 6, "beat": "Мазур рядом с водителем. После взгляда на улицу поправляет положение головы.", "panels": [
+      {"crop": [5, 4, 752, 423], "art": "a3", "layers": [{"at": [130, 0], "pose": "mazur_check", "phase": [[0, 0.5], [1.55, 0.5], [2.4, 1], [4.05, 1], [5.14, 0]]}]}
+    ]},
+    {"id": "s037", "start": 213.78, "end": 221.33, "block": 6, "beat": "От общего к лицу. Мазур называет своё имя на крупном плане.", "panels": [
+      {"crop": [75, 0, 613, 345], "art": "f3", "layers": [{"at": [182, 0], "pose": "mazur_snap", "phase": [[0, 0], [3.7, 0], [5.8, 0.31]]}]}
+    ]},
+    {"id": "s038", "start": 221.33, "end": 226.75, "block": 6, "beat": "Красный погон связывает лицо со званием. Внимание переходит к бумаге.", "panels": [
+      {"crop": [19, 49, 595, 335], "art": "c3"}
+    ]},
+    {"id": "s039", "start": 226.75, "end": 232.48, "block": 6, "beat": "Приказ в обеих руках. Большой палец освобождает край листа.", "panels": [
+      {"crop": [14, 13, 735, 413], "art": "order_signed", "layers": [{"at": [146, 164], "pose": "order_hands", "phase": [[0, 0], [0.8, 0], [1.7, 1], [4.22, 1], [5.3, 0.2]]}]}
+    ]},
+    {"id": "s040", "start": 232.48, "end": 243.16, "block": 6, "beat": "Детали приказа входят по словам: герб, две печати, подпись.", "panels": [
+      {"crop": [333, 19, 349, 230], "art": "order_signed", "rect": [25, 29, 455, 374], "layers": [{"at": [146, 164], "pose": "order_hands", "phase": [[0, 0.2]]}]},
+      {"crop": [285, 305, 266, 197], "art": "order_signed", "rect": [489, 29, 254, 184], "reveal": 2.11},
+      {"crop": [320, 186, 301, 177], "art": "order_signed", "rect": [489, 221, 254, 182], "reveal": 5.64}
+    ]},
+    {"id": "s041", "start": 243.16, "end": 246.816, "block": 6, "beat": "Широкая роспись остаётся над печатями.", "panels": [
+      {"crop": [271, 139, 408, 335], "art": "order_signed", "camera": [[0, 0, 0], [3.6, -10, 20]]}
+    ]},
+    {"id": "s042", "start": 246.816, "end": 254.82, "block": 7, "beat": "Приказ на коленях. Рука на краю бумаги медленно ослабляет хватку.", "panels": [
+      {"crop": [8, 30, 744, 419], "art": "order_signed", "layers": [{"at": [146, 164], "pose": "order_hands", "phase": [[0, 1], [2.8, 1], [4.15, 0.05], [6.4, 0.05]]}]}
+    ]},
+    {"id": "s043", "start": 254.82, "end": 262.827, "block": 7, "beat": "Из бумаги выхватываем только след чернил, красный и синий сургуч.", "panels": [
+      {"crop": [243, 216, 424, 238], "art": "order_signed", "camera": [[0, 0, 0], [7.7, -11, 23]]}
+    ]},
+    {"id": "s044", "start": 262.827, "end": 269.74, "block": 7, "beat": "Жёсткая склейка с руки на бумаге на руку Мазура в джипе. Тело возвращается в собранную позу.", "panels": [
+      {"crop": [25, 79, 727, 409], "art": "f2", "layers": [{"at": [173, 125], "pose": "mazur_brace", "phase": [[0, 0], [1.1, 0], [1.85, 1], [3.83, 1], [5.25, 0.68]]}]}
+    ]},
+    {"id": "s045", "start": 269.74, "end": 276.34, "block": 7, "beat": "Прямой взгляд из открытого кузова. Улица движется за рамой.", "panels": [
+      {"crop": [18, 38, 720, 405], "layers": [{"at": [0, 0], "art": "mazur_pov"}], "behind": [{"at": [-66, 0], "art": "t0_panorama", "motion": [[0, 0, 0, 1], [6.6, -351, 0, 1]], "ease": false}]}
+    ]},
+    {"id": "s046", "start": 276.34, "end": 283.52, "block": 7, "beat": "Портрет Отца Нации на фасаде отделяется от улицы парадным ракурсом.", "panels": [
+      {"crop": [14, 16, 732, 412], "art": "d2"}
+    ]},
+    {"id": "s047", "start": 283.52, "end": 288.471, "block": 7, "beat": "Иронический контрплан: Мазур снова видит за фасадом пустые дверные проёмы.", "panels": [
+      {"crop": [164, 76, 584, 328], "art": "f1", "camera": [[0, 0, 0], [4.7, 13, -5]]}
+    ]},
+    {"id": "s048", "start": 288.471, "end": 295.06, "block": 7, "beat": "За мыслью о четырёх покушениях возвращаемся к лицу Мазура. Движение прерывается на вдохе.", "panels": [
+      {"crop": [60, 5, 668, 376], "art": "f3", "layers": [{"at": [182, 0], "pose": "mazur_snap", "phase": [[0, 0.42], [1.62, 0.42], [2.5, 0], [4.1, 0], [5.14, 0.31]]}]}
+    ]},
+    {"id": "s049", "start": 295.06, "end": 302.72, "block": 7, "beat": "Официальный выход Олонго. Держим лицо и охрану в одном кадре.", "panels": [
+      {"crop": [10, 13, 740, 416], "art": "d3"}
+    ]},
+    {"id": "s050", "start": 302.72, "end": 306.72, "block": 7, "beat": "Возврат к плечу и руке Мазура. Поворот начинается уже в настоящем.", "panels": [
+      {"crop": [54, 33, 664, 374], "art": "a3", "layers": [{"at": [130, 0], "pose": "mazur_check", "phase": [[0, 0.61], [1.9, 0.61], [2.76, 0]]}]}
+    ]},
+    {"id": "s051", "start": 306.72, "end": 309.56, "block": 8, "beat": "Взгляд через плечо. Линия лица ведёт склейку к хвосту колонны.", "panels": [
+      {"crop": [84, 120, 630, 354], "art": "f2", "layers": [{"at": [173, 125], "pose": "mazur_brace", "phase": [[0, 0.85], [0.32, 0.85], [1.04, 0], [2.42, 0]]}]}
+    ]},
+    {"id": "s052", "start": 309.56, "end": 316.24, "block": 8, "beat": "Ответный план назад из кузова. За дугой рамы в перспективе четыре машины.", "panels": [
+      {"crop": [13, 38, 740, 416], "art": "b2", "camera": [[0, 0, 0], [6.1, 8, 0]]}
+    ]},
+    {"id": "s053", "start": 316.24, "end": 323.12, "block": 8, "beat": "Крупнее окно первой машины прикрытия. Остальной хвост остаётся за краем рамки.", "panels": [
+      {"crop": [307, 137, 450, 253], "art": "b2"}
+    ]},
+    {"id": "s054", "start": 323.12, "end": 327.12, "block": 8, "beat": "Уходим с окна на проезжающий фасад, затем снова к Мазуру.", "panels": [
+      {"crop": [19, 53, 726, 408], "art": "t0", "traffic": {"fleet": "cruisers", "rate": 141, "offset": 186}, "mirror": true}
+    ]},
+    {"id": "s055", "start": 327.12, "end": 330.528, "block": 8, "beat": "Мазур возвращает голову к обочине.", "panels": [
+      {"crop": [44, 1, 704, 396], "art": "f3", "layers": [{"at": [182, 0], "pose": "mazur_snap", "phase": [[0, 0.66], [0.55, 0.66], [1.42, 0], [2.45, 0]]}]}
+    ]},
+    {"id": "s056", "start": 330.528, "end": 336.77, "block": 9, "beat": "Мазур собирается. Изменение позы переходит в план через стойку джипа.", "panels": [
+      {"crop": [5, 78, 756, 425], "art": "f2", "layers": [{"at": [173, 125], "pose": "mazur_brace", "phase": [[0, 0.1], [1.07, 0.1], [1.75, 1], [4, 1], [5.16, 0.5]]}]}
+    ]},
+    {"id": "s057", "start": 336.77, "end": 342.92, "block": 9, "beat": "Складской квартал движется за низким капотом. Близкая проволока открывает заросли.", "panels": [
+      {"crop": [15, 116, 655, 368], "art": "t2", "camera": [[0, 0, 0], [6.15, 95, -1]], "layers": [{"at": [22, 29], "art": "warehouse_jeep", "motion": [[0, 0, 0, 1], [6.15, 95, -1, 1]]}]}
+    ]},
+    {"id": "s058", "start": 342.92, "end": 349.23, "block": 9, "beat": "Пауза в движении камеры на тёмном проёме. На дальнем плане виден страж.", "panels": [
+      {"crop": [163, 83, 585, 329], "art": "b3", "camera": [[0, 0, 0], [5.6, 17, 14]]}
+    ]},
+    {"id": "s059", "start": 349.23, "end": 355.47, "block": 9, "beat": "Движение от уровня окна до кромки крыши по линии взгляда.", "panels": [
+      {"crop": [91, 132, 583, 328], "art": "t2", "camera": [[0, 0, 0], [5.1, 39, -94]]}
+    ]},
+    {"id": "s060", "start": 355.47, "end": 362.91, "block": 9, "beat": "С высоты крыши возвращаемся к жандармам на тротуаре.", "panels": [
+      {"crop": [11, 44, 748, 420], "art": "t2", "layers": [{"at": [0, 0], "art": "police_layer"}, {"at": [63, 45], "pose": "police_look", "phase": [[0, 0.11], [1, 0.11], [2.21, 0.72], [4.4, 0.29]]}, {"at": [231, 360], "pose": "police_glove", "phase": [[0, 0.35]]}]}
+    ]},
+    {"id": "s061", "start": 362.91, "end": 369.49, "block": 9, "beat": "Мазур смотрит мимо стража. Открытый проём исчезает за ближней стойкой.", "panels": [
+      {"crop": [5, 41, 718, 404], "art": "f1", "camera": [[0, 0, 0], [6.58, 36, -8]]}
+    ]},
+    {"id": "s062", "start": 369.49, "end": 376.18, "block": 9, "beat": "Долго держим безлюдную кромку крыши перед переходом в чужое воспоминание.", "panels": [
+      {"crop": [173, 23, 588, 331], "art": "t2", "camera": [[0, 0, 0], [6, -21, -6]]}
+    ]},
+    {"id": "s063", "start": 376.18, "end": 383.68, "block": 9, "beat": "Схожий силуэт крыши в другом месте. В кадре ещё нет фигуры.", "label": "ПРЕЖНЕЕ ПОКУШЕНИЕ · ПО РАССКАЗАМ", "panels": [
+      {"crop": [52, 13, 689, 388], "art": "roof_plate", "rect": [30, 17, 708, 398], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s064", "start": 383.68, "end": 388.39, "block": 9, "beat": "Верх крыши в другом масштабе. Силуэт появляется над кромкой на словах рассказа.", "panels": [
+      {"crop": [369, 0, 395, 222], "art": "roof_plate", "rect": [30, 17, 708, 398], "layers": [{"at": [545, 41], "art": "roof_figure", "motion": [[0, -2, 65, 0], [1.18, -2, 65, 0], [1.19, -2, 65, 1], [1.83, 0, 0, 1], [4.54, 0, 0, 1]]}, {"at": [527, 97], "art": "roof_eave"}], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s065", "start": 388.39, "end": 393.129, "block": 9, "beat": "Реакция Леона и его людей. Склейка с поднятого взгляда на собравшуюся группу.", "panels": [
+      {"crop": [0, 172, 538, 303], "art": "e0", "rect": [30, 17, 708, 398], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s066", "start": 393.129, "end": 395.03, "block": 9, "beat": "Короткая смена позы Леона. Свет от двух нарисованных вспышек сразу гаснет.", "panels": [
+      {"crop": [0, 83, 759, 427], "art": "leon_plate", "rect": [30, 17, 708, 398], "layers": [{"at": [329, 153], "art": "flare_near", "motion": [[0, 0, 0, 0], [0.14, 0, 0, 0], [0.15, 0, 0, 1], [0.24, 0, 0, 1], [0.25, 0, 0, 0]]}, {"at": [450, 209], "art": "flare_far", "motion": [[0, 0, 0, 0], [0.29, 0, 0, 0], [0.3, 0, 0, 1], [0.4, 0, 0, 1], [0.41, 0, 0, 0]]}], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s067", "start": 395.03, "end": 396.32, "block": 9, "beat": "Силуэт оседает за кромку. Следом взгляд остаётся на пустой крыше.", "panels": [
+      {"crop": [346, 8, 417, 235], "art": "roof_plate", "rect": [30, 17, 708, 398], "layers": [{"at": [545, 41], "art": "roof_figure", "motion": [[0, 0, 0, 1], [0.53, -15, 80, 1], [0.55, -15, 80, 0]]}, {"at": [527, 97], "art": "roof_eave"}], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s068", "start": 396.32, "end": 401.16, "block": 9, "beat": "Широкий кадр неба и дороги. Нарисованный след быстро появляется и начинает исчезать.", "panels": [
+      {"crop": [0, 6, 768, 432], "art": "sky_plate", "rect": [30, 17, 708, 398], "layers": [{"at": [233, 23], "art": "sky_trail", "motion": [[0, 0, 0, 0.68], [0.6, 0, 0, 1], [2.2, 0, 0, 0.79], [4.35, 1, -3, 0.27]], "wipe": [[0, 0], [0.72, 1]]}], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s069", "start": 401.16, "end": 407.03, "block": 9, "beat": "Отложенная реакция. Поворот голов и перчатка у кобуры происходят после следа в небе.", "panels": [
+      {"crop": [32, 55, 704, 396], "art": "t2", "rect": [30, 17, 708, 398], "layers": [{"at": [0, 0], "art": "police_layer"}, {"at": [63, 45], "pose": "police_look", "phase": [[0, 0], [1.12, 0], [1.87, 1], [3.9, 1]]}, {"at": [231, 360], "pose": "police_glove", "phase": [[0, 0], [2.7, 0], [3.48, 1], [5.52, 0.7]]}], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s070", "start": 407.03, "end": 414.65, "block": 9, "beat": "Поза полицейских раскрывается шире, но вторая часть кадра уже показывает пустую крышу.", "panels": [
+      {"crop": [7, 151, 597, 361], "art": "e3", "rect": [29, 45, 447, 342], "tone": [0.89, 0.85, 0.76]},
+      {"crop": [472, 43, 292, 164], "art": "roof_plate", "rect": [485, 45, 254, 207], "reveal": 1.42, "tone": [0.89, 0.85, 0.76]},
+      {"crop": [402, 100, 364, 246], "art": "sky_plate", "rect": [485, 260, 254, 127], "reveal": 3.92, "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s071", "start": 414.65, "end": 418.1, "block": 9, "beat": "Последний взгляд на пустое здание в реконструкции.", "panels": [
+      {"crop": [357, 25, 405, 228], "art": "roof_plate", "rect": [30, 17, 708, 398], "camera": [[0, 0, 0], [3.1, -26, 13]], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s072", "start": 418.1, "end": 421.368, "block": 9, "beat": "Та же диагональ кровли в настоящем. Рама и капот вновь в кадре.", "panels": [
+      {"crop": [0, 63, 764, 430], "art": "b3"}
+    ]},
+    {"id": "s073", "start": 421.368, "end": 426.7, "block": 10, "beat": "Мазур держит взгляд на уровне обочины, проёмы проходят за рукой.", "panels": [
+      {"crop": [13, 52, 728, 410], "art": "f1", "camera": [[0, 0, 0], [5.33, 24, -5]]}
+    ]},
+    {"id": "s074", "start": 426.7, "end": 430.04, "block": 10, "beat": "Передний план Мазура и затылки сзади. Линии взглядов расходятся.", "panels": [
+      {"crop": [26, 82, 718, 404], "art": "f2", "layers": [{"at": [173, 125], "pose": "mazur_brace", "phase": [[0, 0.8], [0.82, 0.8], [1.7, 0.31]]}]}
+    ]},
+    {"id": "s075", "start": 430.04, "end": 434.304, "block": 10, "beat": "Зеркало выделяет Лаврика и Журавеля, оба смотрят выше Мазура.", "panels": [
+      {"crop": [10, 67, 747, 420], "art": "d1", "layers": [{"at": [274, 125], "pose": "lavrik_look", "phase": [[0, 0.18], [0.56, 0.18], [1.36, 1], [3.4, 1]]}]}
+    ]},
+    {"id": "s076", "start": 434.304, "end": 442.32, "block": 11, "beat": "Олонго в церемониальном выходе. Ракурс держит фигуру и охрану у дверей.", "panels": [
+      {"crop": [19, 9, 738, 415], "art": "d3"}
+    ]},
+    {"id": "s077", "start": 442.32, "end": 450.84, "block": 11, "beat": "Портрет на стене. Отступаем от лица к масштабам плаката.", "panels": [
+      {"crop": [13, 31, 739, 416], "art": "d2", "camera": [[0, 0, 0], [7, 13, 10]]}
+    ]},
+    {"id": "s078", "start": 450.84, "end": 456.37, "block": 11, "beat": "Снова присутствие самого Олонго в памяти, короткая пауза на его лице.", "panels": [
+      {"crop": [177, 20, 456, 257], "art": "d3"}
+    ]},
+    {"id": "s079", "start": 456.37, "end": 459.844, "block": 11, "beat": "Три чёрных машины всё ещё идут прежней дорогой.", "panels": [
+      {"crop": [107, 65, 640, 360], "art": "t1", "layers": [{"at": [659, 284], "art": "avenue_roof"}], "traffic": {"fleet": "limousines", "rate": 0.073, "offset": -0.09}}
+    ]},
+    {"id": "s080", "start": 459.844, "end": 466.46, "block": 11, "beat": "Годом раньше. Камуфляж и каска появляются в другом контексте, на той же улице.", "label": "ГОДОМ РАНЬШЕ", "panels": [
+      {"crop": [0, 31, 768, 432], "art": "f0", "rect": [30, 17, 708, 398], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s081", "start": 466.46, "end": 469.43, "block": 11, "beat": "Крупность выделяет лицо и каску. Мысль не успевает закончиться.", "panels": [
+      {"crop": [34, 29, 418, 235], "art": "f0", "rect": [30, 17, 708, 398], "tone": [0.89, 0.85, 0.76]}
+    ]},
+    {"id": "s082", "start": 469.43, "end": 470.49, "block": 11, "beat": "Возврат на паузе перед восклицанием. Сначала Мазур замечает движение, затем разворачивается.", "panels": [
+      {"crop": [0, 55, 768, 432], "art": "f3", "layers": [{"at": [182, 0], "pose": "mazur_snap", "phase": [[0, 0], [0.39, 0], [0.68, 0.49], [1.02, 1]]}, {"at": [29, 313], "pose": "mazur_grip", "phase": [[0, 0], [0.46, 0], [0.76, 0.68], [1.03, 1]]}]}
+    ]},
+    {"id": "s083", "start": 470.49, "end": 471.39, "block": 11, "beat": "На ударном слове в кадре только лицо. Реакция остаётся направленной за границу кадра.", "panels": [
+      {"crop": [162, 28, 456, 256], "art": "f3", "layers": [{"at": [182, 0], "pose": "mazur_snap", "phase": [[0, 1]]}]}
+    ]},
+    {"id": "s084", "start": 471.39, "end": 472.344, "block": 11, "beat": "Резкий обрыв перед границей главы. В голосе остаётся заключительная пауза.", "panels": [
+    ]}
+  ]
+}

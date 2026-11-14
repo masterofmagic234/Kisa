@@ -1,0 +1,7 @@
+{
+  "name": "Arkon.Unity",
+  "rootNamespace": "Arkon.Unity",
+  "references": ["Arkon.Core"],
+  "autoReferenced": true,
+  "noEngineReferences": false
+}

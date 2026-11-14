@@ -1,0 +1,7 @@
+{
+  "name": "Arkon.Unity.Editor",
+  "rootNamespace": "Arkon.Unity.Editor",
+  "references": ["Arkon.Core", "Arkon.Unity"],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": true
+}

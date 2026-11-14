@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 27
+  companyName: masterofmagic234
+  productName: White Guard
+  defaultScreenWidth: 1280
+  defaultScreenHeight: 720
+  runInBackground: 0
+  fullscreenMode: 3
+  activeInputHandler: 0

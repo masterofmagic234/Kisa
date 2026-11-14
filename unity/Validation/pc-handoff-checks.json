@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "execution_host": "Linux; no Windows or Unity execution",
+  "checks": {
+    "same_bootstrap_guid_for_posix_and_PureWindowsPath": true,
+    "git_autocrlf_true_eol_crlf_checkout_verified_files": 151,
+    "source_media_api_hash_mismatches": 0,
+    "unchanged_intro_media_files": 41,
+    "portable_assertions": 5558
+  },
+  "unity_editor_executed": false,
+  "windows_native_executed": false,
+  "scope": "PC handoff and checkout portability. Not native engine, OS or player validation.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "eec216ab73e222858bc5bdf0b8f1ac09aecac6d26a408a245855c4b3968d21ca"
+    },
+    {
+      "path": "unity/.gitattributes",
+      "sha256": "a29c393ffe06773362b6f72bd080e7541bbcefa059f6d80614540d9a5620d2da"
+    },
+    {
+      "path": "unity/Tools/prepare_white_guard.py",
+      "sha256": "13f63225c9e5c035577694123dc0d0e0b2cf11d3a9533768d34c52f52dd2e590"
+    },
+    {
+      "path": "unity/Tools/validate_layout.py",
+      "sha256": "8d582b02b2f05f6dd7c256b18ae730716b4bd49a7cb8ce0251ed57869d031f58"
+    }
+  ]
+}

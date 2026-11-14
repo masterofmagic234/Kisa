@@ -1,0 +1,14 @@
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Bb]in/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
+**/[Bb]uilds/
+**/.vs/
+**/__pycache__/
+*.csproj.user
+*.sln
+*.slnx
+*.pyc
+WhiteGuard/*.csproj
