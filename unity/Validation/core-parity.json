@@ -1,11 +1,13 @@
 {
   "status": "PASS",
-  "checks": 5558,
+  "checks": 5607,
   "groups": [
     "CombatCases",
+    "EnemyTargetSelectionCases",
     "GoldenCases",
     "IntroStage3Cases",
     "LeaseCases",
+    "ModelSnapshotCases",
     "Movement3DCases",
     "NarrativeCases",
     "PortableJsonCases",

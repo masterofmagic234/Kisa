@@ -18,10 +18,22 @@ jobs:
           dotnet-version: '10.0.404'
       - name: Verify original media and package wiring
         run: python3 unity/Tools/validate_layout.py
+      - name: Verify full campaign scene and authored navigation
+        run: |
+          python3 unity/Tools/prepare_campaign.py --check
+          python3 unity/Tools/validate_campaign_maps.py --report /tmp/campaign-map-geometry.json
+      - name: Verify campaign illustrations, narration and shot direction
+        run: python3 unity/Tools/validate_campaign_media.py --report /tmp/campaign-media-integrity.json
       - name: Compare C# models with Godot execution snapshot
         run: python3 unity/Tools/check_core.py --report /tmp/unity-core-parity.json
+      - name: Verify actual campaign objectives and checkpoint state
+        run: python3 unity/Tools/check_campaign.py --report /tmp/campaign-domain.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: portable-core-parity-not-unity-editor
-          path: /tmp/unity-core-parity.json
+          path: |
+            /tmp/unity-core-parity.json
+            /tmp/campaign-map-geometry.json
+            /tmp/campaign-media-integrity.json
+            /tmp/campaign-domain.json

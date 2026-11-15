@@ -4,6 +4,24 @@ using System.Collections.ObjectModel;
 
 namespace Arkon.Core
 {
+    [Serializable]
+    public sealed class WeaponReserveState
+    {
+        public string id;
+        public int count;
+    }
+
+    /// <summary>Detached exact inventory state, including its in-flight shot cooldown.</summary>
+    [Serializable]
+    public sealed class WeaponState
+    {
+        public string currentId;
+        public int ammo;
+        public float cooldown;
+        public bool infiniteAmmo;
+        public WeaponReserveState[] reserves = Array.Empty<WeaponReserveState>();
+    }
+
     /// <summary>
     /// State port of topdown/weapon_component.gd. Each actor owns its catalog
     /// reserves and cooldown; changing weapon resets the cooldown as in source.
@@ -21,6 +39,7 @@ namespace Arkon.Core
         public bool CanFire => CurrentDefinition != null && Cooldown <= 0
             && (!CurrentDefinition.ConsumesAmmo || InfiniteAmmo || Ammo > 0);
         public event Action<string, int> Changed;
+        public event Action<string, int> ShotConsumed;
 
         public WeaponModel(bool infiniteAmmo = true, string initialId = WeaponCatalog.PistolId,
             int initialAmmo = 12)
@@ -79,6 +98,44 @@ namespace Arkon.Core
                 _reserves[CurrentId] = Ammo;
             }
             Cooldown = Math.Max(CurrentDefinition.FireInterval, .01f);
+            var shotId = CurrentId; var shotAmmo = Ammo;
+            Changed?.Invoke(shotId, shotAmmo);
+            ShotConsumed?.Invoke(shotId, shotAmmo);
+            return true;
+        }
+
+        public WeaponState CaptureState()
+        {
+            var reserves = new WeaponReserveState[_reserves.Count]; var index = 0;
+            foreach (var reserve in _reserves) reserves[index++] = new WeaponReserveState { id = reserve.Key, count = reserve.Value };
+            return new WeaponState { currentId = CurrentId, ammo = Ammo, cooldown = Cooldown, infiniteAmmo = InfiniteAmmo, reserves = reserves };
+        }
+
+        public bool TryRestoreState(WeaponState state) => TryRestoreState(state, out _);
+
+        /// <summary>Validate the entire inventory before changing ammo, selection or cooldown. Emits no shot event.</summary>
+        public bool TryRestoreState(WeaponState state, out string error)
+        {
+            error = "";
+            if (state == null || state.currentId == null || !_catalog.TryGetValue(state.currentId, out var definition) || state.reserves == null)
+            { error = "Missing inventory or unknown equipped weapon."; return false; }
+            if (!Scalar.IsFinite(state.cooldown) || state.cooldown < 0 || state.cooldown > Math.Max(definition.FireInterval, .01f))
+            { error = "Weapon cooldown is outside its configured range."; return false; }
+            var reserves = new Dictionary<string, int>(StringComparer.Ordinal);
+            foreach (var reserve in state.reserves)
+            {
+                if (reserve == null || reserve.id == null || !_reserves.ContainsKey(reserve.id) || reserves.ContainsKey(reserve.id) ||
+                    reserve.count < (state.infiniteAmmo ? -1 : 0))
+                { error = "Unknown, duplicate or negative weapon reserve."; return false; }
+                reserves.Add(reserve.id, reserve.count);
+            }
+            if (reserves.Count != _reserves.Count)
+            { error = "Inventory must include every configured ammunition reserve."; return false; }
+            if (state.ammo != (definition.ConsumesAmmo ? reserves[state.currentId] : 0))
+            { error = "Equipped ammunition does not match its saved reserve."; return false; }
+            foreach (var reserve in reserves) _reserves[reserve.Key] = reserve.Value;
+            CurrentId = state.currentId; CurrentDefinition = definition; Ammo = state.ammo;
+            Cooldown = state.cooldown; InfiniteAmmo = state.infiniteAmmo;
             Changed?.Invoke(CurrentId, Ammo);
             return true;
         }

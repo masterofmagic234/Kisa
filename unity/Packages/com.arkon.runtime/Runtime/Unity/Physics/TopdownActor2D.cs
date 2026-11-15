@@ -17,6 +17,7 @@ namespace Arkon.Unity
         // The scene owner supplies live predicates; no per-frame cached gate.
         public Func<bool> TransitionBlockedQuery;
         public Func<bool> CanSpawnPlayerShotQuery;
+        public Func<bool> FireInputAllowedQuery;
         private readonly InputLatch input = new InputLatch();
         private readonly TopdownMotor motor = new TopdownMotor();
         private KinematicBodyPort2D body;
@@ -70,7 +71,7 @@ namespace Arkon.Unity
                 var at = AimCamera.ScreenToWorldPoint(Input.mousePosition);
                 aim = (ArkonCoordinates.ToSource(at) - Position).Normalized;
             }
-            FeedInput(movement, aim, Input.GetMouseButton(0), Input.GetKeyDown(KeyCode.E),
+            FeedInput(movement, aim, Input.GetMouseButton(0) && FireInputAllowedQuery?.Invoke() != false, Input.GetKeyDown(KeyCode.E),
                 Input.GetKeyDown(KeyCode.Q), Input.GetKey(KeyCode.LeftShift));
         }
         public void FeedInput(Vec2 movement, Vec2 aim, bool fire, bool action, bool throwing, bool sprint)

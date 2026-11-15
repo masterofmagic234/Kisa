@@ -245,6 +245,28 @@ namespace Arkon.Unity.Editor
             Require(closed == 1 && door.SolidCollider.enabled, "The unobstructed door must close and restore its native collider.");
             Debug.Log("Native top-down door contact, slam threshold, and occupancy checks passed.");
 
+            // A campaign NPC uses the same identity/body contract without being
+            // either TopdownActor2D or EnemyPort2D. Keep the fixture generic so
+            // the common runtime does not depend on a specific game assembly.
+            var genericRoot = CreateRoot(scene, "Generic escort body occupying the doorway", Vec2.Zero);
+            genericRoot.AddComponent<KinematicBodyPort2D>();
+            genericRoot.AddComponent<ActorIdentity2D>();
+            genericRoot.SetActive(true);
+            Physics2D.SyncTransforms();
+            Require(door.Interact(actor.Position), "Could not reopen the door for the generic actor occupancy check.");
+            deadline = Time.fixedTimeAsDouble + 4;
+            while (opened < 4 && Time.fixedTimeAsDouble < deadline) yield return null;
+            Require(opened == 4 && closed == 1 && door.Model.IsOpen && !door.SolidCollider.enabled,
+                "An enabled generic actor body must reopen the auto-closing door instead of being enclosed by its solid leaf.");
+            Require(Vec2.Distance(genericRoot.GetComponent<KinematicBodyPort2D>().Position, Vec2.Zero) < .01f,
+                "The generic actor body moved out of the doorway during the occupancy check.");
+            genericRoot.SetActive(false);
+            deadline = Time.fixedTimeAsDouble + 4;
+            while (closed < 2 && Time.fixedTimeAsDouble < deadline) yield return null;
+            Require(closed == 2 && door.SolidCollider.enabled,
+                "Removing the generic actor body must let the native door close normally.");
+            Debug.Log("Native top-down generic actor doorway occupancy checks passed.");
+
             var pickupRoot = CreateRoot(scene, "Ammo pickup above the standing actor", pickupPosition);
             var pickup = pickupRoot.AddComponent<PickupPort2D>();
             pickup.AssignedWorld = world;

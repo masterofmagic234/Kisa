@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "atlas_count": 12,
+  "region_count": 182,
+  "style_alias_count": 64,
+  "story_theme_count": 13,
+  "source_art_changed": false,
+  "unity_editor_verified": false,
+  "native_visual_review": "pending",
+  "scope": "Generated PNG dimensions, alpha presence, SHA-256, crop bounds and aliases only. Not Unity rendering or artistic acceptance.",
+  "alpha_note": "Some generated background pixels have alpha1..15/255; low-alpha fringe needs native visual review. Files were not modified.",
+  "atlases": [
+    {
+      "resource": "WhiteGuardArt/Actors/people-combat",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "entries": 24,
+      "fully_transparent_fraction": 0.65745,
+      "alpha_below_16_fraction": 0.74479,
+      "alpha_extrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/people-story",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "entries": 24,
+      "fully_transparent_fraction": 0.70013,
+      "alpha_below_16_fraction": 0.78653,
+      "alpha_extrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Environment/props",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "entries": 24,
+      "fully_transparent_fraction": 0.44201,
+      "alpha_below_16_fraction": 0.5925,
+      "alpha_extrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Environment/materials",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "entries": 16,
+      "fully_transparent_fraction": 0,
+      "alpha_below_16_fraction": 0,
+      "alpha_extrema": [
+        255,
+        255
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Story/story-atlas-a",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "entries": 4,
+      "fully_transparent_fraction": 0,
+      "alpha_below_16_fraction": 0,
+      "alpha_extrema": [
+        255,
+        255
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Story/story-atlas-b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "entries": 4,
+      "fully_transparent_fraction": 0,
+      "alpha_below_16_fraction": 0,
+      "alpha_extrema": [
+        255,
+        255
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Story/story-atlas-c",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "entries": 4,
+      "fully_transparent_fraction": 0,
+      "alpha_below_16_fraction": 0,
+      "alpha_extrema": [
+        255,
+        255
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Environment/mission-props",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "entries": 24,
+      "fully_transparent_fraction": 0.07367,
+      "alpha_below_16_fraction": 0.63902,
+      "alpha_extrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/people-weapons",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "entries": 24,
+      "fully_transparent_fraction": 0.71059,
+      "alpha_below_16_fraction": 0.77961,
+      "alpha_extrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/people-civilians",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "entries": 24,
+      "fully_transparent_fraction": 0.63605,
+      "alpha_below_16_fraction": 0.77869,
+      "alpha_extrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/mazur-weapon-walk",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "entries": 9,
+      "fully_transparent_fraction": 0.75296,
+      "alpha_below_16_fraction": 0.80267,
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/mazur-carry",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "entries": 1,
+      "fully_transparent_fraction": 0.77552,
+      "alpha_below_16_fraction": 0.78076,
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    }
+  ],
+  "errors": []
+}

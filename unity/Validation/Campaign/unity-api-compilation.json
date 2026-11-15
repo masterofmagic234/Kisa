@@ -1,0 +1,365 @@
+{
+  "status": "PASS",
+  "check": "Compilation against official Unity managed API assemblies; warnings treated as errors",
+  "includes_white_guard_campaign": true,
+  "unity_version": "6000.3.28f1",
+  "unity_revision": "8f082d2fe476",
+  "source_url": "https://download.unity3d.com/download_unity/8f082d2fe476/LinuxEditorInstaller/Unity-6000.3.28f1.tar.xz",
+  "archive_md5": "ccbe0a59c4fbee234991a841d9506ad8",
+  "archive_bytes_verified": 4556838576,
+  "reference_assemblies_verified": 139,
+  "compiler_exit_code": 0,
+  "source_unchanged_during_build": true,
+  "unity_editor_executed": false,
+  "unity_native_runtime_executed": false,
+  "files": [
+    {
+      "path": "unity/Packages/com.arkon.runtime/Editor/FirstPersonPhysicsChecks.cs",
+      "sha256": "988897bfbe33ea793fad2058302eae43eb4de4e6832e46e0a7499345f541e66a"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Editor/MigrationChecks.cs",
+      "sha256": "91c50c2ae72e2574bbb013a7dcb33785cc1caac7cc3a7cc53159f5a21733cd7b"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Editor/OriginalIntroImporter.cs",
+      "sha256": "90a16ec5c11047375c94397ba7145e5bef00db90eb908da004d6d72213bfc484"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Editor/PhysicsLifecycleChecks.cs",
+      "sha256": "2c8429fe34ad807249d26cad1dba978c001cc6864bfaea55d40d7911a039abdf"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Editor/TopdownGameplayChecks.cs",
+      "sha256": "18ceec34e44e74d8b36f9193a1d7c8f8a3e0ca9d893d20a26c40361dcd1ebac7"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Editor/TopdownWorldChecks.cs",
+      "sha256": "46e428660ccdca3fda6443bb6ba83494d54d764cc0833c75376583d29c1c8acf"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Combat/HealthModel.cs",
+      "sha256": "ed6339b3967bad5132f316f0199ea86dbd30c0a667a92e8c719c056602c9386b"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Combat/WeaponDefinition.cs",
+      "sha256": "8dba76795b9fdaad0094e52b17e2bd0d731f7eb7da3430c7a8cf72400234eeba"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Combat/WeaponModel.cs",
+      "sha256": "6986f0301cbc879b0f6f3729e6ee6a0e66338798dfd7f26fa33293f59e07946a"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Movement/InputLatch.cs",
+      "sha256": "71a55fe4d2a1fd3480f6853db0b342f158101362f4ece33d2d4063594fef97c0"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Movement/TopdownMotor.cs",
+      "sha256": "3a55454103c52dfe95359416b7ac0cab8e4f453baef6cbf09d03593f8a09b13d"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Movement3D/FirstPersonMotor.cs",
+      "sha256": "76ac0f6392854ca6e7f59a35dcde80e94780c6065ad422b4e41f95f80dc364a9"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Movement3D/GroundedStepMotion3D.cs",
+      "sha256": "152f8dcf777443df35b4183c4f6f2279889197efcf107c6cc7d1a666f8cc6e50"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Movement3D/MotionVector3.cs",
+      "sha256": "0094a1b9de2c89f6101c9161bd1aade4182c6668fe3619a56e6875b8a6d08da8"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/IntroData.cs",
+      "sha256": "7577d2e4eb1ca46f31d84ab159b2e77aa128050e50768aeb2ada70b7319e7ca6"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/IntroStage3Data.cs",
+      "sha256": "58778a3fb2637ad17ea2ce40871e5a20fdcc8da1cfe4d74ce8b81e4974fc2774"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/IntroStageCompositor.cs",
+      "sha256": "51bb099c3c287c95b2ff304bc234bdae7e08c3bb3765b496789c6169b0201b15"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/IntroStageJson.cs",
+      "sha256": "ea61a0257c916944ad4fc3feb2e5add07f9eedcb6e87e785c09d24fd27d70c30"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/PortableJson.cs",
+      "sha256": "c5bf066bcd9575032606619267846402b63f9ea78725bbb5a618142fa2f7c482"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Narrative/ReaderSequence.cs",
+      "sha256": "4e79bca714123ae498c2a0a623dfea4ce74f10f3800bff93acc10294cd62273d"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/State/PauseModel.cs",
+      "sha256": "2a9914594deeb496b9f67f0ca3ac6ee859e1abd77bbeb084134b06956b17b718"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/State/ProgressModel.cs",
+      "sha256": "658c09d61942dff40940ddb7c9d00b43261b4c2dafb1baafcdf0ce4ddf34e70a"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/State/TransitionGate.cs",
+      "sha256": "fb6610e9986bfe4ca071791da7d3a762794f7f6f510d5917ee015e8f7b46158c"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vec2.cs",
+      "sha256": "eb8417782931ae26c89225ab68e3be75e2fb878da6c197dbecd3c8dc091a9cc8"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RaceBarriers.cs",
+      "sha256": "0e80b3e27c19f8b35b39905dde8eedde102cc65ed32f958ca4b5384ef526d1d5"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RaceCalibration.cs",
+      "sha256": "800ec811b2c06a641942110871ff222365c2940b03197a130c1fa88907f6b218"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RaceCarMotion.cs",
+      "sha256": "1289e3728860d659e1ab7d2751ddd2ed8fb402b838c8714196a08b44ba0c54d5"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RaceChaseCamera.cs",
+      "sha256": "4651e162ce1c47aa9cbe43f971f271ea321f2045ae8b5824c69191d6111313c2"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RaceMath.cs",
+      "sha256": "66bcf42181007e00733e210c8ceebe236b3cd8f7119acb44d9f40d42d09a28c5"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RaceNumerics.cs",
+      "sha256": "3d6e38f511e8f948645f97d06a9dea8d6096196287aaee13e8b5a96c6170890c"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RacePowertrain.cs",
+      "sha256": "2334435e0b694c03b31cfdc285080246e1d980d96e2287c964105838fe1f4b2b"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RaceProjection.cs",
+      "sha256": "31bc05d95c212b0de988d590d8a90e6f978e571d5785c746faf9b352956a4d14"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RaceState.cs",
+      "sha256": "500d0ae868d47063d10fd3cc6bec298cae185a07bc502fb1d9d0e957e3202152"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/Vehicle/RaceVehicleContacts.cs",
+      "sha256": "e4b9e019a8815a5fdd3a4efbe829f0d13906c151b986cddabbe84c6ffafa4040"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/BoundedPool.cs",
+      "sha256": "09738193c065da583d8a2962869cfaf2e6dc7770ec79333051c1a95687032194"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/DoorModel.cs",
+      "sha256": "f6f8d042caa51af624e98716aacfc0786c01bd3426ca570ed5f52193595167c5"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/EnemyModel.cs",
+      "sha256": "f0df27a9cce4960043046d09a91bb84c87087f33cce458ebdf828e06b8f49bae"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/EnemyTargetSelection.cs",
+      "sha256": "75c4e53af1277ea39a065f5752f352f04f9d0b4da96c3fb221a7fcbbca7c928c"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/LeasePool.cs",
+      "sha256": "fce092c3087c4c79d6c3ef822a3a282bc7fbd3f67f7c532d6a69233946a44cdd"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/NavigationGrid.cs",
+      "sha256": "92db5243c17d5d96bfb932011cf3654a5ce348f8e4186bd3a56ec708db5713b3"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/PickupModel.cs",
+      "sha256": "17304fd1733bf35b48b5bca45a89b53a3711c7fab11aeaf9ee448bb08bbe8655"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/ProjectileModel.cs",
+      "sha256": "778d110dc8b3033f0ec7fd008461bb00b0c7f702b4b90337611da9807c315dca"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Core/World/WorldCombatQueries.cs",
+      "sha256": "784d8250de64fe70293f50e0063568cf74bbcd9e084fcf8500b335811b9fa2ea"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Diagnostics/PhysicsLifecycleProbe.cs",
+      "sha256": "5b18637838810a366ae0d5dbc2ab5075ac2775d9c91e98252e524d1184154c01"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Intro/IntroPlayer.cs",
+      "sha256": "0ae870f572204099d82bafb2e30c031e4e03b3a9d9ea23c903b7f8f5c2c70fec"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Intro/IntroStageRenderer.cs",
+      "sha256": "cf73a4ec8d79effec4b7e3e131e551be2cca10f19c7fd958d7f4f0ecdae47a2b"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/ActorIdentity2D.cs",
+      "sha256": "e7b49f66c8fde6552a0986c188da6795892c67fce8933e8dd9f9a48680a6486b"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/ArkonCoordinates.cs",
+      "sha256": "261da2646309340b86e77f90a804868ccfaf5a0fe6ab99324a232bc371dc7468"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/DamageReceiver2D.cs",
+      "sha256": "1229f11f78171cac2dada277ac61e91cec3713e0346e7c3b09b3153f20063760"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/KinematicBodyPort2D.cs",
+      "sha256": "e12aefce57843aa228ad6032c7bb77773297978fc88a1adafb9b6e812eb1d50e"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/Physics2DPort.cs",
+      "sha256": "cf42dfe7f750094fe5c5f0bece3a2d5ffc23be00561c0ff277a4be15ec0a0fce"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/ProjectilePool2D.cs",
+      "sha256": "7841de9547172469f70b579dbeb408b6ff968e7c10bbfa77c270fd353762c9e0"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics/TopdownActor2D.cs",
+      "sha256": "5453664a48d15a5be9789273c880c0aa71ff07cc824fe334af0662bced19b0ab"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics3D/CapsuleBodySweep3D.cs",
+      "sha256": "97403072a51e694e45b62a9a1c080d53c81be9bbeccb77042692ddb447cb10c9"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics3D/DamageReceiver3D.cs",
+      "sha256": "eb0748eaf5b960f75d5db88b20f6136abb555ec5290a24dd14884bd4f0156632"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/Physics3D/FirstPersonActor3D.cs",
+      "sha256": "909205c2e625ab1aebd44ae2858a1973c6c57cd2805eb17a3fead16c5906a13d"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/SceneObjects.cs",
+      "sha256": "84236ca0a8f3d20029ff7790fd4ff5702330171f6bdf774a3a2ed61f34890827"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/State/UnityProgressStore.cs",
+      "sha256": "7560bd6141887780e042876eca6edbada1f125bd8e8f0078685b4204b456117d"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/WhiteGuardBootstrap.cs",
+      "sha256": "49ce6fd2392ae77cf9d9be492a29c930652550c76b2e44b8a54217dca8301c59"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/World/DoorPort2D.cs",
+      "sha256": "5eb88233c6a5cfb3ae676f69c63bb618da382ec3c4257db1180f20dd73bab890"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/World/EnemyPort2D.cs",
+      "sha256": "5fade203431f2d1a419db39acc67d977436ec0a69833edf3467ac97445d9be9c"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/World/IEnemyTargetSelector.cs",
+      "sha256": "4428ee883cb4af76848b0446c9aa27b63549170b194a698e636e62243710ccb9"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/World/PickupPort2D.cs",
+      "sha256": "6c273d86b584de36546dbd76935c7bfbd09b979f2b729734d09eed6fbdb3e366"
+    },
+    {
+      "path": "unity/Packages/com.arkon.runtime/Runtime/Unity/World/TopdownWorld2D.cs",
+      "sha256": "58e02347031051d345450659807ae329ba7ba82e5e12b44b921f1fe2c880311f"
+    },
+    {
+      "path": "unity/Tests/Core/Arkon.Core.csproj",
+      "sha256": "5740248c5fdedef327aa7a6f266497a42262d6447db31d56da4f3528e4bed726"
+    },
+    {
+      "path": "unity/Tests/UnityApi/Arkon.UnityApi.csproj",
+      "sha256": "1ee7b1787c1aeb1da24dd89ef1cc6ec37cc513c1caab1d2aa2463a82d771299a"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Editor/CampaignArtImporter.cs",
+      "sha256": "3c8746e22565ef3a9df0f2646e7d1c562e2f0a83601ce2804aa932c40b2c65bd"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Editor/CampaignGameChecks.cs",
+      "sha256": "fedcf378a766bc03bc7ac1b5a3327e0f2922d2f57d8c8ca50d2e70948bd14caf"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Editor/CampaignVoiceImporter.cs",
+      "sha256": "ed875f553ba2a4f2bf839a2bb0b46fe856b0c0e00c5be52f745d7d36ac753f5f"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Editor/WhiteGuardGameBuild.cs",
+      "sha256": "9d95f5a52c00a48f0bd373e293599eb3374f78ed7f8b03794604046e39044da8"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Diagnostics/CampaignGameProbe.cs",
+      "sha256": "aa73ec74c772a7b2405567e5ddce1c3f4c665c3eb3feb802927a1592ccbe410b"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignEntity.cs",
+      "sha256": "66635349575e6037fc0ec995528a65aaa92acd62e70d9917a319c51435210b57"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignGameLoop.cs",
+      "sha256": "37f15676bd8b88cbbcc20a9c07ad063616fb231544f79f29c87624b508eba2a6"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignMapBuilder.cs",
+      "sha256": "df0136dba20f5d5f8ac5ab81b4cd5ddf3a15f3a1057c8a93c99e6d64d777b36f"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignNpc.cs",
+      "sha256": "e1742b5c19b78e22f577ddc2bf4af13be850cb6679d14098c40af677ae434274"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignSave.cs",
+      "sha256": "21d3ad0b759cec8450d62fd68121ab7f3de553364f90bd7a04c38118597934d2"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/Domain/CampaignCheckpointValidation.cs",
+      "sha256": "9262792d05f8d738ae9ee0586774654252a366302fb49f78b658ceabb21df365"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/Domain/CampaignData.cs",
+      "sha256": "12d06ee45b2fc7d6fea51960d3edd58622fa0ed90c5f1bd3becac105113aef98"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/Domain/CampaignProgress.cs",
+      "sha256": "a39369b014636fc9df7754bbb5d8c558c92b2b4bc30f22a6ae096a50010a5bc8"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Presentation/CampaignArt.cs",
+      "sha256": "a285b088e9c74e075d5f62fd7bf732e2d27a4be27c789c039a4bf62979372771"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Presentation/CampaignAudio.cs",
+      "sha256": "92b08ef51b9f2a54ac3854cad18d2801c2ed2300906151776b196f7552c4e0c3"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Presentation/CampaignCamera.cs",
+      "sha256": "8a83c5cdf625d9db2534ac357edfa211e5f339c06e8ae2bb06c5021534fd2adf"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Presentation/CampaignPresentation.cs",
+      "sha256": "c307f5a2436789934a4ff4e602d9d8443bff11380087c0e2f6b84857f165aecb"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Presentation/CampaignUI.cs",
+      "sha256": "8af2d0e4a47f6a01ffaa41bf87684cdaf6bd1358fdeb942668acde0f319d7c31"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Presentation/StoryDirection.cs",
+      "sha256": "f1b2ca037b07374dd72d730ca083cc60f36d2705fbd9e3664bb5492d5f883945"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Scripts/Presentation/WhiteGuardGameBootstrap.cs",
+      "sha256": "7359900f0ba967a9688c9a750fc8ebd61853d7bf57d19b1d4e8f65ecdcb2044f"
+    },
+    {
+      "path": "unity/Tests/GameApi/WhiteGuard.GameApi.csproj",
+      "sha256": "385fec3a5f6210c32bae73fb3eaf0412e53a646d26cd1c3746f93ccc6f6aa52f"
+    }
+  ]
+}

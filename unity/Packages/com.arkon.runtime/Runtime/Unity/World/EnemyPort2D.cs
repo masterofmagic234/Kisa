@@ -18,6 +18,7 @@ namespace Arkon.Unity
         public DamageReceiver2D HitboxReceiver;
         public CircleCollider2D HitboxCollider;
         public EnemyModel Model { get; private set; }
+        public EnemyTarget2D SelectedTarget { get; private set; }
         public Vec2 Position => body ? body.Position : ArkonCoordinates.ToSource(transform.position);
         public int ActorId => identity.Id;
         public event Action<EnemyPort2D> Killed;
@@ -29,6 +30,7 @@ namespace Arkon.Unity
         private HealthModel health;
         private IEnemyWorld binding;
         private bool started;
+        private bool usedTargetSelector;
         private RaidDuty pendingDuty;
         private IReadOnlyList<Vec2> pendingStage;
         private Vec2? pendingFace;
@@ -88,6 +90,13 @@ namespace Arkon.Unity
         private void FixedUpdate()
         {
             if (!AIEnabled || Model == null || !world || !world.isActiveAndEnabled || Time.timeScale <= 0) return;
+            // Checkpoint/scene owners may have moved the Rigidbody since the
+            // previous tick; target-memory invalidation must use its real pose.
+            Model.Position = Position;
+            var selected = world.SelectEnemyTarget(this, SelectedTarget);
+            var usesSelector = world.EnemyTargetSelector != null;
+            if ((usesSelector || usedTargetSelector) && selected.ActorId != SelectedTarget.ActorId) Model.ResetTargetTracking();
+            SelectedTarget = selected; usedTargetSelector = usesSelector;
             if (pendingDuty != null)
             {
                 if (!world.NavigationReady) return;
@@ -133,6 +142,7 @@ namespace Arkon.Unity
         private void OnDisable()
         {
             if (world) world.Unregister(this);
+            SelectedTarget = default; usedTargetSelector = false;
             if (bodyCollider) bodyCollider.enabled = false;
             if (HitboxCollider) HitboxCollider.enabled = false;
         }

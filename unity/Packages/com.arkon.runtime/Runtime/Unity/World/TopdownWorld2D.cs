@@ -37,6 +37,11 @@ namespace Arkon.Unity
         public bool Transitioning;
         public bool LevelComplete;
         public bool HasBottle = true;
+        /// <summary>Optional encounter-owned provider; null preserves the original player-only targeting.</summary>
+        public IEnemyTargetSelector EnemyTargetSelector { get; set; }
+        /// <summary>Optional scene-owned interaction. Query and execution share priority with ordinary E-actions.</summary>
+        public Func<TopdownActor2D, bool> HasExternalAction { get; set; }
+        public Func<TopdownActor2D, bool> TryHandleExternalAction { get; set; }
         public NavigationGrid Navigation { get; } = new NavigationGrid();
         public bool NavigationReady => isActiveAndEnabled && navigationCommitted && Navigation.Ready;
         public bool TargetAlive => Target && Target.isActiveAndEnabled && targetHealth != null && !targetHealth.Dead && !Target.Motor.Dead;
@@ -46,6 +51,7 @@ namespace Arkon.Unity
         private Physics2DPort projectileWorld;
         private ProjectilePool2D projectiles;
         private HealthModel targetHealth;
+        private DamageReceiver2D targetReceiver;
         private WeaponModel targetWeapons;
         private TopdownActor2D boundTarget;
         private KinematicBodyPort2D boundBody;
@@ -104,6 +110,7 @@ namespace Arkon.Unity
             { Debug.LogError("TopdownWorld2D target must be active in the same scene.", this); return; }
             Target = actor;
             var receiver = actor.GetComponent<DamageReceiver2D>();
+            targetReceiver = receiver;
             targetHealth = receiver.Health; targetWeapons = actor.Weapons;
             if (targetWeapons == null)
             { Debug.LogError("Bind target after the actor Awake has completed.", this); Target = null; targetHealth = null; return; }
@@ -115,7 +122,7 @@ namespace Arkon.Unity
             actor.ActionRequested += OnAction;
             actor.ThrowRequested += OnThrow;
             actor.MeleeRequested += OnMelee;
-            targetWeapons.Changed += OnWeaponChanged;
+            targetWeapons.ShotConsumed += OnWeaponShotConsumed;
             if (boundBody) boundBody.BlockingCollisions += OnBlockingCollisions;
         }
 
@@ -126,8 +133,8 @@ namespace Arkon.Unity
                 boundTarget.ActionRequested -= OnAction; boundTarget.ThrowRequested -= OnThrow; boundTarget.MeleeRequested -= OnMelee;
             }
             if (boundBody) boundBody.BlockingCollisions -= OnBlockingCollisions;
-            if (targetWeapons != null) targetWeapons.Changed -= OnWeaponChanged;
-            targetWeapons = null; targetHealth = null; pickupActor = null; boundTarget = null; boundBody = null;
+            if (targetWeapons != null) targetWeapons.ShotConsumed -= OnWeaponShotConsumed;
+            targetWeapons = null; targetHealth = null; targetReceiver = null; pickupActor = null; boundTarget = null; boundBody = null;
         }
 
         private static void EnsurePlayerHitbox(TopdownActor2D actor)
@@ -227,9 +234,27 @@ namespace Arkon.Unity
         private bool CanSimulateCombat => isActiveAndEnabled && Time.timeScale > 0 && !Transitioning && !IsCombatPaused;
         internal bool CanAttack => CanSimulateCombat && Target.CombatEnabled;
 
+        internal EnemyTarget2D SelectEnemyTarget(EnemyPort2D enemy, EnemyTarget2D previous)
+        {
+            var selector = EnemyTargetSelector;
+            if (selector == null) return TargetAlive ? new EnemyTarget2D(Target.transform, targetReceiver) : default;
+            // Source locks its attack direction. Also hold its victim identity so
+            // a nearby escort cannot inherit damage half way through that windup.
+            if (enemy.Model != null && enemy.Model.Windup > 0 && ValidEnemyTarget(previous, enemy)) return previous;
+            return selector.TrySelectTarget(enemy, out var selected) && ValidEnemyTarget(selected, enemy) ? selected : default;
+        }
+
+        private bool ValidEnemyTarget(EnemyTarget2D target, EnemyPort2D enemy)
+        {
+            if (!target.Alive || target.ActorId == 0 || target.ActorId == enemy.ActorId ||
+                target.ActorRoot.gameObject.scene != gameObject.scene || target.Receiver.gameObject.scene != gameObject.scene) return false;
+            var identity = target.ActorRoot.GetComponent<ActorIdentity2D>();
+            return identity && identity.Id == target.ActorId && target.Receiver.GetComponentInParent<ActorIdentity2D>() == identity;
+        }
+
         internal void FireEnemy(EnemyPort2D enemy, Vec2 direction)
         {
-            if (!CanSimulateCombat || !enemy || enemy.Model == null || enemy.Model.State == EnemyState.Dead || !projectiles) return;
+            if (!CanSimulateCombat || !enemy || enemy.Model == null || enemy.Model.State == EnemyState.Dead || !projectiles || !enemy.SelectedTarget.Alive) return;
             var origin = SafeMuzzle(enemy.Position, direction, 16); var endpoint = origin + direction.Normalized * WorldCombatQueries.EnemyBulletRange;
             if (WallRay(origin, endpoint, null, out var wall)) endpoint = wall;
             projectiles.Spawn(origin, endpoint, WorldCombatQueries.EnemyBulletSpeed,
@@ -240,7 +265,8 @@ namespace Arkon.Unity
 
         internal void MeleeTarget(EnemyPort2D enemy, int damage)
         {
-            if (CanSimulateCombat && enemy && enemy.Model != null && enemy.Model.State != EnemyState.Dead) targetHealth.ApplyDamage(damage, enemy.ActorId);
+            if (CanSimulateCombat && enemy && enemy.Model != null && enemy.Model.State != EnemyState.Dead && enemy.SelectedTarget.Alive)
+                enemy.SelectedTarget.Receiver.ApplyDamage(damage, enemy.ActorId);
         }
 
         internal void ApplyPickup(PickupPort2D pickup, TopdownActor2D actor)
@@ -263,10 +289,11 @@ namespace Arkon.Unity
             foreach (var enemy in enemies.ToArray()) if (enemy && enemy.Model != null) enemy.Model.HearNoise(at);
         }
 
-        private void OnWeaponChanged(string id, int ammo)
+        private void OnWeaponShotConsumed(string id, int ammo)
         {
-            // Equip resets cooldown to zero; ConsumeShot is the only Changed event with a positive cooldown.
-            if (CanAttack && targetWeapons.Cooldown > 0) NotifyNoise(SafeMuzzle(Target.Position, Target.Motor.AimDirection, 18));
+            // Exact checkpoint restores may publish a positive saved cooldown.
+            // Only a genuine consumed shot creates noise, never a UI Changed event.
+            if (CanAttack) NotifyNoise(SafeMuzzle(Target.Position, Target.Motor.AimDirection, 18));
         }
 
         private void OnBlockingCollisions(IReadOnlyList<Collider2D> contacts, float impactSpeed)
@@ -304,6 +331,7 @@ namespace Arkon.Unity
         public TopdownAction2D QueryAction(TopdownActor2D actor)
         {
             if (!actor || actor != Target || !CanSimulateCombat) return default;
+            if (HasExternalAction?.Invoke(actor) == true) return default;
             var position = actor.Position;
             // Source disables combat interactions while unarmed, but ordinary doors remain usable.
             if (actor.CombatEnabled)
@@ -336,6 +364,8 @@ namespace Arkon.Unity
 
         private void OnAction(TopdownActor2D actor)
         {
+            if (!actor || actor != Target || !CanSimulateCombat) return;
+            if (TryHandleExternalAction?.Invoke(actor) == true) return;
             var action = QueryAction(actor);
             switch (action.Kind)
             {
@@ -344,6 +374,8 @@ namespace Arkon.Unity
                 case TopdownActionKind.Door: action.Door.Interact(actor.Position); break;
             }
         }
+
+        public void PerformAction(TopdownActor2D actor) => OnAction(actor);
 
         private void OnMelee(TopdownActor2D actor, WeaponDefinition weapon)
         {
@@ -414,8 +446,8 @@ namespace Arkon.Unity
             public bool Transitioning => !world || !world.isActiveAndEnabled || world.Transitioning;
             public bool CombatPaused => !world || world.IsCombatPaused;
             public bool NavigationReady => world && world.NavigationReady;
-            public bool TargetAlive => world && world.TargetAlive;
-            public Vec2 TargetPosition => TargetAlive ? world.Target.Position : owner.Position;
+            public bool TargetAlive => world && world.isActiveAndEnabled && owner.SelectedTarget.Alive;
+            public Vec2 TargetPosition => TargetAlive ? owner.SelectedTarget.Position : owner.Position;
             public bool HasLineOfSight(Vec2 from, Vec2 to) => world.HasLineOfSight(from, to);
             public bool IsBodyPathClear(Vec2 from, Vec2 to) => world.IsBodyPathClear(from, to);
             public IReadOnlyList<Vec2> FindPath(Vec2 from, Vec2 to) => world.Navigation.FindPath(from, to);

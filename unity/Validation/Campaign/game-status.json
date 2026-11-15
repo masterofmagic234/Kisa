@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "implemented_pending_native_acceptance",
+  "branch": "feat/white-guard-game",
+  "migration_base_commit": "8a298931fa3bcc7c79a3b1141391de692defe85d",
+  "unity_version": "6000.3.28f1",
+  "entry_scene": "unity/WhiteGuard/Assets/Scenes/WhiteGuard.unity",
+  "campaign_sha256": "bd62646626535971ade72f2e0feeefeecb793353bcdfdea9bede0deaddd1d446",
+  "content": {
+    "maps": 9,
+    "objectives": 71,
+    "authored_enemies": 74,
+    "interactions": 30,
+    "story_cards": 88,
+    "new_voice_mp3": 88,
+    "new_voice_seconds": 779.64,
+    "art_atlases": 12,
+    "named_art_regions": 182,
+    "story_shots": 132
+  },
+  "portable_evidence": {
+    "original_media_unchanged": 41,
+    "core_checks": 5607,
+    "campaign_contract_checks": 633,
+    "objective_witness_completed_levels": 9,
+    "static_geometry_checks": 856,
+    "media_integrity_checks_with_ffprobe": 4357,
+    "official_unity_api_compile": "PASS; 0 errors, 0 warnings"
+  },
+  "new_campaign_native_import_verified": false,
+  "new_campaign_native_startup_probe_executed": false,
+  "full_native_campaign_completed": false,
+  "new_campaign_gpu_reviewed": false,
+  "new_campaign_audio_listened": false,
+  "new_campaign_player_built": false,
+  "release_ready": false,
+  "blocker": {
+    "kind": "unity_editor_activation_required",
+    "full_official_editor_installed": true,
+    "actual_editor_launch_exit_code": 198,
+    "message": "No valid Unity Editor license found. Please activate your license.",
+    "stopped_before_campaign_import": true,
+    "evidence": "unity/docs/native-setup-status.json"
+  },
+  "remaining_acceptance": [
+    "Run strict native data/import validation and CampaignGameChecks.Run in an activated Editor.",
+    "Play every mission, failure/retry and save/continue path; fix actual native issues and balance.",
+    "Review final rendered direction, sprites, HUD and all narration/music in graphical PlayMode.",
+    "Build and launch a standalone Player, then complete the campaign outside the Editor."
+  ],
+  "scope": "Portable objective witnesses supply abstract successful world facts; they are not a native combat, physics or campaign playthrough. Earlier native migration-base results do not validate this campaign."
+}

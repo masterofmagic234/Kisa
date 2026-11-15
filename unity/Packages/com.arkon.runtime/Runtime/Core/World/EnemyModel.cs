@@ -109,6 +109,20 @@ namespace Arkon.Core
         /// as CharacterBody2D.move_and_slide updates its velocity in Godot.</summary>
         public void SetResolvedVelocity(Vec2 value) => Velocity = value;
 
+        /// <summary>
+        /// Called only by an optional multi-target encounter when target identity
+        /// changes. Never redirect an existing windup to a different victim or
+        /// reuse a cached LOS/path for that victim. The original player-only
+        /// source binding does not invoke this extension.
+        /// </summary>
+        public void ResetTargetTracking()
+        {
+            _windup = 0; _senseTimer = 0; _routeTimer = 0;
+            _seesTarget = false; _directClear = false; _hasLastGoal = false;
+            LastKnownPosition = Position;
+            _path = Array.Empty<Vec2>(); _pathIndex = 0;
+        }
+
         public bool Tick(float delta, IEnemyWorld world)
         {
             if (world == null) throw new ArgumentNullException(nameof(world));

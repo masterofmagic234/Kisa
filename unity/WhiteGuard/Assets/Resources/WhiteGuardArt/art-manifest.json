@@ -1,0 +1,4217 @@
+{
+  "schema": 1,
+  "coordinates": "top_left",
+  "facingClockwiseDegrees": "0 = right/east, 90 = down in source image",
+  "sourceStyle": "Approved White Guard opening-atlas-a and actors; original files untouched",
+  "atlases": [
+    {
+      "resource": "WhiteGuardArt/Actors/people-combat",
+      "width": 1536,
+      "height": 1024,
+      "columns": 6,
+      "rows": 4,
+      "sha256": "9ec314e42d4fcd00657459ce5dab54b0588be9499a949e620d64911d6db91225",
+      "entries": [
+        {
+          "id": "mazur_idle",
+          "x": 0,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            46,
+            59,
+            192,
+            155
+          ],
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "leon_idle",
+          "x": 256,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            299,
+            59,
+            195,
+            155
+          ],
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "lavrik_idle",
+          "x": 512,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            555,
+            58,
+            195,
+            156
+          ],
+          "column": 2,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "guard_idle",
+          "x": 768,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            811,
+            57,
+            196,
+            157
+          ],
+          "column": 3,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "militia_idle",
+          "x": 1024,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1065,
+            60,
+            197,
+            154
+          ],
+          "column": 4,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "contractor_idle",
+          "x": 1280,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1322,
+            58,
+            197,
+            156
+          ],
+          "column": 5,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_walk_left",
+          "x": 0,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            46,
+            308,
+            192,
+            183
+          ],
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "leon_walk_left",
+          "x": 256,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            303,
+            304,
+            191,
+            187
+          ],
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "lavrik_walk_left",
+          "x": 512,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            556,
+            307,
+            194,
+            184
+          ],
+          "column": 2,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "guard_walk_left",
+          "x": 768,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            813,
+            305,
+            194,
+            187
+          ],
+          "column": 3,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "militia_walk_left",
+          "x": 1024,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1070,
+            308,
+            193,
+            183
+          ],
+          "column": 4,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "contractor_walk_left",
+          "x": 1280,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1324,
+            307,
+            195,
+            184
+          ],
+          "column": 5,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_walk_right",
+          "x": 0,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            44,
+            563,
+            194,
+            179
+          ],
+          "column": 0,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "leon_walk_right",
+          "x": 256,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            300,
+            562,
+            194,
+            179
+          ],
+          "column": 1,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "lavrik_walk_right",
+          "x": 512,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            556,
+            562,
+            195,
+            180
+          ],
+          "column": 2,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "guard_walk_right",
+          "x": 768,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            813,
+            561,
+            194,
+            181
+          ],
+          "column": 3,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "militia_walk_right",
+          "x": 1024,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1069,
+            565,
+            194,
+            176
+          ],
+          "column": 4,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "contractor_walk_right",
+          "x": 1280,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1323,
+            562,
+            197,
+            180
+          ],
+          "column": 5,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_unarmed",
+          "x": 0,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            42,
+            818,
+            161,
+            166
+          ],
+          "column": 0,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 90
+        },
+        {
+          "id": "leon_unarmed",
+          "x": 256,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            297,
+            815,
+            157,
+            168
+          ],
+          "column": 1,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 90
+        },
+        {
+          "id": "lavrik_unarmed",
+          "x": 512,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            554,
+            815,
+            158,
+            169
+          ],
+          "column": 2,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 90
+        },
+        {
+          "id": "guard_unarmed",
+          "x": 768,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            811,
+            814,
+            160,
+            170
+          ],
+          "column": 3,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 90
+        },
+        {
+          "id": "militia_unarmed",
+          "x": 1024,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1070,
+            818,
+            152,
+            166
+          ],
+          "column": 4,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 90
+        },
+        {
+          "id": "contractor_unarmed",
+          "x": 1280,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1323,
+            815,
+            158,
+            168
+          ],
+          "column": 5,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 90
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/people-story",
+      "width": 1536,
+      "height": 1024,
+      "columns": 6,
+      "rows": 4,
+      "sha256": "cb4bdd11c451350492874746855b41a6096568878bd10983977e1fefccee29ee",
+      "entries": [
+        {
+          "id": "natalie_idle",
+          "x": 0,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            64,
+            47,
+            172,
+            187
+          ],
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "natalie_formal_idle",
+          "x": 256,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            333,
+            45,
+            110,
+            189
+          ],
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "tatiana_idle",
+          "x": 512,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            587,
+            47,
+            109,
+            185
+          ],
+          "column": 2,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "prince_idle",
+          "x": 768,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            834,
+            44,
+            123,
+            190
+          ],
+          "column": 3,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "irina_idle",
+          "x": 1024,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1097,
+            46,
+            111,
+            187
+          ],
+          "column": 4,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "civilian_female_idle",
+          "x": 1280,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1351,
+            47,
+            111,
+            187
+          ],
+          "column": 5,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "natalie_walk_left",
+          "x": 0,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            68,
+            302,
+            169,
+            192
+          ],
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "natalie_formal_walk_left",
+          "x": 256,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            332,
+            297,
+            126,
+            198
+          ],
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "tatiana_walk_left",
+          "x": 512,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            583,
+            299,
+            129,
+            196
+          ],
+          "column": 2,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "prince_walk_left",
+          "x": 768,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            830,
+            296,
+            135,
+            195
+          ],
+          "column": 3,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "irina_walk_left",
+          "x": 1024,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1094,
+            300,
+            122,
+            194
+          ],
+          "column": 4,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "civilian_female_walk_left",
+          "x": 1280,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1351,
+            297,
+            125,
+            195
+          ],
+          "column": 5,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "natalie_walk_right",
+          "x": 0,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            54,
+            557,
+            182,
+            192
+          ],
+          "column": 0,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "natalie_formal_walk_right",
+          "x": 256,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            322,
+            557,
+            140,
+            187
+          ],
+          "column": 1,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "tatiana_walk_right",
+          "x": 512,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            577,
+            558,
+            140,
+            184
+          ],
+          "column": 2,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "prince_walk_right",
+          "x": 768,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            829,
+            554,
+            141,
+            186
+          ],
+          "column": 3,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "irina_walk_right",
+          "x": 1024,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1091,
+            557,
+            135,
+            190
+          ],
+          "column": 4,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "civilian_female_walk_right",
+          "x": 1280,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1339,
+            554,
+            145,
+            188
+          ],
+          "column": 5,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "natalie_crouch",
+          "x": 0,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            52,
+            826,
+            181,
+            159
+          ],
+          "column": 0,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "natalie_formal_crouch",
+          "x": 256,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            320,
+            825,
+            133,
+            158
+          ],
+          "column": 1,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "tatiana_crouch",
+          "x": 512,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            571,
+            827,
+            136,
+            156
+          ],
+          "column": 2,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "prince_crouch",
+          "x": 768,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            823,
+            825,
+            142,
+            159
+          ],
+          "column": 3,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "irina_crouch",
+          "x": 1024,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1086,
+            827,
+            127,
+            155
+          ],
+          "column": 4,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "civilian_female_crouch",
+          "x": 1280,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1344,
+            820,
+            127,
+            164
+          ],
+          "column": 5,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Environment/props",
+      "width": 1536,
+      "height": 1024,
+      "columns": 6,
+      "rows": 4,
+      "sha256": "bd6d713cd4df4dceea71c6c7a1f63c5860cc38c6ad52f08058b9606d760ce174",
+      "entries": [
+        {
+          "id": "crate",
+          "x": 47,
+          "y": 62,
+          "w": 180,
+          "h": 182,
+          "cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            47,
+            62,
+            180,
+            182
+          ],
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "ammo_crate",
+          "x": 293,
+          "y": 76,
+          "w": 199,
+          "h": 156,
+          "cell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            293,
+            76,
+            199,
+            156
+          ],
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "sandbags",
+          "x": 551,
+          "y": 58,
+          "w": 183,
+          "h": 185,
+          "cell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            551,
+            58,
+            183,
+            185
+          ],
+          "column": 2,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "planter",
+          "x": 788,
+          "y": 33,
+          "w": 224,
+          "h": 223,
+          "cell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            788,
+            33,
+            224,
+            223
+          ],
+          "column": 3,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "fern_pot",
+          "x": 1054,
+          "y": 50,
+          "w": 204,
+          "h": 196,
+          "cell": [
+            1024,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1054,
+            50,
+            204,
+            196
+          ],
+          "column": 4,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "boxes",
+          "x": 1310,
+          "y": 49,
+          "w": 196,
+          "h": 204,
+          "cell": [
+            1280,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1310,
+            49,
+            196,
+            204
+          ],
+          "column": 5,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "desk",
+          "x": 20,
+          "y": 330,
+          "w": 231,
+          "h": 146,
+          "cell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            20,
+            330,
+            231,
+            146
+          ],
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "round_table",
+          "x": 288,
+          "y": 296,
+          "w": 208,
+          "h": 209,
+          "cell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            288,
+            296,
+            208,
+            209
+          ],
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "sofa",
+          "x": 527,
+          "y": 328,
+          "w": 229,
+          "h": 148,
+          "cell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            527,
+            328,
+            229,
+            148
+          ],
+          "column": 2,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "radio",
+          "x": 789,
+          "y": 256,
+          "w": 215,
+          "h": 223,
+          "cell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            789,
+            256,
+            215,
+            223
+          ],
+          "column": 3,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "display_case",
+          "x": 1044,
+          "y": 327,
+          "w": 217,
+          "h": 150,
+          "cell": [
+            1024,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1044,
+            327,
+            217,
+            150
+          ],
+          "column": 4,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "bench",
+          "x": 1296,
+          "y": 340,
+          "w": 225,
+          "h": 120,
+          "cell": [
+            1280,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1296,
+            340,
+            225,
+            120
+          ],
+          "column": 5,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "president_car",
+          "x": 20,
+          "y": 582,
+          "w": 231,
+          "h": 113,
+          "cell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            20,
+            582,
+            231,
+            113
+          ],
+          "column": 0,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "jeep",
+          "x": 282,
+          "y": 576,
+          "w": 212,
+          "h": 131,
+          "cell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            282,
+            576,
+            212,
+            131
+          ],
+          "column": 1,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "bus",
+          "x": 523,
+          "y": 586,
+          "w": 238,
+          "h": 110,
+          "cell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            523,
+            586,
+            238,
+            110
+          ],
+          "column": 2,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "truck",
+          "x": 786,
+          "y": 574,
+          "w": 223,
+          "h": 130,
+          "cell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            786,
+            574,
+            223,
+            130
+          ],
+          "column": 3,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "tent",
+          "x": 1046,
+          "y": 534,
+          "w": 210,
+          "h": 215,
+          "cell": [
+            1024,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1046,
+            534,
+            210,
+            215
+          ],
+          "column": 4,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "barrels",
+          "x": 1297,
+          "y": 576,
+          "w": 219,
+          "h": 143,
+          "cell": [
+            1280,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1297,
+            576,
+            219,
+            143
+          ],
+          "column": 5,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "column",
+          "x": 52,
+          "y": 809,
+          "w": 168,
+          "h": 179,
+          "cell": [
+            0,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            52,
+            809,
+            168,
+            179
+          ],
+          "column": 0,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "shrub",
+          "x": 273,
+          "y": 794,
+          "w": 217,
+          "h": 202,
+          "cell": [
+            256,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            273,
+            794,
+            217,
+            202
+          ],
+          "column": 1,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "palm",
+          "x": 519,
+          "y": 780,
+          "w": 239,
+          "h": 224,
+          "cell": [
+            512,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            519,
+            780,
+            239,
+            224
+          ],
+          "column": 2,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "medkit",
+          "x": 796,
+          "y": 811,
+          "w": 202,
+          "h": 165,
+          "cell": [
+            768,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            796,
+            811,
+            202,
+            165
+          ],
+          "column": 3,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "weapons",
+          "x": 1029,
+          "y": 794,
+          "w": 239,
+          "h": 192,
+          "cell": [
+            1024,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1029,
+            794,
+            239,
+            192
+          ],
+          "column": 4,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "antique_chest",
+          "x": 1298,
+          "y": 802,
+          "w": 223,
+          "h": 192,
+          "cell": [
+            1280,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1298,
+            802,
+            223,
+            192
+          ],
+          "column": 5,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Environment/materials",
+      "width": 1254,
+      "height": 1254,
+      "columns": 4,
+      "rows": 4,
+      "sha256": "32c32eb4271faee27a527dd7ad116712ed1e30a172043debad38db6c39430d75",
+      "entries": [
+        {
+          "id": "material_road",
+          "x": 0,
+          "y": 0,
+          "w": 314,
+          "h": 314,
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_pavement",
+          "x": 314,
+          "y": 0,
+          "w": 313,
+          "h": 314,
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_sand",
+          "x": 627,
+          "y": 0,
+          "w": 313,
+          "h": 314,
+          "column": 2,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_jungle",
+          "x": 940,
+          "y": 0,
+          "w": 314,
+          "h": 314,
+          "column": 3,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_grass",
+          "x": 0,
+          "y": 314,
+          "w": 314,
+          "h": 313,
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_tiles",
+          "x": 314,
+          "y": 314,
+          "w": 313,
+          "h": 313,
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_wood",
+          "x": 627,
+          "y": 314,
+          "w": 313,
+          "h": 313,
+          "column": 2,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_concrete",
+          "x": 940,
+          "y": 314,
+          "w": 314,
+          "h": 313,
+          "column": 3,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_carpet",
+          "x": 0,
+          "y": 627,
+          "w": 314,
+          "h": 313,
+          "column": 0,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_stone",
+          "x": 314,
+          "y": 627,
+          "w": 313,
+          "h": 313,
+          "column": 1,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_plaster",
+          "x": 627,
+          "y": 627,
+          "w": 313,
+          "h": 313,
+          "column": 2,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_fence",
+          "x": 940,
+          "y": 627,
+          "w": 314,
+          "h": 313,
+          "column": 3,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_water",
+          "x": 0,
+          "y": 940,
+          "w": 314,
+          "h": 314,
+          "column": 0,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_metal",
+          "x": 314,
+          "y": 940,
+          "w": 313,
+          "h": 314,
+          "column": 1,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_dirt",
+          "x": 627,
+          "y": 940,
+          "w": 313,
+          "h": 314,
+          "column": 2,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "material_marble",
+          "x": 940,
+          "y": 940,
+          "w": 314,
+          "h": 314,
+          "column": 3,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Story/story-atlas-a",
+      "width": 1536,
+      "height": 1024,
+      "columns": 2,
+      "rows": 2,
+      "sha256": "aa4ac3e1e3762823261c769d4919915393799447a92a9b121302ac7d2accdbed",
+      "entries": [
+        {
+          "id": "story_palace",
+          "x": 0,
+          "y": 0,
+          "w": 768,
+          "h": 512,
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "story_contract",
+          "x": 768,
+          "y": 0,
+          "w": 768,
+          "h": 512,
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "story_lyceum",
+          "x": 0,
+          "y": 512,
+          "w": 768,
+          "h": 512,
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "story_jungle",
+          "x": 768,
+          "y": 512,
+          "w": 768,
+          "h": 512,
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Story/story-atlas-b",
+      "width": 1536,
+      "height": 1024,
+      "columns": 2,
+      "rows": 2,
+      "sha256": "67e3e753896579b72f29d43b4eb7bc0e316c2d9b0ecd1819cf0a9eca8a9bb37e",
+      "entries": [
+        {
+          "id": "story_camp",
+          "x": 0,
+          "y": 0,
+          "w": 768,
+          "h": 512,
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "story_antique",
+          "x": 768,
+          "y": 0,
+          "w": 768,
+          "h": 512,
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "story_coup",
+          "x": 0,
+          "y": 512,
+          "w": 768,
+          "h": 512,
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "story_bus",
+          "x": 768,
+          "y": 512,
+          "w": 768,
+          "h": 512,
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Story/story-atlas-c",
+      "width": 1536,
+      "height": 1024,
+      "columns": 2,
+      "rows": 2,
+      "sha256": "29246b2dadb6c2a5ac3784f24671cd1aba7bc93df7ea0dfc59c05068b5b5ab37",
+      "entries": [
+        {
+          "id": "story_embassy",
+          "x": 0,
+          "y": 0,
+          "w": 768,
+          "h": 512,
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "story_tunnel",
+          "x": 768,
+          "y": 0,
+          "w": 768,
+          "h": 512,
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "story_radio",
+          "x": 0,
+          "y": 512,
+          "w": 768,
+          "h": 512,
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "story_epilogue",
+          "x": 768,
+          "y": 512,
+          "w": 768,
+          "h": 512,
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Environment/mission-props",
+      "width": 1536,
+      "height": 1024,
+      "columns": 6,
+      "rows": 4,
+      "sha256": "cd04d0c5c0768752220c78d75c3792ddda3b73fd6182118a9c94614e6d6b90bd",
+      "entries": [
+        {
+          "id": "launcher",
+          "x": 17,
+          "y": 104,
+          "w": 232,
+          "h": 83,
+          "cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            17,
+            104,
+            232,
+            83
+          ],
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "generator",
+          "x": 280,
+          "y": 68,
+          "w": 211,
+          "h": 161,
+          "cell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            280,
+            68,
+            211,
+            161
+          ],
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "flowers",
+          "x": 547,
+          "y": 30,
+          "w": 179,
+          "h": 217,
+          "cell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            547,
+            30,
+            179,
+            217
+          ],
+          "column": 2,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "telephone",
+          "x": 791,
+          "y": 80,
+          "w": 200,
+          "h": 140,
+          "cell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            791,
+            80,
+            200,
+            140
+          ],
+          "column": 3,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "hatch",
+          "x": 1062,
+          "y": 55,
+          "w": 182,
+          "h": 179,
+          "cell": [
+            1024,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1062,
+            55,
+            182,
+            179
+          ],
+          "column": 4,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "flag",
+          "x": 1327,
+          "y": 68,
+          "w": 166,
+          "h": 158,
+          "cell": [
+            1280,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1327,
+            68,
+            166,
+            158
+          ],
+          "column": 5,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "chair",
+          "x": 50,
+          "y": 299,
+          "w": 164,
+          "h": 185,
+          "cell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            50,
+            299,
+            164,
+            185
+          ],
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "bed",
+          "x": 328,
+          "y": 277,
+          "w": 115,
+          "h": 221,
+          "cell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            328,
+            277,
+            115,
+            221
+          ],
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "shelf",
+          "x": 526,
+          "y": 322,
+          "w": 227,
+          "h": 136,
+          "cell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            526,
+            322,
+            227,
+            136
+          ],
+          "column": 2,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "fountain",
+          "x": 799,
+          "y": 292,
+          "w": 196,
+          "h": 196,
+          "cell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            799,
+            292,
+            196,
+            196
+          ],
+          "column": 3,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "awning",
+          "x": 1044,
+          "y": 315,
+          "w": 217,
+          "h": 150,
+          "cell": [
+            1024,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1044,
+            315,
+            217,
+            150
+          ],
+          "column": 4,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "cradle",
+          "x": 1300,
+          "y": 333,
+          "w": 215,
+          "h": 122,
+          "cell": [
+            1280,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1300,
+            333,
+            215,
+            122
+          ],
+          "column": 5,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "cabinet",
+          "x": 26,
+          "y": 570,
+          "w": 208,
+          "h": 148,
+          "cell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            26,
+            570,
+            208,
+            148
+          ],
+          "column": 0,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "market_stall",
+          "x": 272,
+          "y": 551,
+          "w": 223,
+          "h": 192,
+          "cell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            272,
+            551,
+            223,
+            192
+          ],
+          "column": 1,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "rubble",
+          "x": 536,
+          "y": 554,
+          "w": 203,
+          "h": 176,
+          "cell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            536,
+            554,
+            203,
+            176
+          ],
+          "column": 2,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "car_wreck",
+          "x": 778,
+          "y": 580,
+          "w": 239,
+          "h": 125,
+          "cell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            778,
+            580,
+            239,
+            125
+          ],
+          "column": 3,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "barricade",
+          "x": 1042,
+          "y": 595,
+          "w": 221,
+          "h": 98,
+          "cell": [
+            1024,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1042,
+            595,
+            221,
+            98
+          ],
+          "column": 4,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "city_block",
+          "x": 1291,
+          "y": 556,
+          "w": 232,
+          "h": 177,
+          "cell": [
+            1280,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1291,
+            556,
+            232,
+            177
+          ],
+          "column": 5,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "gate",
+          "x": 13,
+          "y": 844,
+          "w": 236,
+          "h": 119,
+          "cell": [
+            0,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            13,
+            844,
+            236,
+            119
+          ],
+          "column": 0,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "ministry",
+          "x": 269,
+          "y": 812,
+          "w": 228,
+          "h": 183,
+          "cell": [
+            256,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            269,
+            812,
+            228,
+            183
+          ],
+          "column": 1,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "rug",
+          "x": 527,
+          "y": 825,
+          "w": 228,
+          "h": 146,
+          "cell": [
+            512,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            527,
+            825,
+            228,
+            146
+          ],
+          "column": 2,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "fallen",
+          "x": 780,
+          "y": 850,
+          "w": 226,
+          "h": 97,
+          "cell": [
+            768,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            780,
+            850,
+            226,
+            97
+          ],
+          "column": 3,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "steps",
+          "x": 1046,
+          "y": 827,
+          "w": 213,
+          "h": 137,
+          "cell": [
+            1024,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1046,
+            827,
+            213,
+            137
+          ],
+          "column": 4,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "lamppost",
+          "x": 1377,
+          "y": 801,
+          "w": 61,
+          "h": 182,
+          "cell": [
+            1280,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1377,
+            801,
+            61,
+            182
+          ],
+          "column": 5,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/people-weapons",
+      "width": 1536,
+      "height": 1024,
+      "columns": 6,
+      "rows": 4,
+      "sha256": "decd36a07afa8ed0fc58be102a8010556277cc75b8d72afb5323f8f98663e80e",
+      "entries": [
+        {
+          "id": "mazur_pistol",
+          "x": 0,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            50,
+            60,
+            154,
+            154
+          ],
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "leon_pistol",
+          "x": 256,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            308,
+            61,
+            152,
+            153
+          ],
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "lavrik_pistol",
+          "x": 512,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            561,
+            60,
+            155,
+            154
+          ],
+          "column": 2,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "guard_pistol",
+          "x": 768,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            821,
+            58,
+            152,
+            156
+          ],
+          "column": 3,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "militia_pistol",
+          "x": 1024,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1075,
+            61,
+            154,
+            153
+          ],
+          "column": 4,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "contractor_pistol",
+          "x": 1280,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1332,
+            58,
+            153,
+            156
+          ],
+          "column": 5,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_shotgun",
+          "x": 0,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            43,
+            308,
+            194,
+            175
+          ],
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "leon_shotgun",
+          "x": 256,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            299,
+            307,
+            194,
+            176
+          ],
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "lavrik_shotgun",
+          "x": 512,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            556,
+            309,
+            193,
+            174
+          ],
+          "column": 2,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "guard_shotgun",
+          "x": 768,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            811,
+            308,
+            194,
+            175
+          ],
+          "column": 3,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "militia_shotgun",
+          "x": 1024,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1068,
+            309,
+            193,
+            174
+          ],
+          "column": 4,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "contractor_shotgun",
+          "x": 1280,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1324,
+            308,
+            193,
+            175
+          ],
+          "column": 5,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_bat",
+          "x": 0,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            44,
+            562,
+            188,
+            178
+          ],
+          "column": 0,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "leon_bat",
+          "x": 256,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            300,
+            563,
+            189,
+            176
+          ],
+          "column": 1,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "lavrik_bat",
+          "x": 512,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            557,
+            564,
+            188,
+            175
+          ],
+          "column": 2,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "guard_bat",
+          "x": 768,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            814,
+            563,
+            187,
+            177
+          ],
+          "column": 3,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "militia_bat",
+          "x": 1024,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1071,
+            565,
+            186,
+            175
+          ],
+          "column": 4,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "contractor_bat",
+          "x": 1280,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1324,
+            564,
+            189,
+            176
+          ],
+          "column": 5,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_down",
+          "x": 0,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            23,
+            848,
+            207,
+            91
+          ],
+          "column": 0,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "leon_down",
+          "x": 256,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            279,
+            850,
+            207,
+            89
+          ],
+          "column": 1,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "lavrik_down",
+          "x": 512,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            535,
+            846,
+            208,
+            93
+          ],
+          "column": 2,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "guard_down",
+          "x": 768,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            791,
+            846,
+            208,
+            93
+          ],
+          "column": 3,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "militia_down",
+          "x": 1024,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1047,
+            847,
+            208,
+            90
+          ],
+          "column": 4,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "contractor_down",
+          "x": 1280,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1303,
+            848,
+            208,
+            91
+          ],
+          "column": 5,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/people-civilians",
+      "width": 1536,
+      "height": 1024,
+      "columns": 6,
+      "rows": 4,
+      "sha256": "fbfe9f1f216b878d57fd4252a42865ce90f55722b012efd3714ac1d4b2c832b7",
+      "entries": [
+        {
+          "id": "olongo_idle",
+          "x": 0,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            64,
+            43,
+            138,
+            184
+          ],
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "pankratov_idle",
+          "x": 256,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            326,
+            44,
+            128,
+            183
+          ],
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "doctor_idle",
+          "x": 512,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            575,
+            43,
+            133,
+            184
+          ],
+          "column": 2,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "chief_idle",
+          "x": 768,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            829,
+            45,
+            133,
+            185
+          ],
+          "column": 3,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "civilian_idle",
+          "x": 1024,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1084,
+            44,
+            134,
+            187
+          ],
+          "column": 4,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "schoolgirl_idle",
+          "x": 1280,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            0,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1359,
+            62,
+            98,
+            161
+          ],
+          "column": 5,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "olongo_walk_left",
+          "x": 0,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            61,
+            298,
+            143,
+            195
+          ],
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "pankratov_walk_left",
+          "x": 256,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            315,
+            300,
+            140,
+            193
+          ],
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "doctor_walk_left",
+          "x": 512,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            561,
+            298,
+            150,
+            194
+          ],
+          "column": 2,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "chief_walk_left",
+          "x": 768,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            816,
+            301,
+            146,
+            192
+          ],
+          "column": 3,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "civilian_walk_left",
+          "x": 1024,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1078,
+            299,
+            140,
+            195
+          ],
+          "column": 4,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "schoolgirl_walk_left",
+          "x": 1280,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            256,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1343,
+            317,
+            126,
+            172
+          ],
+          "column": 5,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "olongo_walk_right",
+          "x": 0,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            56,
+            552,
+            152,
+            181
+          ],
+          "column": 0,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "pankratov_walk_right",
+          "x": 256,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            319,
+            556,
+            146,
+            174
+          ],
+          "column": 1,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "doctor_walk_right",
+          "x": 512,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            561,
+            553,
+            157,
+            173
+          ],
+          "column": 2,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "chief_walk_right",
+          "x": 768,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            819,
+            556,
+            150,
+            172
+          ],
+          "column": 3,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "civilian_walk_right",
+          "x": 1024,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1079,
+            554,
+            147,
+            172
+          ],
+          "column": 4,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "schoolgirl_walk_right",
+          "x": 1280,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            512,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1355,
+            570,
+            117,
+            157
+          ],
+          "column": 5,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "olongo_neutral",
+          "x": 0,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            0,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            61,
+            806,
+            145,
+            188
+          ],
+          "column": 0,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "pankratov_neutral",
+          "x": 256,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            256,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            325,
+            807,
+            133,
+            187
+          ],
+          "column": 1,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "doctor_neutral",
+          "x": 512,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            512,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            575,
+            806,
+            133,
+            189
+          ],
+          "column": 2,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "chief_neutral",
+          "x": 768,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            768,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            829,
+            807,
+            134,
+            188
+          ],
+          "column": 3,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "civilian_neutral",
+          "x": 1024,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1024,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1086,
+            806,
+            134,
+            188
+          ],
+          "column": 4,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "schoolgirl_neutral",
+          "x": 1280,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "cell": [
+            1280,
+            768,
+            256,
+            256
+          ],
+          "inkBounds": [
+            1361,
+            823,
+            96,
+            169
+          ],
+          "column": 5,
+          "animationRow": 3,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/mazur-weapon-walk",
+      "width": 1254,
+      "height": 1254,
+      "columns": 3,
+      "rows": 3,
+      "sha256": "41e014a4d550fb0798065073ed93bc46d7a2b3d01e9a87557ca1df1c537f9716",
+      "entries": [
+        {
+          "id": "mazur_pistol_idle",
+          "x": 0,
+          "y": 0,
+          "w": 418,
+          "h": 418,
+          "cell": [
+            0,
+            0,
+            418,
+            418
+          ],
+          "inkBounds": [
+            106,
+            89,
+            227,
+            232
+          ],
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_shotgun_idle",
+          "x": 418,
+          "y": 0,
+          "w": 418,
+          "h": 418,
+          "cell": [
+            418,
+            0,
+            418,
+            418
+          ],
+          "inkBounds": [
+            498,
+            89,
+            289,
+            232
+          ],
+          "column": 1,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_bat_idle",
+          "x": 836,
+          "y": 0,
+          "w": 418,
+          "h": 418,
+          "cell": [
+            836,
+            0,
+            418,
+            418
+          ],
+          "inkBounds": [
+            917,
+            89,
+            277,
+            233
+          ],
+          "column": 2,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_pistol_walk_left",
+          "x": 0,
+          "y": 418,
+          "w": 418,
+          "h": 418,
+          "cell": [
+            0,
+            418,
+            418,
+            418
+          ],
+          "inkBounds": [
+            86,
+            489,
+            248,
+            265
+          ],
+          "column": 0,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_shotgun_walk_left",
+          "x": 418,
+          "y": 418,
+          "w": 418,
+          "h": 418,
+          "cell": [
+            418,
+            418,
+            418,
+            418
+          ],
+          "inkBounds": [
+            482,
+            489,
+            305,
+            265
+          ],
+          "column": 1,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_bat_walk_left",
+          "x": 836,
+          "y": 418,
+          "w": 418,
+          "h": 418,
+          "cell": [
+            836,
+            418,
+            418,
+            418
+          ],
+          "inkBounds": [
+            906,
+            489,
+            289,
+            265
+          ],
+          "column": 2,
+          "animationRow": 1,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_pistol_walk_right",
+          "x": 0,
+          "y": 836,
+          "w": 418,
+          "h": 418,
+          "cell": [
+            0,
+            836,
+            418,
+            418
+          ],
+          "inkBounds": [
+            108,
+            906,
+            226,
+            269
+          ],
+          "column": 0,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_shotgun_walk_right",
+          "x": 418,
+          "y": 836,
+          "w": 418,
+          "h": 418,
+          "cell": [
+            418,
+            836,
+            418,
+            418
+          ],
+          "inkBounds": [
+            499,
+            906,
+            288,
+            271
+          ],
+          "column": 1,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        },
+        {
+          "id": "mazur_bat_walk_right",
+          "x": 836,
+          "y": 836,
+          "w": 418,
+          "h": 418,
+          "cell": [
+            836,
+            836,
+            418,
+            418
+          ],
+          "inkBounds": [
+            919,
+            906,
+            278,
+            271
+          ],
+          "column": 2,
+          "animationRow": 2,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    },
+    {
+      "resource": "WhiteGuardArt/Actors/mazur-carry",
+      "width": 1254,
+      "height": 1254,
+      "columns": 1,
+      "rows": 1,
+      "sha256": "e5001dba9941bc511089778879d838af7945fe77214ce1718dc175089847e945",
+      "entries": [
+        {
+          "id": "mazur_carry",
+          "x": 0,
+          "y": 0,
+          "w": 1254,
+          "h": 1254,
+          "cell": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "inkBounds": [
+            272,
+            199,
+            663,
+            860
+          ],
+          "column": 0,
+          "animationRow": 0,
+          "facingClockwiseDegrees": 0
+        }
+      ]
+    }
+  ],
+  "storyMappings": [
+    {
+      "theme": "palace",
+      "resource": "WhiteGuardArt/Story/story-atlas-a",
+      "quadrant": 0,
+      "entryId": "story_palace"
+    },
+    {
+      "theme": "contract",
+      "resource": "WhiteGuardArt/Story/story-atlas-a",
+      "quadrant": 1,
+      "entryId": "story_contract"
+    },
+    {
+      "theme": "lyceum",
+      "resource": "WhiteGuardArt/Story/story-atlas-a",
+      "quadrant": 2,
+      "entryId": "story_lyceum"
+    },
+    {
+      "theme": "jungle",
+      "resource": "WhiteGuardArt/Story/story-atlas-a",
+      "quadrant": 3,
+      "entryId": "story_jungle"
+    },
+    {
+      "theme": "camp",
+      "resource": "WhiteGuardArt/Story/story-atlas-b",
+      "quadrant": 0,
+      "entryId": "story_camp"
+    },
+    {
+      "theme": "antique",
+      "resource": "WhiteGuardArt/Story/story-atlas-b",
+      "quadrant": 1,
+      "entryId": "story_antique"
+    },
+    {
+      "theme": "coup",
+      "resource": "WhiteGuardArt/Story/story-atlas-b",
+      "quadrant": 2,
+      "entryId": "story_coup"
+    },
+    {
+      "theme": "bus",
+      "resource": "WhiteGuardArt/Story/story-atlas-b",
+      "quadrant": 3,
+      "entryId": "story_bus"
+    },
+    {
+      "theme": "embassy",
+      "resource": "WhiteGuardArt/Story/story-atlas-c",
+      "quadrant": 0,
+      "entryId": "story_embassy"
+    },
+    {
+      "theme": "tunnel",
+      "resource": "WhiteGuardArt/Story/story-atlas-c",
+      "quadrant": 1,
+      "entryId": "story_tunnel"
+    },
+    {
+      "theme": "radio",
+      "resource": "WhiteGuardArt/Story/story-atlas-c",
+      "quadrant": 2,
+      "entryId": "story_radio"
+    },
+    {
+      "theme": "epilogue",
+      "resource": "WhiteGuardArt/Story/story-atlas-c",
+      "quadrant": 3,
+      "entryId": "story_epilogue"
+    },
+    {
+      "theme": "convoy",
+      "resource": "WhiteGuardIntro/opening-atlas-a",
+      "quadrant": 0,
+      "entryId": "approved_intro_convoy"
+    }
+  ],
+  "styleMappings": {
+    "props": [
+      {
+        "style": "palm",
+        "entryId": "palm"
+      },
+      {
+        "style": "ministry",
+        "entryId": "ministry"
+      },
+      {
+        "style": "truck",
+        "entryId": "truck"
+      },
+      {
+        "style": "desk",
+        "entryId": "desk"
+      },
+      {
+        "style": "rug",
+        "entryId": "rug"
+      },
+      {
+        "style": "fountain",
+        "entryId": "fountain"
+      },
+      {
+        "style": "bench",
+        "entryId": "bench"
+      },
+      {
+        "style": "chair",
+        "entryId": "chair"
+      },
+      {
+        "style": "flowers",
+        "entryId": "flowers"
+      },
+      {
+        "style": "cradle",
+        "entryId": "cradle"
+      },
+      {
+        "style": "awning",
+        "entryId": "awning"
+      },
+      {
+        "style": "radio",
+        "entryId": "radio"
+      },
+      {
+        "style": "tent",
+        "entryId": "tent"
+      },
+      {
+        "style": "bed",
+        "entryId": "bed"
+      },
+      {
+        "style": "shelf",
+        "entryId": "shelf"
+      },
+      {
+        "style": "sofa",
+        "entryId": "sofa"
+      },
+      {
+        "style": "launcher",
+        "entryId": "launcher"
+      },
+      {
+        "style": "fallen",
+        "entryId": "fallen"
+      },
+      {
+        "style": "hatch",
+        "entryId": "hatch"
+      },
+      {
+        "style": "gate",
+        "entryId": "gate"
+      },
+      {
+        "style": "flag",
+        "entryId": "flag"
+      },
+      {
+        "style": "bus",
+        "entryId": "bus"
+      },
+      {
+        "style": "crate",
+        "entryId": "crate"
+      },
+      {
+        "style": "cabinet",
+        "entryId": "cabinet"
+      },
+      {
+        "style": "market_stall",
+        "entryId": "market_stall"
+      },
+      {
+        "style": "rubble",
+        "entryId": "rubble"
+      },
+      {
+        "style": "car_wreck",
+        "entryId": "car_wreck"
+      },
+      {
+        "style": "barricade",
+        "entryId": "barricade"
+      },
+      {
+        "style": "city_block",
+        "entryId": "city_block"
+      },
+      {
+        "style": "generator",
+        "entryId": "generator"
+      },
+      {
+        "style": "telephone",
+        "entryId": "telephone"
+      },
+      {
+        "style": "steps",
+        "entryId": "steps"
+      },
+      {
+        "style": "lamppost",
+        "entryId": "lamppost"
+      },
+      {
+        "style": "sandbags",
+        "entryId": "sandbags"
+      },
+      {
+        "style": "boxes",
+        "entryId": "boxes"
+      },
+      {
+        "style": "column",
+        "entryId": "column"
+      },
+      {
+        "style": "shrub",
+        "entryId": "shrub"
+      },
+      {
+        "style": "medkit",
+        "entryId": "medkit"
+      },
+      {
+        "style": "table",
+        "entryId": "round_table"
+      },
+      {
+        "style": "mercedes",
+        "entryId": "president_car"
+      },
+      {
+        "style": "car",
+        "entryId": "president_car"
+      }
+    ],
+    "floors": [
+      {
+        "style": "road",
+        "entryId": "material_road"
+      },
+      {
+        "style": "pavement",
+        "entryId": "material_pavement"
+      },
+      {
+        "style": "sand",
+        "entryId": "material_sand"
+      },
+      {
+        "style": "jungle",
+        "entryId": "material_jungle"
+      },
+      {
+        "style": "grass",
+        "entryId": "material_grass"
+      },
+      {
+        "style": "tiles",
+        "entryId": "material_tiles"
+      },
+      {
+        "style": "interior",
+        "entryId": "material_tiles"
+      },
+      {
+        "style": "wood",
+        "entryId": "material_wood"
+      },
+      {
+        "style": "concrete",
+        "entryId": "material_concrete"
+      },
+      {
+        "style": "carpet",
+        "entryId": "material_carpet"
+      },
+      {
+        "style": "rug",
+        "entryId": "material_carpet"
+      },
+      {
+        "style": "stone",
+        "entryId": "material_stone"
+      },
+      {
+        "style": "dirt",
+        "entryId": "material_dirt"
+      },
+      {
+        "style": "tunnel",
+        "entryId": "material_stone"
+      },
+      {
+        "style": "water",
+        "entryId": "material_water"
+      },
+      {
+        "style": "metal",
+        "entryId": "material_metal"
+      },
+      {
+        "style": "marble",
+        "entryId": "material_marble"
+      }
+    ],
+    "walls": [
+      {
+        "style": "plaster",
+        "entryId": "material_plaster"
+      },
+      {
+        "style": "fence",
+        "entryId": "material_fence"
+      },
+      {
+        "style": "wood",
+        "entryId": "material_wood"
+      },
+      {
+        "style": "stone",
+        "entryId": "material_stone"
+      },
+      {
+        "style": "concrete",
+        "entryId": "material_concrete"
+      },
+      {
+        "style": "hedge",
+        "entryId": "material_grass"
+      }
+    ]
+  },
+  "actorMappings": [
+    {
+      "actor": "player",
+      "prefix": "mazur"
+    },
+    {
+      "actor": "mazur",
+      "prefix": "mazur"
+    },
+    {
+      "actor": "leon",
+      "prefix": "leon"
+    },
+    {
+      "actor": "lavrik",
+      "prefix": "lavrik"
+    },
+    {
+      "actor": "natalie",
+      "prefix": "natalie"
+    },
+    {
+      "actor": "tatiana",
+      "prefix": "tatiana"
+    },
+    {
+      "actor": "prince",
+      "prefix": "prince"
+    },
+    {
+      "actor": "irina",
+      "prefix": "irina"
+    },
+    {
+      "actor": "guard",
+      "prefix": "guard"
+    },
+    {
+      "actor": "militia",
+      "prefix": "militia"
+    },
+    {
+      "actor": "contractor",
+      "prefix": "contractor"
+    },
+    {
+      "actor": "olongo",
+      "prefix": "olongo",
+      "physicalScale": 1
+    },
+    {
+      "actor": "pankratov",
+      "prefix": "pankratov",
+      "physicalScale": 1
+    },
+    {
+      "actor": "doctor",
+      "prefix": "doctor",
+      "physicalScale": 1
+    },
+    {
+      "actor": "chief",
+      "prefix": "chief",
+      "physicalScale": 1
+    },
+    {
+      "actor": "civilian",
+      "prefix": "civilian",
+      "physicalScale": 1
+    },
+    {
+      "actor": "schoolgirl",
+      "prefix": "schoolgirl",
+      "physicalScale": 0.75
+    }
+  ],
+  "status": "generated_candidate_assets_native_visual_review_pending"
+}

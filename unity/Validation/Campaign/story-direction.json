@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "cards": 88,
+  "shots": 132,
+  "two_beat_cards": 44,
+  "insets": 13,
+  "campaign_sha256": "bd62646626535971ade72f2e0feeefeecb793353bcdfdea9bede0deaddd1d446",
+  "direction_sha256": "ca42ee17133f7bd8943033086d3176e06ba82175192db774a75fecc374ad4381",
+  "source_plates_visually_inspected": true,
+  "all_rects_finite_inside_quadrant": true,
+  "all_inset_ids_exist": true,
+  "narration_durations_available": 88,
+  "unity_rendering_verified": false,
+  "scope": "Authored cuts over inspected PNGs and semantic inserts; no image edits, campaign changes or native playback verification."
+}

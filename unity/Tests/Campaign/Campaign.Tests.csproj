@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="Domain/Campaign.Domain.csproj" />
+    <ProjectReference Include="../Core/Arkon.Core.csproj" />
+    <Compile Include="Program.cs" />
+    <Compile Include="CampaignGeometryCases.cs" />
+    <Compile Include="CampaignCheckpointCases.cs" />
+    <Compile Include="CampaignCompletionCases.cs" />
+    <Compile Include="../../WhiteGuard/Assets/Scripts/Gameplay/CampaignSave.cs" />
+    <Compile Include="../../WhiteGuard/Assets/Scripts/Gameplay/Domain/CampaignCheckpointValidation.cs" />
+  </ItemGroup>
+</Project>

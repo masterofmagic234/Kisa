@@ -1,0 +1,533 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "checks": 4357,
+  "pngAtlases": 12,
+  "spriteRegions": 182,
+  "styleAliases": 64,
+  "actorAliases": 17,
+  "voiceCards": 88,
+  "mp3Bytes": 4677840,
+  "voiceDurationSeconds": 779.64,
+  "ffprobeFiles": 88,
+  "campaignCards": 88,
+  "directedCards": 88,
+  "directionBeats": 132,
+  "detailInsets": 13,
+  "storyThemes": 13,
+  "knownPngResources": 33,
+  "ffprobeRequested": true,
+  "unityEditorExecuted": false,
+  "nativeGpuVerified": false,
+  "auditoryReviewVerified": false,
+  "pngDecodedPixelsVerified": false,
+  "scope": "File/header/CRC/hash, declared region/alias and exact card/voice/directing integrity only. No Unity, GPU, decoded-image or listening verification.",
+  "durationEvidence": "ffprobe MP3 measurement",
+  "inputs": [
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Actors/mazur-carry.png",
+      "sha256": "e5001dba9941bc511089778879d838af7945fe77214ce1718dc175089847e945"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Actors/mazur-weapon-walk.png",
+      "sha256": "41e014a4d550fb0798065073ed93bc46d7a2b3d01e9a87557ca1df1c537f9716"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Actors/people-civilians.png",
+      "sha256": "fbfe9f1f216b878d57fd4252a42865ce90f55722b012efd3714ac1d4b2c832b7"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Actors/people-combat.png",
+      "sha256": "9ec314e42d4fcd00657459ce5dab54b0588be9499a949e620d64911d6db91225"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Actors/people-story.png",
+      "sha256": "cb4bdd11c451350492874746855b41a6096568878bd10983977e1fefccee29ee"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Actors/people-weapons.png",
+      "sha256": "decd36a07afa8ed0fc58be102a8010556277cc75b8d72afb5323f8f98663e80e"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Environment/materials.png",
+      "sha256": "32c32eb4271faee27a527dd7ad116712ed1e30a172043debad38db6c39430d75"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Environment/mission-props.png",
+      "sha256": "cd04d0c5c0768752220c78d75c3792ddda3b73fd6182118a9c94614e6d6b90bd"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Environment/props.png",
+      "sha256": "bd6d713cd4df4dceea71c6c7a1f63c5860cc38c6ad52f08058b9606d760ce174"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Story/story-atlas-a.png",
+      "sha256": "aa4ac3e1e3762823261c769d4919915393799447a92a9b121302ac7d2accdbed"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Story/story-atlas-b.png",
+      "sha256": "67e3e753896579b72f29d43b4eb7bc0e316c2d9b0ecd1819cf0a9eca8a9bb37e"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/Story/story-atlas-c.png",
+      "sha256": "29246b2dadb6c2a5ac3784f24671cd1aba7bc93df7ea0dfc59c05068b5b5ab37"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardArt/art-manifest.json",
+      "sha256": "56a1f7001bb511816bce9810a3cf0e7f263b74ad2d88beea1dde1bce19229529"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/e00_post_01.mp3",
+      "sha256": "2a83a321d36a369803b8a1b897bbc7246c4b5f26943d74d864609a8b88720c52"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/e00_post_02.mp3",
+      "sha256": "7e7e005f752816b28c6b0c807b5cd0ff3ae9a4aad492ee9593b2a242c40ea848"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/e00_post_03.mp3",
+      "sha256": "8d9e7ea41ecad3f18030b5321e7bd391021d8091a58b656f9244c15c0e9f762c"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/e00_post_04.mp3",
+      "sha256": "9de3daba9d145d3648190a729c84c6477845114188fa41f4128af3a30e6dde93"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/e00_post_05.mp3",
+      "sha256": "67276029e5ba2e795f898e2b0c4bf1267f6b09048e6b79aff0a2d36f9a64ec9c"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/e00_pre_01.mp3",
+      "sha256": "a035d0e3211fb37dabca1103022302528c0677eb0587bb745a61393f05dab947"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/e00_pre_02.mp3",
+      "sha256": "ee4e8086b63625a2425bb33b6c20ca307856404fadae44e55346961d8fb94be7"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/e00_pre_03.mp3",
+      "sha256": "964039b219d436e1e340f6697e92c0083e6511130494386a25a1e7444e82ebb7"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/e00_pre_04.mp3",
+      "sha256": "bc661ce741fe9f0337b4dc320c24a4840fa277699e9b52698f9ecc2a2c426a40"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_post_01.mp3",
+      "sha256": "e98a1a971b34b3bea8d47df9ee97a5ff289b17f6f47e8c28a4c260dd782c19f9"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_post_02.mp3",
+      "sha256": "dd624f82fc686492b4f341000a4ded23a6fe9ef752feddf6748087b72dfff72f"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_post_03.mp3",
+      "sha256": "830c6ef66b28e7a8a708b6d99fe0baa542888a5b94efc980b7d5a46108dc3300"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_01.mp3",
+      "sha256": "04a21fd774c84b365ba6cf68d3999cd004ccffb1e0d879cd2d5e5e296d52b7c2"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_02.mp3",
+      "sha256": "6369b1617c53bf23f5e58540c45fd170506f8a6e875918999211963918337694"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_03.mp3",
+      "sha256": "dbed0c87898a6d56cf728275c224020fad669626011e88fced8de0b7510e4b6e"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_04.mp3",
+      "sha256": "1089c9eb1f55d720db27538db43dcd32a5eac324d558a862289b8abe1f7844d7"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_05.mp3",
+      "sha256": "f30edae3760dee0b878bbd9898c7256a421f0d9d5516a551db5e1d56e1c93554"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_06.mp3",
+      "sha256": "67403bf626e66673768344d717371fb5666381a721a41100dda14ef329d0848c"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_07.mp3",
+      "sha256": "4a1a129c862b1f16b3e85a4a66a033d9209c583c3c3d2d2b3b629fa71b016d33"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_08.mp3",
+      "sha256": "437097d13609d43df3a60dd3a7bf8839c16357653df95294e60548a497461554"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_09.mp3",
+      "sha256": "109ef158a39b7d1466c28beffa4066376372077e4489d3c62ac6ccd618df2d8b"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_10.mp3",
+      "sha256": "604c0dba8e16eaa2aee618b9b38dd0fd0bad99244a639f76b7b50b8c6409c8dc"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_11.mp3",
+      "sha256": "e021438d29e3aea067480ec1b542dc725ce07717b312b8963d4fbfb021e76570"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_12.mp3",
+      "sha256": "f4238c5520682cb4747be52307c60cc2847cd45d20327bfbcc8f05eec12b57cc"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_13.mp3",
+      "sha256": "3b3ccb420c03b1b638a26881264d840d8f9dda252f7f9b297f4b264b6951f8a4"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m01_pre_14.mp3",
+      "sha256": "4a8f75b8b2620155e4404fc13b8cb2ff67701c7bd33e407b86014bdfd97a04bc"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m02_post_01.mp3",
+      "sha256": "99e800933b98e197d724922a8d5562aaf9844ba3be8a025e4ef7207b8ea0ce1a"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m02_post_02.mp3",
+      "sha256": "1bbf3a327359f97c128e25f2a537ad843ec5d9405d9717385ae3ad920e63a65c"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m02_post_03.mp3",
+      "sha256": "19ab81cc6bac70371c1ddc6fd568613037279c9fa8b93c913bbabedb6009f49d"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m02_post_04.mp3",
+      "sha256": "30a9611433b0908bdda74550a2527dbfea266598f63b3f4d33892a9ac141efeb"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m02_pre_01.mp3",
+      "sha256": "40b93dab4a3e465e3ef112f70da641d5f208f05b3e9c6abe0c73e57b4fb2d61b"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m02_pre_02.mp3",
+      "sha256": "4aa17af0ccc1d4b174f35a809f5b8e71448301726e4f9037a4fe68567f50b60e"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m02_pre_03.mp3",
+      "sha256": "14d29491ace7e84db52c8fff22a03dffd397ae835b5d6059f01c4e775a9e0d48"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m02_pre_04.mp3",
+      "sha256": "4452e45e3db84f7943d8755792268bae198e8c53b66d057fa323aa4fef5bbf4b"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m03_post_01.mp3",
+      "sha256": "51061227516a0e1508c5f8b4fd2de0f24e314bbd5911ad0aa227d56d8c392175"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m03_post_02.mp3",
+      "sha256": "7e37f9429f1d532bad2f838715aad7f906c6a3b64441a8c2b10da2f856bcdb28"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m03_post_03.mp3",
+      "sha256": "f60240c22c19a3d7bdad8c7f2256e9c680aec191a9b7e5dfdeb89d592b3c9837"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m03_post_04.mp3",
+      "sha256": "fc614227fad4f465a1d612534625df321c54938304b9cb7b1c2ec4b5e1a6e6fd"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m03_pre_01.mp3",
+      "sha256": "31d920a1fb33d98feacd053cd3b12564535ecab38dc901fd9705f3dc5890b0c8"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m03_pre_02.mp3",
+      "sha256": "946eb1c072e886cad32e97ba5638c33e314d14a29cd96408a24cb078fa0d2989"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m03_pre_03.mp3",
+      "sha256": "8e7b65190abd2b9fabc97e10b3381f642c9fc1a072e3454a8a51e1998abc629a"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m03_pre_04.mp3",
+      "sha256": "4e612928ce550253275d5417296de2a9c067e65ed5be1901d6c57d7f1d285967"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m04_post_01.mp3",
+      "sha256": "51d757a232ffa15c543b37c7ebeb1cd605f8cda3d7232b429952744ca2b3d5b2"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m04_post_02.mp3",
+      "sha256": "f5ce1fa90669452f2df82bbe4083df8aa19118cdc3fef78fc9edb18d1f39cbaa"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m04_post_03.mp3",
+      "sha256": "ccd1120bef6f70e026742f77e88e97ddf1cff2fabfe4f9ff7fa6d984a6cd0f38"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m04_post_04.mp3",
+      "sha256": "13a640509e9b2a1919371621be3871a318eddd124af81c713e40b5447d403150"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m04_pre_01.mp3",
+      "sha256": "b873ee924593f920441e7959a540a3643ede65e0d0c1cd4ab4c21cd53714fbe5"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m04_pre_02.mp3",
+      "sha256": "552a3b8f2b03887686eb2a9dd55a8b72eeecc6e2b1619098df988dbc337e4144"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m04_pre_03.mp3",
+      "sha256": "8c4bf50d67f57d4eeb36448bee109ee6bbb332038b860f7d795f851e996796c2"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m04_pre_04.mp3",
+      "sha256": "f45abcfc33a30dcab0ca217fd36b3bd481306753ddfb7eea26ebe34c965727e1"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_post_01.mp3",
+      "sha256": "09f162401542e4f8defe9478221468a94c618fcb52aad722f138d8d953346b11"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_post_02.mp3",
+      "sha256": "f3e673c2439f41cc6193b5536858c90ab3b00c7850ebf301af64688fc50bcfdc"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_post_03.mp3",
+      "sha256": "cf97de6f5cefd1a9d5c020c6ea0b630adbcec7b2716174b08e738db3aba582ea"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_post_04.mp3",
+      "sha256": "dd89dd508b1bc1ec358d68318dda4e62bf0f0c7c970dd643560dd74d6c8c8a38"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_pre_01.mp3",
+      "sha256": "99488f7fdd9a160989a13700ccf32219017c8b463518beb7f1399e20c76556dc"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_pre_02.mp3",
+      "sha256": "0cd3a23a7dae6db5486f6648da5232ba5ba7d79f69492e7b77910dac500cb082"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_pre_03.mp3",
+      "sha256": "476fdef2ac101cf91e3c7f5951db70cc7ebc1d8afb5e0523124f54d373ef7335"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_pre_04.mp3",
+      "sha256": "5fb453618b02cfa688ab6ed8b2cb70951804945d47ce53b86ff8baf6b7e138b2"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_pre_05.mp3",
+      "sha256": "1b202f272c0bc5cf2b6142d44818c2cc220bfa37a0a43a0d9b212976d6deda67"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m05_second_call.mp3",
+      "sha256": "7818f2cc923d08d9681be0d32f7d1e3d1e5c5d01ea828e32142a88df43be8f48"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_post_01.mp3",
+      "sha256": "bd3aa65e130c621efece837e91d04383fd3b6ba73c86a64ef9c66193aff06e09"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_post_02.mp3",
+      "sha256": "7f452576ec021e85eb95fb119c9da1d8f012d452795bec7f8f8fb82251fc88ce"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_post_03.mp3",
+      "sha256": "ffbd6708ed45296e710a548fffd4c27ad92476f4befa16b081c9412db042dfc3"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_post_04.mp3",
+      "sha256": "8a442a3e4d25476cfe2ad7c1136248fe0c9f0e9e5a06a64818acff0b40cbd0a9"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_pre_01.mp3",
+      "sha256": "3d36bd1c010eab826a0f000c299d1d4538038296c40d61a912f934589f85d046"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_pre_02.mp3",
+      "sha256": "eb0a5514b0b32fc8820976c1ac0826a943bbaff18957c480dd697d5e40b9c87a"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_pre_03.mp3",
+      "sha256": "0746f853c56ce878da00290cb71168459dce4c853c4c749d20918896fda684bf"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_pre_04.mp3",
+      "sha256": "db03e362388b5b7f5dbab4928ff12705621a5b95105c273d64ad77d1600b3184"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_pre_05.mp3",
+      "sha256": "d5d97bb5eb9570fae4559ceb226b3c9d0d52ad64d566b5e9a9983d052236300d"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_pre_06.mp3",
+      "sha256": "ce6fcbc6dc7a7f7b46a0b704c300a39d3bb76dbf4ea68c0319c682a075be2b84"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m06_pre_07.mp3",
+      "sha256": "230d352cb4877a8bc123c9380e1230161894fc78b767f3bcfae3627df9099066"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_post_01.mp3",
+      "sha256": "075e730575a4e0e4d69fd723d56b2074d3e89100bb3a29e52d8676d19d7d3be3"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_post_02.mp3",
+      "sha256": "f7f156f5b8ed98b6c6795350800cef8b1c7786f81cbb16e565a0afd7c8bca275"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_post_03.mp3",
+      "sha256": "c6383102f15ddcc568f2d1d5271c76d999502f245389a32e79884d4b91b56618"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_post_04.mp3",
+      "sha256": "f17c2d864c26e580cc0c5bca153090452f757c3c9e72f2f787e5a00acc555a97"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_post_05.mp3",
+      "sha256": "d54031548b7e3a1b6a9f0e4fcb20d9366514bdaefa86abf40ee7d3cdbaa12999"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_pre_01.mp3",
+      "sha256": "d3b8a40995860225123535a21bc648feb74f37b37ad64a66e7f8cacc511fe9d1"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_pre_02.mp3",
+      "sha256": "dd42710e66d353f97fd1998c3777388efee028e24da37bd3685297254010fcf9"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_pre_03.mp3",
+      "sha256": "081083616ba7edf528d0f3ce6f7f5d88201bb9787dc3204d0232dcb2b998265c"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_pre_04.mp3",
+      "sha256": "2c7332cc43ce47d60fd640ad0195aea572d24d3d429775461def78d42d21e656"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/m07_pre_05.mp3",
+      "sha256": "014ae95a4487c5445eaa38c75d31820c5881399c36dff17066793ab6e56a083a"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/p00_post_01.mp3",
+      "sha256": "cf81c45845b4c1b829d587ecfe455e1bd166105054a4151e03aea821125e24a6"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/p00_post_02.mp3",
+      "sha256": "d744e2cc9bfaeaeb786a7b08ec811384d77bf4ccfc20bbe6ad28bf1e652cd16b"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/p00_post_03.mp3",
+      "sha256": "a10850807061194f1e197c4f28d749ca34d452db6b875c9c617538a5d7d2b995"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/p00_pre_01.mp3",
+      "sha256": "d18943d702542d0e8da5d08232f60f0edb90ea1385daab48aaad104ad656a453"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/p00_pre_02.mp3",
+      "sha256": "bba9caeb99a5c09449c69acde804574a0e5daeeee6f2d2ac5d163d70d83d753e"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/p00_pre_03.mp3",
+      "sha256": "abe80350b589dd723ca3157f0246b5b7d3ac9c5c0651338d13912119c04f8b49"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/p00_pre_04.mp3",
+      "sha256": "82d3ffbad4ab3d00eabe072e5baeec1186cb4791eeb0aff3ecc8fdc9669c46ab"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/voice-manifest.json",
+      "sha256": "5f7bdb886584237f40ddb2ebdb8c56bd6f0b05e9b333a8848200cf540a658b94"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/campaign.json",
+      "sha256": "bd62646626535971ade72f2e0feeefeecb793353bcdfdea9bede0deaddd1d446"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/story-direction.json",
+      "sha256": "ca42ee17133f7bd8943033086d3176e06ba82175192db774a75fecc374ad4381"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/actors.png",
+      "sha256": "ff21d3caf2e62890d596b13846076062b5e2e6197bf2adcbbd6ba6ae87150486"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-avenue.png",
+      "sha256": "8c65286944b2cb7ffd9595614ee566975cf1327313c3671673a2f969ed866436"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-crew.png",
+      "sha256": "c01a94a614498bed908ed9e8eb1d1513e5fb77e0d2f93fc4bac777392db8bea2"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-glances.png",
+      "sha256": "c8743cf99f227c06b11280eabd016c6f0e51513a784b7f039cf031179b8d7088"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-glass.png",
+      "sha256": "ed6f63d7be54c805b0dac3dbbaa680933a205bcdd07851725bf911530825c033"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-interior.png",
+      "sha256": "5cf3b9542f23963c60984f37f4f4b92596ae6f84d84f2fe1b3bb55bc81206ed1"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-memory.png",
+      "sha256": "c96db8218f17b36c930432e60ccb9f5e7e801ee5e2e2012837868af78a658751"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-order.png",
+      "sha256": "2abe98d838db1e335bd21d60e83cf34bbf273cbb96d19406fa4c63d0933ceb35"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-passing.png",
+      "sha256": "5f9e28833afc710df116937f30741b80baaa6f7fa938d7e7fe4d0c01a150c4c3"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-police.png",
+      "sha256": "ec0cd306b636d22d940ef635f63c08e68ee126cf4cef08ec73a3fa125e6b5305"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-reaction.png",
+      "sha256": "94bc9a58abfe5201ca1880544e9427489c1cb8dd6154964789fbc4b4cd1aacf1"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-side.png",
+      "sha256": "af83ed6c09884a8c1ce4eab1b1e06ffc262e2f1c9586f1dc7276f870cb92485c"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-sky.png",
+      "sha256": "5bfa28898e8be1a10bcbb2a50506116414a68ad5f4e9258c61cb969a7209d03f"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/motion-wheels.png",
+      "sha256": "482b30c0383c00c3b69e37437f26a36d9d6d27cd18f55fdd352c08fd9736a135"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/opening-atlas-a.png",
+      "sha256": "32e77a46119d1979eb4506f8848c0ad35c00f052a302c6e87c9c42e81d41a4cb"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/opening-atlas-b.png",
+      "sha256": "0a82df8fc5306c734945099928631f241b4f482fcf5985054a710f969a541db8"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/opening-atlas-c.png",
+      "sha256": "8230d146a4d446b8156f0b9efa6bc0c80ddbf600ee08263679aa8ebb08060663"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/opening-atlas-d.png",
+      "sha256": "5a39c72cf381ba8ff871b663541c80916e3bfe7951dd9b1ea5ee4106230fbd6f"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/opening-atlas-e.png",
+      "sha256": "1ff621f7150b6ce158d8f98d1b47c51f4d87ec8974a1912eaa8844a75bd872bc"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/opening-atlas-f.png",
+      "sha256": "05ded7252df1914de6e6b75d154c41364f8b9ebb9a4045a0587fadd7ca88ba82"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardIntro/stages.png",
+      "sha256": "08cf00bde75aadac70c40ae1445b0752072c0ac4cc4c37938a9ebde3ed009195"
+    },
+    {
+      "path": "unity/WhiteGuard/Assets/original-media-manifest.json",
+      "sha256": "bff2b45a43e3d0e759feccad7665ff887ef62f2c9cf27827b56ed12d3a530fc3"
+    }
+  ],
+  "errors": []
+}
