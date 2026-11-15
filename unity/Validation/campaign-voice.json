@@ -7,7 +7,7 @@
   "rate": "-5%",
   "pitch": "-4Hz",
   "edgeTtsVersion": "7.3.1",
-  "campaignSHA256": "bd62646626535971ade72f2e0feeefeecb793353bcdfdea9bede0deaddd1d446",
+  "campaignSHA256": "db5bcde2ab85c62becacb372a23f2588fc82f880f04b9fbbd40bb9e7bf242107",
   "durationSeconds": 779.64,
   "totalAudioBytes": 4677840,
   "introFilesUnchanged": 12,
@@ -15,6 +15,8 @@
   "runwayCreditsUsed": 0,
   "unityPlaybackVerified": false,
   "scope": "Exact caption text SHA, audio SHA, nonempty MP3 codec and ffprobe duration. Native listening/playback still pending.",
+  "lastUpdate": "M04 gameplay-only campaign SHA rebind; all card text and media bytes unchanged.",
+  "synthesisRequestsForLastUpdate": 0,
   "files": [
     {
       "cardId": "p00_pre_01",

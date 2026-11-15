@@ -303,7 +303,7 @@
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignGameLoop.cs",
-      "sha256": "37f15676bd8b88cbbcc20a9c07ad063616fb231544f79f29c87624b508eba2a6"
+      "sha256": "49bb5f5adb703afd770d4ffc9f09e653a1207d2d3c5f3e804fc9f3f66f40ec9e"
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignMapBuilder.cs",
@@ -311,7 +311,7 @@
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignNpc.cs",
-      "sha256": "e1742b5c19b78e22f577ddc2bf4af13be850cb6679d14098c40af677ae434274"
+      "sha256": "2c488635ab40e15533889525f8f046968c862e8c361e24762785bac5c1e95360"
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignSave.cs",

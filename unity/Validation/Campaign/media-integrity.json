@@ -430,11 +430,11 @@
     },
     {
       "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/Voice/voice-manifest.json",
-      "sha256": "5f7bdb886584237f40ddb2ebdb8c56bd6f0b05e9b333a8848200cf540a658b94"
+      "sha256": "64f192f7e1158b808069be49e81c90b6d129b90999d7bd893730f8d4cabea68a"
     },
     {
       "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/campaign.json",
-      "sha256": "bd62646626535971ade72f2e0feeefeecb793353bcdfdea9bede0deaddd1d446"
+      "sha256": "db5bcde2ab85c62becacb372a23f2588fc82f880f04b9fbbd40bb9e7bf242107"
     },
     {
       "path": "unity/WhiteGuard/Assets/Resources/WhiteGuardCampaign/story-direction.json",

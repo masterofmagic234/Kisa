@@ -3417,7 +3417,8 @@
           "y": 816,
           "kind": "gunman",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         },
         {
           "id": "m04_guard_2",
@@ -3425,7 +3426,8 @@
           "y": 688,
           "kind": "melee",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         },
         {
           "id": "m04_guard_3",
@@ -3433,7 +3435,8 @@
           "y": 752,
           "kind": "gunman",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         },
         {
           "id": "m04_guard_4",
@@ -3441,7 +3444,8 @@
           "y": 592,
           "kind": "melee",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         },
         {
           "id": "m04_guard_5",
@@ -3449,7 +3453,8 @@
           "y": 592,
           "kind": "gunman",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         },
         {
           "id": "m04_guard_6",
@@ -3457,7 +3462,8 @@
           "y": 480,
           "kind": "gunman",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         },
         {
           "id": "m04_guard_7",
@@ -3465,7 +3471,8 @@
           "y": 936,
           "kind": "gunman",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         },
         {
           "id": "m04_guard_8",
@@ -3473,7 +3480,8 @@
           "y": 944,
           "kind": "melee",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         },
         {
           "id": "m04_guard_9",
@@ -3481,7 +3489,8 @@
           "y": 416,
           "kind": "gunman",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         },
         {
           "id": "m04_guard_10",
@@ -3489,7 +3498,8 @@
           "y": 896,
           "kind": "gunman",
           "group": "m04_camp_guards",
-          "style": "guard"
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
         }
       ],
       "pickups": [

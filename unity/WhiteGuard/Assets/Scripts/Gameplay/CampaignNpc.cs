@@ -200,7 +200,7 @@ namespace WhiteGuard.Gameplay
             if (windup > 0)
             {
                 windup -= dt; FacingRadians = lockedAim.Angle;
-                if (windup <= 0 && aimTarget && aimTarget.Model != null && aimTarget.Model.State != EnemyState.Dead)
+                if (windup <= 0 && Owner.IsEnemyHostile(aimTarget))
                 {
                     var physics = Owner.World.GetComponent<Physics2DPort>();
                     var origin = WorldCombatQueries.SafeMuzzle(Position, lockedAim, 16, physics);

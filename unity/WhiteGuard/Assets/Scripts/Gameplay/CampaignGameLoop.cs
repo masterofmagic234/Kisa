@@ -524,7 +524,7 @@ namespace WhiteGuard.Gameplay
             foreach (var entry in enemyById.Values)
             {
                 var enemy = entry.Port;
-                if (!enemy || !enemy.isActiveAndEnabled || !enemy.AIEnabled || enemy.Model == null || enemy.Model.State == EnemyState.Dead || neutralized.Contains(entry.Data.id)) continue;
+                if (!IsEnemyHostile(entry)) continue;
                 var distance = Vec2.Distance(from, enemy.Position);
                 if (distance < nearest) { nearest = distance; result = enemy; }
             }
@@ -536,11 +536,19 @@ namespace WhiteGuard.Gameplay
             foreach (var entry in enemyById.Values)
             {
                 var enemy = entry.Port;
-                if (!enemy || !enemy.isActiveAndEnabled || !enemy.AIEnabled || enemy.Model == null || enemy.Model.State == EnemyState.Dead || neutralized.Contains(entry.Data.id)) continue;
+                if (!IsEnemyHostile(entry)) continue;
                 if (Vec2.Distance(point, enemy.Position) < radius && World.HasLineOfSight(point, enemy.Position)) return true;
             }
             return false;
         }
+        public bool IsEnemyHostile(EnemyPort2D enemy)
+        {
+            if (!enemy) return false;
+            foreach (var entry in enemyById.Values) if (entry.Port == enemy) return IsEnemyHostile(entry);
+            return false;
+        }
+        private bool IsEnemyHostile(EnemyEntry entry) => entry.Port && entry.Port.isActiveAndEnabled && entry.Port.AIEnabled &&
+            entry.Port.Model != null && entry.Port.Model.State != EnemyState.Dead && !neutralized.Contains(entry.Data.id);
         public void OpenDoorsNear(Vec2 point)
         {
             foreach (var door in doors.Values)
@@ -575,6 +583,7 @@ namespace WhiteGuard.Gameplay
                 if (entry.Data.group != group || !entry.Port || entry.Port.Model == null || entry.Port.Model.State == EnemyState.Dead) continue;
                 neutralized.Add(entry.Data.id);
                 var path = World.Navigation.FindPath(entry.Port.Position, goal);
+                entry.Port.AIEnabled = true;
                 entry.Port.Stage(path.Count > 0 ? path : new[] { goal }, goal);
                 retreats[entry.Port] = goal;
             }

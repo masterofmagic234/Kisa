@@ -5,7 +5,7 @@
   "migration_base_commit": "8a298931fa3bcc7c79a3b1141391de692defe85d",
   "unity_version": "6000.3.28f1",
   "entry_scene": "unity/WhiteGuard/Assets/Scenes/WhiteGuard.unity",
-  "campaign_sha256": "bd62646626535971ade72f2e0feeefeecb793353bcdfdea9bede0deaddd1d446",
+  "campaign_sha256": "db5bcde2ab85c62becacb372a23f2588fc82f880f04b9fbbd40bb9e7bf242107",
   "content": {
     "maps": 9,
     "objectives": 71,
@@ -21,9 +21,9 @@
   "portable_evidence": {
     "original_media_unchanged": 41,
     "core_checks": 5607,
-    "campaign_contract_checks": 633,
+    "campaign_contract_checks": 643,
     "objective_witness_completed_levels": 9,
-    "static_geometry_checks": 856,
+    "static_geometry_checks": 866,
     "media_integrity_checks_with_ffprobe": 4357,
     "official_unity_api_compile": "PASS; 0 errors, 0 warnings"
   },
