@@ -48,9 +48,10 @@ namespace WhiteGuard.Gameplay
         public int CurrentLevelIndex { get; private set; } = -1;
         public int Deaths { get; private set; }
         public int Kills { get; private set; }
+        public bool IsDebugSession { get; private set; }
         public float TotalSeconds { get; private set; }
         public bool GameplayActive => State == CampaignGameState.Playing && World && !World.Transitioning;
-        public bool SaveAvailable => Campaign != null && File.Exists(SavePath);
+        public bool SaveAvailable => Campaign != null && File.Exists(NormalSavePath);
         public float LoadingProgress => World == null || World.Navigation.Width * World.Navigation.Height == 0 ? 0 :
             Mathf.Clamp01((float)World.Navigation.Samples / (World.Navigation.Width * World.Navigation.Height));
         public IReadOnlyList<CampaignEntity> Entities => entities;
@@ -60,8 +61,17 @@ namespace WhiteGuard.Gameplay
         public IReadOnlyCollection<string> CompletedLevels => completedLevels;
         /// <summary>Optional automation sandbox; production leaves this unset.</summary>
         public string SavePathOverride { get; set; }
-        public string SavePath => string.IsNullOrWhiteSpace(SavePathOverride)
+        public string NormalSavePath => string.IsNullOrWhiteSpace(SavePathOverride)
             ? Path.Combine(Application.persistentDataPath, "white-guard-campaign-v1.json") : Path.GetFullPath(SavePathOverride);
+        public string SavePath
+        {
+            get
+            {
+                var normal = NormalSavePath;
+                return IsDebugSession ? Path.Combine(Path.GetDirectoryName(normal),
+                    Path.GetFileNameWithoutExtension(normal) + ".debug" + Path.GetExtension(normal)) : normal;
+            }
+        }
 
         public event Action StateChanged;
         public event Action<NarrativeCard[], Action> NarrativeRequested;
@@ -114,6 +124,7 @@ namespace WhiteGuard.Gameplay
         public void StartNew()
         {
             RequireConfigured();
+            IsDebugSession = false;
             completedLevels.Clear(); facts.Clear(); Deaths = Kills = 0; TotalSeconds = 0; checkpoint = null;
             StartLevel(string.IsNullOrEmpty(Campaign.firstLevel) ? Campaign.levels[0].id : Campaign.firstLevel);
         }
@@ -123,10 +134,11 @@ namespace WhiteGuard.Gameplay
             RequireConfigured();
             try
             {
-                var save = JsonUtility.FromJson<CampaignSave>(File.ReadAllText(SavePath));
+                var save = JsonUtility.FromJson<CampaignSave>(File.ReadAllText(NormalSavePath));
                 if (save != null && save.contentHash != contentHash) throw new InvalidDataException("Сохранение создано для другой версии кампании.");
                 if (!CampaignCheckpointValidation.Validate(Campaign, save, out var validationError)) throw new InvalidDataException(validationError);
                 LastError = "";
+                IsDebugSession = false;
                 completedLevels.Clear(); foreach (var id in save.completedLevels) completedLevels.Add(id);
                 facts.Clear(); foreach (var fact in save.facts) if (!string.IsNullOrEmpty(fact)) facts.Add(fact);
                 Deaths = Math.Max(0, save.deaths); Kills = Math.Max(0, save.kills); TotalSeconds = Math.Max(0, save.totalSeconds);
@@ -143,6 +155,29 @@ namespace WhiteGuard.Gameplay
         }
 
         public void StartLevel(string id) { RequireConfigured(); BeginLevel(id, null); }
+        public bool StartDebugLevel(string id)
+        {
+            RequireConfigured();
+            var index = IndexOf(id);
+            if (index < 0) throw new ArgumentException("Unknown debug campaign level: " + id, nameof(id));
+            if (!IsDebugSession && (GameplayActive || State == CampaignGameState.Paused))
+            {
+                SaveCheckpoint();
+                // Preserve the live ordinary run when storage could not accept
+                // its checkpoint; a debug jump must not silently discard it.
+                if (!string.IsNullOrEmpty(LastError)) return false;
+            }
+            IsDebugSession = true;
+            completedLevels.Clear(); facts.Clear(); Deaths = Kills = 0; TotalSeconds = 0; checkpoint = null;
+            for (var i = 0; i < index; i++)
+            {
+                var previous = Campaign.levels[i]; completedLevels.Add(previous.id); facts.Add("complete:" + previous.id);
+                foreach (var interaction in Safe(previous.interactions))
+                    foreach (var fact in Safe(interaction.grants)) if (!string.IsNullOrEmpty(fact)) facts.Add(fact);
+            }
+            BeginLevel(id, null);
+            return true;
+        }
         public void Retry() { if (Level != null) BeginLevel(Level.id, checkpoint); }
         public void RestartLevel() { if (Level != null) BeginLevel(Level.id, null); }
 

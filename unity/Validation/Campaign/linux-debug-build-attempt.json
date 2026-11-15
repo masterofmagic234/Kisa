@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "status": "BLOCKED_ACTIVATION",
+  "startedUtc": "2026-11-15T22:19:57.051146+00:00",
+  "sourceCommit": "0b467a077a16ea43872cd78f827c2a062cd038a2",
+  "sourceDirty": true,
+  "unityVersionExpected": "6000.3.28f1",
+  "target": "StandaloneLinux64",
+  "architecture": "x86_64",
+  "developmentBuildRequested": true,
+  "debugLevelMenuRequested": true,
+  "stages": [
+    {
+      "name": "01-data-import",
+      "method": "WhiteGuard.Editor.WhiteGuardGameBuild.ValidateData",
+      "startedUtc": "2026-11-15T22:19:57.051256+00:00",
+      "log": "logs/01-data-import.log",
+      "quitArgument": true,
+      "status": "failed",
+      "exitCode": 198,
+      "finishedUtc": "2026-11-15T22:19:57.519636+00:00",
+      "editorVersionReported": "6000.3.28f1 (8f082d2fe476)"
+    }
+  ],
+  "fullCampaignPlaythroughVerified": false,
+  "graphicsAndListeningReviewVerified": false,
+  "note": "Experimental debug build. Native startup checks do not complete the campaign or provide visual/audio acceptance.",
+  "finishedUtc": "2026-11-15T22:19:57.519938+00:00",
+  "failure": "Unity has no valid activated Editor license. No Player archive was created.",
+  "exitCode": 198,
+  "archiveCreated": false,
+  "raw_log_sha256": "5102e493d837712f11e5c4e8f93ee8e8493249c39297143ee6d636c61a67fe22",
+  "scope": "Actual Editor launch stopped at licensing before campaign import. No Linux Player or downloadable game archive was produced."
+}

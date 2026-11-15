@@ -26,9 +26,9 @@ namespace WhiteGuard.Diagnostics
         [Serializable] private sealed class ProbeReport
         {
             public string status = "", unityVersion = "", campaignContentSha256 = "", testedCommit = "", failure = "";
-            public string scope = "Nine authored map startup, input/pause gates, initial checkpoint retry and teardown. Not a full playthrough, GPU or listening test.";
+            public string scope = "Nine authored map startup, input/pause gates, checkpoint retry, isolated debug saves and teardown. Not a full playthrough, GPU or listening test.";
             public int assertions = 0, narrativeCallbacks = 0;
-            public bool fullCampaignCompleted = false, userSavePathUsed = false;
+            public bool fullCampaignCompleted = false, userSavePathUsed = false, debugSaveIsolated = false;
             public MapResult[] maps = Array.Empty<MapResult>();
         }
 
@@ -149,6 +149,46 @@ namespace WhiteGuard.Diagnostics
             Require(Vec2.Distance(loop.Player.Position, new Vec2(initial.checkpoint.playerX, initial.checkpoint.playerY)) < .01f,
                 "Retry did not restore the actual checkpoint position.");
 
+            // Debug chapter jumps use a sibling file and must preserve the ordinary run.
+            loop.Pause(true); oldPlayer = loop.Player;
+            var beforeInvalidJump = File.ReadAllBytes(savePath); var invalidJumpRejected = false;
+            try { loop.StartDebugLevel("not_a_campaign_level"); }
+            catch (ArgumentException) { invalidJumpRejected = true; }
+            Require(invalidJumpRejected && !loop.IsDebugSession && loop.State == CampaignGameState.Paused && loop.Player == oldPlayer
+                && SameBytes(beforeInvalidJump, File.ReadAllBytes(savePath)), "Invalid debug ID mutated the normal run or its save.");
+            Require(loop.StartDebugLevel("m05"), "The isolated debug jump did not begin.");
+            var protectedNormal = File.ReadAllBytes(savePath);
+            var ordinary = JsonUtility.FromJson<CampaignSave>(File.ReadAllText(savePath));
+            Require(ordinary != null && ordinary.level == "p00" && ordinary.checkpoint != null,
+                "Entering debug did not checkpoint the ordinary chapter first.");
+            wait = WaitForPlaying("m05"); while (wait.MoveNext()) yield return wait.Current;
+            var debugPath = loop.SavePath;
+            Require(loop.IsDebugSession && Path.GetFullPath(loop.NormalSavePath) == Path.GetFullPath(savePath)
+                && debugPath != loop.NormalSavePath && Path.GetDirectoryName(debugPath) == saveDirectory
+                && File.Exists(debugPath) && loop.SaveAvailable && SameBytes(protectedNormal, File.ReadAllBytes(savePath)),
+                "Debug startup escaped the save override or overwrote ordinary progress.");
+            loop.Retry();
+            wait = WaitForPlaying("m05"); while (wait.MoveNext()) yield return wait.Current;
+            Require(loop.IsDebugSession && loop.SavePath == debugPath && SameBytes(protectedNormal, File.ReadAllBytes(savePath)),
+                "Debug retry switched profile or overwrote the normal save.");
+            oldPlayer = loop.Player;
+            File.WriteAllText(savePath, "{invalid");
+            Require(!loop.ContinueSaved() && loop.IsDebugSession && loop.Player == oldPlayer && loop.Level.id == "m05",
+                "An invalid normal save replaced the live debug session before validation.");
+            File.Delete(savePath);
+            Require(!loop.SaveAvailable && File.Exists(debugPath), "The continue button used a debug save as ordinary progress.");
+            File.WriteAllBytes(savePath, protectedNormal);
+            Require(loop.ContinueSaved(), "Valid ordinary progress could not be continued from debug mode.");
+            wait = WaitForPlaying("p00"); while (wait.MoveNext()) yield return wait.Current;
+            Require(!loop.IsDebugSession && loop.SavePath == loop.NormalSavePath && string.IsNullOrEmpty(loop.LastError),
+                "Successful Continue did not restore the normal profile or clear the failed-read error.");
+            Require(loop.StartDebugLevel("m02") && loop.IsDebugSession, "The second debug request did not enter debug mode.");
+            loop.StartNew();
+            wait = WaitForPlaying("p00"); while (wait.MoveNext()) yield return wait.Current;
+            Require(!loop.IsDebugSession && loop.CurrentLevelIndex == 0 && loop.SavePath == loop.NormalSavePath,
+                "New campaign inherited debug mode or its output path.");
+            report.debugSaveIsolated = true;
+
             // This only loads each authored map. It never grants objectives or claims a campaign clear.
             for (var i = 1; i < loop.Campaign.levels.Length; i++)
             {
@@ -242,6 +282,12 @@ namespace WhiteGuard.Diagnostics
             narrativeCallbacks++; finished();
         }
         private void OnFeedback(string id, Vec2 position) { feedbackCalls++; }
+        private static bool SameBytes(byte[] a, byte[] b)
+        {
+            if (a.Length != b.Length) return false;
+            for (var i = 0; i < a.Length; i++) if (a[i] != b[i]) return false;
+            return true;
+        }
         private string RemoveProbeSave()
         {
             if (string.IsNullOrEmpty(saveDirectory)) return null;

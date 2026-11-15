@@ -53,6 +53,7 @@
 | J / Esc | Журнал / пауза |
 | Space или Enter | Следующая карточка повествования |
 | R после поражения | Повтор с контрольной точки |
+| F8 | Отладочный выбор всех эпизодов; также доступен в главном меню |
 
 Сохранение: `Application.persistentDataPath/white-guard-campaign-v1.json`.
 Контрольные точки создаются при входе на карту, отмеченных действиях и выходе
@@ -127,3 +128,17 @@ Unity -batchmode -nographics -quit -projectPath /absolute/path/to/Kisa/unity/Whi
 `unity/WhiteGuard/Builds/Windows/WhiteGuard.exe`. Переменная `WHITEGUARD_BUILD`
 задаёт путь к исполняемому файлу, `WHITEGUARD_DEVELOPMENT=1` — Development Build.
 Успешная сборка отдельно требует запуска Player и полного ручного прохождения.
+
+Для Linux debug-сборки с меню уровней подготовлен последовательный сборщик:
+
+```bash
+python3 unity/Tools/build_linux_debug.py --unity /absolute/path/to/6000.3.28f1/Editor/Unity
+```
+
+Он выполняет реальные проверки импорта, native-запуск карт и `BuildLinuxGame`,
+затем проверяет executable/Data/UnityPlayer.so и создаёт `.tar.gz` с SHA-256,
+управлением и метаданными проверенного исходника. Каждая попытка использует
+новый каталог в `unity/WhiteGuard/Builds/LinuxDebug`; старый Player не упаковывается
+после ошибки. При нынешнем exit 198 сборщик останавливается до сборки и архива.
+Debug-выбор уровня использует отдельное сохранение. Архив считается
+экспериментальным и не заменяет полного прохождения и визуальной приёмки.

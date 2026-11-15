@@ -74,6 +74,8 @@ namespace WhiteGuard.Presentation
         }
         private void Update()
         {
+            if (introHost && introHost.activeSelf && Input.GetKeyDown(KeyCode.F8))
+            { LeaveOpening(); ui.ShowLevelSelect(); return; }
             if (introHost && introHost.activeSelf && intro && Input.GetKeyDown(KeyCode.Escape)
                 && (intro.State == IntroPlaybackState.Title || intro.State == IntroPlaybackState.Error)) LeaveOpening();
         }

@@ -295,7 +295,7 @@
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Diagnostics/CampaignGameProbe.cs",
-      "sha256": "aa73ec74c772a7b2405567e5ddce1c3f4c665c3eb3feb802927a1592ccbe410b"
+      "sha256": "2da38815470662cff977bb3a3e86582a7343cf02da43df4027d7eae4d6c8af88"
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignEntity.cs",
@@ -303,7 +303,7 @@
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignGameLoop.cs",
-      "sha256": "49bb5f5adb703afd770d4ffc9f09e653a1207d2d3c5f3e804fc9f3f66f40ec9e"
+      "sha256": "e080f20f0587df65387a8dc4e455b25fe03be7a665061cb2dc1e6a72bdee6e34"
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Gameplay/CampaignMapBuilder.cs",
@@ -347,7 +347,7 @@
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Presentation/CampaignUI.cs",
-      "sha256": "8af2d0e4a47f6a01ffaa41bf87684cdaf6bd1358fdeb942668acde0f319d7c31"
+      "sha256": "d0c3abb9df57abd0037c05da61c991b8289f0ddcb3edc2981e291d4534e3a014"
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Presentation/StoryDirection.cs",
@@ -355,7 +355,7 @@
     },
     {
       "path": "unity/WhiteGuard/Assets/Scripts/Presentation/WhiteGuardGameBootstrap.cs",
-      "sha256": "7359900f0ba967a9688c9a750fc8ebd61853d7bf57d19b1d4e8f65ecdcb2044f"
+      "sha256": "eee13bf20b433fb97362a2f5010ced7611d30a31f0c3ffbf1399a75b537ff654"
     },
     {
       "path": "unity/Tests/GameApi/WhiteGuard.GameApi.csproj",

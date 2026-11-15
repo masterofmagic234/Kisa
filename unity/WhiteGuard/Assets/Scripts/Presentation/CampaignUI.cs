@@ -24,6 +24,9 @@ namespace WhiteGuard.Presentation
         private bool settings, credits, narrativeMenu;
         private bool journal;
         private bool confirmNew;
+        private bool levelSelect, resumeAfterLevelSelect;
+        private Vector2 levelScroll;
+        private string levelSelectError = "";
         private Vector2 journalScroll;
         private AudioSource narration;
         private bool voiceComplete, voiceStarted, voiceObserved, voicePaused;
@@ -42,6 +45,7 @@ namespace WhiteGuard.Presentation
             game.NarrativeRequested += Narrative;
             game.Notice += Notice;
             game.EntityCreated += Entity;
+            game.StateChanged += StateChanged;
             AudioListener.volume = PlayerPrefs.GetFloat("WhiteGuard.MasterVolume", .8f);
             QualitySettings.vSyncCount = PlayerPrefs.GetInt("WhiteGuard.VSync", 1);
             narration = gameObject.AddComponent<AudioSource>(); narration.playOnAwake = false; narration.spatialBlend = 0;
@@ -76,7 +80,14 @@ namespace WhiteGuard.Presentation
         {
             if (entity.Kind != "player" || !entity.Object) return;
             var actor = entity.Object.GetComponent<TopdownActor2D>();
-            if (actor) actor.FireInputAllowedQuery = () => this && loop && loop.State == CampaignGameState.Playing && !PointerOverPause();
+            if (actor) actor.FireInputAllowedQuery = () => this && loop && loop.State == CampaignGameState.Playing && !levelSelect && !PointerOverPause();
+        }
+        private void StateChanged()
+        {
+            // Continue can finish loading while this modal is already open.
+            // Gate the first playable frame, including AI, before returning to the loop.
+            if (levelSelect && loop && loop.State == CampaignGameState.Playing)
+            { resumeAfterLevelSelect = true; loop.Pause(true); }
         }
         private bool PointerOverPause()
         {
@@ -98,6 +109,12 @@ namespace WhiteGuard.Presentation
         private void Update()
         {
             if (!loop || openingVisible?.Invoke() == true) return;
+            if (levelSelect)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F8)) CloseLevelSelect();
+                UpdateVoice(); return;
+            }
+            if (Input.GetKeyDown(KeyCode.F8)) { ShowLevelSelect(); UpdateVoice(); return; }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (journal) { journal = false; loop.Pause(false); return; }
@@ -123,7 +140,7 @@ namespace WhiteGuard.Presentation
         {
             if (openingVisible?.Invoke() == true || Screen.width <= 0 || Screen.height <= 0) return;
             // Update owns these story shortcuts; a focused IMGUI button must not consume them a second time.
-            if ((shortcutFrame == Time.frameCount || (loop && loop.State == CampaignGameState.Narrative && !narrativeMenu && !settings && !credits))
+            if ((shortcutFrame == Time.frameCount || (loop && loop.State == CampaignGameState.Narrative && !narrativeMenu && !settings && !credits && !levelSelect))
                 && Event.current.isKey && (Event.current.keyCode == KeyCode.Space || Event.current.keyCode == KeyCode.Return))
                 Event.current.Use();
             var previousMatrix = GUI.matrix; var previousColor = GUI.color; var previousEnabled = GUI.enabled;
@@ -142,7 +159,7 @@ namespace WhiteGuard.Presentation
                 Styles(); GUI.color = Color.white;
                 if (!string.IsNullOrEmpty(startupError)) { ErrorScreen(); return; }
                 if (!loop || art == null) { Solid(new Rect(0, 0, 1280, 720), panel); GUI.Label(new Rect(80, 325, 1120, 50), "Подготовка…", heading); return; }
-                GUI.enabled = previousEnabled && !settings && !credits && !journal && !confirmNew;
+                GUI.enabled = previousEnabled && !settings && !credits && !journal && !confirmNew && !levelSelect;
                 switch (loop.State)
                 {
                     case CampaignGameState.Menu: Menu(); break;
@@ -155,8 +172,8 @@ namespace WhiteGuard.Presentation
                     case CampaignGameState.Finished: Ending(); break;
                 }
                 GUI.enabled = previousEnabled;
-                if (settings) Settings(); else if (credits) Credits(); else if (journal) Journal(); else if (confirmNew) ConfirmNew();
-                if (loop.State == CampaignGameState.Playing && !settings && !credits && !journal
+                if (levelSelect) LevelSelect(); else if (settings) Settings(); else if (credits) Credits(); else if (journal) Journal(); else if (confirmNew) ConfirmNew();
+                if (loop.State == CampaignGameState.Playing && !settings && !credits && !journal && !levelSelect
                     && Time.realtimeSinceStartupAsDouble < noticeUntil && !string.IsNullOrEmpty(notice))
                 {
                     var height = Mathf.Clamp(small.CalcHeight(new GUIContent(notice), 678) + 25, 58, 180);
@@ -221,6 +238,7 @@ namespace WhiteGuard.Presentation
             var y = 424f;
             if (loop.SaveAvailable) { if (Button(new Rect(72, y, 385, 42), "Продолжить")) loop.ContinueSaved(); y += 49; }
             if (Button(new Rect(72, y, 385, 42), "Новая игра")) { if (loop.SaveAvailable) confirmNew = true; else opening?.Invoke(true); } y += 49;
+            if (Button(new Rect(72, y, 385, 42), "Выбор уровня  ·  F8")) ShowLevelSelect(); y += 49;
             if (Button(new Rect(72, y, 185, 42), "Вступление")) opening?.Invoke(false);
             if (Button(new Rect(268, y, 189, 42), "Настройки")) settings = true; y += 49;
             if (Button(new Rect(72, y, 185, 42), "Авторы")) credits = true;
@@ -241,6 +259,43 @@ namespace WhiteGuard.Presentation
             Solid(new Rect(82, 393, 1116 * Mathf.Clamp01(loop.LoadingProgress), 3), gold);
             if (Button(new Rect(82, 449, 240, 42), "В меню")) loop.ReturnToMenu();
         }
+        public void ShowLevelSelect()
+        {
+            if (!loop || loop.Campaign == null || !string.IsNullOrEmpty(startupError) || levelSelect) return;
+            resumeAfterLevelSelect = loop.State == CampaignGameState.Playing;
+            if (resumeAfterLevelSelect) loop.Pause(true);
+            settings = credits = journal = confirmNew = false;
+            levelSelect = true; levelSelectError = "";
+            if (narration && voiceStarted && !voicePaused) { narration.Pause(); voicePaused = true; }
+        }
+        private void CloseLevelSelect()
+        {
+            levelSelect = false;
+            if (resumeAfterLevelSelect && loop && loop.State == CampaignGameState.Paused) loop.Pause(false);
+            resumeAfterLevelSelect = false;
+        }
+        private void LevelSelect()
+        {
+            Shade(); Solid(new Rect(220, 42, 840, 638), panel);
+            GUI.Label(new Rect(255, 68, 770, 60), "Выбор уровня", heading);
+            GUI.Label(new Rect(257, 132, 766, 48), string.IsNullOrEmpty(levelSelectError)
+                ? "Режим отладки. Глава начнётся заново.\nПрогресс основной кампании сохранится." : levelSelectError, small);
+            var levels = loop.Campaign.levels;
+            levelScroll = GUI.BeginScrollView(new Rect(250, 192, 780, 392), levelScroll,
+                new Rect(0, 0, 752, Mathf.Max(392, levels.Length * 46)));
+            string chosen = null;
+            for (var i = 0; i < levels.Length; i++)
+                if (Button(new Rect(5, i * 46, 730, 41), (i + 1).ToString("00") + "   " + levels[i].title)) chosen = levels[i].id;
+            GUI.EndScrollView();
+            if (Button(new Rect(255, 615, 770, 43), "Назад  ·  F8 / Esc")) CloseLevelSelect();
+            if (chosen != null)
+            {
+                if (!loop.StartDebugLevel(chosen))
+                { levelSelectError = "Не удалось сохранить текущую игру. Проверьте свободное место и попробуйте ещё раз."; return; }
+                levelSelect = resumeAfterLevelSelect = false;
+                cards = null; narrativeComplete = null; narrativeMenu = false; notice = ""; StopVoice();
+            }
+        }
         private void Hud()
         {
             if (loop.Level == null || !loop.Player) return;
@@ -249,6 +304,8 @@ namespace WhiteGuard.Presentation
             var text = loop.Progress != null && loop.Progress.AllObjectivesComplete ? "К месту выхода" : loop.Progress?.ActiveText;
             GUI.Label(new Rect(39, 59, 710, 55), text ?? "", objective);
             if (Button(new Rect(1160, 18, 96, 42), "Пауза")) loop.Pause(true);
+            if (loop.IsDebugSession)
+                GUI.Label(new Rect(970, 75, 286, 28), "ОТЛАДКА  ·  F8 — УРОВНИ", small);
             var health = loop.Player.GetComponent<DamageReceiver2D>().Health;
             Solid(new Rect(22, 631, 323, 65), panel);
             GUI.Label(new Rect(39, 640, 196, 24), "КИРИЛЛ МАЗУР", small);
@@ -364,8 +421,9 @@ namespace WhiteGuard.Presentation
             {
                 Shade(); GUI.Label(new Rect(405, 238, 560, 70), "Пауза", heading);
                 if (Button(new Rect(405, 333, 470, 48), "Продолжить")) narrativeMenu = false;
-                if (Button(new Rect(405, 391, 470, 48), "Настройки")) settings = true;
-                if (Button(new Rect(405, 449, 470, 48), "В меню")) { narrativeMenu = false; cards = null; narrativeComplete = null; StopVoice(); loop.ReturnToMenu(); }
+                if (Button(new Rect(405, 391, 470, 48), "Выбор уровня  ·  F8")) ShowLevelSelect();
+                if (Button(new Rect(405, 449, 470, 48), "Настройки")) settings = true;
+                if (Button(new Rect(405, 507, 470, 48), "В меню")) { narrativeMenu = false; cards = null; narrativeComplete = null; StopVoice(); loop.ReturnToMenu(); }
             }
         }
         private bool CanAdvanceCard() => cards != null && cardIndex < cards.Length && Time.realtimeSinceStartupAsDouble - cardSince >= .35;
@@ -386,8 +444,9 @@ namespace WhiteGuard.Presentation
             Shade(); GUI.Label(new Rect(405, 170, 600, 65), "Пауза", heading);
             if (Button(new Rect(405, 265, 470, 48), "Продолжить")) loop.Pause(false);
             if (Button(new Rect(405, 323, 470, 48), "С контрольной точки")) loop.Retry();
-            if (Button(new Rect(405, 381, 470, 48), "Настройки")) settings = true;
-            if (Button(new Rect(405, 439, 470, 48), "Сохранить и выйти в меню")) loop.ReturnToMenu();
+            if (Button(new Rect(405, 381, 470, 48), "Выбор уровня  ·  F8")) ShowLevelSelect();
+            if (Button(new Rect(405, 439, 470, 48), "Настройки")) settings = true;
+            if (Button(new Rect(405, 497, 470, 48), "Сохранить и выйти в меню")) loop.ReturnToMenu();
         }
         private void Failure()
         {
@@ -422,7 +481,7 @@ namespace WhiteGuard.Presentation
             if (Math.Abs(volume - AudioListener.volume) > .001f) { AudioListener.volume = volume; PlayerPrefs.SetFloat("WhiteGuard.MasterVolume", volume); }
             var vsync = GUI.Toggle(new Rect(385, 362, 510, 32), QualitySettings.vSyncCount > 0, " Вертикальная синхронизация", body);
             if (vsync != (QualitySettings.vSyncCount > 0)) { QualitySettings.vSyncCount = vsync ? 1 : 0; PlayerPrefs.SetInt("WhiteGuard.VSync", vsync ? 1 : 0); }
-            GUI.Label(new Rect(385, 421, 510, 72), "WASD — движение · Shift — бег\nЛКМ — огонь · E — действие · Q — бросок\n1/2/3 — оружие · Esc — пауза", small);
+            GUI.Label(new Rect(385, 421, 510, 82), "WASD — движение · Shift — бег\nЛКМ — огонь · E — действие · Q — бросок\n1/2/3 — оружие · Esc — пауза\nF8 — выбор уровня", small);
             if (Button(new Rect(385, 525, 510, 44), "Назад")) { settings = false; PlayerPrefs.Save(); }
         }
         private void ConfirmNew()
@@ -473,7 +532,7 @@ namespace WhiteGuard.Presentation
         {
             StopVoice();
             if (!loop) return;
-            loop.NarrativeRequested -= Narrative; loop.Notice -= Notice; loop.EntityCreated -= Entity;
+            loop.NarrativeRequested -= Narrative; loop.Notice -= Notice; loop.EntityCreated -= Entity; loop.StateChanged -= StateChanged;
         }
 
         private void StartVoice()
@@ -491,7 +550,7 @@ namespace WhiteGuard.Presentation
         private void UpdateVoice()
         {
             if (!loop || loop.State != CampaignGameState.Narrative || cards == null || cardIndex >= cards.Length) { StopVoice(); return; }
-            var shouldPause = narrativeMenu || settings || credits || AudioListener.pause || Time.timeScale <= 0;
+            var shouldPause = narrativeMenu || levelSelect || settings || credits || AudioListener.pause || Time.timeScale <= 0;
             if (shouldPause)
             {
                 if (voiceStarted && !voicePaused) { narration.Pause(); voicePaused = true; }
