@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "status": "implemented_pending_native_acceptance",
+  "branch": "feat/white-guard-game",
+  "migration_base_commit": "8a298931fa3bcc7c79a3b1141391de692defe85d",
+  "unity_version": "6000.3.28f1",
+  "entry_scene": "unity/WhiteGuard/Assets/Scenes/WhiteGuard.unity",
+  "campaign_sha256": "db5bcde2ab85c62becacb372a23f2588fc82f880f04b9fbbd40bb9e7bf242107",
+  "content": {
+    "maps": 9,
+    "objectives": 71,
+    "authored_enemies": 74,
+    "interactions": 30,
+    "story_cards": 88,
+    "new_voice_mp3": 88,
+    "new_voice_seconds": 779.64,
+    "art_atlases": 12,
+    "named_art_regions": 182,
+    "story_shots": 132
+  },
+  "debug_level_select": {
+    "implemented": true,
+    "shortcut": "F8",
+    "all_maps_available": true,
+    "normal_campaign_save_isolated": true,
+    "native_verified": false
+  },
+  "portable_evidence": {
+    "original_media_unchanged": 41,
+    "core_checks": 5607,
+    "campaign_contract_checks": 643,
+    "objective_witness_completed_levels": 9,
+    "static_geometry_checks": 866,
+    "media_integrity_checks_with_ffprobe": 4357,
+    "official_unity_api_compile": "PASS; 0 errors, 0 warnings"
+  },
+  "new_campaign_native_import_verified": false,
+  "new_campaign_native_startup_probe_executed": false,
+  "full_native_campaign_completed": false,
+  "new_campaign_gpu_reviewed": false,
+  "new_campaign_audio_listened": false,
+  "new_campaign_player_built": false,
+  "linux_debug_archive": {
+    "created": false,
+    "build_script": "unity/Tools/build_linux_debug.py",
+    "attempt_evidence": "unity/Validation/Campaign/linux-debug-build-attempt.json"
+  },
+  "release_ready": false,
+  "blocker": {
+    "kind": "unity_editor_activation_required",
+    "full_official_editor_installed": true,
+    "actual_editor_launch_exit_code": 198,
+    "message": "No valid Unity Editor license found. Please activate your license.",
+    "stopped_before_campaign_import": true,
+    "evidence": "unity/docs/native-setup-status.json"
+  },
+  "remaining_acceptance": [
+    "Run strict native data/import validation and CampaignGameChecks.Run in an activated Editor.",
+    "Verify F8/main-menu level selection, pause/voice restoration and ordinary-save preservation in the native Player.",
+    "Play every mission, failure/retry and save/continue path; fix actual native issues and balance.",
+    "Review final rendered direction, sprites, HUD and all narration/music in graphical PlayMode.",
+    "Build and launch a standalone Player, then complete the campaign outside the Editor."
+  ],
+  "scope": "Portable objective witnesses supply abstract successful world facts; they are not a native combat, physics or campaign playthrough. Earlier native migration-base results do not validate this campaign."
+}

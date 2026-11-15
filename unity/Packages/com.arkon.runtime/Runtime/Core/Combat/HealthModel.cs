@@ -2,6 +2,15 @@ using System;
 
 namespace Arkon.Core
 {
+    /// <summary>Detached serialization DTO; restoring validates against the receiving actor's configured limits.</summary>
+    [Serializable]
+    public sealed class HealthState
+    {
+        public int maximum, current;
+        public bool dead;
+        public float invulnerabilityRemaining;
+    }
+
     /// <summary>
     /// Pure state port of white_guard/addons/arkon_runtime/combat/health_component.gd.
     /// The owner supplies game-time ticks and translates integer source IDs to actors.
@@ -75,6 +84,28 @@ namespace Arkon.Core
             if (next == Current) return;
             Current = next;
             Changed?.Invoke(Current, Maximum);
+        }
+
+        public HealthState CaptureState() => new HealthState
+        {
+            maximum = Maximum, current = Current, dead = Dead, invulnerabilityRemaining = InvulnerabilityRemaining
+        };
+
+        public bool TryRestoreState(HealthState state) => TryRestoreState(state, out _);
+
+        /// <summary>Commit exact health without synthesizing damage, death or a new invulnerability window.</summary>
+        public bool TryRestoreState(HealthState state, out string error)
+        {
+            error = "";
+            if (state == null) { error = "Missing health state."; return false; }
+            if (state.maximum != Maximum || state.current < 0 || state.current > Maximum)
+            { error = "Health state does not match the actor's configured maximum."; return false; }
+            if (state.dead != (state.current == 0)) { error = "Health state has contradictory life/death fields."; return false; }
+            if (!Scalar.IsFinite(state.invulnerabilityRemaining) || state.invulnerabilityRemaining < 0 || state.invulnerabilityRemaining > InvulnerabilityDuration)
+            { error = "Health invulnerability time is outside the configured range."; return false; }
+            Current = state.current; Dead = state.dead; InvulnerabilityRemaining = state.invulnerabilityRemaining;
+            Changed?.Invoke(Current, Maximum);
+            return true;
         }
     }
 }

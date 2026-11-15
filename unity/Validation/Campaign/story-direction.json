@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "cards": 88,
+  "shots": 132,
+  "two_beat_cards": 44,
+  "insets": 13,
+  "campaign_sha256": "db5bcde2ab85c62becacb372a23f2588fc82f880f04b9fbbd40bb9e7bf242107",
+  "direction_sha256": "ca42ee17133f7bd8943033086d3176e06ba82175192db774a75fecc374ad4381",
+  "source_plates_visually_inspected": true,
+  "all_rects_finite_inside_quadrant": true,
+  "all_inset_ids_exist": true,
+  "narration_durations_available": 88,
+  "unity_rendering_verified": false,
+  "scope": "Authored cuts over inspected PNGs and semantic inserts; no image/story-text edits or native playback verification. M04 activation metadata does not change the directed cards."
+}

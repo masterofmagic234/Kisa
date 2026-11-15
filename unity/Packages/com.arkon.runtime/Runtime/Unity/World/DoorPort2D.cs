@@ -131,7 +131,9 @@ namespace Arkon.Unity
             var size = Vector2.Scale(SolidCollider.size, Abs(LeafPivot.lossyScale));
             Physics2D.SyncTransforms(); overlaps.Clear(); Physics2D.OverlapBox(center, size, worldAngle, BodyFilter(), overlaps);
             foreach (var collider in overlaps)
-                if (Local(collider) && (collider.GetComponentInParent<TopdownActor2D>() || collider.GetComponentInParent<EnemyPort2D>())) return true;
+                // The shared body contract also covers scene-owned escorts and
+                // vehicles; no campaign component type belongs in this package.
+                if (Local(collider) && collider.GetComponentInParent<ActorIdentity2D>()) return true;
             return false;
         }
 

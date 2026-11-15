@@ -1,0 +1,6808 @@
+{
+  "schema": 1,
+  "id": "white_guard",
+  "title": "БЕЛАЯ ГВАРДИЯ",
+  "firstLevel": "p00",
+  "levels": [
+    {
+      "id": "p00",
+      "title": "Кортеж",
+      "subtitle": "Гобсанто · складской квартал",
+      "chapter": "Глава 1",
+      "environment": "city",
+      "width": 1536,
+      "height": 1408,
+      "combat": true,
+      "startWeapon": "pistol",
+      "spawn": {
+        "x": 700,
+        "y": 1230
+      },
+      "exit": {
+        "id": "p00_exit",
+        "x": 656,
+        "y": 104,
+        "w": 256,
+        "h": 176,
+        "style": "",
+        "solid": false
+      },
+      "before": [
+        {
+          "id": "p00_pre_01",
+          "speaker": "Мазур",
+          "text": "Снаружи я был Ивановым, ещё одним человеком в президентской охране. Фамилия менялась проще, чем работа.",
+          "art": "WhiteGuardIntro/opening-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        },
+        {
+          "id": "p00_pre_02",
+          "speaker": "Мазур",
+          "text": "Кортеж шёл к новому зданию. Толпа смотрела на президента; я — на окна, перекрёстки и руки.",
+          "art": "WhiteGuardIntro/opening-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        },
+        {
+          "id": "p00_pre_03",
+          "speaker": "Лаврик",
+          "text": "Свой сектор. За крышами смотрю я.",
+          "art": "WhiteGuardIntro/opening-atlas-a",
+          "quadrant": 0,
+          "hold": 3
+        },
+        {
+          "id": "p00_pre_04",
+          "speaker": "Мазур",
+          "text": "Складские ворота были уже близко. Машины должны были пройти, а мы — не дать никому остановить президентскую.",
+          "art": "WhiteGuardIntro/opening-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "p00_post_01",
+          "speaker": "Мазур",
+          "text": "Когда снова стало слышно моторы, я проверил президентскую машину. Олонго был жив. На этот раз задача сошлась с результатом.",
+          "art": "WhiteGuardIntro/opening-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "p00_post_02",
+          "speaker": "Мазур",
+          "text": "У нового здания нас ждали приветствия. За складами оставались люди, которым предстояло выяснить, кто начал стрелять.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        },
+        {
+          "id": "p00_post_03",
+          "speaker": "Мазур",
+          "text": "Охрана вернулась на места. Если кто-то решил, что происшествие исчерпано, это был не я.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        }
+      ],
+      "floors": [
+        {
+          "id": "p00_road",
+          "x": 504,
+          "y": 12,
+          "w": 528,
+          "h": 1384,
+          "style": "road",
+          "solid": false
+        },
+        {
+          "id": "p00_sidewalk_w",
+          "x": 408,
+          "y": 12,
+          "w": 96,
+          "h": 1384,
+          "style": "stone",
+          "solid": false
+        },
+        {
+          "id": "p00_sidewalk_e",
+          "x": 1032,
+          "y": 12,
+          "w": 96,
+          "h": 1384,
+          "style": "stone",
+          "solid": false
+        },
+        {
+          "id": "p00_warehouse_w",
+          "x": 64,
+          "y": 144,
+          "w": 344,
+          "h": 792,
+          "style": "concrete",
+          "solid": false
+        },
+        {
+          "id": "p00_warehouse_e",
+          "x": 1128,
+          "y": 144,
+          "w": 344,
+          "h": 792,
+          "style": "concrete",
+          "solid": false
+        }
+      ],
+      "walls": [
+        {
+          "id": "p00_boundary_north",
+          "x": 0,
+          "y": 0,
+          "w": 1536,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "p00_boundary_south",
+          "x": 0,
+          "y": 1396,
+          "w": 1536,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "p00_boundary_west",
+          "x": 0,
+          "y": 12,
+          "w": 12,
+          "h": 1384,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "p00_boundary_east",
+          "x": 1524,
+          "y": 12,
+          "w": 12,
+          "h": 1384,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_w_n_end",
+          "x": 64,
+          "y": 144,
+          "w": 344,
+          "h": 12,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_w_s_end",
+          "x": 64,
+          "y": 924,
+          "w": 344,
+          "h": 12,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_w_w_end",
+          "x": 64,
+          "y": 156,
+          "w": 12,
+          "h": 768,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_w_e_156",
+          "x": 396,
+          "y": 156,
+          "w": 12,
+          "h": 164,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_w_e_352",
+          "x": 396,
+          "y": 352,
+          "w": 12,
+          "h": 400,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_w_e_end",
+          "x": 396,
+          "y": 784,
+          "w": 12,
+          "h": 140,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_e_n_end",
+          "x": 1128,
+          "y": 144,
+          "w": 344,
+          "h": 12,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_e_s_end",
+          "x": 1128,
+          "y": 924,
+          "w": 344,
+          "h": 12,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_e_w_156",
+          "x": 1128,
+          "y": 156,
+          "w": 12,
+          "h": 164,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_e_w_352",
+          "x": 1128,
+          "y": 352,
+          "w": 12,
+          "h": 400,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_e_w_end",
+          "x": 1128,
+          "y": 784,
+          "w": 12,
+          "h": 140,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_warehouse_e_e_end",
+          "x": 1460,
+          "y": 156,
+          "w": 12,
+          "h": 768,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "p00_crate_0",
+          "x": 144,
+          "y": 224,
+          "w": 64,
+          "h": 28,
+          "style": "crate",
+          "solid": true
+        },
+        {
+          "id": "p00_crate_1",
+          "x": 240,
+          "y": 600,
+          "w": 64,
+          "h": 28,
+          "style": "crate",
+          "solid": true
+        },
+        {
+          "id": "p00_crate_2",
+          "x": 1200,
+          "y": 240,
+          "w": 64,
+          "h": 28,
+          "style": "crate",
+          "solid": true
+        },
+        {
+          "id": "p00_crate_3",
+          "x": 1248,
+          "y": 600,
+          "w": 64,
+          "h": 28,
+          "style": "crate",
+          "solid": true
+        },
+        {
+          "id": "p00_crate_4",
+          "x": 1280,
+          "y": 800,
+          "w": 64,
+          "h": 28,
+          "style": "crate",
+          "solid": true
+        }
+      ],
+      "props": [
+        {
+          "id": "p00_palm_0",
+          "x": 460,
+          "y": 180,
+          "w": 48,
+          "h": 48,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "p00_palm_1",
+          "x": 1060,
+          "y": 180,
+          "w": 48,
+          "h": 48,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "p00_palm_2",
+          "x": 460,
+          "y": 1140,
+          "w": 48,
+          "h": 48,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "p00_palm_3",
+          "x": 1060,
+          "y": 1140,
+          "w": 48,
+          "h": 48,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "p00_ministry",
+          "x": 560,
+          "y": 36,
+          "w": 416,
+          "h": 80,
+          "style": "ministry",
+          "solid": false
+        },
+        {
+          "id": "p00_truck_w",
+          "x": 92,
+          "y": 1010,
+          "w": 192,
+          "h": 72,
+          "style": "truck",
+          "solid": false
+        }
+      ],
+      "regions": [
+        {
+          "id": "p00_warehouse_edge",
+          "x": 560,
+          "y": 912,
+          "w": 448,
+          "h": 120,
+          "style": "",
+          "solid": false
+        },
+        {
+          "id": "p00_arrival",
+          "x": 656,
+          "y": 104,
+          "w": 256,
+          "h": 176,
+          "style": "",
+          "solid": false
+        }
+      ],
+      "doors": [
+        {
+          "id": "p00_warehouse_w_e_door_336",
+          "x": 402,
+          "y": 336,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "p00_warehouse_w_e_door_768",
+          "x": 402,
+          "y": 768,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "p00_warehouse_e_w_door_336",
+          "x": 1134,
+          "y": 336,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "p00_warehouse_e_w_door_768",
+          "x": 1134,
+          "y": 768,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        }
+      ],
+      "enemies": [
+        {
+          "id": "p00_ambusher_1",
+          "x": 320,
+          "y": 760,
+          "kind": "gunman",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_ambusher_2",
+          "x": 160,
+          "y": 460,
+          "kind": "gunman",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_ambusher_3",
+          "x": 320,
+          "y": 280,
+          "kind": "melee",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_ambusher_4",
+          "x": 1180,
+          "y": 780,
+          "kind": "gunman",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_ambusher_5",
+          "x": 1360,
+          "y": 500,
+          "kind": "gunman",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_ambusher_6",
+          "x": 1200,
+          "y": 300,
+          "kind": "melee",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_ambusher_7",
+          "x": 460,
+          "y": 640,
+          "kind": "gunman",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_ambusher_8",
+          "x": 1080,
+          "y": 620,
+          "kind": "gunman",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_ambusher_9",
+          "x": 420,
+          "y": 400,
+          "kind": "gunman",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_ambusher_10",
+          "x": 1100,
+          "y": 400,
+          "kind": "gunman",
+          "group": "p00_warehouse",
+          "style": "guard"
+        },
+        {
+          "id": "p00_rear_1",
+          "x": 460,
+          "y": 1050,
+          "kind": "melee",
+          "group": "p00_rear",
+          "style": "guard"
+        },
+        {
+          "id": "p00_rear_2",
+          "x": 1080,
+          "y": 980,
+          "kind": "melee",
+          "group": "p00_rear",
+          "style": "guard"
+        },
+        {
+          "id": "p00_rear_3",
+          "x": 1100,
+          "y": 1100,
+          "kind": "melee",
+          "group": "p00_rear",
+          "style": "guard"
+        }
+      ],
+      "pickups": [
+        {
+          "id": "p00_supply_1",
+          "x": 680,
+          "y": 1180,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "p00_supply_2",
+          "x": 1088,
+          "y": 900,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "p00_supply_3",
+          "x": 448,
+          "y": 860,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "p00_supply_4",
+          "x": 1080,
+          "y": 460,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "p00_supply_5",
+          "x": 328,
+          "y": 848,
+          "kind": "shotgun",
+          "style": "shotgun"
+        }
+      ],
+      "actors": [
+        {
+          "id": "p00_president_car",
+          "name": "Президентский Mercedes",
+          "role": "vehicle",
+          "x": 784,
+          "y": 1248,
+          "speed": 66,
+          "health": 520,
+          "required": true,
+          "style": "president_car",
+          "route": [
+            {
+              "x": 784,
+              "y": 1176
+            },
+            {
+              "x": 784,
+              "y": 1104
+            },
+            {
+              "x": 784,
+              "y": 1032
+            },
+            {
+              "x": 784,
+              "y": 960
+            },
+            {
+              "x": 784,
+              "y": 888
+            },
+            {
+              "x": 784,
+              "y": 816
+            },
+            {
+              "x": 784,
+              "y": 744
+            },
+            {
+              "x": 784,
+              "y": 672
+            },
+            {
+              "x": 784,
+              "y": 600
+            },
+            {
+              "x": 784,
+              "y": 528
+            },
+            {
+              "x": 784,
+              "y": 456
+            },
+            {
+              "x": 784,
+              "y": 384
+            },
+            {
+              "x": 784,
+              "y": 312
+            },
+            {
+              "x": 784,
+              "y": 240
+            },
+            {
+              "x": 784,
+              "y": 168
+            }
+          ]
+        },
+        {
+          "id": "p00_olongo",
+          "name": "Президент Олонго",
+          "role": "passenger",
+          "x": 784,
+          "y": 1248,
+          "speed": 0,
+          "health": 100,
+          "required": true,
+          "style": "olongo",
+          "route": [],
+          "transport": "p00_president_car"
+        },
+        {
+          "id": "p00_lavrik",
+          "name": "Лаврик",
+          "role": "ally",
+          "x": 668,
+          "y": 1260,
+          "speed": 100,
+          "health": 150,
+          "required": true,
+          "style": "lavrik",
+          "route": []
+        },
+        {
+          "id": "p00_bystander_1",
+          "name": "Прохожий",
+          "role": "civilian",
+          "x": 448,
+          "y": 1200,
+          "speed": 0,
+          "health": 80,
+          "required": false,
+          "style": "civilian",
+          "route": []
+        },
+        {
+          "id": "p00_bystander_2",
+          "name": "Прохожая",
+          "role": "civilian",
+          "x": 1080,
+          "y": 1200,
+          "speed": 0,
+          "health": 80,
+          "required": false,
+          "style": "civilian",
+          "route": []
+        }
+      ],
+      "interactions": [
+        {
+          "id": "p00_arrival_check",
+          "text": "Проверить президентскую машину",
+          "body": "Олонго жив. Сначала проверяешь машину, потом уже слушаешь поздравления.",
+          "x": 720,
+          "y": 216,
+          "radius": 38,
+          "requires": [
+            "p00_clear_ambush",
+            "p00_escort_president"
+          ],
+          "grants": [
+            "olongo_survived_convoy"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": true,
+          "style": "intel"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "p00_cover_sector",
+          "text": "Занять сектор у складов",
+          "type": "reach",
+          "target": "p00_warehouse_edge",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "p00_clear_ambush",
+          "text": "Подавить огонь из складского квартала",
+          "type": "clear",
+          "target": "p00_warehouse",
+          "requires": [
+            "p00_cover_sector"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "p00_escort_president",
+          "text": "Провести президентскую машину к зданию",
+          "type": "escort",
+          "target": "p00_president_car",
+          "requires": [
+            "p00_clear_ambush"
+          ],
+          "amount": 0,
+          "region": "p00_arrival"
+        },
+        {
+          "id": "p00_confirm_arrival",
+          "text": "Проверить Олонго после прибытия",
+          "type": "interact",
+          "target": "p00_arrival_check",
+          "requires": [
+            "p00_escort_president"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "p00_keep_president",
+          "text": "Сохранить президентскую машину",
+          "type": "protect",
+          "target": "p00_president_car",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "p00_keep_lavrik",
+          "text": "Лаврик должен выжить",
+          "type": "protect",
+          "target": "p00_lavrik",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        }
+      ]
+    },
+    {
+      "id": "m01",
+      "title": "Приказ и договор",
+      "subtitle": "Несколько встреч между выездами",
+      "chapter": "Главы 2–6",
+      "environment": "palace",
+      "width": 1408,
+      "height": 1056,
+      "combat": false,
+      "startWeapon": "pistol",
+      "spawn": {
+        "x": 704,
+        "y": 936
+      },
+      "exit": {
+        "id": "m01_exit",
+        "x": 640,
+        "y": 888,
+        "w": 128,
+        "h": 104,
+        "style": "",
+        "solid": false
+      },
+      "before": [
+        {
+          "id": "m01_pre_01",
+          "speaker": "Мазур",
+          "text": "После стрельбы жизнь при дворе быстро вошла в обычную колею. Здесь умели устраивать приём раньше, чем разбирать причины засады.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "m01_pre_02",
+          "speaker": "Мазур",
+          "text": "Мтанга собирал сведения. Доказательств у него не хватало, но тревожился он всерьёз.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 4
+        },
+        {
+          "id": "m01_pre_03",
+          "speaker": "Мтанга",
+          "text": "Есть вещи, которые по отдельности ничего не значат. Вместе они мне не нравятся.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 4
+        },
+        {
+          "id": "m01_pre_04",
+          "speaker": "Мазур",
+          "text": "Я понимал его тревогу. Объяснение пока отставало от ощущений, а приказ оставался совершенно ясным.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        },
+        {
+          "id": "m01_pre_05",
+          "speaker": "Лаврик",
+          "text": "Охраняем президента. Остальное выясняем, насколько можем.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 3
+        },
+        {
+          "id": "m01_pre_06",
+          "speaker": "Мазур",
+          "text": "Олонго готовился стать больше, чем президентом. Наша работа от его будущего титула легче не становилась.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        },
+        {
+          "id": "m01_pre_07",
+          "speaker": "Мазур",
+          "text": "Его племянница Натали не собиралась оставаться украшением при дворце. Уверенности у неё хватало на людей куда опытнее.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "m01_pre_08",
+          "speaker": "Натали",
+          "text": "Не надо обращаться со мной так, будто я ничего не умею.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 4
+        },
+        {
+          "id": "m01_pre_09",
+          "speaker": "Мазур",
+          "text": "Она и вправду кое-что умела. С оружием была знакома; с ценой собственной ошибки — гораздо меньше.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        },
+        {
+          "id": "m01_pre_10",
+          "speaker": "Мазур",
+          "text": "Потом появились Акинфиевы. Илларион Петрович сохранял манеры и память о России, которой я никогда не видел.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 5
+        },
+        {
+          "id": "m01_pre_11",
+          "speaker": "Мазур",
+          "text": "Его дочь Татьяна говорила по-русски, но своей жизнью считала совсем другую. Разница между ними была заметнее фамильного сходства.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m01_pre_12",
+          "speaker": "Мазур",
+          "text": "С Леоном всё было проще. Бельгиец работал за деньги и достаточно долго жил здесь, чтобы заранее искать дорогу наружу.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m01_pre_13",
+          "speaker": "Леон",
+          "text": "Пока президент жив, вы выполняете приказ, я — контракт. Если его не станет, договоримся между собой.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 1,
+          "hold": 5
+        },
+        {
+          "id": "m01_pre_14",
+          "speaker": "Мазур",
+          "text": "У него были соображения и о выходе, которым не пользуются во время приёмов. Такие разговоры я запоминал лучше тостов.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 1,
+          "hold": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "m01_post_01",
+          "speaker": "Мазур",
+          "text": "Доверять всем этим людям одинаково было бы удобно. Я предпочёл запомнить, кто чего хочет и кому что обещал.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "m01_post_02",
+          "speaker": "Мазур",
+          "text": "С Леоном договорились на случай катастрофы. Пока Олонго оставался жив, для меня ничего не менялось.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 1,
+          "hold": 5
+        },
+        {
+          "id": "m01_post_03",
+          "speaker": "Мазур",
+          "text": "Натали хотелось доказать, что её воспринимают всерьёз. Мне хотелось, чтобы доказывать пришлось без настоящего боя.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        }
+      ],
+      "floors": [
+        {
+          "id": "m01_courtyard",
+          "x": 224,
+          "y": 688,
+          "w": 960,
+          "h": 352,
+          "style": "stone",
+          "solid": false
+        },
+        {
+          "id": "m01_hall",
+          "x": 448,
+          "y": 128,
+          "w": 384,
+          "h": 576,
+          "style": "interior",
+          "solid": false
+        },
+        {
+          "id": "m01_briefing",
+          "x": 80,
+          "y": 128,
+          "w": 368,
+          "h": 576,
+          "style": "interior",
+          "solid": false
+        },
+        {
+          "id": "m01_veranda",
+          "x": 832,
+          "y": 128,
+          "w": 496,
+          "h": 576,
+          "style": "stone",
+          "solid": false
+        }
+      ],
+      "walls": [
+        {
+          "id": "m01_boundary_north",
+          "x": 0,
+          "y": 0,
+          "w": 1408,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m01_boundary_south",
+          "x": 0,
+          "y": 1044,
+          "w": 1408,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m01_boundary_west",
+          "x": 0,
+          "y": 12,
+          "w": 12,
+          "h": 1032,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m01_boundary_east",
+          "x": 1396,
+          "y": 12,
+          "w": 12,
+          "h": 1032,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m01_briefing_room_n_end",
+          "x": 80,
+          "y": 128,
+          "w": 368,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_briefing_room_s_end",
+          "x": 80,
+          "y": 692,
+          "w": 368,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_briefing_room_w_end",
+          "x": 80,
+          "y": 140,
+          "w": 12,
+          "h": 552,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_briefing_room_e_140",
+          "x": 436,
+          "y": 140,
+          "w": 12,
+          "h": 172,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_briefing_room_e_344",
+          "x": 436,
+          "y": 344,
+          "w": 12,
+          "h": 224,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_briefing_room_e_end",
+          "x": 436,
+          "y": 600,
+          "w": 12,
+          "h": 92,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_veranda_room_n_end",
+          "x": 832,
+          "y": 128,
+          "w": 496,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_veranda_room_s_end",
+          "x": 832,
+          "y": 692,
+          "w": 496,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_veranda_room_w_140",
+          "x": 832,
+          "y": 140,
+          "w": 12,
+          "h": 172,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_veranda_room_w_344",
+          "x": 832,
+          "y": 344,
+          "w": 12,
+          "h": 224,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_veranda_room_w_end",
+          "x": 832,
+          "y": 600,
+          "w": 12,
+          "h": 92,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_veranda_room_e_end",
+          "x": 1316,
+          "y": 140,
+          "w": 12,
+          "h": 552,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m01_hall_north",
+          "x": 448,
+          "y": 128,
+          "w": 384,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        }
+      ],
+      "props": [
+        {
+          "id": "m01_decoration_0",
+          "x": 128,
+          "y": 176,
+          "w": 120,
+          "h": 64,
+          "style": "desk",
+          "solid": false
+        },
+        {
+          "id": "m01_decoration_1",
+          "x": 912,
+          "y": 176,
+          "w": 112,
+          "h": 56,
+          "style": "table",
+          "solid": false
+        },
+        {
+          "id": "m01_decoration_2",
+          "x": 480,
+          "y": 176,
+          "w": 288,
+          "h": 56,
+          "style": "rug",
+          "solid": false
+        },
+        {
+          "id": "m01_decoration_3",
+          "x": 568,
+          "y": 760,
+          "w": 272,
+          "h": 80,
+          "style": "fountain",
+          "solid": false
+        },
+        {
+          "id": "m01_decoration_4",
+          "x": 272,
+          "y": 752,
+          "w": 56,
+          "h": 56,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m01_decoration_5",
+          "x": 1064,
+          "y": 752,
+          "w": 56,
+          "h": 56,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m01_decoration_6",
+          "x": 112,
+          "y": 840,
+          "w": 208,
+          "h": 32,
+          "style": "bench",
+          "solid": false
+        },
+        {
+          "id": "m01_decoration_7",
+          "x": 1088,
+          "y": 840,
+          "w": 208,
+          "h": 32,
+          "style": "bench",
+          "solid": false
+        }
+      ],
+      "regions": [],
+      "doors": [
+        {
+          "id": "m01_briefing_room_e_door_328",
+          "x": 442,
+          "y": 328,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m01_briefing_room_e_door_584",
+          "x": 442,
+          "y": 584,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m01_veranda_room_w_door_328",
+          "x": 838,
+          "y": 328,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m01_veranda_room_w_door_584",
+          "x": 838,
+          "y": 584,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        }
+      ],
+      "enemies": [],
+      "pickups": [],
+      "actors": [
+        {
+          "id": "m01_lavrik",
+          "name": "Лаврик",
+          "role": "civilian",
+          "x": 288,
+          "y": 288,
+          "speed": 0,
+          "health": 100,
+          "required": false,
+          "style": "lavrik",
+          "route": []
+        },
+        {
+          "id": "m01_leon",
+          "name": "Леон",
+          "role": "civilian",
+          "x": 1056,
+          "y": 288,
+          "speed": 0,
+          "health": 100,
+          "required": false,
+          "style": "leon",
+          "route": []
+        },
+        {
+          "id": "m01_natali",
+          "name": "Натали",
+          "role": "civilian",
+          "x": 1040,
+          "y": 584,
+          "speed": 0,
+          "health": 100,
+          "required": false,
+          "style": "natali",
+          "route": []
+        },
+        {
+          "id": "m01_prince",
+          "name": "Илларион Петрович Акинфиев",
+          "role": "civilian",
+          "x": 224,
+          "y": 584,
+          "speed": 0,
+          "health": 100,
+          "required": false,
+          "style": "prince",
+          "route": []
+        },
+        {
+          "id": "m01_tatiana",
+          "name": "Татьяна",
+          "role": "civilian",
+          "x": 320,
+          "y": 584,
+          "speed": 0,
+          "health": 100,
+          "required": false,
+          "style": "tatiana",
+          "route": []
+        }
+      ],
+      "interactions": [
+        {
+          "id": "m01_orders",
+          "text": "Поговорить с Лавриком",
+          "body": "Приказ остаётся прежним: охранять Олонго. Поиск того, кто ведёт игру, не даёт нам права начинать свою.",
+          "x": 288,
+          "y": 328,
+          "radius": 38,
+          "requires": [],
+          "grants": [
+            "orders_confirmed"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": true,
+          "style": "intel"
+        },
+        {
+          "id": "m01_contract",
+          "text": "Обсудить выход с Леоном",
+          "body": "У Леона контракт, у меня приказ. Если президент погибнет, оба документа превратятся в бумагу. Тогда будем выбираться вместе. Путь за ограду он уже присмотрел.",
+          "x": 1056,
+          "y": 328,
+          "radius": 38,
+          "requires": [
+            "m01_take_orders"
+          ],
+          "grants": [
+            "leon_contract",
+            "secret_exit_known"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m01_akinfeevs",
+          "text": "Познакомиться с Акинфиевыми",
+          "body": "Князь помнит Россию, которой я не видел. Для Татьяны родной остаётся совсем другая страна. Фамилия не делает их одним человеком.",
+          "x": 272,
+          "y": 624,
+          "radius": 38,
+          "requires": [
+            "m01_take_orders"
+          ],
+          "grants": [
+            "akinfeevs_met"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m01_natali_talk",
+          "text": "Выслушать Натали",
+          "body": "Племянница президента умеет стрелять и водить. Ей хочется, чтобы это заметили. Опыт — это в том числе умение не доказывать своё право на ошибку.",
+          "x": 1040,
+          "y": 624,
+          "radius": 38,
+          "requires": [
+            "m01_take_orders"
+          ],
+          "grants": [
+            "natali_met"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m01_departure",
+          "text": "Доложить о готовности",
+          "body": "Приказ я запомнил. Договор с Леоном — тоже. Впереди очередной выезд, на котором всё опять должно выглядеть совершенно обычно.",
+          "x": 704,
+          "y": 872,
+          "radius": 38,
+          "requires": [
+            "m01_make_contract",
+            "m01_meet_akinfeevs",
+            "m01_hear_natali"
+          ],
+          "grants": [
+            "court_briefing_complete"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": true,
+          "style": "intel"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "m01_take_orders",
+          "text": "Уточнить приказ у Лаврика",
+          "type": "interact",
+          "target": "m01_orders",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m01_make_contract",
+          "text": "Договориться с Леоном на случай катастрофы",
+          "type": "interact",
+          "target": "m01_contract",
+          "requires": [
+            "m01_take_orders"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m01_meet_akinfeevs",
+          "text": "Познакомиться с князем и Татьяной",
+          "type": "interact",
+          "target": "m01_akinfeevs",
+          "requires": [
+            "m01_take_orders"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m01_hear_natali",
+          "text": "Поговорить с Натали",
+          "type": "interact",
+          "target": "m01_natali_talk",
+          "requires": [
+            "m01_take_orders"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m01_ready_departure",
+          "text": "Закончить подготовку к выезду",
+          "type": "interact",
+          "target": "m01_departure",
+          "requires": [
+            "m01_make_contract",
+            "m01_meet_akinfeevs",
+            "m01_hear_natali"
+          ],
+          "amount": 0,
+          "region": ""
+        }
+      ]
+    },
+    {
+      "id": "m02",
+      "title": "Букет",
+      "subtitle": "Церемония в лицее",
+      "chapter": "Глава 7",
+      "environment": "lyceum",
+      "width": 1408,
+      "height": 1056,
+      "combat": false,
+      "startWeapon": "pistol",
+      "spawn": {
+        "x": 1112,
+        "y": 896
+      },
+      "exit": {
+        "id": "m02_exit",
+        "x": 640,
+        "y": 880,
+        "w": 128,
+        "h": 112,
+        "style": "",
+        "solid": false
+      },
+      "before": [
+        {
+          "id": "m02_pre_01",
+          "speaker": "Мазур",
+          "text": "В лицее готовились приветствовать президента. Дети, цветы, взрослые с заранее приготовленными улыбками.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 2,
+          "hold": 4
+        },
+        {
+          "id": "m02_pre_02",
+          "speaker": "Мазур",
+          "text": "В такой толпе трудно разглядеть угрозу, зато легко увидеть её там, где её нет. Оружие здесь только мешало бы думать.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 2,
+          "hold": 6
+        },
+        {
+          "id": "m02_pre_03",
+          "speaker": "Мазур",
+          "text": "Я занял место у прохода. До президента оставалось несколько шагов, и каждый человек с букетом должен был пройти мимо нас.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 2,
+          "hold": 6
+        },
+        {
+          "id": "m02_pre_04",
+          "speaker": "Мазур",
+          "text": "Обычный церемониал. Смотреть всё равно следовало внимательно.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 2,
+          "hold": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "m02_post_01",
+          "speaker": "Мазур",
+          "text": "Девочка несла то, что ей дали. Она ждала встречи с президентом, а не взрыва.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 2,
+          "hold": 5
+        },
+        {
+          "id": "m02_post_02",
+          "speaker": "Мтанга",
+          "text": "К ней никаких вопросов. Будем искать того, кто передал букет.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 2,
+          "hold": 3
+        },
+        {
+          "id": "m02_post_03",
+          "speaker": "Мазур",
+          "text": "Церемония продолжалась. Того, кто всё подготовил, рядом уже не оказалось.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 2,
+          "hold": 3
+        },
+        {
+          "id": "m02_post_04",
+          "speaker": "Мазур",
+          "text": "Случайностью это назвать не получалось. Имени организатора у меня от этого не прибавилось.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 4
+        }
+      ],
+      "floors": [
+        {
+          "id": "m02_hall",
+          "x": 192,
+          "y": 128,
+          "w": 1024,
+          "h": 720,
+          "style": "interior",
+          "solid": false
+        },
+        {
+          "id": "m02_courtyard",
+          "x": 192,
+          "y": 848,
+          "w": 1024,
+          "h": 192,
+          "style": "stone",
+          "solid": false
+        },
+        {
+          "id": "m02_aisle",
+          "x": 648,
+          "y": 272,
+          "w": 112,
+          "h": 528,
+          "style": "rug",
+          "solid": false
+        },
+        {
+          "id": "m02_podium",
+          "x": 448,
+          "y": 176,
+          "w": 512,
+          "h": 144,
+          "style": "wood",
+          "solid": false
+        }
+      ],
+      "walls": [
+        {
+          "id": "m02_boundary_north",
+          "x": 0,
+          "y": 0,
+          "w": 1408,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m02_boundary_south",
+          "x": 0,
+          "y": 1044,
+          "w": 1408,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m02_boundary_west",
+          "x": 0,
+          "y": 12,
+          "w": 12,
+          "h": 1032,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m02_boundary_east",
+          "x": 1396,
+          "y": 12,
+          "w": 12,
+          "h": 1032,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m02_lyceum_n_end",
+          "x": 192,
+          "y": 128,
+          "w": 1024,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m02_lyceum_s_192",
+          "x": 192,
+          "y": 836,
+          "w": 496,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m02_lyceum_s_720",
+          "x": 720,
+          "y": 836,
+          "w": 368,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m02_lyceum_s_end",
+          "x": 1120,
+          "y": 836,
+          "w": 96,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m02_lyceum_w_end",
+          "x": 192,
+          "y": 140,
+          "w": 12,
+          "h": 696,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m02_lyceum_e_end",
+          "x": 1204,
+          "y": 140,
+          "w": 12,
+          "h": 696,
+          "style": "plaster",
+          "solid": true
+        }
+      ],
+      "props": [
+        {
+          "id": "m02_chair_0_0",
+          "x": 288,
+          "y": 400,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_0_1",
+          "x": 344,
+          "y": 400,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_0_2",
+          "x": 936,
+          "y": 400,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_0_3",
+          "x": 992,
+          "y": 400,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_1_0",
+          "x": 288,
+          "y": 480,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_1_1",
+          "x": 344,
+          "y": 480,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_1_2",
+          "x": 936,
+          "y": 480,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_1_3",
+          "x": 992,
+          "y": 480,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_2_0",
+          "x": 288,
+          "y": 560,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_2_1",
+          "x": 344,
+          "y": 560,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_2_2",
+          "x": 936,
+          "y": 560,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_2_3",
+          "x": 992,
+          "y": 560,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_3_0",
+          "x": 288,
+          "y": 640,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_3_1",
+          "x": 344,
+          "y": 640,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_3_2",
+          "x": 936,
+          "y": 640,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_chair_3_3",
+          "x": 992,
+          "y": 640,
+          "w": 36,
+          "h": 32,
+          "style": "chair",
+          "solid": false
+        },
+        {
+          "id": "m02_flowers_0",
+          "x": 320,
+          "y": 320,
+          "w": 40,
+          "h": 40,
+          "style": "flowers",
+          "solid": false
+        },
+        {
+          "id": "m02_flowers_1",
+          "x": 1040,
+          "y": 320,
+          "w": 40,
+          "h": 40,
+          "style": "flowers",
+          "solid": false
+        },
+        {
+          "id": "m02_flowers_2",
+          "x": 320,
+          "y": 736,
+          "w": 40,
+          "h": 40,
+          "style": "flowers",
+          "solid": false
+        },
+        {
+          "id": "m02_flowers_3",
+          "x": 1040,
+          "y": 736,
+          "w": 40,
+          "h": 40,
+          "style": "flowers",
+          "solid": false
+        }
+      ],
+      "regions": [
+        {
+          "id": "m02_guard_post",
+          "x": 992,
+          "y": 288,
+          "w": 144,
+          "h": 128,
+          "style": "",
+          "solid": false
+        },
+        {
+          "id": "m02_safe_hall",
+          "x": 608,
+          "y": 688,
+          "w": 192,
+          "h": 128,
+          "style": "",
+          "solid": false
+        }
+      ],
+      "doors": [
+        {
+          "id": "m02_lyceum_s_door_704",
+          "x": 704,
+          "y": 842,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m02_lyceum_s_door_1104",
+          "x": 1104,
+          "y": 842,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        }
+      ],
+      "enemies": [],
+      "pickups": [],
+      "actors": [
+        {
+          "id": "m02_olongo",
+          "name": "Президент Олонго",
+          "role": "civilian",
+          "x": 704,
+          "y": 240,
+          "speed": 0,
+          "health": 100,
+          "required": true,
+          "style": "olongo",
+          "route": []
+        },
+        {
+          "id": "m02_schoolgirl",
+          "name": "Девочка с букетом",
+          "role": "civilian",
+          "x": 704,
+          "y": 568,
+          "speed": 0,
+          "health": 80,
+          "required": true,
+          "style": "schoolgirl",
+          "route": []
+        },
+        {
+          "id": "m02_mtanga",
+          "name": "Полковник Мтанга",
+          "role": "civilian",
+          "x": 832,
+          "y": 320,
+          "speed": 0,
+          "health": 100,
+          "required": false,
+          "style": "guard",
+          "route": []
+        },
+        {
+          "id": "m02_guest_0",
+          "name": "Гость церемонии",
+          "role": "civilian",
+          "x": 424,
+          "y": 432,
+          "speed": 0,
+          "health": 80,
+          "required": false,
+          "style": "civilian",
+          "route": []
+        },
+        {
+          "id": "m02_guest_1",
+          "name": "Гость церемонии",
+          "role": "civilian",
+          "x": 984,
+          "y": 432,
+          "speed": 0,
+          "health": 80,
+          "required": false,
+          "style": "civilian",
+          "route": []
+        },
+        {
+          "id": "m02_guest_2",
+          "name": "Гость церемонии",
+          "role": "civilian",
+          "x": 424,
+          "y": 592,
+          "speed": 0,
+          "health": 80,
+          "required": false,
+          "style": "civilian",
+          "route": []
+        },
+        {
+          "id": "m02_guest_3",
+          "name": "Гость церемонии",
+          "role": "civilian",
+          "x": 984,
+          "y": 592,
+          "speed": 0,
+          "health": 80,
+          "required": false,
+          "style": "civilian",
+          "route": []
+        }
+      ],
+      "interactions": [
+        {
+          "id": "m02_bouquet",
+          "text": "Осмотреть, как она держит цветы",
+          "body": "Левая рука прижимает стебли, правая скрыта внутри букета. Необычен не ребёнок и не цветы. Необычно то, что ей велели делать.",
+          "x": 704,
+          "y": 608,
+          "radius": 38,
+          "requires": [
+            "m02_take_post"
+          ],
+          "grants": [
+            "bouquet_grip_noticed"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m02_disarm",
+          "text": "Перехватить опасный букет",
+          "body": "Девочка выполнила чужое поручение. Сейчас главное — убрать опасность от неё и от людей у сцены.",
+          "x": 704,
+          "y": 608,
+          "radius": 38,
+          "requires": [
+            "m02_notice_grip"
+          ],
+          "grants": [
+            "ceremony_attack_prevented"
+          ],
+          "action": "disarm",
+          "target": "m02_schoolgirl",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m02_reassure",
+          "text": "Успокоить девочку",
+          "body": "Ей не надо знать, насколько близко всё было. Пусть думает, что просто не так поняла порядок церемонии.",
+          "x": 704,
+          "y": 608,
+          "radius": 38,
+          "requires": [
+            "m02_stop_attack"
+          ],
+          "grants": [
+            "child_safe"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m02_report",
+          "text": "Передать Мтанге сведения",
+          "body": "Искать надо того, кто дал ей цветы. Церемония пока продолжается. Организатор получил время уйти, но выдуманного признания у нас нет.",
+          "x": 832,
+          "y": 360,
+          "radius": 38,
+          "requires": [
+            "m02_reassure_child"
+          ],
+          "grants": [
+            "professional_plot_suspected"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": true,
+          "style": "intel"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "m02_take_post",
+          "text": "Занять пост у прохода",
+          "type": "reach",
+          "target": "m02_guard_post",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m02_notice_grip",
+          "text": "Заметить неправильный хват букета",
+          "type": "interact",
+          "target": "m02_bouquet",
+          "requires": [
+            "m02_take_post"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m02_stop_attack",
+          "text": "Убрать опасный букет",
+          "type": "interact",
+          "target": "m02_disarm",
+          "requires": [
+            "m02_notice_grip"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m02_reassure_child",
+          "text": "Успокоить ребёнка",
+          "type": "interact",
+          "target": "m02_reassure",
+          "requires": [
+            "m02_stop_attack"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m02_report_mtanga",
+          "text": "Передать сведения Мтанге",
+          "type": "interact",
+          "target": "m02_report",
+          "requires": [
+            "m02_reassure_child"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m02_keep_child",
+          "text": "Девочка должна остаться невредима",
+          "type": "protect",
+          "target": "m02_schoolgirl",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m02_keep_president",
+          "text": "Олонго должен выжить",
+          "type": "protect",
+          "target": "m02_olongo",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        }
+      ]
+    },
+    {
+      "id": "m03",
+      "title": "Слишком тихо",
+      "subtitle": "Сорванная операция против Мукузели",
+      "chapter": "Глава 8",
+      "environment": "jungle",
+      "width": 1664,
+      "height": 1408,
+      "combat": true,
+      "startWeapon": "pistol",
+      "spawn": {
+        "x": 800,
+        "y": 176
+      },
+      "exit": {
+        "id": "m03_exit",
+        "x": 688,
+        "y": 1200,
+        "w": 288,
+        "h": 160,
+        "style": "",
+        "solid": false
+      },
+      "before": [
+        {
+          "id": "m03_pre_01",
+          "speaker": "Мазур",
+          "text": "Операцию против Мукузели решили проводить с участием Натали. Право спорить с президентом в мой приказ не входило.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "m03_pre_02",
+          "speaker": "Олонго",
+          "text": "Она должна вернуться. Вы отвечаете за её безопасность.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 3
+        },
+        {
+          "id": "m03_pre_03",
+          "speaker": "Мазур",
+          "text": "Леон вёл группу. Я следил за Натали и за тем, чтобы её желание показать себя не оказалось быстрее наших ног.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 3,
+          "hold": 6
+        },
+        {
+          "id": "m03_pre_04",
+          "speaker": "Мазур",
+          "text": "С высадки начиналась работа, для которой не годились дворцовые разговоры. Впереди было поселение, и его ещё требовалось осмотреть.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 3,
+          "hold": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "m03_post_01",
+          "speaker": "Мазур",
+          "text": "Мукузели мы не взяли. Нас ждали, и пустой базар с грузовиком теперь уже не требовал объяснений.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 3,
+          "hold": 5
+        },
+        {
+          "id": "m03_post_02",
+          "speaker": "Мазур",
+          "text": "Радиосвязи не было. Пришлось уходить с теми, кто мог идти, и не оставлять Натали ни на минуту.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 3,
+          "hold": 6
+        },
+        {
+          "id": "m03_post_03",
+          "speaker": "Мазур",
+          "text": "После первых выстрелов ей больше не надо было объяснять, почему я всё время смотрю по сторонам.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        },
+        {
+          "id": "m03_post_04",
+          "speaker": "Мазур",
+          "text": "Позади оставалась сорванная операция. Впереди требовались связь, дорога и место, где нас не ждут с оружием.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 3,
+          "hold": 5
+        }
+      ],
+      "floors": [
+        {
+          "id": "m03_trail_n",
+          "x": 672,
+          "y": 12,
+          "w": 256,
+          "h": 400,
+          "style": "dirt",
+          "solid": false
+        },
+        {
+          "id": "m03_market",
+          "x": 320,
+          "y": 384,
+          "w": 1024,
+          "h": 576,
+          "style": "sand",
+          "solid": false
+        },
+        {
+          "id": "m03_escape_trail",
+          "x": 608,
+          "y": 960,
+          "w": 448,
+          "h": 436,
+          "style": "dirt",
+          "solid": false
+        }
+      ],
+      "walls": [
+        {
+          "id": "m03_boundary_north",
+          "x": 0,
+          "y": 0,
+          "w": 1664,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m03_boundary_south",
+          "x": 0,
+          "y": 1396,
+          "w": 1664,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m03_boundary_west",
+          "x": 0,
+          "y": 12,
+          "w": 12,
+          "h": 1384,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m03_boundary_east",
+          "x": 1652,
+          "y": 12,
+          "w": 12,
+          "h": 1384,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_w_n_end",
+          "x": 112,
+          "y": 464,
+          "w": 304,
+          "h": 12,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_w_s_end",
+          "x": 112,
+          "y": 900,
+          "w": 304,
+          "h": 12,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_w_w_end",
+          "x": 112,
+          "y": 476,
+          "w": 12,
+          "h": 424,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_w_e_476",
+          "x": 404,
+          "y": 476,
+          "w": 12,
+          "h": 188,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_w_e_end",
+          "x": 404,
+          "y": 696,
+          "w": 12,
+          "h": 204,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_e_n_end",
+          "x": 1248,
+          "y": 464,
+          "w": 304,
+          "h": 12,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_e_s_end",
+          "x": 1248,
+          "y": 900,
+          "w": 304,
+          "h": 12,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_e_w_476",
+          "x": 1248,
+          "y": 476,
+          "w": 12,
+          "h": 188,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_e_w_end",
+          "x": 1248,
+          "y": 696,
+          "w": 12,
+          "h": 204,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_hut_e_e_end",
+          "x": 1540,
+          "y": 476,
+          "w": 12,
+          "h": 424,
+          "style": "mud",
+          "solid": true
+        },
+        {
+          "id": "m03_stall_0",
+          "x": 504,
+          "y": 496,
+          "w": 112,
+          "h": 32,
+          "style": "market_stall",
+          "solid": true
+        },
+        {
+          "id": "m03_stall_1",
+          "x": 944,
+          "y": 496,
+          "w": 112,
+          "h": 32,
+          "style": "market_stall",
+          "solid": true
+        },
+        {
+          "id": "m03_stall_2",
+          "x": 504,
+          "y": 752,
+          "w": 112,
+          "h": 32,
+          "style": "market_stall",
+          "solid": true
+        },
+        {
+          "id": "m03_stall_3",
+          "x": 944,
+          "y": 752,
+          "w": 112,
+          "h": 32,
+          "style": "market_stall",
+          "solid": true
+        }
+      ],
+      "props": [
+        {
+          "id": "m03_palm_0",
+          "x": 256,
+          "y": 128,
+          "w": 72,
+          "h": 72,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m03_palm_1",
+          "x": 1096,
+          "y": 160,
+          "w": 72,
+          "h": 72,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m03_palm_2",
+          "x": 288,
+          "y": 1032,
+          "w": 72,
+          "h": 72,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m03_palm_3",
+          "x": 1200,
+          "y": 1120,
+          "w": 72,
+          "h": 72,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m03_palm_4",
+          "x": 448,
+          "y": 1220,
+          "w": 72,
+          "h": 72,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m03_palm_5",
+          "x": 1120,
+          "y": 1260,
+          "w": 72,
+          "h": 72,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m03_fresh_truck",
+          "x": 1120,
+          "y": 568,
+          "w": 112,
+          "h": 64,
+          "style": "truck",
+          "solid": false
+        },
+        {
+          "id": "m03_cradle",
+          "x": 464,
+          "y": 360,
+          "w": 72,
+          "h": 40,
+          "style": "cradle",
+          "solid": false
+        },
+        {
+          "id": "m03_market_awning",
+          "x": 720,
+          "y": 560,
+          "w": 160,
+          "h": 64,
+          "style": "awning",
+          "solid": false
+        }
+      ],
+      "regions": [
+        {
+          "id": "m03_market_edge",
+          "x": 656,
+          "y": 352,
+          "w": 352,
+          "h": 144,
+          "style": "",
+          "solid": false
+        },
+        {
+          "id": "m03_rally",
+          "x": 688,
+          "y": 1200,
+          "w": 288,
+          "h": 160,
+          "style": "",
+          "solid": false
+        }
+      ],
+      "doors": [
+        {
+          "id": "m03_hut_w_e_door_680",
+          "x": 410,
+          "y": 680,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m03_hut_e_w_door_680",
+          "x": 1254,
+          "y": 680,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        }
+      ],
+      "enemies": [
+        {
+          "id": "m03_ambush_1",
+          "x": 224,
+          "y": 768,
+          "kind": "gunman",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_2",
+          "x": 352,
+          "y": 816,
+          "kind": "melee",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_3",
+          "x": 1432,
+          "y": 784,
+          "kind": "gunman",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_4",
+          "x": 1312,
+          "y": 816,
+          "kind": "melee",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_5",
+          "x": 448,
+          "y": 944,
+          "kind": "gunman",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_6",
+          "x": 1216,
+          "y": 944,
+          "kind": "gunman",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_7",
+          "x": 536,
+          "y": 1056,
+          "kind": "gunman",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_8",
+          "x": 1136,
+          "y": 1056,
+          "kind": "gunman",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_9",
+          "x": 352,
+          "y": 1184,
+          "kind": "melee",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_10",
+          "x": 1312,
+          "y": 1184,
+          "kind": "melee",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_11",
+          "x": 464,
+          "y": 848,
+          "kind": "gunman",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_12",
+          "x": 1192,
+          "y": 848,
+          "kind": "gunman",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_13",
+          "x": 768,
+          "y": 1168,
+          "kind": "melee",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        },
+        {
+          "id": "m03_ambush_14",
+          "x": 896,
+          "y": 1296,
+          "kind": "melee",
+          "group": "m03_ambush",
+          "style": "guard",
+          "activeAfterObjective": "m03_inspect_truck"
+        }
+      ],
+      "pickups": [
+        {
+          "id": "m03_supply_1",
+          "x": 800,
+          "y": 256,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m03_supply_2",
+          "x": 544,
+          "y": 688,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m03_supply_3",
+          "x": 1184,
+          "y": 864,
+          "kind": "shotgun",
+          "style": "shotgun"
+        },
+        {
+          "id": "m03_supply_4",
+          "x": 704,
+          "y": 976,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "m03_supply_5",
+          "x": 960,
+          "y": 1160,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "m03_supply_6",
+          "x": 1216,
+          "y": 720,
+          "kind": "bat",
+          "style": "bat"
+        }
+      ],
+      "actors": [
+        {
+          "id": "m03_natali",
+          "name": "Натали",
+          "role": "escort",
+          "x": 752,
+          "y": 176,
+          "speed": 90,
+          "health": 100,
+          "required": true,
+          "style": "natali",
+          "route": []
+        },
+        {
+          "id": "m03_leon",
+          "name": "Леон",
+          "role": "ally",
+          "x": 848,
+          "y": 176,
+          "speed": 100,
+          "health": 150,
+          "required": true,
+          "style": "leon",
+          "route": []
+        }
+      ],
+      "interactions": [
+        {
+          "id": "m03_cradle",
+          "text": "Осмотреть оставленную колыбель",
+          "body": "Деревянная колыбель сушится во дворе. Значит, недавно здесь были люди. Но ни матери, ни ребёнка, ни соседей не видно. Для обычного базарного дня странное спокойствие.",
+          "x": 500,
+          "y": 400,
+          "radius": 38,
+          "requires": [
+            "m03_observe_market"
+          ],
+          "grants": [
+            "empty_cradle_observed"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m03_truck",
+          "text": "Осмотреть свежий грузовик",
+          "body": "Базарный день, а людей нет. Колыбель сушится, грузовик ещё не успел запылиться. По отдельности мелочи. Вместе они говорят, что нас здесь ждали.",
+          "x": 1080,
+          "y": 608,
+          "radius": 38,
+          "requires": [
+            "m03_inspect_cradle"
+          ],
+          "grants": [
+            "ambush_signs_observed"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m03_radio",
+          "text": "Проверить связь",
+          "body": "Связи нет. До Мукузели мы теперь не доберёмся. Приказ у меня остался один: вывести Натали и тех, кто ещё может идти.",
+          "x": 800,
+          "y": 912,
+          "radius": 38,
+          "requires": [
+            "m03_inspect_truck"
+          ],
+          "grants": [
+            "raid_failed",
+            "field_radio_lost"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": true,
+          "style": "radio"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "m03_observe_market",
+          "text": "Осмотреть пустой базар",
+          "type": "reach",
+          "target": "m03_market_edge",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m03_inspect_cradle",
+          "text": "Проверить следы недавней жизни",
+          "type": "interact",
+          "target": "m03_cradle",
+          "requires": [
+            "m03_observe_market"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m03_inspect_truck",
+          "text": "Проверить подозрительный грузовик",
+          "type": "interact",
+          "target": "m03_truck",
+          "requires": [
+            "m03_inspect_cradle"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m03_lost_radio",
+          "text": "Проверить связь и начать отход",
+          "type": "interact",
+          "target": "m03_radio",
+          "requires": [
+            "m03_inspect_truck"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m03_extract_natali",
+          "text": "Вывести Натали к месту сбора",
+          "type": "escort",
+          "target": "m03_natali",
+          "requires": [
+            "m03_lost_radio"
+          ],
+          "amount": 0,
+          "region": "m03_rally"
+        },
+        {
+          "id": "m03_extract_leon",
+          "text": "Вывести Леона к месту сбора",
+          "type": "escort",
+          "target": "m03_leon",
+          "requires": [
+            "m03_lost_radio"
+          ],
+          "amount": 0,
+          "region": "m03_rally"
+        },
+        {
+          "id": "m03_reach_rally",
+          "text": "Добраться до места сбора",
+          "type": "reach",
+          "target": "m03_rally",
+          "requires": [
+            "m03_extract_natali",
+            "m03_extract_leon"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m03_keep_natali",
+          "text": "Натали должна выжить",
+          "type": "protect",
+          "target": "m03_natali",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m03_keep_leon",
+          "text": "Леон должен выжить",
+          "type": "protect",
+          "target": "m03_leon",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        }
+      ]
+    },
+    {
+      "id": "m04",
+      "title": "Лагерь геологов",
+      "subtitle": "Связь за границей",
+      "chapter": "Глава 9",
+      "environment": "camp",
+      "width": 1664,
+      "height": 1280,
+      "combat": true,
+      "startWeapon": "pistol",
+      "spawn": {
+        "x": 800,
+        "y": 1168
+      },
+      "exit": {
+        "id": "m04_exit",
+        "x": 608,
+        "y": 1088,
+        "w": 384,
+        "h": 160,
+        "style": "",
+        "solid": false
+      },
+      "before": [
+        {
+          "id": "m04_pre_01",
+          "speaker": "Мазур",
+          "text": "После ночи в джунглях мы пересекли границу. У лагеря геологов могла найтись радиостанция; она была бы сейчас полезнее любых объяснений случившегося.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 3,
+          "hold": 6
+        },
+        {
+          "id": "m04_pre_02",
+          "speaker": "Мазур",
+          "text": "Лагерь захватил местный вождь со своей стражей. Геологов и солдат держали под охраной, а переводчицы Ирины с ними не было.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "m04_pre_03",
+          "speaker": "Мазур",
+          "text": "Сначала требовалось найти Ирину и освободить людей. Потом — добраться до связи. Устраивать здесь войну с местным вождём мы не собирались.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "m04_pre_04",
+          "speaker": "Мазур",
+          "text": "Натали шла рядом. Ей предстояло увидеть ещё одну сторону страны, которой её дядя привык распоряжаться.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "m04_post_01",
+          "speaker": "Мазур",
+          "text": "Ирина и остальные были освобождены. Радиостанция наконец позволила сообщить, что мы ещё существуем.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 2,
+          "hold": 4
+        },
+        {
+          "id": "m04_post_02",
+          "speaker": "Мазур",
+          "text": "Натали занялась Ириной. Без публики и чужих похвал у неё это выходило лучше, чем всё, что я видел во дворце.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "m04_post_03",
+          "speaker": "Мазур",
+          "text": "Леон и здесь нашёл для себя выгоду: чужой секрет можно было продать. Разбирать с ним этот вопрос у меня сейчас не было ни сил, ни желания.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m04_post_04",
+          "speaker": "Мазур",
+          "text": "Мы остались до утра. Люди нуждались в отдыхе, а Натали впервые не пыталась доказывать обратное.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 0,
+          "hold": 5
+        }
+      ],
+      "floors": [
+        {
+          "id": "m04_camp_yard",
+          "x": 240,
+          "y": 192,
+          "w": 1184,
+          "h": 864,
+          "style": "dirt",
+          "solid": false
+        },
+        {
+          "id": "m04_south_road",
+          "x": 672,
+          "y": 1056,
+          "w": 256,
+          "h": 212,
+          "style": "dirt",
+          "solid": false
+        },
+        {
+          "id": "m04_truck_road",
+          "x": 1424,
+          "y": 624,
+          "w": 228,
+          "h": 192,
+          "style": "road",
+          "solid": false
+        },
+        {
+          "id": "m04_radio_floor",
+          "x": 320,
+          "y": 288,
+          "w": 416,
+          "h": 288,
+          "style": "wood",
+          "solid": false
+        },
+        {
+          "id": "m04_barracks_floor",
+          "x": 1024,
+          "y": 288,
+          "w": 320,
+          "h": 576,
+          "style": "wood",
+          "solid": false
+        }
+      ],
+      "walls": [
+        {
+          "id": "m04_boundary_north",
+          "x": 0,
+          "y": 0,
+          "w": 1664,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m04_boundary_south",
+          "x": 0,
+          "y": 1268,
+          "w": 1664,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m04_boundary_west",
+          "x": 0,
+          "y": 12,
+          "w": 12,
+          "h": 1256,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m04_boundary_east",
+          "x": 1652,
+          "y": 12,
+          "w": 12,
+          "h": 1256,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m04_camp_fence_n_end",
+          "x": 240,
+          "y": 192,
+          "w": 1184,
+          "h": 12,
+          "style": "fence",
+          "solid": true
+        },
+        {
+          "id": "m04_camp_fence_s_240",
+          "x": 240,
+          "y": 1044,
+          "w": 544,
+          "h": 12,
+          "style": "fence",
+          "solid": true
+        },
+        {
+          "id": "m04_camp_fence_s_end",
+          "x": 816,
+          "y": 1044,
+          "w": 608,
+          "h": 12,
+          "style": "fence",
+          "solid": true
+        },
+        {
+          "id": "m04_camp_fence_w_end",
+          "x": 240,
+          "y": 204,
+          "w": 12,
+          "h": 840,
+          "style": "fence",
+          "solid": true
+        },
+        {
+          "id": "m04_camp_fence_e_204",
+          "x": 1412,
+          "y": 204,
+          "w": 12,
+          "h": 500,
+          "style": "fence",
+          "solid": true
+        },
+        {
+          "id": "m04_camp_fence_e_end",
+          "x": 1412,
+          "y": 736,
+          "w": 12,
+          "h": 308,
+          "style": "fence",
+          "solid": true
+        },
+        {
+          "id": "m04_radio_hut_n_end",
+          "x": 320,
+          "y": 288,
+          "w": 416,
+          "h": 12,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_radio_hut_s_320",
+          "x": 320,
+          "y": 564,
+          "w": 192,
+          "h": 12,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_radio_hut_s_end",
+          "x": 544,
+          "y": 564,
+          "w": 192,
+          "h": 12,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_radio_hut_w_end",
+          "x": 320,
+          "y": 300,
+          "w": 12,
+          "h": 264,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_radio_hut_e_end",
+          "x": 724,
+          "y": 300,
+          "w": 12,
+          "h": 264,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_barracks_n_end",
+          "x": 1024,
+          "y": 288,
+          "w": 320,
+          "h": 12,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_barracks_s_end",
+          "x": 1024,
+          "y": 852,
+          "w": 320,
+          "h": 12,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_barracks_w_300",
+          "x": 1024,
+          "y": 300,
+          "w": 12,
+          "h": 244,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_barracks_w_576",
+          "x": 1024,
+          "y": 576,
+          "w": 12,
+          "h": 152,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_barracks_w_end",
+          "x": 1024,
+          "y": 760,
+          "w": 12,
+          "h": 92,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_barracks_e_end",
+          "x": 1332,
+          "y": 300,
+          "w": 12,
+          "h": 552,
+          "style": "wood",
+          "solid": true
+        },
+        {
+          "id": "m04_supply_crate_0",
+          "x": 400,
+          "y": 720,
+          "w": 80,
+          "h": 40,
+          "style": "crate",
+          "solid": true
+        },
+        {
+          "id": "m04_supply_crate_1",
+          "x": 720,
+          "y": 288,
+          "w": 80,
+          "h": 40,
+          "style": "crate",
+          "solid": true
+        },
+        {
+          "id": "m04_supply_crate_2",
+          "x": 944,
+          "y": 896,
+          "w": 80,
+          "h": 40,
+          "style": "crate",
+          "solid": true
+        }
+      ],
+      "props": [
+        {
+          "id": "m04_palm_0",
+          "x": 80,
+          "y": 128,
+          "w": 80,
+          "h": 80,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m04_palm_1",
+          "x": 1480,
+          "y": 128,
+          "w": 80,
+          "h": 80,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m04_palm_2",
+          "x": 96,
+          "y": 1056,
+          "w": 80,
+          "h": 80,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m04_palm_3",
+          "x": 1456,
+          "y": 1024,
+          "w": 80,
+          "h": 80,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m04_radio_desk",
+          "x": 432,
+          "y": 320,
+          "w": 160,
+          "h": 48,
+          "style": "radio",
+          "solid": false
+        },
+        {
+          "id": "m04_chief_tent",
+          "x": 736,
+          "y": 384,
+          "w": 160,
+          "h": 112,
+          "style": "tent",
+          "solid": false
+        },
+        {
+          "id": "m04_guard_truck",
+          "x": 1456,
+          "y": 656,
+          "w": 136,
+          "h": 88,
+          "style": "truck",
+          "solid": false
+        },
+        {
+          "id": "m04_bunk_1",
+          "x": 1160,
+          "y": 352,
+          "w": 112,
+          "h": 40,
+          "style": "bed",
+          "solid": false
+        },
+        {
+          "id": "m04_bunk_2",
+          "x": 1160,
+          "y": 688,
+          "w": 112,
+          "h": 40,
+          "style": "bed",
+          "solid": false
+        }
+      ],
+      "regions": [
+        {
+          "id": "m04_camp_edge",
+          "x": 672,
+          "y": 944,
+          "w": 256,
+          "h": 112,
+          "style": "",
+          "solid": false
+        },
+        {
+          "id": "m04_guard_truck",
+          "x": 1456,
+          "y": 656,
+          "w": 144,
+          "h": 128,
+          "style": "",
+          "solid": false
+        },
+        {
+          "id": "m04_safe_camp",
+          "x": 608,
+          "y": 1088,
+          "w": 384,
+          "h": 160,
+          "style": "",
+          "solid": false
+        }
+      ],
+      "doors": [
+        {
+          "id": "m04_camp_fence_s_door_800",
+          "x": 800,
+          "y": 1050,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m04_camp_fence_e_door_720",
+          "x": 1418,
+          "y": 720,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m04_radio_hut_s_door_528",
+          "x": 528,
+          "y": 570,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m04_barracks_w_door_560",
+          "x": 1030,
+          "y": 560,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m04_barracks_w_door_744",
+          "x": 1030,
+          "y": 744,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        }
+      ],
+      "enemies": [
+        {
+          "id": "m04_guard_1",
+          "x": 448,
+          "y": 816,
+          "kind": "gunman",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        },
+        {
+          "id": "m04_guard_2",
+          "x": 640,
+          "y": 688,
+          "kind": "melee",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        },
+        {
+          "id": "m04_guard_3",
+          "x": 944,
+          "y": 752,
+          "kind": "gunman",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        },
+        {
+          "id": "m04_guard_4",
+          "x": 880,
+          "y": 592,
+          "kind": "melee",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        },
+        {
+          "id": "m04_guard_5",
+          "x": 1184,
+          "y": 592,
+          "kind": "gunman",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        },
+        {
+          "id": "m04_guard_6",
+          "x": 464,
+          "y": 480,
+          "kind": "gunman",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        },
+        {
+          "id": "m04_guard_7",
+          "x": 1200,
+          "y": 936,
+          "kind": "gunman",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        },
+        {
+          "id": "m04_guard_8",
+          "x": 320,
+          "y": 944,
+          "kind": "melee",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        },
+        {
+          "id": "m04_guard_9",
+          "x": 1360,
+          "y": 416,
+          "kind": "gunman",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        },
+        {
+          "id": "m04_guard_10",
+          "x": 832,
+          "y": 896,
+          "kind": "gunman",
+          "group": "m04_camp_guards",
+          "style": "guard",
+          "activeAfterObjective": "m04_send_captors_away"
+        }
+      ],
+      "pickups": [
+        {
+          "id": "m04_supply_1",
+          "x": 760,
+          "y": 1104,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m04_supply_2",
+          "x": 944,
+          "y": 944,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "m04_supply_3",
+          "x": 480,
+          "y": 480,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m04_supply_4",
+          "x": 1152,
+          "y": 928,
+          "kind": "medkit",
+          "style": "medkit"
+        }
+      ],
+      "actors": [
+        {
+          "id": "m04_natali",
+          "name": "Натали",
+          "role": "escort",
+          "x": 848,
+          "y": 1168,
+          "speed": 88,
+          "health": 100,
+          "required": true,
+          "style": "natali",
+          "route": []
+        },
+        {
+          "id": "m04_leon",
+          "name": "Леон",
+          "role": "ally",
+          "x": 752,
+          "y": 1168,
+          "speed": 100,
+          "health": 150,
+          "required": true,
+          "style": "leon",
+          "route": []
+        },
+        {
+          "id": "m04_chief",
+          "name": "Местный вождь",
+          "role": "civilian",
+          "x": 800,
+          "y": 568,
+          "speed": 0,
+          "health": 100,
+          "required": false,
+          "style": "chief",
+          "route": []
+        },
+        {
+          "id": "m04_irina",
+          "name": "Ирина",
+          "role": "hostage",
+          "x": 1200,
+          "y": 768,
+          "speed": 78,
+          "health": 100,
+          "required": true,
+          "style": "irina",
+          "route": []
+        },
+        {
+          "id": "m04_geologist",
+          "name": "Игорь Челомаев",
+          "role": "hostage",
+          "x": 1200,
+          "y": 448,
+          "speed": 75,
+          "health": 100,
+          "required": true,
+          "style": "civilian",
+          "route": []
+        }
+      ],
+      "interactions": [
+        {
+          "id": "m04_confront_chief",
+          "text": "Потребовать отпустить людей",
+          "body": "Объяснений у вождя хватало на целую речь. В ответ я предложил ему освободить людей, собрать свою стражу и уехать. Ещё одна война в лагере геологов нам не нужна.",
+          "x": 800,
+          "y": 624,
+          "radius": 38,
+          "requires": [
+            "m04_reach_camp"
+          ],
+          "grants": [
+            "camp_captors_withdraw"
+          ],
+          "action": "stand_down",
+          "target": "m04_camp_guards",
+          "checkpoint": false,
+          "style": "intel",
+          "region": "m04_guard_truck"
+        },
+        {
+          "id": "m04_free_irina",
+          "text": "Освободить Ирину",
+          "body": "Ирина жива. С остальным можно разбираться потом. Сейчас ей надо выйти из этого барака и оказаться рядом с Натали.",
+          "x": 1200,
+          "y": 816,
+          "radius": 38,
+          "requires": [
+            "m04_send_captors_away"
+          ],
+          "grants": [
+            "irina_freed"
+          ],
+          "action": "rescue",
+          "target": "m04_irina",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m04_free_geologist",
+          "text": "Освободить геолога",
+          "body": "Геологи остаются геологами даже с оружием у виска. Лучше дать им возможность снова спорить о своих камнях.",
+          "x": 1200,
+          "y": 496,
+          "radius": 38,
+          "requires": [
+            "m04_send_captors_away"
+          ],
+          "grants": [
+            "geologists_freed"
+          ],
+          "action": "rescue",
+          "target": "m04_geologist",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m04_radio",
+          "text": "Связаться по лагерной радиостанции",
+          "body": "Наконец-то можно сообщить, что мы ещё существуем. Теперь людям нужен отдых, а мне — несколько часов без нового приказа.",
+          "x": 528,
+          "y": 400,
+          "radius": 38,
+          "requires": [
+            "m04_rescue_irina",
+            "m04_rescue_geologist"
+          ],
+          "grants": [
+            "camp_radio_restored"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": true,
+          "style": "radio"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "m04_reach_camp",
+          "text": "Подойти к лагерю",
+          "type": "reach",
+          "target": "m04_camp_edge",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m04_send_captors_away",
+          "text": "Добиться ухода вождя и стражи",
+          "type": "interact",
+          "target": "m04_confront_chief",
+          "requires": [
+            "m04_reach_camp"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m04_rescue_irina",
+          "text": "Освободить Ирину",
+          "type": "interact",
+          "target": "m04_free_irina",
+          "requires": [
+            "m04_send_captors_away"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m04_rescue_geologist",
+          "text": "Освободить пленного геолога",
+          "type": "interact",
+          "target": "m04_free_geologist",
+          "requires": [
+            "m04_send_captors_away"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m04_restore_radio",
+          "text": "Добраться до радиосвязи",
+          "type": "interact",
+          "target": "m04_radio",
+          "requires": [
+            "m04_rescue_irina",
+            "m04_rescue_geologist"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m04_bring_irina",
+          "text": "Вывести Ирину в безопасную часть лагеря",
+          "type": "escort",
+          "target": "m04_irina",
+          "requires": [
+            "m04_restore_radio"
+          ],
+          "amount": 0,
+          "region": "m04_safe_camp"
+        },
+        {
+          "id": "m04_bring_geologist",
+          "text": "Вывести геолога в безопасную часть лагеря",
+          "type": "escort",
+          "target": "m04_geologist",
+          "requires": [
+            "m04_restore_radio"
+          ],
+          "amount": 0,
+          "region": "m04_safe_camp"
+        },
+        {
+          "id": "m04_keep_natali",
+          "text": "Натали: сохранить жизнь",
+          "type": "protect",
+          "target": "m04_natali",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m04_keep_leon",
+          "text": "Леон: сохранить жизнь",
+          "type": "protect",
+          "target": "m04_leon",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m04_keep_irina",
+          "text": "Ирина: сохранить жизнь",
+          "type": "protect",
+          "target": "m04_irina",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m04_keep_geologist",
+          "text": "Геолог: сохранить жизнь",
+          "type": "protect",
+          "target": "m04_geologist",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        }
+      ]
+    },
+    {
+      "id": "m05",
+      "title": "Дом антиквара",
+      "subtitle": "Ночной штурм дома Акинфиева",
+      "chapter": "Глава 10",
+      "environment": "antique",
+      "width": 1600,
+      "height": 1280,
+      "combat": true,
+      "startWeapon": "pistol",
+      "spawn": {
+        "x": 800,
+        "y": 1200
+      },
+      "exit": {
+        "id": "m05_exit",
+        "x": 608,
+        "y": 1136,
+        "w": 384,
+        "h": 120,
+        "style": "",
+        "solid": false
+      },
+      "before": [
+        {
+          "id": "m05_pre_01",
+          "speaker": "Татьяна",
+          "text": "Мне срочно нужно вас увидеть. Я в кафе «Антреколь». По телефону нельзя.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 4
+        },
+        {
+          "id": "m05_pre_02",
+          "speaker": "Мазур",
+          "text": "Татьяна ждала в кафе. Голос был такой, что откладывать поездку я не стал. В доме её отца находились вооружённые люди.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m05_second_call",
+          "speaker": "Мазур",
+          "text": "Мы обсудили дом с Мтангой. Поздний звонок Татьяны оборвал разговор: захватчики уже были внутри. Запланированную засаду пришлось заменять немедленным штурмом.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 4.5
+        },
+        {
+          "id": "m05_pre_03",
+          "speaker": "Мазур",
+          "text": "В доме оставался князь. Сначала требовалось понять, где держат их обоих, и добраться туда раньше, чем захватчики передумают разговаривать.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m05_pre_04",
+          "speaker": "Мазур",
+          "text": "У дверей нельзя было устраивать долгую перестрелку. Надо было отвлечь тех, кто смотрит наружу, и быстро пройти внутрь.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m05_pre_05",
+          "speaker": "Мазур",
+          "text": "Чужая квартира с оружием в руках всегда оказывается теснее, чем с улицы. На этот раз в ней были люди, которых я обещал вытащить.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "m05_post_01",
+          "speaker": "Мазур",
+          "text": "Татьяна и князь были живы. Илларион Петрович так крепко спал, что плен почти не помешал ему.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 5
+        },
+        {
+          "id": "m05_post_02",
+          "speaker": "Мазур",
+          "text": "Под окном кабинета лежали две базуки. До входа в Министерство недр отсюда было рукой подать.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 5
+        },
+        {
+          "id": "m05_post_03",
+          "speaker": "Мазур",
+          "text": "Мы пришли за заложниками, а заодно сорвали покушение на открытии министерства. Звонок Татьяны спас не только её отца.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m05_post_04",
+          "speaker": "Мазур",
+          "text": "Я развязал её и вытащил кляп. Дальше оставалось переждать благодарности и вернуться к своей обычной работе.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 5
+        }
+      ],
+      "floors": [
+        {
+          "id": "m05_street",
+          "x": 12,
+          "y": 1088,
+          "w": 1576,
+          "h": 180,
+          "style": "road",
+          "solid": false
+        },
+        {
+          "id": "m05_house_floor",
+          "x": 208,
+          "y": 112,
+          "w": 1184,
+          "h": 976,
+          "style": "wood",
+          "solid": false
+        },
+        {
+          "id": "m05_hall_runner",
+          "x": 704,
+          "y": 128,
+          "w": 192,
+          "h": 944,
+          "style": "rug",
+          "solid": false
+        }
+      ],
+      "walls": [
+        {
+          "id": "m05_boundary_north",
+          "x": 0,
+          "y": 0,
+          "w": 1600,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m05_boundary_south",
+          "x": 0,
+          "y": 1268,
+          "w": 1600,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m05_boundary_west",
+          "x": 0,
+          "y": 12,
+          "w": 12,
+          "h": 1256,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m05_boundary_east",
+          "x": 1588,
+          "y": 12,
+          "w": 12,
+          "h": 1256,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m05_house_n_end",
+          "x": 208,
+          "y": 112,
+          "w": 1184,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_house_s_208",
+          "x": 208,
+          "y": 1076,
+          "w": 576,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_house_s_end",
+          "x": 816,
+          "y": 1076,
+          "w": 576,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_house_w_end",
+          "x": 208,
+          "y": 124,
+          "w": 12,
+          "h": 952,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_house_e_end",
+          "x": 1380,
+          "y": 124,
+          "w": 12,
+          "h": 952,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_spine_w_128",
+          "x": 688,
+          "y": 128,
+          "w": 12,
+          "h": 144,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_spine_w_304",
+          "x": 688,
+          "y": 304,
+          "w": 12,
+          "h": 288,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_spine_w_624",
+          "x": 688,
+          "y": 624,
+          "w": 12,
+          "h": 272,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_spine_w_end",
+          "x": 688,
+          "y": 928,
+          "w": 12,
+          "h": 144,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_spine_e_128",
+          "x": 900,
+          "y": 128,
+          "w": 12,
+          "h": 144,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_spine_e_304",
+          "x": 900,
+          "y": 304,
+          "w": 12,
+          "h": 288,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_spine_e_624",
+          "x": 900,
+          "y": 624,
+          "w": 12,
+          "h": 272,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_spine_e_end",
+          "x": 900,
+          "y": 928,
+          "w": 12,
+          "h": 144,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_partition_w_464",
+          "x": 224,
+          "y": 464,
+          "w": 464,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_partition_e_464",
+          "x": 912,
+          "y": 464,
+          "w": 464,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_partition_w_752",
+          "x": 224,
+          "y": 752,
+          "w": 464,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_partition_e_752",
+          "x": 912,
+          "y": 752,
+          "w": 464,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m05_cover_shop_w",
+          "x": 480,
+          "y": 352,
+          "w": 112,
+          "h": 28,
+          "style": "cabinet",
+          "solid": true
+        },
+        {
+          "id": "m05_cover_storage",
+          "x": 520,
+          "y": 848,
+          "w": 96,
+          "h": 32,
+          "style": "crate",
+          "solid": true
+        },
+        {
+          "id": "m05_cover_parlour",
+          "x": 1184,
+          "y": 544,
+          "w": 120,
+          "h": 32,
+          "style": "cabinet",
+          "solid": true
+        }
+      ],
+      "props": [
+        {
+          "id": "m05_antique_0",
+          "x": 264,
+          "y": 176,
+          "w": 120,
+          "h": 48,
+          "style": "shelf",
+          "solid": false
+        },
+        {
+          "id": "m05_antique_1",
+          "x": 480,
+          "y": 256,
+          "w": 144,
+          "h": 48,
+          "style": "table",
+          "solid": false
+        },
+        {
+          "id": "m05_antique_2",
+          "x": 264,
+          "y": 544,
+          "w": 160,
+          "h": 48,
+          "style": "shelf",
+          "solid": false
+        },
+        {
+          "id": "m05_antique_3",
+          "x": 512,
+          "y": 640,
+          "w": 128,
+          "h": 48,
+          "style": "table",
+          "solid": false
+        },
+        {
+          "id": "m05_antique_4",
+          "x": 280,
+          "y": 824,
+          "w": 160,
+          "h": 48,
+          "style": "table",
+          "solid": false
+        },
+        {
+          "id": "m05_antique_5",
+          "x": 1136,
+          "y": 192,
+          "w": 144,
+          "h": 64,
+          "style": "desk",
+          "solid": false
+        },
+        {
+          "id": "m05_antique_6",
+          "x": 1136,
+          "y": 816,
+          "w": 144,
+          "h": 64,
+          "style": "bed",
+          "solid": false
+        },
+        {
+          "id": "m05_antique_7",
+          "x": 1136,
+          "y": 624,
+          "w": 160,
+          "h": 40,
+          "style": "sofa",
+          "solid": false
+        },
+        {
+          "id": "m05_antique_8",
+          "x": 960,
+          "y": 352,
+          "w": 112,
+          "h": 16,
+          "style": "launcher",
+          "solid": false
+        },
+        {
+          "id": "m05_antique_9",
+          "x": 1112,
+          "y": 352,
+          "w": 112,
+          "h": 16,
+          "style": "launcher",
+          "solid": false
+        }
+      ],
+      "regions": [
+        {
+          "id": "m05_front_door",
+          "x": 720,
+          "y": 1104,
+          "w": 160,
+          "h": 112,
+          "style": "",
+          "solid": false
+        },
+        {
+          "id": "m05_safe_street",
+          "x": 608,
+          "y": 1136,
+          "w": 384,
+          "h": 120,
+          "style": "",
+          "solid": false
+        }
+      ],
+      "doors": [
+        {
+          "id": "m05_house_s_door_800",
+          "x": 800,
+          "y": 1082,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m05_spine_w_door_288",
+          "x": 694,
+          "y": 288,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m05_spine_w_door_608",
+          "x": 694,
+          "y": 608,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m05_spine_w_door_912",
+          "x": 694,
+          "y": 912,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m05_spine_e_door_288",
+          "x": 906,
+          "y": 288,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m05_spine_e_door_608",
+          "x": 906,
+          "y": 608,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m05_spine_e_door_912",
+          "x": 906,
+          "y": 912,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        }
+      ],
+      "enemies": [
+        {
+          "id": "m05_captor_1",
+          "x": 624,
+          "y": 992,
+          "kind": "melee",
+          "group": "m05_captors",
+          "style": "guard"
+        },
+        {
+          "id": "m05_captor_2",
+          "x": 800,
+          "y": 432,
+          "kind": "gunman",
+          "group": "m05_captors",
+          "style": "guard"
+        },
+        {
+          "id": "m05_captor_3",
+          "x": 1040,
+          "y": 240,
+          "kind": "gunman",
+          "group": "m05_captors",
+          "style": "guard"
+        },
+        {
+          "id": "m05_captor_4",
+          "x": 1072,
+          "y": 688,
+          "kind": "melee",
+          "group": "m05_captors",
+          "style": "guard"
+        },
+        {
+          "id": "m05_captor_5",
+          "x": 1040,
+          "y": 832,
+          "kind": "gunman",
+          "group": "m05_captors",
+          "style": "guard"
+        }
+      ],
+      "pickups": [
+        {
+          "id": "m05_supply_1",
+          "x": 760,
+          "y": 1152,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m05_supply_2",
+          "x": 592,
+          "y": 944,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m05_supply_3",
+          "x": 344,
+          "y": 704,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "m05_supply_4",
+          "x": 960,
+          "y": 432,
+          "kind": "shotgun",
+          "style": "shotgun"
+        },
+        {
+          "id": "m05_supply_5",
+          "x": 1280,
+          "y": 736,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "m05_supply_6",
+          "x": 560,
+          "y": 400,
+          "kind": "bat",
+          "style": "bat"
+        }
+      ],
+      "actors": [
+        {
+          "id": "m05_lavrik",
+          "name": "Лаврик",
+          "role": "ally",
+          "x": 752,
+          "y": 1200,
+          "speed": 100,
+          "health": 150,
+          "required": true,
+          "style": "lavrik",
+          "route": []
+        },
+        {
+          "id": "m05_prince",
+          "name": "Илларион Петрович Акинфиев",
+          "role": "hostage",
+          "x": 1240,
+          "y": 288,
+          "speed": 68,
+          "health": 100,
+          "required": true,
+          "style": "prince",
+          "route": []
+        },
+        {
+          "id": "m05_tatiana",
+          "name": "Татьяна",
+          "role": "hostage",
+          "x": 1240,
+          "y": 912,
+          "speed": 82,
+          "health": 100,
+          "required": true,
+          "style": "tatiana",
+          "route": []
+        }
+      ],
+      "interactions": [
+        {
+          "id": "m05_diversion",
+          "text": "Подать условный сигнал у двери",
+          "body": "Мтанга со своими людьми ждёт снаружи. У тех, кто внутри, не должно остаться времени спокойно распределить заложников по комнатам.",
+          "x": 800,
+          "y": 1120,
+          "radius": 38,
+          "requires": [
+            "m05_reach_house"
+          ],
+          "grants": [
+            "antique_assault_started"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": true,
+          "style": "intel"
+        },
+        {
+          "id": "m05_launchers",
+          "text": "Осмотреть две базуки у окна",
+          "body": "Две базуки смотрят в сторону нового Министерства недр. Мы пришли за хозяевами дома и заодно сорвали покушение на открытии.",
+          "x": 1088,
+          "y": 384,
+          "radius": 38,
+          "requires": [
+            "m05_suppress_captors"
+          ],
+          "grants": [
+            "ministry_attack_prevented"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m05_free_prince",
+          "text": "Освободить князя",
+          "body": "Илларион Петрович жив. Сон у него такой, что всё происходящее пока остаётся заботой окружающих.",
+          "x": 1240,
+          "y": 328,
+          "radius": 38,
+          "requires": [
+            "m05_suppress_captors"
+          ],
+          "grants": [
+            "prince_freed"
+          ],
+          "action": "rescue",
+          "target": "m05_prince",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m05_free_tatiana",
+          "text": "Освободить Татьяну",
+          "body": "Я разрезал верёвки и вытащил кляп. Благодарности могли подождать, пока мы не выйдем из занятого дома.",
+          "x": 1240,
+          "y": 952,
+          "radius": 38,
+          "requires": [
+            "m05_suppress_captors"
+          ],
+          "grants": [
+            "tatiana_freed",
+            "tatiana_vip_access_earned"
+          ],
+          "action": "rescue",
+          "target": "m05_tatiana",
+          "checkpoint": false,
+          "style": "intel"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "m05_reach_house",
+          "text": "Подойти к дому Акинфиева",
+          "type": "reach",
+          "target": "m05_front_door",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m05_start_assault",
+          "text": "Отвлечь захватчиков у двери",
+          "type": "interact",
+          "target": "m05_diversion",
+          "requires": [
+            "m05_reach_house"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m05_suppress_captors",
+          "text": "Подавить вооружённых захватчиков",
+          "type": "clear",
+          "target": "m05_captors",
+          "requires": [
+            "m05_start_assault"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m05_find_launchers",
+          "text": "Обнаружить средства покушения",
+          "type": "interact",
+          "target": "m05_launchers",
+          "requires": [
+            "m05_suppress_captors"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m05_rescue_prince",
+          "text": "Освободить Иллариона Петровича",
+          "type": "interact",
+          "target": "m05_free_prince",
+          "requires": [
+            "m05_suppress_captors"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m05_rescue_tatiana",
+          "text": "Освободить Татьяну",
+          "type": "interact",
+          "target": "m05_free_tatiana",
+          "requires": [
+            "m05_suppress_captors"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m05_escort_prince",
+          "text": "Вывести князя из дома",
+          "type": "escort",
+          "target": "m05_prince",
+          "requires": [
+            "m05_rescue_prince",
+            "m05_find_launchers"
+          ],
+          "amount": 0,
+          "region": "m05_safe_street"
+        },
+        {
+          "id": "m05_escort_tatiana",
+          "text": "Вывести Татьяну из дома",
+          "type": "escort",
+          "target": "m05_tatiana",
+          "requires": [
+            "m05_rescue_tatiana",
+            "m05_find_launchers"
+          ],
+          "amount": 0,
+          "region": "m05_safe_street"
+        },
+        {
+          "id": "m05_keep_lavrik",
+          "text": "Лаврик: сохранить жизнь",
+          "type": "protect",
+          "target": "m05_lavrik",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m05_keep_prince",
+          "text": "Князь: сохранить жизнь",
+          "type": "protect",
+          "target": "m05_prince",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m05_keep_tatiana",
+          "text": "Татьяна: сохранить жизнь",
+          "type": "protect",
+          "target": "m05_tatiana",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        }
+      ]
+    },
+    {
+      "id": "m06",
+      "title": "Гобсанто",
+      "subtitle": "Приказ потерял адресата",
+      "chapter": "Глава 11 · переворот",
+      "environment": "coup",
+      "width": 1728,
+      "height": 1280,
+      "combat": true,
+      "startWeapon": "pistol",
+      "spawn": {
+        "x": 1312,
+        "y": 256
+      },
+      "exit": {
+        "id": "m06_exit",
+        "x": 256,
+        "y": 1056,
+        "w": 352,
+        "h": 176,
+        "style": "",
+        "solid": false
+      },
+      "before": [
+        {
+          "id": "m06_pre_01",
+          "speaker": "Мазур",
+          "text": "Перед приёмом Лаврик выяснил, что Натали и Татьяна — давние подруги ещё по лицею. Этой детали мне как раз и не хватало.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "m06_pre_02",
+          "speaker": "Мазур",
+          "text": "Татьяна уже уехала, а президент из бунгало не выходил. И вдруг я понял, что не сходится в её звонке: почему она позвала меня, а не Натали?",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 2,
+          "hold": 6
+        },
+        {
+          "id": "m06_pre_03",
+          "speaker": "Мазур",
+          "text": "Мы бросились в бунгало. Олонго лежал у кровати. Лаврик проверил пульс и покачал головой.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 2,
+          "hold": 5
+        },
+        {
+          "id": "m06_pre_04",
+          "speaker": "Мазур",
+          "text": "История с домом помогла Татьяне попасть к нему на приём. Она ушла, а президент остался мёртвым. Кто ещё держал нити, мы не знали.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m06_pre_05",
+          "speaker": "Мазур",
+          "text": "Взрыв узла связи оборвал последние сомнения. Убийство оказалось началом переворота.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 2,
+          "hold": 3
+        },
+        {
+          "id": "m06_pre_06",
+          "speaker": "Лаврик",
+          "text": "Поднимай ребят. Занимайте домик с ходом. Натали бери с собой. Я догоню.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 2,
+          "hold": 4
+        },
+        {
+          "id": "m06_pre_07",
+          "speaker": "Мазур",
+          "text": "Требовалось добраться до Натали и своих. Выход, о котором рассказал Леон, ещё оставался свободен.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 2,
+          "hold": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "m06_post_01",
+          "speaker": "Мазур",
+          "text": "Лаврик успел вернуться. Мы дождались его и вместе с людьми Леона прошли через подземный ход за ограду. Наш договор сработал.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m06_post_02",
+          "speaker": "Мазур",
+          "text": "Натали пришлось сбросить сломанные туфли и надеть мои запасные армейские ботинки. Для леса они годились лучше, хотя были ей велики.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 1,
+          "hold": 6
+        },
+        {
+          "id": "m06_post_03",
+          "speaker": "Мазур",
+          "text": "Мы ушли лесом вдоль дороги, не давая себе остановиться. За спиной ещё стреляли.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 2,
+          "hold": 4
+        },
+        {
+          "id": "m06_post_04",
+          "speaker": "Мазур",
+          "text": "У обочины нашёлся школьный автобус с выбитыми стёклами. Водителя не было. Зато в салоне могли поместиться все.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 3,
+          "hold": 6
+        }
+      ],
+      "floors": [
+        {
+          "id": "m06_residence",
+          "x": 896,
+          "y": 128,
+          "w": 704,
+          "h": 704,
+          "style": "interior",
+          "solid": false
+        },
+        {
+          "id": "m06_service_yard",
+          "x": 256,
+          "y": 192,
+          "w": 640,
+          "h": 768,
+          "style": "stone",
+          "solid": false
+        },
+        {
+          "id": "m06_exit_trail",
+          "x": 96,
+          "y": 880,
+          "w": 672,
+          "h": 384,
+          "style": "dirt",
+          "solid": false
+        },
+        {
+          "id": "m06_secret_tunnel",
+          "x": 464,
+          "y": 640,
+          "w": 64,
+          "h": 416,
+          "style": "tunnel",
+          "solid": false
+        }
+      ],
+      "walls": [
+        {
+          "id": "m06_boundary_north",
+          "x": 0,
+          "y": 0,
+          "w": 1728,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m06_boundary_south",
+          "x": 0,
+          "y": 1268,
+          "w": 1728,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m06_boundary_west",
+          "x": 0,
+          "y": 12,
+          "w": 12,
+          "h": 1256,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m06_boundary_east",
+          "x": 1716,
+          "y": 12,
+          "w": 12,
+          "h": 1256,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m06_residence_n_end",
+          "x": 896,
+          "y": 128,
+          "w": 704,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m06_residence_s_896",
+          "x": 896,
+          "y": 820,
+          "w": 288,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m06_residence_s_end",
+          "x": 1216,
+          "y": 820,
+          "w": 384,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m06_residence_w_140",
+          "x": 896,
+          "y": 140,
+          "w": 12,
+          "h": 484,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m06_residence_w_end",
+          "x": 896,
+          "y": 656,
+          "w": 12,
+          "h": 164,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m06_residence_e_end",
+          "x": 1588,
+          "y": 140,
+          "w": 12,
+          "h": 680,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "m06_service_house_n_end",
+          "x": 288,
+          "y": 224,
+          "w": 400,
+          "h": 12,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "m06_service_house_s_288",
+          "x": 288,
+          "y": 660,
+          "w": 192,
+          "h": 12,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "m06_service_house_s_end",
+          "x": 512,
+          "y": 660,
+          "w": 176,
+          "h": 12,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "m06_service_house_w_end",
+          "x": 288,
+          "y": 236,
+          "w": 12,
+          "h": 424,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "m06_service_house_e_236",
+          "x": 676,
+          "y": 236,
+          "w": 12,
+          "h": 292,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "m06_service_house_e_end",
+          "x": 676,
+          "y": 560,
+          "w": 12,
+          "h": 100,
+          "style": "concrete",
+          "solid": true
+        },
+        {
+          "id": "m06_perimeter_w",
+          "x": 176,
+          "y": 128,
+          "w": 12,
+          "h": 752,
+          "style": "stone",
+          "solid": true
+        },
+        {
+          "id": "m06_perimeter_s_176",
+          "x": 176,
+          "y": 944,
+          "w": 304,
+          "h": 12,
+          "style": "stone",
+          "solid": true
+        },
+        {
+          "id": "m06_perimeter_s_end",
+          "x": 512,
+          "y": 944,
+          "w": 1088,
+          "h": 12,
+          "style": "stone",
+          "solid": true
+        },
+        {
+          "id": "m06_tunnel_w",
+          "x": 448,
+          "y": 672,
+          "w": 12,
+          "h": 368,
+          "style": "stone",
+          "solid": true
+        },
+        {
+          "id": "m06_tunnel_e",
+          "x": 532,
+          "y": 672,
+          "w": 12,
+          "h": 368,
+          "style": "stone",
+          "solid": true
+        },
+        {
+          "id": "m06_ruined_radio",
+          "x": 736,
+          "y": 224,
+          "w": 128,
+          "h": 80,
+          "style": "rubble",
+          "solid": true
+        },
+        {
+          "id": "m06_garden_cover",
+          "x": 768,
+          "y": 704,
+          "w": 112,
+          "h": 40,
+          "style": "stone",
+          "solid": true
+        },
+        {
+          "id": "m06_garden_cover2",
+          "x": 432,
+          "y": 784,
+          "w": 112,
+          "h": 40,
+          "style": "stone",
+          "solid": true
+        }
+      ],
+      "props": [
+        {
+          "id": "m06_coup_prop_0",
+          "x": 1300,
+          "y": 176,
+          "w": 120,
+          "h": 64,
+          "style": "bed",
+          "solid": false
+        },
+        {
+          "id": "m06_coup_prop_1",
+          "x": 1336,
+          "y": 280,
+          "w": 48,
+          "h": 48,
+          "style": "fallen",
+          "solid": false
+        },
+        {
+          "id": "m06_coup_prop_2",
+          "x": 1040,
+          "y": 464,
+          "w": 144,
+          "h": 48,
+          "style": "sofa",
+          "solid": false
+        },
+        {
+          "id": "m06_coup_prop_3",
+          "x": 1056,
+          "y": 656,
+          "w": 96,
+          "h": 48,
+          "style": "table",
+          "solid": false
+        },
+        {
+          "id": "m06_coup_prop_4",
+          "x": 336,
+          "y": 288,
+          "w": 160,
+          "h": 48,
+          "style": "shelf",
+          "solid": false
+        },
+        {
+          "id": "m06_coup_prop_5",
+          "x": 432,
+          "y": 480,
+          "w": 112,
+          "h": 56,
+          "style": "hatch",
+          "solid": false
+        },
+        {
+          "id": "m06_coup_prop_6",
+          "x": 704,
+          "y": 1008,
+          "w": 72,
+          "h": 72,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m06_coup_prop_7",
+          "x": 160,
+          "y": 1120,
+          "w": 72,
+          "h": 72,
+          "style": "palm",
+          "solid": false
+        }
+      ],
+      "regions": [
+        {
+          "id": "m06_rally_house",
+          "x": 320,
+          "y": 288,
+          "w": 336,
+          "h": 336,
+          "style": "",
+          "solid": false
+        },
+        {
+          "id": "m06_outside_wall",
+          "x": 256,
+          "y": 1056,
+          "w": 352,
+          "h": 176,
+          "style": "",
+          "solid": false
+        }
+      ],
+      "doors": [
+        {
+          "id": "m06_residence_s_door_1200",
+          "x": 1200,
+          "y": 826,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m06_residence_w_door_640",
+          "x": 902,
+          "y": 640,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m06_service_house_s_door_496",
+          "x": 496,
+          "y": 666,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m06_service_house_e_door_544",
+          "x": 682,
+          "y": 544,
+          "angle": 90,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "m06_perimeter_s_door_496",
+          "x": 496,
+          "y": 950,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        }
+      ],
+      "enemies": [
+        {
+          "id": "m06_mutineer_1",
+          "x": 992,
+          "y": 288,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_2",
+          "x": 1536,
+          "y": 432,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_3",
+          "x": 1040,
+          "y": 736,
+          "kind": "melee",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_4",
+          "x": 1456,
+          "y": 768,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_5",
+          "x": 752,
+          "y": 464,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_6",
+          "x": 800,
+          "y": 608,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_7",
+          "x": 752,
+          "y": 832,
+          "kind": "melee",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_8",
+          "x": 560,
+          "y": 720,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_9",
+          "x": 352,
+          "y": 720,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_10",
+          "x": 1120,
+          "y": 896,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_11",
+          "x": 1376,
+          "y": 896,
+          "kind": "melee",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_12",
+          "x": 592,
+          "y": 1088,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_13",
+          "x": 320,
+          "y": 1136,
+          "kind": "melee",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_14",
+          "x": 96,
+          "y": 768,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_15",
+          "x": 1280,
+          "y": 1008,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        },
+        {
+          "id": "m06_mutineer_16",
+          "x": 1520,
+          "y": 1088,
+          "kind": "gunman",
+          "group": "m06_mutineers",
+          "style": "guard"
+        }
+      ],
+      "pickups": [
+        {
+          "id": "m06_supply_1",
+          "x": 1280,
+          "y": 336,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m06_supply_2",
+          "x": 1104,
+          "y": 688,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m06_supply_3",
+          "x": 832,
+          "y": 864,
+          "kind": "shotgun",
+          "style": "shotgun"
+        },
+        {
+          "id": "m06_supply_4",
+          "x": 528,
+          "y": 624,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "m06_supply_5",
+          "x": 400,
+          "y": 1056,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "m06_supply_6",
+          "x": 352,
+          "y": 352,
+          "kind": "pistol",
+          "style": "pistol"
+        }
+      ],
+      "actors": [
+        {
+          "id": "m06_natali",
+          "name": "Натали",
+          "role": "hostage",
+          "x": 1360,
+          "y": 640,
+          "speed": 84,
+          "health": 100,
+          "required": true,
+          "style": "natali",
+          "route": []
+        },
+        {
+          "id": "m06_leon",
+          "name": "Леон",
+          "role": "ally",
+          "x": 800,
+          "y": 752,
+          "speed": 100,
+          "health": 150,
+          "required": true,
+          "style": "leon",
+          "route": []
+        },
+        {
+          "id": "m06_lavrik",
+          "name": "Лаврик",
+          "role": "ally",
+          "x": 800,
+          "y": 848,
+          "speed": 100,
+          "health": 150,
+          "required": true,
+          "style": "lavrik",
+          "route": []
+        }
+      ],
+      "interactions": [
+        {
+          "id": "m06_find_natali",
+          "text": "Позвать Натали с собой",
+          "body": "Олонго мёртв, связь взорвана. Объяснять всю цепочку сейчас некогда. Натали должна идти со мной.",
+          "x": 1360,
+          "y": 688,
+          "radius": 38,
+          "requires": [],
+          "grants": [
+            "natali_extracted_from_residence"
+          ],
+          "action": "rescue",
+          "target": "m06_natali",
+          "checkpoint": true,
+          "style": "intel"
+        },
+        {
+          "id": "m06_leon_deal",
+          "text": "Напомнить Леону о договоре",
+          "body": "Приказ и контракт больше не удерживают нас во дворце. Мы договорились заранее, и Леон своего слова не забыл.",
+          "x": 800,
+          "y": 792,
+          "radius": 38,
+          "requires": [
+            "m06_take_natali"
+          ],
+          "grants": [
+            "leon_contract_invoked"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "m06_secret_passage",
+          "text": "Открыть вход в подземный ход",
+          "body": "Выходом интересуются заранее. Если ждать, пока начнут стрелять, знакомиться с планировкой уже поздно.",
+          "x": 488,
+          "y": 552,
+          "radius": 38,
+          "requires": [
+            "m06_invoke_contract"
+          ],
+          "grants": [
+            "palace_secret_passage_opened"
+          ],
+          "action": "checkpoint",
+          "target": "",
+          "checkpoint": true,
+          "style": "intel"
+        },
+        {
+          "id": "m06_boots",
+          "text": "Передать Натали запасные ботинки",
+          "body": "Её туфли для леса не годились. Мои запасные ботинки были велики, зато позволяли идти. Чем это закончится для её ног, выяснится позже.",
+          "x": 496,
+          "y": 1000,
+          "radius": 38,
+          "requires": [
+            "m06_open_passage"
+          ],
+          "grants": [
+            "natali_wears_borrowed_boots"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "m06_take_natali",
+          "text": "Забрать Натали из резиденции",
+          "type": "interact",
+          "target": "m06_find_natali",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m06_invoke_contract",
+          "text": "Соединиться с Леоном",
+          "type": "interact",
+          "target": "m06_leon_deal",
+          "requires": [
+            "m06_take_natali"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m06_open_passage",
+          "text": "Добраться до домика с тайным ходом",
+          "type": "interact",
+          "target": "m06_secret_passage",
+          "requires": [
+            "m06_invoke_contract"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m06_prepare_forest",
+          "text": "Подготовить Натали к пути через лес",
+          "type": "interact",
+          "target": "m06_boots",
+          "requires": [
+            "m06_open_passage"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m06_extract_natali",
+          "text": "Вывести Натали за ограду",
+          "type": "escort",
+          "target": "m06_natali",
+          "requires": [
+            "m06_prepare_forest"
+          ],
+          "amount": 0,
+          "region": "m06_outside_wall"
+        },
+        {
+          "id": "m06_extract_leon",
+          "text": "Дождаться Леона за оградой",
+          "type": "escort",
+          "target": "m06_leon",
+          "requires": [
+            "m06_prepare_forest"
+          ],
+          "amount": 0,
+          "region": "m06_outside_wall"
+        },
+        {
+          "id": "m06_extract_lavrik",
+          "text": "Дождаться Лаврика за оградой",
+          "type": "escort",
+          "target": "m06_lavrik",
+          "requires": [
+            "m06_prepare_forest"
+          ],
+          "amount": 0,
+          "region": "m06_outside_wall"
+        },
+        {
+          "id": "m06_extract_team",
+          "text": "Добраться до места сбора вне ограды",
+          "type": "reach",
+          "target": "m06_outside_wall",
+          "requires": [
+            "m06_extract_natali",
+            "m06_extract_leon",
+            "m06_extract_lavrik"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m06_keep_natali",
+          "text": "Натали: сохранить жизнь",
+          "type": "protect",
+          "target": "m06_natali",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m06_keep_leon",
+          "text": "Леон: сохранить жизнь",
+          "type": "protect",
+          "target": "m06_leon",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m06_keep_lavrik",
+          "text": "Лаврик: сохранить жизнь",
+          "type": "protect",
+          "target": "m06_lavrik",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        }
+      ]
+    },
+    {
+      "id": "m07",
+      "title": "Жёлтый автобус",
+      "subtitle": "Лаврик за рулём, Мазур прикрывает путь",
+      "chapter": "Глава 11 · путь к посольству",
+      "environment": "bus",
+      "width": 1792,
+      "height": 1408,
+      "combat": true,
+      "startWeapon": "pistol",
+      "spawn": {
+        "x": 1456,
+        "y": 1264
+      },
+      "exit": {
+        "id": "m07_exit",
+        "x": 192,
+        "y": 256,
+        "w": 256,
+        "h": 176,
+        "style": "",
+        "solid": false
+      },
+      "before": [
+        {
+          "id": "m07_pre_01",
+          "speaker": "Мазур",
+          "text": "Жёлтый школьный автобус годился для любой цели, кроме той, для которой нам понадобился. Другого всё равно не было.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 3,
+          "hold": 6
+        },
+        {
+          "id": "m07_pre_02",
+          "speaker": "Мазур",
+          "text": "Первые улицы я вёл сам. Потом перестал узнавать дорогу: пассажиру город кажется проще, чем водителю. Лаврик знал его лучше.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 3,
+          "hold": 6
+        },
+        {
+          "id": "m07_pre_03",
+          "speaker": "Лаврик",
+          "text": "Меняемся. Дальше поведу я.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 3,
+          "hold": 3
+        },
+        {
+          "id": "m07_pre_04",
+          "speaker": "Мазур",
+          "text": "Лаврик вёл к советскому посольству. Я следил за улицей: военные здесь уже не всегда понимали, кто с кем воюет.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 3,
+          "hold": 6
+        },
+        {
+          "id": "m07_pre_05",
+          "speaker": "Мазур",
+          "text": "Натали была в автобусе. Я проверял, на месте ли она, всякий раз, когда удавалось отвлечься от окон.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "m07_post_01",
+          "speaker": "Мазур",
+          "text": "Французское посольство оцепили жандармы. Нас туда и не везли: Лаврик искал дорогу к советскому, где мы ещё рассчитывали укрыться.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 3,
+          "hold": 6
+        },
+        {
+          "id": "m07_post_02",
+          "speaker": "Мазур",
+          "text": "Лаврик довёл машину до советских ворот. Леон помогал удержать вместе тех, кого мы везли.",
+          "art": "WhiteGuardArt/Story/story-atlas-b",
+          "quadrant": 3,
+          "hold": 5
+        },
+        {
+          "id": "m07_post_03",
+          "speaker": "Мазур",
+          "text": "Натали оставалась на сиденье, стиснув зубы. После леса и чужих ботинок она едва шевелилась. Теперь наконец можно было заняться ею.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "m07_post_04",
+          "speaker": "Мазур",
+          "text": "Оружие осталось в автобусе. Здесь оно наконец стало лишним грузом.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 0,
+          "hold": 3
+        },
+        {
+          "id": "m07_post_05",
+          "speaker": "Мазур",
+          "text": "За воротами можно было перестать стрелять. После всего пути это оказалось самым непривычным.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 0,
+          "hold": 4
+        }
+      ],
+      "floors": [
+        {
+          "id": "m07_east_road",
+          "x": 1296,
+          "y": 256,
+          "w": 368,
+          "h": 1140,
+          "style": "road",
+          "solid": false
+        },
+        {
+          "id": "m07_crossroad",
+          "x": 128,
+          "y": 352,
+          "w": 1536,
+          "h": 256,
+          "style": "road",
+          "solid": false
+        },
+        {
+          "id": "m07_west_road",
+          "x": 128,
+          "y": 256,
+          "w": 352,
+          "h": 864,
+          "style": "road",
+          "solid": false
+        },
+        {
+          "id": "m07_lower_road",
+          "x": 128,
+          "y": 1056,
+          "w": 1536,
+          "h": 256,
+          "style": "road",
+          "solid": false
+        }
+      ],
+      "walls": [
+        {
+          "id": "m07_boundary_north",
+          "x": 0,
+          "y": 0,
+          "w": 1792,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m07_boundary_south",
+          "x": 0,
+          "y": 1396,
+          "w": 1792,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m07_boundary_west",
+          "x": 0,
+          "y": 12,
+          "w": 12,
+          "h": 1384,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m07_boundary_east",
+          "x": 1780,
+          "y": 12,
+          "w": 12,
+          "h": 1384,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "m07_block_0",
+          "x": 512,
+          "y": 96,
+          "w": 640,
+          "h": 208,
+          "style": "city_block",
+          "solid": true
+        },
+        {
+          "id": "m07_block_1",
+          "x": 512,
+          "y": 672,
+          "w": 640,
+          "h": 320,
+          "style": "city_block",
+          "solid": true
+        },
+        {
+          "id": "m07_block_2",
+          "x": 96,
+          "y": 64,
+          "w": 256,
+          "h": 144,
+          "style": "city_block",
+          "solid": true
+        },
+        {
+          "id": "m07_block_3",
+          "x": 1376,
+          "y": 64,
+          "w": 288,
+          "h": 160,
+          "style": "city_block",
+          "solid": true
+        },
+        {
+          "id": "m07_french_cordon",
+          "x": 1280,
+          "y": 240,
+          "w": 400,
+          "h": 20,
+          "style": "barricade",
+          "solid": true
+        },
+        {
+          "id": "m07_road_cover_0",
+          "x": 1224,
+          "y": 704,
+          "w": 64,
+          "h": 40,
+          "style": "car_wreck",
+          "solid": true
+        },
+        {
+          "id": "m07_road_cover_1",
+          "x": 1176,
+          "y": 944,
+          "w": 64,
+          "h": 40,
+          "style": "car_wreck",
+          "solid": true
+        },
+        {
+          "id": "m07_road_cover_2",
+          "x": 512,
+          "y": 1200,
+          "w": 64,
+          "h": 40,
+          "style": "car_wreck",
+          "solid": true
+        },
+        {
+          "id": "m07_road_cover_3",
+          "x": 576,
+          "y": 624,
+          "w": 64,
+          "h": 40,
+          "style": "car_wreck",
+          "solid": true
+        },
+        {
+          "id": "m07_road_cover_4",
+          "x": 1072,
+          "y": 624,
+          "w": 64,
+          "h": 40,
+          "style": "car_wreck",
+          "solid": true
+        }
+      ],
+      "props": [
+        {
+          "id": "m07_french_gate",
+          "x": 1384,
+          "y": 184,
+          "w": 192,
+          "h": 48,
+          "style": "gate",
+          "solid": false
+        },
+        {
+          "id": "m07_soviet_gate",
+          "x": 128,
+          "y": 208,
+          "w": 256,
+          "h": 48,
+          "style": "gate",
+          "solid": false
+        },
+        {
+          "id": "m07_palm_0",
+          "x": 1136,
+          "y": 1184,
+          "w": 64,
+          "h": 64,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m07_palm_1",
+          "x": 1216,
+          "y": 336,
+          "w": 64,
+          "h": 64,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m07_palm_2",
+          "x": 384,
+          "y": 672,
+          "w": 64,
+          "h": 64,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m07_palm_3",
+          "x": 384,
+          "y": 944,
+          "w": 64,
+          "h": 64,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "m07_palm_4",
+          "x": 96,
+          "y": 1200,
+          "w": 64,
+          "h": 64,
+          "style": "palm",
+          "solid": false
+        }
+      ],
+      "regions": [
+        {
+          "id": "m07_french_approach",
+          "x": 1344,
+          "y": 320,
+          "w": 288,
+          "h": 240,
+          "style": "",
+          "solid": false
+        },
+        {
+          "id": "m07_soviet_gates",
+          "x": 192,
+          "y": 256,
+          "w": 256,
+          "h": 176,
+          "style": "",
+          "solid": false
+        }
+      ],
+      "doors": [],
+      "enemies": [
+        {
+          "id": "m07_street_1",
+          "x": 1232,
+          "y": 1120,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_2",
+          "x": 1712,
+          "y": 1088,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_3",
+          "x": 1216,
+          "y": 864,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_4",
+          "x": 1696,
+          "y": 736,
+          "kind": "melee",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_5",
+          "x": 1200,
+          "y": 528,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_6",
+          "x": 1680,
+          "y": 432,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_7",
+          "x": 1152,
+          "y": 320,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_8",
+          "x": 1088,
+          "y": 608,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_9",
+          "x": 912,
+          "y": 320,
+          "kind": "melee",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_10",
+          "x": 864,
+          "y": 624,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_11",
+          "x": 672,
+          "y": 320,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_12",
+          "x": 464,
+          "y": 656,
+          "kind": "melee",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_13",
+          "x": 496,
+          "y": 304,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_14",
+          "x": 480,
+          "y": 624,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_15",
+          "x": 96,
+          "y": 624,
+          "kind": "gunman",
+          "group": "m07_street",
+          "style": "guard"
+        },
+        {
+          "id": "m07_street_16",
+          "x": 96,
+          "y": 864,
+          "kind": "melee",
+          "group": "m07_street",
+          "style": "guard"
+        }
+      ],
+      "pickups": [
+        {
+          "id": "m07_supply_1",
+          "x": 1392,
+          "y": 1200,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m07_supply_2",
+          "x": 1376,
+          "y": 936,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "m07_supply_3",
+          "x": 1536,
+          "y": 688,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m07_supply_4",
+          "x": 1216,
+          "y": 448,
+          "kind": "shotgun",
+          "style": "shotgun"
+        },
+        {
+          "id": "m07_supply_5",
+          "x": 992,
+          "y": 528,
+          "kind": "medkit",
+          "style": "medkit"
+        },
+        {
+          "id": "m07_supply_6",
+          "x": 592,
+          "y": 416,
+          "kind": "pistol",
+          "style": "pistol"
+        },
+        {
+          "id": "m07_supply_7",
+          "x": 400,
+          "y": 528,
+          "kind": "medkit",
+          "style": "medkit"
+        }
+      ],
+      "actors": [
+        {
+          "id": "m07_bus",
+          "name": "Автобус · Лаврик за рулём",
+          "role": "vehicle",
+          "x": 1456,
+          "y": 1336,
+          "speed": 68,
+          "health": 720,
+          "required": true,
+          "style": "bus",
+          "route": [
+            {
+              "x": 1456,
+              "y": 1264
+            },
+            {
+              "x": 1456,
+              "y": 1192
+            },
+            {
+              "x": 1456,
+              "y": 1120
+            },
+            {
+              "x": 1456,
+              "y": 1048
+            },
+            {
+              "x": 1456,
+              "y": 976
+            },
+            {
+              "x": 1456,
+              "y": 904
+            },
+            {
+              "x": 1456,
+              "y": 832
+            },
+            {
+              "x": 1456,
+              "y": 760
+            },
+            {
+              "x": 1456,
+              "y": 688
+            },
+            {
+              "x": 1456,
+              "y": 616
+            },
+            {
+              "x": 1456,
+              "y": 544
+            },
+            {
+              "x": 1456,
+              "y": 472
+            },
+            {
+              "x": 1384,
+              "y": 472
+            },
+            {
+              "x": 1312,
+              "y": 472
+            },
+            {
+              "x": 1240,
+              "y": 472
+            },
+            {
+              "x": 1168,
+              "y": 472
+            },
+            {
+              "x": 1096,
+              "y": 472
+            },
+            {
+              "x": 1024,
+              "y": 472
+            },
+            {
+              "x": 952,
+              "y": 472
+            },
+            {
+              "x": 880,
+              "y": 472
+            },
+            {
+              "x": 808,
+              "y": 472
+            },
+            {
+              "x": 736,
+              "y": 472
+            },
+            {
+              "x": 664,
+              "y": 472
+            },
+            {
+              "x": 592,
+              "y": 472
+            },
+            {
+              "x": 520,
+              "y": 472
+            },
+            {
+              "x": 448,
+              "y": 472
+            },
+            {
+              "x": 376,
+              "y": 472
+            },
+            {
+              "x": 304,
+              "y": 472
+            },
+            {
+              "x": 304,
+              "y": 400
+            },
+            {
+              "x": 304,
+              "y": 328
+            }
+          ]
+        },
+        {
+          "id": "m07_natali",
+          "name": "Натали",
+          "role": "passenger",
+          "x": 1456,
+          "y": 1336,
+          "speed": 0,
+          "health": 100,
+          "required": true,
+          "style": "natali",
+          "route": [],
+          "transport": "m07_bus"
+        },
+        {
+          "id": "m07_leon",
+          "name": "Леон",
+          "role": "passenger",
+          "x": 1456,
+          "y": 1336,
+          "speed": 0,
+          "health": 100,
+          "required": true,
+          "style": "leon",
+          "route": [],
+          "transport": "m07_bus"
+        },
+        {
+          "id": "m07_lavrik",
+          "name": "Лаврик",
+          "role": "passenger",
+          "x": 1456,
+          "y": 1336,
+          "speed": 0,
+          "health": 100,
+          "required": true,
+          "style": "lavrik",
+          "route": [],
+          "transport": "m07_bus"
+        }
+      ],
+      "interactions": [
+        {
+          "id": "m07_french_cordon",
+          "text": "Оценить оцепление у французского посольства",
+          "body": "У французского посольства жандармы. Дорога закрыта. Лаврик ищет проход к советскому — там ещё могут открыть своим.",
+          "x": 1456,
+          "y": 376,
+          "radius": 38,
+          "requires": [
+            "m07_reach_cordon"
+          ],
+          "grants": [
+            "french_embassy_cordoned"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": true,
+          "style": "intel"
+        },
+        {
+          "id": "m07_gate_signal",
+          "text": "Подать сигнал у советских ворот",
+          "body": "Свои. Не штурмовая машина, не колонна мятежников — автобус с теми, кому больше некуда ехать.",
+          "x": 304,
+          "y": 280,
+          "radius": 38,
+          "requires": [
+            "m07_escort_bus"
+          ],
+          "grants": [
+            "soviet_gates_reached"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "m07_reach_cordon",
+          "text": "Осмотреть дорогу у посольств",
+          "type": "reach",
+          "target": "m07_french_approach",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m07_assess_cordon",
+          "text": "Найти путь мимо оцепления",
+          "type": "interact",
+          "target": "m07_french_cordon",
+          "requires": [
+            "m07_reach_cordon"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m07_escort_bus",
+          "text": "Провести автобус к советским воротам",
+          "type": "escort",
+          "target": "m07_bus",
+          "requires": [
+            "m07_assess_cordon"
+          ],
+          "amount": 0,
+          "region": "m07_soviet_gates"
+        },
+        {
+          "id": "m07_identify_bus",
+          "text": "Подать сигнал своим",
+          "type": "interact",
+          "target": "m07_gate_signal",
+          "requires": [
+            "m07_escort_bus"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m07_keep_bus",
+          "text": "Автобус должен доехать",
+          "type": "protect",
+          "target": "m07_bus",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "m07_keep_natali",
+          "text": "Натали должна выжить",
+          "type": "protect",
+          "target": "m07_natali",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        }
+      ]
+    },
+    {
+      "id": "e00",
+      "title": "За воротами",
+      "subtitle": "Советское посольство",
+      "chapter": "Эпилог",
+      "environment": "embassy",
+      "width": 1280,
+      "height": 960,
+      "combat": false,
+      "startWeapon": "pistol",
+      "spawn": {
+        "x": 640,
+        "y": 832
+      },
+      "exit": {
+        "id": "e00_exit",
+        "x": 448,
+        "y": 240,
+        "w": 384,
+        "h": 176,
+        "style": "",
+        "solid": false
+      },
+      "before": [
+        {
+          "id": "e00_pre_01",
+          "speaker": "Мазур",
+          "text": "Навстречу автобусу вышел Панкратов с красным знаменем. Собирался, должно быть, защищать посольство собственным авторитетом.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 0,
+          "hold": 5
+        },
+        {
+          "id": "e00_pre_02",
+          "speaker": "Мазур",
+          "text": "Пришлось объяснить, что приехали свои. Сразу стало спокойнее: теперь он нас узнал и наверняка уже запоминал подробности собственного подвига.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "e00_pre_03",
+          "speaker": "Мазур",
+          "text": "В автобусе оставалась Натали. После всего пути она могла рассчитывать хотя бы на то, что к ней вернутся.",
+          "art": "WhiteGuardArt/Story/story-atlas-a",
+          "quadrant": 0,
+          "hold": 6
+        },
+        {
+          "id": "e00_pre_04",
+          "speaker": "Мазур",
+          "text": "Формальности с Леоном и его людьми могли подождать. Я поднялся обратно в салон.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 0,
+          "hold": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "e00_post_01",
+          "speaker": "Натали",
+          "text": "Всё? Я теперь у красных?",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 3,
+          "hold": 3
+        },
+        {
+          "id": "e00_post_02",
+          "speaker": "Мазур",
+          "text": "Ты на советской территории. Здесь безопасно.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 3,
+          "hold": 3
+        },
+        {
+          "id": "e00_post_03",
+          "speaker": "Мазур",
+          "text": "Чужие ботинки сбили ей ноги в кровь. Последний участок я пронёс Натали на руках. Для неё этот путь наконец закончился.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 3,
+          "hold": 6
+        },
+        {
+          "id": "e00_post_04",
+          "speaker": "Натали",
+          "text": "Мне бы сейчас выпить...",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 3,
+          "hold": 3
+        },
+        {
+          "id": "e00_post_05",
+          "speaker": "Мазур",
+          "text": "Редкий случай: я был с ней полностью согласен. Кто-то поспешил открыть перед нами дверь.",
+          "art": "WhiteGuardArt/Story/story-atlas-c",
+          "quadrant": 3,
+          "hold": 5
+        }
+      ],
+      "floors": [
+        {
+          "id": "e00_outside_road",
+          "x": 12,
+          "y": 736,
+          "w": 1256,
+          "h": 212,
+          "style": "road",
+          "solid": false
+        },
+        {
+          "id": "e00_embassy_yard",
+          "x": 192,
+          "y": 496,
+          "w": 896,
+          "h": 240,
+          "style": "stone",
+          "solid": false
+        },
+        {
+          "id": "e00_inside",
+          "x": 320,
+          "y": 128,
+          "w": 640,
+          "h": 368,
+          "style": "interior",
+          "solid": false
+        }
+      ],
+      "walls": [
+        {
+          "id": "e00_boundary_north",
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "e00_boundary_south",
+          "x": 0,
+          "y": 948,
+          "w": 1280,
+          "h": 12,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "e00_boundary_west",
+          "x": 0,
+          "y": 12,
+          "w": 12,
+          "h": 936,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "e00_boundary_east",
+          "x": 1268,
+          "y": 12,
+          "w": 12,
+          "h": 936,
+          "style": "boundary",
+          "solid": true
+        },
+        {
+          "id": "e00_embassy_fence_80",
+          "x": 80,
+          "y": 728,
+          "w": 536,
+          "h": 12,
+          "style": "stone",
+          "solid": true
+        },
+        {
+          "id": "e00_embassy_fence_end",
+          "x": 664,
+          "y": 728,
+          "w": 536,
+          "h": 12,
+          "style": "stone",
+          "solid": true
+        },
+        {
+          "id": "e00_embassy_building_n_end",
+          "x": 320,
+          "y": 128,
+          "w": 640,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "e00_embassy_building_s_320",
+          "x": 320,
+          "y": 484,
+          "w": 296,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "e00_embassy_building_s_end",
+          "x": 664,
+          "y": 484,
+          "w": 296,
+          "h": 12,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "e00_embassy_building_w_end",
+          "x": 320,
+          "y": 140,
+          "w": 12,
+          "h": 344,
+          "style": "plaster",
+          "solid": true
+        },
+        {
+          "id": "e00_embassy_building_e_end",
+          "x": 948,
+          "y": 140,
+          "w": 12,
+          "h": 344,
+          "style": "plaster",
+          "solid": true
+        }
+      ],
+      "props": [
+        {
+          "id": "e00_epilogue_0",
+          "x": 184,
+          "y": 528,
+          "w": 48,
+          "h": 112,
+          "style": "flag",
+          "solid": false
+        },
+        {
+          "id": "e00_epilogue_1",
+          "x": 1016,
+          "y": 528,
+          "w": 48,
+          "h": 112,
+          "style": "palm",
+          "solid": false
+        },
+        {
+          "id": "e00_epilogue_2",
+          "x": 416,
+          "y": 192,
+          "w": 112,
+          "h": 48,
+          "style": "sofa",
+          "solid": false
+        },
+        {
+          "id": "e00_epilogue_3",
+          "x": 800,
+          "y": 192,
+          "w": 112,
+          "h": 48,
+          "style": "desk",
+          "solid": false
+        },
+        {
+          "id": "e00_epilogue_4",
+          "x": 520,
+          "y": 792,
+          "w": 200,
+          "h": 104,
+          "style": "bus",
+          "solid": false
+        }
+      ],
+      "regions": [
+        {
+          "id": "e00_clinic",
+          "x": 448,
+          "y": 240,
+          "w": 384,
+          "h": 176,
+          "style": "",
+          "solid": false
+        }
+      ],
+      "doors": [
+        {
+          "id": "e00_embassy_fence_door_640",
+          "x": 640,
+          "y": 734,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        },
+        {
+          "id": "e00_embassy_building_s_door_640",
+          "x": 640,
+          "y": 490,
+          "angle": 0,
+          "style": "wood",
+          "locked": false
+        }
+      ],
+      "enemies": [],
+      "pickups": [],
+      "actors": [
+        {
+          "id": "e00_natali",
+          "name": "Натали",
+          "role": "hostage",
+          "x": 720,
+          "y": 848,
+          "speed": 35,
+          "health": 100,
+          "required": true,
+          "style": "natali",
+          "route": []
+        },
+        {
+          "id": "e00_pankratov",
+          "name": "Панкратов",
+          "role": "civilian",
+          "x": 704,
+          "y": 648,
+          "speed": 0,
+          "health": 100,
+          "required": false,
+          "style": "pankratov",
+          "route": []
+        },
+        {
+          "id": "e00_doctor",
+          "name": "Дежурный врач",
+          "role": "civilian",
+          "x": 832,
+          "y": 344,
+          "speed": 0,
+          "health": 100,
+          "required": false,
+          "style": "doctor",
+          "route": []
+        }
+      ],
+      "interactions": [
+        {
+          "id": "e00_identify",
+          "text": "Объяснить, что приехали свои",
+          "body": "Панкратов вышел со знаменем встречать автобус, будто перед ним неприятельский танк. Хорошо, что нас успели узнать.",
+          "x": 640,
+          "y": 776,
+          "radius": 38,
+          "requires": [],
+          "grants": [
+            "embassy_recognized_us"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "e00_carry_natali",
+          "text": "Снять ботинки и помочь Натали",
+          "body": "Армейские ботинки натёрли ей ноги в кровь. Я снял их и поднял Натали на руки. Теперь до дверей дойду за двоих.",
+          "x": 720,
+          "y": 888,
+          "radius": 38,
+          "requires": [
+            "e00_announce_arrival"
+          ],
+          "grants": [
+            "natali_carried"
+          ],
+          "action": "carry",
+          "target": "e00_natali",
+          "checkpoint": false,
+          "style": "intel"
+        },
+        {
+          "id": "e00_doctor",
+          "text": "Передать Натали под защиту посольства",
+          "body": "Олонго уже не спасти. Но она жива, и здесь никто не требует от неё доказывать, какая она храбрая. На сегодня этого достаточно.",
+          "x": 832,
+          "y": 384,
+          "radius": 38,
+          "requires": [
+            "e00_bring_natali"
+          ],
+          "grants": [
+            "natali_safe",
+            "campaign_complete"
+          ],
+          "action": "intel",
+          "target": "",
+          "checkpoint": true,
+          "style": "intel"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "e00_announce_arrival",
+          "text": "Дать своим узнать пассажиров автобуса",
+          "type": "interact",
+          "target": "e00_identify",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "e00_help_natali",
+          "text": "Помочь Натали выйти из автобуса",
+          "type": "interact",
+          "target": "e00_carry_natali",
+          "requires": [
+            "e00_announce_arrival"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "e00_bring_natali",
+          "text": "Донести Натали до безопасного помещения",
+          "type": "escort",
+          "target": "e00_natali",
+          "requires": [
+            "e00_help_natali"
+          ],
+          "amount": 0,
+          "region": "e00_clinic"
+        },
+        {
+          "id": "e00_finish_story",
+          "text": "Закончить путь в посольстве",
+          "type": "interact",
+          "target": "e00_doctor",
+          "requires": [
+            "e00_bring_natali"
+          ],
+          "amount": 0,
+          "region": ""
+        },
+        {
+          "id": "e00_keep_natali",
+          "text": "Натали должна выжить",
+          "type": "protect",
+          "target": "e00_natali",
+          "requires": [],
+          "amount": 0,
+          "region": ""
+        }
+      ]
+    }
+  ]
+}

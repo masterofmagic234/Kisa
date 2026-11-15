@@ -1,136 +1,144 @@
-# Unity migration — Acorn Hunter и White Guard
+# White Guard — Unity
 
-**Перенос начат. Готовых Unity-версий обеих игр пока нет.** Godot-проекты,
-релизные сборки и одобренная рисовка сохранены. Здесь находится общий C#-пакет,
-кандидат Unity-проигрывателя вступления и проверки переносимой логики.
+Здесь находится Unity-проект полной top-down экранизации «Белой гвардии»
+Александра Бушкова: девять последовательных карт, бой, сопровождение,
+расследование, спасение людей и финал в советском посольстве. Повествование
+построено вокруг мыслей Мазура и рисованных сцен. Общий боевой пакет взят
+из переноса третьего уровня Acorn Hunter.
 
-Передача Codex на ПК: [порядок продолжения](HANDOFF_UNITY_MIGRATION.md) и
-[готовый промпт](NEXT_CODEX_PROMPT.txt). Установка Unity на ПК разрешена
-пользователем; она ещё не выполнялась.
+**Новая кампания реализована в коде и данных, но ещё не запущена в Unity.**
+Это рабочий проект для нативной проверки, а не готовый релиз. Основа переноса
+и исходное вступление ранее проверены на ПК в коммите `ec56f02`; эти результаты
+не подтверждают работу добавленных девяти карт.
 
-## Структура
+Подробный текущий отчёт: [WHITE_GUARD_PRODUCTION_STATUS.md](docs/WHITE_GUARD_PRODUCTION_STATUS.md).
+Сюжет, карты и ограничения адаптации: [WHITE_GUARD_CAMPAIGN.md](docs/WHITE_GUARD_CAMPAIGN.md).
+Предыдущие [хэндофф переноса](HANDOFF_UNITY_MIGRATION.md) и
+[промпт продолжения](NEXT_CODEX_PROMPT.txt) относятся к истории общего
+переноса Acorn/Unity. Для новой игры порядок нативной проверки приведён
+в текущем production-status. Прежние ограничения «только вступление»
+и нехватка Cloud-диска не описывают нынешний этап.
 
-- `Packages/com.arkon.runtime` — общий пакет: независимые модели и настоящие
-  Unity-адаптеры. Это не новая рисовка и не генератор картинок.
-- `WhiteGuard` — Unity-проект с `Assets/Scenes/Opening.unity`. Исходные PNG,
-  12 MP3, монолог, разметка и шрифты скопированы без изменения содержимого.
-- `Tests/Core` и `Tests/Parity` — компиляция C# 9 / .NET Standard 2.1 и исполнение
-  проверок на .NET 10, включая сравнение с настоящими Godot-компонентами.
-- `Tests/UnityApi` — отдельная проверка типов через подлинные managed DLL Unity.
-  Unity DLL сюда не включаются и не публикуются.
-- `Validation` — результаты с явными границами проверки.
+## Открыть игру
 
-Полный Acorn Hunter остаётся в **приватном** `masterofmagic234/Arkon`, ветка
-`feat/unity-migration`, каталог `unity/AcornHunter`. Сюжетные карты, персонажи,
-модели, видео и инвентаризация этой игры не копируются в публичный Kisa.
-Его восемь игровых маршрутов пока имеют статус `not_ported`.
+Нужен **Unity 6.3 LTS 6000.3.28f1**, revision `8f082d2fe476`, с действующей
+лицензией. Добавить существующий каталог `unity/WhiteGuard` в Unity Hub,
+дождаться импорта и открыть **`Assets/Scenes/WhiteGuard.unity`**. Нажать Play.
+Это основная сцена с меню и кампанией. `Assets/Scenes/Opening.unity` —
+сохранённый отдельный проигрыватель исходного вступления.
 
-## Что перенесено в код
+Карты создаются из авторских данных при запуске; отдельных `.unity`-сцен
+на каждую главу нет. Общий пакет подключён локально из
+`unity/Packages/com.arkon.runtime`. Ввод использует legacy Input.
 
-Здоровье/неуязвимость, оружие и раздельные резервы, входные action/throw edges,
-движение Level 3, AI-решения и room-duty, A* и навигационная сетка, двери,
-оглушение, предметы, ограниченный пул, swept-projectile policy и выбор целей.
-Из публичного FirstPersonActor перенесены 3D-движение, взгляд, гравитация и
-планирование шага up/forward/down. Unity-адаптер использует CharacterController
-и capsule queries; миссионная логика полного Level 1 сюда не подмешана.
-Для гонки — исходная трансмиссия, reverse interlock, сплайн/прогресс,
-проекция/clipping и контактная математика. Полный контроллер и renderer гонки
-ещё не портированы; WheelCollider их не подменяет.
+В текущей Cloud-среде полный Editor уже установлен: прежний недостаток места
+устранён. Настоящий запуск Editor остановился **до импорта проекта**, exit
+**198**, `No valid Unity Editor license found`. Новая кампания здесь не
+импортирована, не исполнялась в PlayMode и не собрана в Player. Подробности
+записаны в [native-setup-status.json](docs/native-setup-status.json).
 
-Написаны Unity-адаптеры 2D query/body/input/projectile, scene-local world,
-AI, дверей, предметов, хранения прогресса и PNG/MP3-вступления. Вход игрока
-читает живой transition gate; столкновения передают контакты для door slam.
-Компиляция адаптера и работа в настоящем Unity — разные
-проверки. Цикл сцены, импорт, звук, физика и платформенная сборка требуют Editor.
-Нативный формат Unity-progress поддерживает примитивные факты; автоматического
-чтения прежнего Godot ConfigFile и произвольных вложенных Variant пока нет.
+## Кампания и управление
 
-## Открыть кандидата White Guard
+Маршрут: «Кортеж» → «Приказ и договор» → «Букет» → «Слишком тихо» →
+«Лагерь геологов» → «Дом антиквара» → «Гобсанто» → «Жёлтый автобус» →
+«За воротами». Дворец, церемония и эпилог проходят без стрельбы. Кортеж
+и автобус используют тот же top-down контроллер с сопровождением транспорта.
 
-Версия: **Unity 6.3 LTS 6000.3.28f1**, revision `8f082d2fe476`.
-Добавить `unity/WhiteGuard` в активированный Unity Hub, открыть
-`Assets/Scenes/Opening.unity` и нажать Play. Автоматически создаются камера,
-AudioListener и проигрыватель. Ввод использует legacy Input, настройка0.
+| Ввод | Действие |
+|---|---|
+| WASD / мышь | Движение / прицел |
+| ЛКМ / левый Shift | Огонь / бег |
+| E | Действие по контексту: осмотр, дверь, спасение, переноска |
+| Q / 1, 2, 3 | Бросок бутылки / пистолет, дробовик, бита |
+| J / Esc | Журнал / пауза |
+| Space или Enter | Следующая карточка повествования |
+| R после поражения | Повтор с контрольной точки |
+| F8 | Отладочный выбор всех эпизодов; также доступен в главном меню |
 
-Источником служит актуальное вступление из `e63c20e`: schema3, 84 плана,
-PNG-сценки, ракурсы, позы, колёса и движение кортежа из Godot. Unity читает
-ту же разметку. Изображения и голос не перерисовываются и не переозвучиваются.
-Соответствие движков не означает художественного одобрения постановки.
+Сохранение: `Application.persistentDataPath/white-guard-campaign-v1.json`.
+Контрольные точки создаются при входе на карту, отмеченных действиях и выходе
+в меню из игры. Продолжение восстанавливает состояние карты; файл другой
+версии кампании отклоняется. Старые Godot-сохранения автоматически не читаются.
 
-Для настоящего Editor предусмотрены команды:
+## Содержимое
 
-```bash
-Unity -batchmode -nographics -quit -projectPath /path/to/Kisa/unity/WhiteGuard \
-  -executeMethod Arkon.Unity.Editor.MigrationChecks.VerifyIntroImports -logFile intro-import.log
-Unity -batchmode -nographics -quit -projectPath /path/to/Kisa/unity/WhiteGuard \
-  -executeMethod Arkon.Unity.Editor.MigrationChecks.VerifyNativePhysics -logFile native-physics.log
-Unity -batchmode -nographics -projectPath /path/to/Kisa/unity/WhiteGuard \
-  -executeMethod Arkon.Unity.Editor.PhysicsLifecycleChecks.Run -logFile native-lifecycle.log
-```
+- [WhiteGuard](WhiteGuard) — игровой цикл, интерфейс, камера, звук, диагностика
+  и две входные сцены.
+- [WhiteGuardCampaign](WhiteGuard/Assets/Resources/WhiteGuardCampaign) —
+  9 карт, 71 задача, 74 противника, 30 взаимодействий, 88 сюжетных карточек
+  и 88 новых MP3. Дополнительный монтаж содержит 132 дискретных плана.
+- [WhiteGuardArt](WhiteGuard/Assets/Resources/WhiteGuardArt) — 12 новых
+  PNG-атласов, 182 именованных региона: персонажи, предметы, окружение и
+  иллюстрации. Нативная художественная приёмка ещё требуется.
+- [com.arkon.runtime](Packages/com.arkon.runtime) — независимые C#-модели
+  и реальные Unity-адаптеры движения, боя, AI, дверей, предметов и вступления.
+- [Tests](Tests) и [Validation](Validation) — переносимые проверки,
+  компиляция против официальных Unity DLL и отчёты с указанными границами.
 
-Эти команды подготовлены, но в текущей Cloud-среде **не выполнялись**.
-Проверка lifecycle сама входит в PlayMode и завершает batch-процесс после
-результата; к ней не добавляется `-quit`. Она создаёт временную сцену для
-проверки FixedUpdate, неактивного world и повторного использования пула внутри
-impact callback, затем выгружает её без сохранения.
-Linux development build: `Arkon.Unity.Editor.MigrationChecks.BuildLinuxIntro`.
+Исходные рисунки вступления, монолог из 1018 слов, 12 MP3 и шрифты сохранены.
+Полный текст книги не публикуется. Полный Acorn Hunter остаётся в приватном
+`masterofmagic234/Arkon`; его игровые сцены и материалы не переносятся сюда.
 
-## Проверить доступное без Editor
+## Проверки и сборка
+
+Команды ниже выполнять из корня Kisa. `Unity` означает исполняемый файл
+Editor 6000.3.28f1; заменить абсолютные пути на реальные пути своего ПК.
+Не открывать один проект одновременно в Hub и batch-процессе.
 
 ```bash
 python3 unity/Tools/validate_layout.py
-python3 unity/Tools/check_core.py --dotnet /path/to/dotnet
+python3 unity/Tools/check_core.py --dotnet dotnet
+python3 unity/Tools/prepare_campaign.py --check
+python3 unity/Tools/validate_campaign_maps.py
+python3 unity/Tools/validate_campaign_media.py
+python3 unity/Tools/check_campaign.py --dotnet dotnet
 ```
 
-Тесты используют снимок исполнения исходных Godot-компонентов и сверяют хеши
-GDScript/TRES. Для свежего снимка после импорта Godot-проекта:
+Эти команды проверяют сохранность исходников, переносимую логику, контракты
+задач и статическую геометрию. Они не запускают Unity. Для компиляции всего
+нового игрового C# против официальных managed DLL:
 
 ```bash
-godot --headless --editor --import --quit --path white_guard
-godot --headless --path white_guard --script /absolute/path/to/Kisa/unity/Tools/export_combat_parity.gd -- /tmp/combat-oracle.json
-godot --headless --path white_guard --script /absolute/path/to/Kisa/unity/Tools/export_intro_parity.gd -- /tmp/intro-oracle.json
-godot --headless --path white_guard --script /absolute/path/to/Kisa/unity/Tools/export_movement3d_parity.gd -- /tmp/movement3d-oracle.json
-python3 unity/Tools/check_core.py --dotnet /path/to/dotnet --oracle /tmp/combat-oracle.json --intro-oracle /tmp/intro-oracle.json --movement3d-oracle /tmp/movement3d-oracle.json
+python3 unity/Tools/check_unity_api.py --dotnet dotnet \
+  --reference-root /absolute/path/to/verified-managed-reference-root --game
 ```
 
-Для вступления источник выполняется в Godot с записью конечных команд рисования
-вместо отправки на GPU. Снимок содержит 363 момента всех 84 планов, включая
-границы появления панелей. Проверяются порядок слоёв, source/destination rect,
-отражение и tint. Надписи и фактический GPU-вывод требуют визуальной проверки.
-
-Для 3D снимок `godot168-movement3d.json` содержит движение и настоящие Godot
-capsule-query traces для ступеней. Это проверка решений планировщика;
-эквивалентность GodotPhysics и PhysX ещё нужно проверить в Unity.
-
-API-компиляция против DLL из официального дистрибутива 6000.3.28f1:
+В активированном Editor:
 
 ```bash
-dotnet build unity/Tests/UnityApi/Arkon.UnityApi.csproj \
-  -p:UnityReferenceRoot=/path/to/verified-managed-reference-root
+Unity -batchmode -nographics -quit -projectPath /absolute/path/to/Kisa/unity/WhiteGuard \
+  -executeMethod WhiteGuard.Editor.WhiteGuardGameBuild.ValidateData -logFile /absolute/path/to/campaign-import.log
+
+Unity -batchmode -nographics -projectPath /absolute/path/to/Kisa/unity/WhiteGuard \
+  -executeMethod WhiteGuard.Editor.CampaignGameChecks.Run -logFile /absolute/path/to/campaign-startup.log
+
+Unity -batchmode -nographics -quit -projectPath /absolute/path/to/Kisa/unity/WhiteGuard \
+  -executeMethod WhiteGuard.Editor.WhiteGuardGameBuild.BuildLinuxGame -logFile /absolute/path/to/campaign-build.log
 ```
 
-Если рядом с извлечёнными DLL есть `extraction-complete.json`, можно проверить
-их SHA-256 и обновить привязанный к исходникам отчёт одной командой:
+К **`CampaignGameChecks.Run` не добавлять `-quit`**: команда сама входит
+в PlayMode, проверяет загрузку девяти карт, начальную контрольную точку,
+паузу, повтор и очистку, затем завершает процесс. Отчёт по умолчанию —
+`unity/WhiteGuard/Logs/CampaignMapStartup.json`. Она не проходит игру до конца
+и не проверяет изображение или звук.
+
+Для Windows: `WhiteGuard.Editor.WhiteGuardGameBuild.BuildWindowsGame`.
+Нужен соответствующий Standalone build module. Выходы по умолчанию:
+`unity/WhiteGuard/Builds/Linux/WhiteGuard` и
+`unity/WhiteGuard/Builds/Windows/WhiteGuard.exe`. Переменная `WHITEGUARD_BUILD`
+задаёт путь к исполняемому файлу, `WHITEGUARD_DEVELOPMENT=1` — Development Build.
+Успешная сборка отдельно требует запуска Player и полного ручного прохождения.
+
+Для Linux debug-сборки с меню уровней подготовлен последовательный сборщик:
 
 ```bash
-python3 unity/Tools/check_unity_api.py --dotnet /path/to/dotnet \
-  --reference-root /path/to/verified-managed-reference-root
+python3 unity/Tools/build_linux_debug.py --unity /absolute/path/to/6000.3.28f1/Editor/Unity
 ```
 
-Это не запуск Unity, не native physics test и не измерение FPS.
-
-## Текущий блокер
-
-На выбранной машине нет активированного Editor. Официальный Linux Editor
-требует около 8,14 GiB после установки; перед работой было свободно 7,32 GiB,
-а проекты, Library и платформенные модули требуют дополнительного места.
-Нужна более вместительная среда либо ПК с активированным Unity.
-
-Референсы для проверки версии, размера и активации:
-[Unity 6.3 LTS](https://unity.com/releases/unity-6/support),
-[дистрибутив и размеры](https://services.api.unity.com/unity/editor/release/v1/releases?version=6000.3.28f1),
-[активация](https://docs.unity.com/en-us/engine/6000.3/manual/get-started/install-and-upgrade/licenses-and-activation/license-activation-methods).
-
-Дальше: реальный импорт/PlayMode, сверка стен/дверей/AI/декодерного таймлайна,
-затем уровневые сцены и оркестрация всех трёх режимов Acorn, его шейдеры,
-медиа и UI. Полный порт завершён только после прохождения этих этапов.
+Он выполняет реальные проверки импорта, native-запуск карт и `BuildLinuxGame`,
+затем проверяет executable/Data/UnityPlayer.so и создаёт `.tar.gz` с SHA-256,
+управлением и метаданными проверенного исходника. Каждая попытка использует
+новый каталог в `unity/WhiteGuard/Builds/LinuxDebug`; старый Player не упаковывается
+после ошибки. При нынешнем exit 198 сборщик останавливается до сборки и архива.
+Debug-выбор уровня использует отдельное сохранение. Архив считается
+экспериментальным и не заменяет полного прохождения и визуальной приёмки.

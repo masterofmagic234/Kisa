@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "source": "Александр Бушков. Белая гвардия. Цикл «Пиранья».",
+  "source_text_sha256": "d0667077fee4e2ffccc54f46c70348a9ae7f78971d1140dd495901eb6900c13d",
+  "full_source_committed": false,
+  "narration_origin": "New adaptation paraphrase, verified against supplied full novel; not presented as verbatim quotations.",
+  "original_intro_changed": false,
+  "scope_authorization": "2026-11-15 user /goal: complete top-down Unity book adaptation.",
+  "chronology": [
+    "p00",
+    "m01",
+    "m02",
+    "m03",
+    "m04",
+    "m05",
+    "m06",
+    "m07",
+    "e00"
+  ],
+  "staging_contracts": [
+    "p00 начинается после неизменённого озвученного вступления; новые панели не заменяют его.",
+    "m02: до интеракции не показывать подробности угрозы как уже известный Мазуру факт; школьница — гражданская.",
+    "m03: исход рейда — отход и спасение Натали, Мукузели не захвачен.",
+    "m05: рисунок и звук звонка/спасения не выдают Татьяну за злодейку заранее.",
+    "m06 pre: известие о давней связи Натали и Татьяны и нестыковка звонка предшествуют обнаружению тела, а затем взрыву узла связи. К убийству ведёт доступ Татьяны к приёму после истории в доме, а не простое отвлечение Мазура; роль остальных остаётся неустановленной.",
+    "m07 pre: краткий проезд за рулём Мазура и передача руля Лаврику; игровой top-down участок начинается после передачи. Игрок видит жандармское оцепление французского посольства в маршруте; формального отказа дипломатов не показывать как факт.",
+    "e00: бой завершён у ворот; оружие оставлено в автобусе. Натали не огнестрельно ранена: ей сбили ноги в кровь великие армейские ботинки. Финал показывает Мазура, несущего её на руках; комический выход Панкратова с красным знаменем и финальный обмен о выпивке предшествуют титрам."
+  ],
+  "duration_notice": "No measured campaign playtime yet; earlier 160-minute planning estimate is not a runtime claim.",
+  "map_notice": "Nine authored top-down maps compress source geography and travel. Convoy and bus remain top-down escort encounters, not imported driving simulators."
+}

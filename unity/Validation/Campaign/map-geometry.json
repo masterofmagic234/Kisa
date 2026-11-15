@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "checks": 866,
+  "failures": [],
+  "levels": [
+    {
+      "id": "p00",
+      "walkable_cells": 13049,
+      "reachable_cells": 13049,
+      "entities": 24,
+      "vehicles": 1,
+      "route_legs": 15
+    },
+    {
+      "id": "m01",
+      "walkable_cells": 8866,
+      "reachable_cells": 8866,
+      "entities": 11,
+      "vehicles": 0,
+      "route_legs": 0
+    },
+    {
+      "id": "m02",
+      "walkable_cells": 8949,
+      "reachable_cells": 8949,
+      "entities": 12,
+      "vehicles": 0,
+      "route_legs": 0
+    },
+    {
+      "id": "m03",
+      "walkable_cells": 14653,
+      "reachable_cells": 14653,
+      "entities": 26,
+      "vehicles": 0,
+      "route_legs": 0
+    },
+    {
+      "id": "m04",
+      "walkable_cells": 12200,
+      "reachable_cells": 12200,
+      "entities": 24,
+      "vehicles": 0,
+      "route_legs": 0
+    },
+    {
+      "id": "m05",
+      "walkable_cells": 11826,
+      "reachable_cells": 11826,
+      "entities": 19,
+      "vehicles": 0,
+      "route_legs": 0
+    },
+    {
+      "id": "m06",
+      "walkable_cells": 12969,
+      "reachable_cells": 12969,
+      "entities": 30,
+      "vehicles": 0,
+      "route_legs": 0
+    },
+    {
+      "id": "m07",
+      "walkable_cells": 13155,
+      "reachable_cells": 13155,
+      "entities": 27,
+      "vehicles": 1,
+      "route_legs": 30
+    },
+    {
+      "id": "e00",
+      "walkable_cells": 7290,
+      "reachable_cells": 7290,
+      "entities": 7,
+      "vehicles": 0,
+      "route_legs": 0
+    }
+  ],
+  "navigation_cell_pixels": 12,
+  "navigation_radius_pixels": 8,
+  "vehicle_swept_radius_pixels": 18,
+  "unity_editor_executed": false,
+  "scope": "Static authored rectangle geometry/navigation only; no native collision recovery, dynamic actors, trigger or AI execution.",
+  "campaign_sha256": "db5bcde2ab85c62becacb372a23f2588fc82f880f04b9fbbd40bb9e7bf242107"
+}

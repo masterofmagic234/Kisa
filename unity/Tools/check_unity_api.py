@@ -13,8 +13,11 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--dotnet', default=os.environ.get('DOTNET_BIN') or shutil.which('dotnet'))
 parser.add_argument('--reference-root', required=True, type=Path,
                     help='Extracted official managed references, including extraction-complete.json.')
-parser.add_argument('--report', type=Path, default=ROOT/'unity/Validation/unity-api-compilation.json')
+parser.add_argument('--report', type=Path)
+parser.add_argument('--game', action='store_true', help='Also compile all White Guard campaign runtime and Editor sources.')
 args = parser.parse_args()
+if args.report is None:
+    args.report = ROOT/('unity/Validation/Campaign/unity-api-compilation.json' if args.game else 'unity/Validation/unity-api-compilation.json')
 if not args.dotnet:
     parser.error('Install .NET 10 SDK or pass --dotnet /path/to/dotnet.')
 refs = args.reference_root.resolve()
@@ -35,11 +38,14 @@ for assembly in assemblies:
 def source_records():
     files = sorted((ROOT/'unity/Packages/com.arkon.runtime').rglob('*.cs'))
     files += [ROOT/p for p in ['unity/Tests/Core/Arkon.Core.csproj', 'unity/Tests/UnityApi/Arkon.UnityApi.csproj']]
+    if args.game:
+        files += sorted((ROOT/'unity/WhiteGuard/Assets').rglob('*.cs'))
+        files += [ROOT/'unity/Tests/GameApi/WhiteGuard.GameApi.csproj']
     return [dict(path=p.relative_to(ROOT).as_posix(),sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in files]
 
 before = source_records()
 result = subprocess.run([
-    args.dotnet, 'build', str(ROOT/'unity/Tests/UnityApi/Arkon.UnityApi.csproj'),
+    args.dotnet, 'build', str(ROOT/('unity/Tests/GameApi/WhiteGuard.GameApi.csproj' if args.game else 'unity/Tests/UnityApi/Arkon.UnityApi.csproj')),
     '--configuration', 'Release', '--no-incremental', '-warnaserror',
     '-p:UnityReferenceRoot='+str(refs)], cwd=ROOT)
 stable = before == source_records()
@@ -47,6 +53,7 @@ passed = result.returncode == 0 and stable
 report = dict(
     status='PASS' if passed else 'FAIL',
     check='Compilation against official Unity managed API assemblies; warnings treated as errors',
+    includes_white_guard_campaign=args.game,
     unity_version=provenance['version'], unity_revision=provenance['revision'],
     source_url=provenance['source'], archive_md5=provenance['archive_md5'],
     archive_bytes_verified=provenance['archive_bytes'], reference_assemblies_verified=len(assemblies),

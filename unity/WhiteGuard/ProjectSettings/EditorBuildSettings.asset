@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/WhiteGuard.unity
+    guid: 590fd8976ad8574e8d7459ad2b954bb5
+  - enabled: 1
     path: Assets/Scenes/Opening.unity
     guid: d378cb9325995418ad99188c57c47a15

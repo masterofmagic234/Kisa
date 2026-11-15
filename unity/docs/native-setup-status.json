@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-15T19:14:56.156077+00:00",
+  "source_commit_observed": "8a298931fa3bcc7c79a3b1141391de692defe85d",
+  "source_worktree_was_in_progress": true,
+  "host_scope": "Current Linux Cloud execution environment; separate from earlier PC fixture runs",
+  "unity_version": "6000.3.28f1",
+  "unity_revision": "8f082d2fe476",
+  "official_archive": {
+    "url": "https://download.unity3d.com/download_unity/8f082d2fe476/LinuxEditorInstaller/Unity-6000.3.28f1.tar.xz",
+    "bytes": 4556838576,
+    "md5": "ccbe0a59c4fbee234991a841d9506ad8",
+    "verified": true
+  },
+  "full_editor_extraction": {
+    "complete": true,
+    "regular_files": 48623,
+    "tar_entries": 53522,
+    "deliberately_omitted_files": 0,
+    "storage": "Split across persistent workspace and ephemeral tmpfs through symlinks. Check tmpfs targets after environment replacement."
+  },
+  "native_editor_startup": {
+    "executed": true,
+    "licensing_client_launched": true,
+    "exit_code": 198,
+    "result": "BLOCKED_ACTIVATION",
+    "message": "No valid Unity Editor license found. Please activate your license."
+  },
+  "campaign_native_import_verified": false,
+  "campaign_playmode_verified": false,
+  "campaign_player_built": false,
+  "boundary": "The real Editor binary started and stopped before project import. This is not a campaign compile, physics, GPU, audio or playthrough pass. No activation bypass was attempted."
+}
